@@ -36,10 +36,10 @@
 
 ## Stichwörter
 
-- [ ] Phase-Transitions
+- [x] Phase-Transitions
 - [x] Collective Motion
-- [ ] Collective Behaviour
-- [ ] Collective Robotics
+- [x] Collective Behaviour
+- [x] Collective Robotics
 - [ ] Flocking
 - [x] Robotic flocks
 - [ ] Robot Swarms
@@ -47,35 +47,62 @@
 ## Quellen
 
 - https://arxiv.org/pdf/1010.5017.pdf
-  The Vicsek model
-  - Generelle Betrachtung von Partikeln in kollektiver Bewegung
-  - **Vektor-Noise und Betrachtung in 3dim (2.2)**
-  - **Veränderung durch Topologie statt direkter Nähe (3.2)**
+  - The Vicsek model
+    - Generelle Betrachtung von Partikeln in kollektiver Bewegung
+    - **Vektor-Noise und Betrachtung in 3dim (2.2)**
+    - **Veränderung durch Topologie statt direkter Nähe (3.2)**
 - https://arxiv.org/pdf/1403.0260.pdf
-  Modeling the emergence of modular leadership hierarchy during the collective motion of herds made of harems
-  - Kollektive Bewegung einer Gruppe, bestehend aus Untergruppen (Harems), welche von einzelnen Tieren geführt werden
-  - **Optimale Verteilung der Anzahl von Harem-Leader zu Harem-Member (4.2)**
+  - Modeling the emergence of modular leadership hierarchy during the collective motion of herds made of harems
+    - Kollektive Bewegung einer Gruppe, bestehend aus Untergruppen (Harems), welche von einzelnen Tieren geführt werden
+    - **Optimale Verteilung der Anzahl von Harem-Leader zu Harem-Member (4.2)**
 - https://hal.elte.hu/flocking/browser/trunk/public/references/vasarhelyi/Tarcai2011.pdf?format=raw
-  Patterns, transitions and the role of leaders in the collective dynamics of a simple robotoc flock
-  - Experimentaler Aufbau von eigenständigen "Booten" in einem kleinen Pool. Es wurde mit Noise-Level und der Anzahl von Leadern experimentiert
+  - Patterns, transitions and the role of leaders in the collective dynamics of a simple robotoc flock
+    - Experimentaler Aufbau von eigenständigen "Booten" in einem kleinen Pool. Es wurde mit Noise-Level und der Anzahl von Leadern experimentiert
 - https://hal.elte.hu/flocking/browser/trunk/public/references/vasarhelyi/viragh2014flocking.pdf?format=raw
-  Flocking algorithm for autonomous flying robots
-  - **Einfacher Algorithmus für kollektive Bewegung in Richtung eines bestimmten Ziels ohne Kontrolleinheit (3)**
-  - **Algorithmus der einen weichen Übergang zwischen Bewegung und Stillstand eines Schwarmes erlaubt (4)**
+  - Flocking algorithm for autonomous flying robots
+    - **Einfacher Algorithmus für kollektive Bewegung in Richtung eines bestimmten Ziels ohne Kontrolleinheit (3)**
+    - **Algorithmus der einen weichen Übergang zwischen Bewegung und Stillstand eines Schwarmes erlaubt (4)**
 - "Roboic flocks"
   - http://sci-hub.tw/10.1007/978-3-642-00644-9_19
-    Guiding a Robot Flock via Informed Robots
-    - Ein Schwarm von Robotern wird durch ein paar "eingeweihte" Roboter dazu gebracht in eine bestimmte Richtung zu laufen, ohne dass explizite Kommunikation stattfindet
+    - Guiding a Robot Flock via Informed Robots
+        - Ein Schwarm von Robotern wird durch ein paar "eingeweihte" Roboter dazu gebracht in eine bestimmte Richtung zu laufen, ohne dass explizite Kommunikation stattfindet
   - https://www.sciencedirect.com/science/article/pii/S0921889099000846
-    Experiments in automatic flock control
-    - Ein Roboter wurde dazu verwendet einen Schwarm von Enten gezielt in eine andere Richtung zu lenken
+    - Experiments in automatic flock control
+        - Ein Roboter wurde dazu verwendet einen Schwarm von Enten gezielt in eine andere Richtung zu lenken
   - https://academic.oup.com/beheco/article/22/6/1304/220324
-    Where does  flock end from an information perspective? A comparative experiment with live and robotic birds
-    - Die "social information" innerhalb eines Vogelschwarms wurde mit Hilfe eines Roboter-Vogels untersucht. Dabei stellte sich heraus dass mit steigendem Abstand zum Schwarm der Informationsfluss nicht-linear abnahm. Außerdem wurden Informationen nicht zu 100% an nahe Mitglieder weitergegeben, stattdessen schwanden die Informationen schnell, was zu sehr lokalen Informationen führte. 
-  - https://sci-hub.tw/https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.76.3870
-    Collective Motion in a System of Motile Elements
-    - Ein mathematisches Model für kollektive Bewegung
+    - Where does  flock end from an information perspective? A comparative experiment with live and robotic birds
+        - Die "social information" innerhalb eines Vogelschwarms wurde mit Hilfe eines Roboter-Vogels untersucht. Dabei stellte sich heraus dass mit steigendem Abstand zum Schwarm der Informationsfluss nicht-linear abnahm. Außerdem wurden Informationen nicht zu 100% an nahe Mitglieder weitergegeben, stattdessen schwanden die Informationen schnell, was zu sehr lokalen Informationen führte. 
+- https://sci-hub.tw/https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.76.3870
+    - Collective Motion in a System of Motile Elements
+        - Ein mathematisches Model für kollektive Bewegung
 - "Collective Motion robot"
   - https://sci-hub.tw/https://ieeexplore.ieee.org/abstract/document/1304923/
-    Coordinated collective motion of Groups of autonomous mobile robots: analysis of Vicsek's model
-    - Untersuchung von Vicsek's Modell mit dem Ergebnis, dass ein unkoordinierter Schwarm mit der Zeit in viele kleine Schwärme "zerbricht", wobei sich die einzelnen Mitglieder eines Schwarmes in die selbe Richtung bewegen
+    - Coordinated collective motion of Groups of autonomous mobile robots: analysis of Vicsek's model
+        - Untersuchung von Vicsek's Modell mit dem Ergebnis, dass ein unkoordinierter Schwarm mit der Zeit in viele kleine Schwärme "zerbricht", wobei sich die einzelnen Mitglieder eines Schwarmes in die selbe Richtung bewegen
+- https://sci-hub.tw/https://journals.aps.org/pre/abstract/10.1103/PhysRevE.77.061138
+  - Intrinsic and extrinsic noise effects on phase transitions of network models with applications to swarming systems
+    - Phase Transision
+    - Beschreibt die unterschiedlichen Effekte von "extrinsic noise" ("Umgebungs noise") und "intrinsic noise" ("freier Wille") auf die Phase Transistions eines Schwarms
+- https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.98.095702
+  - Phase Transitions in Systems of Self-Propelled Agents and Related Network Models
+    - **Phase Transisions**
+    - Beschreibt wie Phase Transisions vom Noise Level abhängen
+- http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.117.568
+  - From local actions to global tasks: Stigmergy and collective robotics
+    - **Stigmergy Schwarmverhalten**
+    - Roboter wurden durch Schwarmverhalten dazu gebracht ein Zimmer aufzuräumen
+- https://www.mitpressjournals.org/doi/abs/10.1162/106454699568737
+  - Stigmergy, Self-Organization, and Sorting in Collective Robotics
+    - **Stigmergy Schwarmverhalten**
+    - Roboter wurden dazu gebracht "Brood Sorting" zu betreiben, also einen Haufen Frisbees zu sortieren. Dazu wurde ein "rule set simpler than any yet" entwickelt
+- http://journals.sagepub.com/doi/abs/10.1177/105971239300200204
+  - Collective Robotics: From Social Insects to Robots
+    - **Allgemeines Schwarmverhalten**
+    - Es wurde ein System von 5 Robotern konstruiert das einfache Aufgaben ohne direkte Kommunikation erledigen konnte
+- https://books.google.de/books?hl=de&lr=&id=J6mAK8oJio8C&oi=fnd&pg=PP1&dq=Collective+Robotics&ots=8kPFwNPmN8&sig=DwoHCrepYu4dwwwi5KkZE3i0ptM#v=onepage&q=Collective%20Robotics&f=false
+  - Handbook of COLLECTIVE ROBOTICS, Fundamentals and Challenges
+
+## Kapitelergänzungen
+- Abgrenzung: Kollektive Bewegung <-> Schwarmverhalten
+- Phase Transisions: Beschreibung und Bedeutung
+- Erklärung: Selbstorganisation
