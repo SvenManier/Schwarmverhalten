@@ -101,8 +101,3 @@
     - Es wurde ein System von 5 Robotern konstruiert das einfache Aufgaben ohne direkte Kommunikation erledigen konnte
 - https://books.google.de/books?hl=de&lr=&id=J6mAK8oJio8C&oi=fnd&pg=PP1&dq=Collective+Robotics&ots=8kPFwNPmN8&sig=DwoHCrepYu4dwwwi5KkZE3i0ptM#v=onepage&q=Collective%20Robotics&f=false
   - Handbook of COLLECTIVE ROBOTICS, Fundamentals and Challenges
-
-## Kapitelergänzungen
-- Abgrenzung: Kollektive Bewegung <-> Schwarmverhalten
-- Phase Transisions: Beschreibung und Bedeutung
-- Erklärung: Selbstorganisation
