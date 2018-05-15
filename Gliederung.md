@@ -17,6 +17,6 @@
 
 ## Kapitelergänzungen
 
-- Abgrenzung: Kollektive Bewegung <-> Schwarmverhalten
+- Abgrenzung: Kollektive Bewegung \<-> Schwarmverhalten
 - Phase Transisions: Beschreibung und Bedeutung
 - Erklärung: Selbstorganisation
