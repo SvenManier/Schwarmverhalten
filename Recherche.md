@@ -126,3 +126,4 @@
 - https://sci-hub.tw/https://ieeexplore.ieee.org/abstract/document/1304923/
   - Coordinated collective motion of Groups of autonomous mobile robots: analysis of Vicsek's model
     - Untersuchung von Vicsek's Modell mit dem Ergebnis, dass ein unkoordinierter Schwarm mit der Zeit in viele kleine Schwärme "zerbricht", wobei sich die einzelnen Mitglieder eines Schwarmes in die selbe Richtung bewegen
+
