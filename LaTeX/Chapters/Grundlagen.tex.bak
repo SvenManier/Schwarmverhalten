@@ -1,0 +1,49 @@
+\chapter{Grundlagen}\label{ch:Grundlagen}
+In diesem Kapitel werden einige grundlegende Begriffe erklärt und voneinander abgegrenzt, welche für das Verständnis dieser Thesis wichtig sind und sonst für Verwirrung sorgen könnten.
+
+\section{Selbstorganisation}\label{sec:Selbstorganisation}
+Als Selbstorganisation bezeichnet man Prozesse, bei denen aus einer ungeordneten Menge mit Hilfe von lokaler Kommunikation ein global geordnetes System entsteht.
+Es entsteht oft durch zufälliges Verhalten, welches positives Feedback bekommt.
+In der Robotik versteht man unter Selbstorganisation Gruppen von Systemen die eigenständig, ohne zentralen Anführer arbeiten können.
+
+\subsection{Zentrale Systeme}\label{subsec:ZentraleSysteme}
+Normale Systeme sind heterogen aufgebaut.
+Zentralisierte Systeme mit Robotern bestehen grundsätzlich aus einer zentralen Einheit, welche als das Rechenzentrum dient und mehreren Robotern die die Arbeiter darstellen.
+In der Praxis kommen schließlich noch viele weitere Systeme hinzu die unter Anderem der Ausfallsicherheit und Informationsaufzeichnung dienen.
+Die zentrale Einheit bekommt von den Arbeitern Informationen wie Sensorwerte zu gesendet, die zentrale Einheit berechnet daraufhin das weitere vorgehen und die Aktionen für die einzelnen Arbeiter und sendet sie diesen schließlich zu.
+Solche zentralisierten Systeme sind wenig skalierbar und sehr kompliziert in der Implementierung, da die additionalen Systeme eingebunden werden müssen.
+Auch die Komplexität der Nachrichten innerhalb des Netzwerks nimmt zu, da letztlich nicht nur von/zu der zentralen Einheit kommuniziert werden muss, sondern auch die Kommunikation zu Backup, Datenbanken und anderen Hilfssystemen integriert und ausgeführt werden muss.
+
+\subsection{Selbstorganisierte Systeme}\label{subsec:SelbstorganisierteSysteme}
+Systeme mit Selbstorganisation sind homogen aufgebaut.
+Jede Einheit ist für sich selbst verantwortlich und muss, gegeben der Abwesenheit der zentralen Steuereinheit, gezwungenermaßen selbst entscheiden was sie zu tun hat.
+Durch den homogenen Aufbau und die fehlenden Hilfssysteme gibt es keinen Grund für unterschiedliche Programme/Algorithmen welche aufeinander abgestimmt werden müssen, sondern man braucht nur ein einziges Programm, welches auf jedem Roboter gleichermaßen eingespielt wird und sich nur durch den darunterliegenden Hardware-Layer und einer einzigartigen Identifizierung von den andere Unterscheidet.
+Entscheidungen werden entweder für sich selbst oder in Gruppen mithilfe verteilter Algorithmen getroffen.
+Innerhalb von Abstimmungen oder kleinerer Tätigkeiten kann es zur Bildung von Hierarchien und der Erstellung von Anführern kommen, diese Konstrukte sind aber meist wieder verworfen, sobald die entsprechende Abstimmung oder auszuführende Tätigkeit erledigt wurde.
+Dadurch dass jede Einheit für sich selbst rechnet und keine permanente Kommunikation zu einer zentralen Stelle notwendig ist, lassen sich homogene Gruppen besser skalieren, wenn auch die Algorithmen für die Kommunikation insgesamt aufwendiger sind.
+
+\section{Schwarmverhalten}\label{sec:Schwarmverhalten}
+Bei Schwarmverhalten geht es darum, dass sich eine Gruppe von (meist homogenen) Einheiten ohne zentrale Kontrolle gemeinsam organisiert und eine geordnete Bewegung entsteht.
+Schwarmverhalten lässt sich grob auf 4 Regeln zurückführen:
+
+\begin{itemize}
+	\item Zusammenhang: Versuche deinen Nachbarn nahe zu sein
+	\item Ausrichtung: Passe deine Bewegungsrichtung deinen Nachbarn an
+	\item Abschottung: Vermeide Kollisionen mit deinen Nachbarn
+	\item Flucht: Fliehe vor Dingen, die eine potentielle Gefahr darstellen
+	\item \note{https://link.springer.com/article/10.1007\%2Fs00354-007-0009-5}
+\end{itemize}
+
+\paragraph*{Definition: Nachbarschaft / Umgebung}\label{para:Nachbarschaft}
+Die Nachbarschaft, oder auch Umgebung, ist definiert durch einen Kreis (im 2-dimensionalen oder eine Sphäre im 3-dimensionalen) mit fixem Radius. Einheiten innerhalb dieses Kreises sind Teil der Nachbarschaft, bzw. der Umgebung, Einheiten außerhalb nicht.
+
+Die Grundprinzipien von Schwarmverhalten kommen ohne jegliche Kommunikation aus.
+Sie lassen sich durch reine Beobachtung der Nachbarschaft und entsprechender Reaktion auf das Verhalten der Nachbarn durchsetzen.
+Kommunikation innerhalb eines Schwarm findet, wenn überhaupt, nur mit der Nachbarschaft statt.
+
+
+\subsection{Direkte Kommunikation}\label{subsec:DirekteKommunikation}
+Lorem Ipsum
+
+\subsection{Abgrenzung Schwarmverhalten - Kollektive Bewegung}\label{subsec:AbgrenzungSchwarmVerhalten}
+Lorem Ipsum

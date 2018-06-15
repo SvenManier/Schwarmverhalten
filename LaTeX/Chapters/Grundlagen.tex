@@ -1,3 +1,112 @@
 \chapter{Grundlagen}\label{ch:Grundlagen}
-Lorem Ipsum
+In diesem Kapitel werden einige grundlegende Begriffe erklärt und voneinander abgegrenzt, welche für das Verständnis dieser Thesis wichtig sind und sonst für Verwirrung sorgen könnten.
 
+\section{Selbstorganisation}\label{sec:Selbstorganisation}
+Als Selbstorganisation bezeichnet man Prozesse, bei denen aus einer ungeordneten Menge mit Hilfe von lokaler Kommunikation ein global geordnetes System entsteht.
+Es entsteht oft durch zufälliges Verhalten, welches positives Feedback bekommt.
+In der Robotik versteht man unter Selbstorganisation Gruppen von Systemen die eigenständig, ohne zentralen Anführer arbeiten können.
+
+\subsection*{Zentrale Systeme}\label{subsec:ZentraleSysteme}
+Normale Systeme sind heterogen aufgebaut.
+Zentralisierte Systeme mit Robotern bestehen grundsätzlich aus einer zentralen Einheit, welche als das Rechenzentrum dient und mehreren Robotern die die Arbeiter darstellen.
+In der Praxis kommen schließlich noch viele weitere Systeme hinzu die unter Anderem der Ausfallsicherheit und Informationsaufzeichnung dienen.
+Die zentrale Einheit bekommt von den Arbeitern Informationen wie Sensorwerte zu gesendet, die zentrale Einheit berechnet daraufhin das weitere vorgehen und die Aktionen für die einzelnen Arbeiter und sendet sie diesen schließlich zu.
+Solche zentralisierten Systeme sind wenig skalierbar und sehr kompliziert in der Implementierung, da die additionalen Systeme eingebunden werden müssen.
+Auch die Komplexität der Nachrichten innerhalb des Netzwerks nimmt zu, da letztlich nicht nur von/zu der zentralen Einheit kommuniziert werden muss, sondern auch die Kommunikation zu Backup, Datenbanken und anderen Hilfssystemen integriert und ausgeführt werden muss.
+
+\subsection*{Selbstorganisierte Systeme}\label{subsec:SelbstorganisierteSysteme}
+Systeme mit Selbstorganisation sind homogen aufgebaut.
+Jede Einheit ist für sich selbst verantwortlich und muss, gegeben der Abwesenheit der zentralen Steuereinheit, gezwungenermaßen selbst entscheiden was sie zu tun hat.
+Durch den homogenen Aufbau und die fehlenden Hilfssysteme gibt es keinen Grund für unterschiedliche Programme/Algorithmen welche aufeinander abgestimmt werden müssen, sondern man braucht nur ein einziges Programm, welches auf jedem Roboter gleichermaßen eingespielt wird und sich nur durch den darunterliegenden Hardware-Layer und einer einzigartigen Identifizierung von den andere Unterscheidet.
+Entscheidungen werden entweder für sich selbst oder in Gruppen mithilfe verteilter Algorithmen getroffen.
+Innerhalb von Abstimmungen oder kleinerer Tätigkeiten kann es zur Bildung von Hierarchien und der Erstellung von Anführern kommen, diese Konstrukte sind aber meist wieder verworfen, sobald die entsprechende Abstimmung oder auszuführende Tätigkeit erledigt wurde.
+Dadurch dass jede Einheit für sich selbst rechnet und keine permanente Kommunikation zu einer zentralen Stelle notwendig ist, lassen sich homogene Gruppen besser skalieren, wenn auch die Algorithmen für die Kommunikation insgesamt aufwendiger sind.
+
+\section{Schwarmverhalten}\label{sec:Schwarmverhalten}
+Bei Schwarmverhalten geht es darum, dass sich eine Gruppe von (meist homogenen) Einheiten ohne zentrale Kontrolle gemeinsam organisiert und eine geordnete Bewegung entsteht.
+Schwarmverhalten lässt sich grob auf 4 Regeln zurückführen:
+
+\begin{enumerate}
+	\item Zusammenhang: Versuche deinen Nachbarn nahe zu sein
+	\item Ausrichtung: Passe deine Bewegungsrichtung deinen Nachbarn an
+	\item Abschottung: Vermeide Kollisionen mit deinen Nachbarn
+	\item Flucht: Fliehe vor Dingen, die eine potentielle Gefahr darstellen
+	\item \note{https://link.springer.com/article/10.1007\%2Fs00354-007-0009-5}
+\end{enumerate}
+
+\paragraph*{Definition: Nachbarschaft}\label{para:Nachbarschaft}
+Die Nachbarschaft ist definiert durch einen Kreis (im 2-dimensionalen oder eine Sphäre im 3-dimensionalen) mit fixem Radius. Einheiten innerhalb dieses Kreises sind Teil der Nachbarschaft, Einheiten außerhalb nicht.\\
+
+Die Grundprinzipien von Schwarmverhalten lassen sich ohne jegliche Kommunikation umsetzen.
+Sie lassen sich durch reine Beobachtung der Nachbarschaft und entsprechender Reaktion auf das Verhalten der Nachbarn durchsetzen.
+Verfügen die Einheiten nicht über die notwendige Sensorik um die Nachbarschaft beobachten zu können, lässt sich dies aber durch entsprechende Kommunikation der eignen Werte ausgleichen.
+
+Kommunikation innerhalb eines Schwarm findet, wenn überhaupt, nur mit der Nachbarschaft statt.
+Experimente mit Drohnen innerhalb eines Vogelschwarms zeigten, dass die Reichweite der Kommunikation recht gering ist und der Informationsfluss mit der Entfernung überproportional abnimmt.
+Das bedeutet, Informationen werden nie vollständig weitergeben, was dazu führt dass der Fluss letztlich zum erliegen kommt und eine Information somit nur lokal verfügbar ist.
+\note{https://academic.oup.com/beheco/article/22/6/1304/220324}
+
+\subsection{Bewegung innerhalb des Schwarms}\label{subsec:BewegungImSchwarm}
+Schwarmverhalten zeichnet sich dadurch aus, dass sich der Schwarm eher passiv bewegt.
+Beim Vicsek Model \note{(http://sci-hub.tw/https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.75.1226)}
+zum Beispiel entsteht eine koordinierte Bewegung durch Wiederholung drei simpler Schritte:
+
+\begin{enumerate}
+	\item Berechne die durchschnittliche Ausrichtung innerhalb deiner Nachbarschaft
+	\item Passe deine Ausrichtung der berechneten Ausrichtung an (+ Zufallsfaktor bestimmter Größe)
+	\item Bewege dich um x Einheiten nach vorne
+\end{enumerate}
+
+Nach einigen Iterationen dieser drei Schritte stellt sich eine kollektive Bewegung ein und der gesamte Schwarm bewegt sich in die selbe Richtung.
+
+\subsubsection{Auswirkungen von Rauschen}
+\note[Lorem ipsum}
+
+
+\subsection{Abgrenzung: Abgesprochene Bewegung}\label{subsec:AbgesprocheneBewegung}
+In der kollektiven Bewegung mit zentraler Steuereinheit berechnet diese die Positionen der einzelnen Arbeiter und teilt ihnen mit wie sie sich in der nächsten Iteration auszurichten haben.
+Dadurch ist es leicht möglich eine Gruppe von Einheiten in eine gewollte Richtung zu lenken und die einzelnen Einheiten sowie die gesamte Gruppe dadurch zu steuern.
+Solch eine 'abgesprochene Bewegung' lässt sich auch dezentral realisieren.
+Die einzelnen Mitglieder des Schwarms können ihre Daten den anderen mitteilen und in gemeinsamen Absprachen abstimmen, wohin sich der Schwarm bewegen soll und sich dementsprechend ausrichten.
+Diese Absprachen erfordern viel Kommunikation und richten sich entgegen typischem Schwarmverhalten.
+
+Im typischen Schwarmverhalten ist die Bewegung, vor allem die Ausrichtung der Bewegung, etwas dass sich, wie in Vicseks Modell, passiv durch Beobachtung der Nachbarschaft automatisch synchronisiert.
+Es gibt keinerlei Absprachen innerhalb des Schwarms wohin sich einzelne Einheiten bewegen sollen oder wohin es mit dem Schwarm im gesamten gehen soll.
+Entsprechend ist es schwer einen Schwarm in eine bestimmte Richtung zu steuern, da man den einzelnen Einheiten nicht einfach mitteilen kann wohin sie sich ausrichten sollen.
+
+\note{QUELLEN}
+
+\subsection{Steuern eines Schwarms}\label{subsec:SchwarmSteuern}
+\note{https://hal.elte.hu/flocking/browser/trunk/public/references/vasarhelyi/Tarcai2011.pdf?format=raw}
+
+Möchte man einen Schwarm dazu bringen sich in eine bestimmte Richtung zu bewegen, darf man es ihm nicht kommunizieren, da es das Paradigma des Schwarmverhaltens brechen würde.
+Um dieses Ziel zu erreichen muss man ihn passiv beeinflussen und ihn dazu bringen seine Ausrichtung selbständig in die gewollte Richtung zu ändern.
+
+\subsubsection*{Anführer innerhalb eines Schwarms}\label{subsubsec:Anführer}
+Eine populäre Möglichkeit einen Schwarm zu lenken ohne direkt mit ihm zu kommunizieren ist der Einsatz von Anführern ('Leader').
+Diese Anführer wissen wo der Schwarm sich hinbewegen soll oder haben einen Auftrag und bewegen sich entsprechend diesem.
+Im laufe der Iterationen richten sich die Einheiten immer am Durchschnitt der Nachbarschaft aus, wobei die Anführer eben dies nicht tun, sondern sich entsprechend der Aufträge ausrichten.
+Dadurch bildet ihre Ausrichtung eine Art Konstante innerhalb des Schwarm die sich nicht relativ zu den anderen Verändert.
+Der Schwarm nimmt dadurch allmählich die Ausrichtung dieser Konstanten an und er bewegt sich in die Richtung die von dem Anführer (auch mehrere sind möglich) vorgegeben wird.
+Mit Hilfe der Technik dieser Anführer, lässt sich der Schwarm letztlich steuern ohne dass das Paradigma des Schwarmverhaltens gebrochen werden muss.
+
+
+\subsubsection*{Stigmergie}\label{subsubsec:Stigmergie}
+\note{https://web.archive.org/web/20131104125931/http://www.eecs.harvard.edu/~rad/courses/cs266/papers/beckers-alife94.pdf}
+
+Eine besondere Form des passiven Nachrichtenaustauschs innerhalb eines Schwarm ist Stigmergie.
+Stigmergie beruht auf passiven Nachrichten die von Einheiten in der Umgebung platziert und von anderen Einheiten wahrgenommen werden.
+Ein Beispiel von Stigmergie findet man im Tierreich bei Termiten.
+Diese rollen ihre Schlamm-Kugeln zusammen, platzieren eine Pheromon-Spur oben drauf und lassen sie anschließend zunächst zufällig irgendwo in der Umgebung liegen.
+Termiten mögen die Pheromone von anderen Termiten sehr und sind gewillt ihre Kugeln auf denen von anderen zu platzieren, wenn diese sich nicht zu weit entfernt befinden.
+Je mehr Kugeln sich auf einem Haufen befinden, desto attraktiver ist dieser Haufen dafür die nächste Kugel darauf zu platzieren.
+Auf diese Weise bilden sich die bekannten Termiten-Hügel die wie Spitzen aus dem Boden ragen.
+
+Diese Methode lässt sich auch auf Roboter übertragen.
+\note{https://www.mitpressjournals.org/doi/abs/10.1162/106454699568737}
+So gab es bereits erfolgreiche Experimente in denen ein Schwarm von Robotern durch Stigmergie dazu gebracht wurde einen Haufen von Frisbees zu sortieren.
+Dieses Verhalten ist von Ameisen als "brood sorting" bekannt und verzichtet bei der Arbeit vollkommen auf direkte Kommunikation.
+Die einzelnen Einheiten reagieren dabei nur auf das Umfeld, welches von anderen Einheiten stetig verändert wird und bilden so nach und nach die Frisbee-Haufen mit der entsprechenden Farbe, ohne sich untereinander absprechen zu müssen.
+
+\section{Phase Transitions}\label{sec:PhaseTransitions}
+- 

@@ -6,14 +6,19 @@
 
 1. **Einleitung** [~4 Seiten]
    1. Motivation
-   2. Aufgabenstellung und Zielsetzung **<==== Stand**
+   2. Aufgabenstellung und Zielsetzung
    3. Aufbau der Arbeit
 2. **Grundlagen und Hintergründe** [~10 Seiten]
-   1. Definition: Selbstorganisation
-   2. Definition: Schwarmverhalten
-      1. Flocking (eigene Sektion?)
-      2. Direkte Kommunikation \<-> Indirekte Kommunikation
-      3. Abgrenzung Schwarmverhalten \<-> Kollektive Bewegung
+   1. Selbstorganisation **<==== Stand**
+      1. Zentrale Systeme
+      2. Selbstorganisierte Systeme
+   2. Schwarmverhalten
+      1. Bewegung innerhalb des Schwarms
+         1. Auswirkungen von Rauschen
+      2. Abgrenzung: Abgesprochene Bewegung
+      3. Steuern eines Schwarms
+         1. Anführer innerhalb eines Schwarms
+         2. Stigmergie
    3. Phase Transitions
       1. Erläuterung
       2. Bedeutung für Schwarmverhalten
@@ -59,11 +64,5 @@ Aufgelistet sind die Daten an denen die Meilensteine erledigt sein sollten, mits
 | 17.10.18 | Kapitel: Implementierung                        | 6                |
 | 20.10.18 | Kapitel: Evaluation                             | 0,5              |
 | 24.10.18 | Kapitel: Zusammenfassung und Ausblick           | 0,5              |
-| 07.11.18 | Restliche Arbeiten / Verfeinern                 | 2                |
+| 07.11.18 | Restliche Arbeiten / Verfeinern / Puffer        | 2                |
 | 08.11.18 | Ende der Thesis                                 | -                |
-
-### Grobe Anpeilung der Seitenzahl
-
-- Geforderte Seitenzahl: ~80 Seiten (grobe Orientierung)
-- Bisher geplante Seitenzahl: ~64 Seiten
-- Bisher umgesetzte Seitenzahl: ~2 Seiten

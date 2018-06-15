@@ -52,6 +52,9 @@
 - https://www.mitpressjournals.org/doi/abs/10.1162/106454699568737
   - Stigmergy, Self-Organization, and Sorting in Collective Robotics
     - Roboter wurden dazu gebracht "Brood Sorting" zu betreiben, also einen Haufen Frisbees zu sortieren. Dazu wurde ein "rule set simpler than any yet" entwickelt
+- https://web.archive.org/web/20131104125931/http://www.eecs.harvard.edu/~rad/courses/cs266/papers/beckers-alife94.pdf
+  - From Local Actions to global Tasks: Stigmergy and Collective Robotics
+    - Roboter bauen einen Hügel durch den Einsatz von Stigmergie
 
 #### Mit indirekter Kommunikation
 
@@ -99,10 +102,6 @@
 
 ## (Noch nicht vollständig berücksichtigte) Links
 
-- [x] https://hal.elte.hu/flocking/wiki/public/en/projects/ProjectPhaseTransitionsAndTheRoleOfLeaders
-  Patterns, Transitions and the Role of Leaders in the Collective Dynamics of a Simple Robotic Flock
-- [x] http://sci-hub.tw/https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.75.1226
-  - Novel Type of Phase Transition in a System of Self-Driven Particles
 - [ ] http://sci-hub.tw/https://www.sciencedirect.com/science/article/pii/S037843710800109X?via%3Dihub
   - New tools for characterizing swarming systems: A comparison of minimal models
 - [ ] http://sci-hub.tw/https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.92.025702
