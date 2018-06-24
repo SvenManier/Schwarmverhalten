@@ -4,47 +4,53 @@
 
 ## Gliederung
 
-1. **Einleitung** [~4 Seiten]
-   1. Motivation
-   2. Aufgabenstellung und Zielsetzung
-   3. Aufbau der Arbeit
-2. **Grundlagen und Hintergründe** [~10 Seiten]
-   1. Selbstorganisation **<==== Stand**
-      1. Zentrale Systeme
-      2. Selbstorganisierte Systeme
-   2. Schwarmverhalten
-      1. Bewegung innerhalb des Schwarms
-         1. Auswirkungen von Rauschen
-      2. Abgrenzung: Abgesprochene Bewegung
-      3. Steuern eines Schwarms
-         1. Anführer innerhalb eines Schwarms
-         2. Stigmergie
-   3. Phase Transitions
-      1. Erläuterung
-      2. Bedeutung für Schwarmverhalten
-3. **Analyse** (der Aufgabenstellung) [~12 Seiten]
-  1. Bestehende Probleme
-  2. Anforderungen
-4. **Stand der Technik / Verwandte Arbeiten**
-  1. Welche Bereiche werden bereits gedeckt?
-  2. Welche Bereiche werden noch nicht gedeckt?
-5. **Konzeption** [~20 Seiten] (Eventuell mehr, da Konzeption im Vordergrund stehen könnte)
-  1. Bildung der Untergruppe (?)
-  2. Schwarmbewegung zum Ausgangsort
-  3. Bilden einer eventuell geforderten Formation
-     1. Erkennen der geforderten Formation (ausschließlich) anhand der Daten über das Objekt
-     2. Eigenständiges Bilden der Formation
-  4. Schwarmbewegung zum Zielort (halten der Formation wichtig)
-6. **Implementierung** [~24 Seiten] (Eventuell weniger, da Konzeption im Vordergrund stehen könnte)
-   1. (Orientierung am Kapitel 'Konzeption')
-7. **Evaluation**
-   1. Welche Anforderungen werden abgedeckt?
-   2. Welche Anforderungen konnten nicht erfüllt werden?
-      1. Wären diese mit (wenig) mehr Zeit lösbar oder 'schlagen sie ein neues Kapitel auf'?
-8. **Stand der Technik / Verwandte Arbeiten** (wenn nicht bereits vorher)
-9. **Zusammenfassung und Ausblick** [~4 Seiten]
-10. **Anhang**
-  1. Beschreibung der Roboter mit denen gearbeitet wird
+- [x] **Einleitung** [~4 Seiten]
+  - [x] Motivation
+  - [x] Aufgabenstellung und Zielsetzung
+  - [x] Aufbau der Arbeit
+- [ ] **Grundlagen und Hintergründe** [~10 Seiten]
+   - [ ] Begrifflichkeiten und Definitionen
+   - [x] Selbstorganisation
+      - [x] Zentrale Systeme
+      - [x] Selbstorganisierte Systeme
+   - [x] Schwarmverhalten
+      - [x] Bewegung innerhalb des Schwarms
+         - [ ] Auswirkungen von Rauschen
+      - [x] Abgrenzung: Abgesprochene Bewegung
+      - [x] Steuern eines Schwarms
+         - [x] Anführer innerhalb eines Schwarms
+         - [x] Stigmergie
+   - [ ] Phase Transitions (???)
+      - [ ] Erläuterung
+      - [ ] Bedeutung für Schwarmverhalten
+- [ ] **Analyse** (Problembeschreibung, potentielle Lösungswege, Entscheidungen wieso welcher Weg gegangen wird, wieso die anderen nicht etc) [~12 Seiten]
+  - [ ] Problembeschreibung
+    - [ ] Standby im Schwarm
+    - [ ] Zusammenfinden am Aufnahmeort
+    - [ ] Standby am Aufnahmeort
+    - [ ] Gemeinsamer Transport zum Abgabeort
+    - [ ] Standby am Abgabeort
+    - [ ] Rückgliederung in dem Schwarm
+  - [ ] Anforderungen des Systems
+- [ ] **Stand der Technik / Verwandte Arbeiten**
+  - [ ] Welche Bereiche werden bereits gedeckt?
+  - [ ] Welche Bereiche werden noch nicht gedeckt?
+- [ ] **Konzeption** [~20 Seiten] (Eventuell mehr, da Konzeption im Vordergrund stehen könnte)
+  - [ ] Bildung der Untergruppe (?)
+  - [ ] Schwarmbewegung zum Ausgangsort
+  - [ ] Bilden einer eventuell geforderten Formation
+     - [ ] Erkennen der geforderten Formation (ausschließlich) anhand der Daten über das Objekt
+     - [ ] Eigenständiges Bilden der Formation
+  - [ ] Schwarmbewegung zum Zielort (halten der Formation wichtig)
+- [ ] **Implementierung** [~24 Seiten] (Eventuell weniger, da Konzeption im Vordergrund stehen könnte)
+   - [ ] (Orientierung am Kapitel 'Konzeption')
+- [ ] **Evaluation**
+   - [ ] Welche Anforderungen werden abgedeckt?
+   - [ ] Welche Anforderungen konnten nicht erfüllt werden?
+      - [ ] Wären diese mit (wenig) mehr Zeit lösbar oder 'schlagen sie ein neues Kapitel auf'?
+- [ ] **Zusammenfassung und Ausblick** [~4 Seiten]
+- [ ] **Anhang**
+  - [ ] Beschreibung der Roboter mit denen gearbeitet wird
 
 ## Meilensteine / Fortschritt
 

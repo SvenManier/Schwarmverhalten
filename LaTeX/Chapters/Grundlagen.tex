@@ -1,6 +1,21 @@
 \chapter{Grundlagen}\label{ch:Grundlagen}
 In diesem Kapitel werden einige grundlegende Begriffe erklärt und voneinander abgegrenzt, welche für das Verständnis dieser Thesis wichtig sind und sonst für Verwirrung sorgen könnten.
 
+\section{Begrifflichkeiten und Definitionen}
+Im Verlauf der Thesis werden einige Begriffe immer wieder verwendet werden die eine feste Definition innerhalb dieser Thesis haben und nicht verwechselt oder missverstanden werden sollten. Solche Begriffe werden im folgenden Abschnitt definiert.
+
+\paragraph*{Nachbarschaft}
+Die Nachbarschaft einer Einheit ist definiert durch einen Kreis mit fixem Radius um die Einheit herum. Andere Einheiten die sich, bezogen auf ihre Position, innerhalb dieses Kreises befinden sind Teil der Nachbarschaft dieser Einheit, Einheiten außerhalb nicht.
+
+\paragraph*{Aufnahmeort}
+Der Aufnahmeort ist der Ort an dem die Roboter die zu transportierende Ware aufnehmen.
+
+\paragraph*{Abgabeort}
+Der Abgabeort ist der Ort an dem die Roboter die zu transportierende Ware abgeben.
+
+\paragraph*{Einheit}
+Wenn von der Einheit gesprochen wird, ist damit ein einzelnes Mitglied des Schwarms gemeint.
+
 \section{Selbstorganisation}\label{sec:Selbstorganisation}
 Als Selbstorganisation bezeichnet man Prozesse, bei denen aus einer ungeordneten Menge mit Hilfe von lokaler Kommunikation ein global geordnetes System entsteht.
 Es entsteht oft durch zufälliges Verhalten, welches positives Feedback bekommt.
@@ -24,6 +39,8 @@ Dadurch dass jede Einheit für sich selbst rechnet und keine permanente Kommunik
 
 \section{Schwarmverhalten}\label{sec:Schwarmverhalten}
 Bei Schwarmverhalten geht es darum, dass sich eine Gruppe von (meist homogenen) Einheiten ohne zentrale Kontrolle gemeinsam organisiert und eine geordnete Bewegung entsteht.
+
+\paragraph*{Die 4 Regeln}\label{4Rules}
 Schwarmverhalten lässt sich grob auf 4 Regeln zurückführen:
 
 \begin{enumerate}
@@ -34,9 +51,6 @@ Schwarmverhalten lässt sich grob auf 4 Regeln zurückführen:
 	\item \note{https://link.springer.com/article/10.1007\%2Fs00354-007-0009-5}
 \end{enumerate}
 
-\paragraph*{Definition: Nachbarschaft}\label{para:Nachbarschaft}
-Die Nachbarschaft ist definiert durch einen Kreis (im 2-dimensionalen oder eine Sphäre im 3-dimensionalen) mit fixem Radius. Einheiten innerhalb dieses Kreises sind Teil der Nachbarschaft, Einheiten außerhalb nicht.\\
-
 Die Grundprinzipien von Schwarmverhalten lassen sich ohne jegliche Kommunikation umsetzen.
 Sie lassen sich durch reine Beobachtung der Nachbarschaft und entsprechender Reaktion auf das Verhalten der Nachbarn durchsetzen.
 Verfügen die Einheiten nicht über die notwendige Sensorik um die Nachbarschaft beobachten zu können, lässt sich dies aber durch entsprechende Kommunikation der eignen Werte ausgleichen.
@@ -45,6 +59,11 @@ Kommunikation innerhalb eines Schwarm findet, wenn überhaupt, nur mit der Nachb
 Experimente mit Drohnen innerhalb eines Vogelschwarms zeigten, dass die Reichweite der Kommunikation recht gering ist und der Informationsfluss mit der Entfernung überproportional abnimmt.
 Das bedeutet, Informationen werden nie vollständig weitergeben, was dazu führt dass der Fluss letztlich zum erliegen kommt und eine Information somit nur lokal verfügbar ist.
 \note{https://academic.oup.com/beheco/article/22/6/1304/220324}
+
+Wer sich die 4 Regeln anschaut wird auch bemerken, dass es keine Regel gibt die einen Roboter normal dazu veranlassen würde still zu stehen.
+Ein Stillstand im Schwarm ist daher immer auf besondere Bedingungen (zum Beispiel fehlender Platz für Bewegung) oder Fehler im System zurückzuführen.
+Ein Schwarm der wartet, ist gut vergleichbar mit dem Rauschen bei älteren Fernsehern, bei dem überall zwar Bewegung zu erkennen ist, aber keine die in eine bestimmte Richtung führt.
+Der Schwarm steht also als Gesamteinheit still, die einzelnen Einheiten bewegen sich aber weiterhin kontinuierlich.
 
 \subsection{Bewegung innerhalb des Schwarms}\label{subsec:BewegungImSchwarm}
 Schwarmverhalten zeichnet sich dadurch aus, dass sich der Schwarm eher passiv bewegt.
@@ -59,9 +78,8 @@ zum Beispiel entsteht eine koordinierte Bewegung durch Wiederholung drei simpler
 
 Nach einigen Iterationen dieser drei Schritte stellt sich eine kollektive Bewegung ein und der gesamte Schwarm bewegt sich in die selbe Richtung.
 
-\subsubsection{Auswirkungen von Rauschen}
-\note[Lorem ipsum}
-
+\subsubsection{Auswirkungen von Rauschen}\label{subsubsec:AuswirkungenVonRauschen}
+\lorem
 
 \subsection{Abgrenzung: Abgesprochene Bewegung}\label{subsec:AbgesprocheneBewegung}
 In der kollektiven Bewegung mit zentraler Steuereinheit berechnet diese die Positionen der einzelnen Arbeiter und teilt ihnen mit wie sie sich in der nächsten Iteration auszurichten haben.
@@ -109,4 +127,3 @@ Dieses Verhalten ist von Ameisen als "brood sorting" bekannt und verzichtet bei 
 Die einzelnen Einheiten reagieren dabei nur auf das Umfeld, welches von anderen Einheiten stetig verändert wird und bilden so nach und nach die Frisbee-Haufen mit der entsprechenden Farbe, ohne sich untereinander absprechen zu müssen.
 
 \section{Phase Transitions}\label{sec:PhaseTransitions}
-- 

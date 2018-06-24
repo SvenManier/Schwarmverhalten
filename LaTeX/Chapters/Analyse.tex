@@ -1,0 +1,65 @@
+\chapter{Analyse}\label{ch:Analyse}
+Im folgenden Kapitel wird es eine Analyse der Aufgabenstellung geben, darunter die Analyse der Probleme die mit der Aufgabenstellung einher gehen und die Anforderungen des späteren Systems.\\
+
+\note{Problembeschreibung, potentielle Lösungswege, Entscheidungen wieso welcher Weg gegangen wird, wieso die anderen nicht etc}\\
+
+\note{Analyse des Themenbereichs bzw der bestehenden Probleme und Ermittelung der Anforderungen gemäß passender Methoden}\\
+\section{Problembeschreibung}\label{sec:Problembeschreibung}
+Laut Aufgabenbeschreibung~(\autoref{sec:Aufgabenstellung}) ist das Ziel dieser Thesis, mit Hilfe von Robotern, die im Schwarm agieren, Transportaufträge zu verrichten.
+Als Einschränkung war gegeben, dass die Roboter nicht erst den Auftrag verteilen müssen, sondern die entsprechenden Roboter ihn bereits haben und die Verteilung des Auftrags, bzw. die Auswahl der geeignetsten Roboter somit bereits abgeschlossen ist.
+
+Die nachfolgenden Abschnitte bilden den Verlauf des typischen Transports ab und zeigen die verschiedenen Herausforderungen die es dabei zu bewältigen gibt und die Probleme die dabei auftraten können.
+
+\subsection*{Allgemeine Probleme}\label{subsec:AllgemeineProbleme}
+In diesem Abschnitt sind die Probleme aufgelistet, die generell in jeder Phase des Transports auftreten können.
+
+\subsubsection*{Erlaubtes Gelände}\label{subsubsec:ErlaubtesGelände}
+Generell ist immer darauf zu achten, dass es Gebiete gibt in denen der Schwarm sich bewegen darf und solche, zu denen er keinen Zutritt hat.
+Dabei geht es nicht unbedingt darum gefährliche Orte, und damit Beschädigung, zu vermeiden, sondern auch darum dass er nicht überall erwünscht ist.
+Lässt man den Schwarm Transportaufträge innerhalb eines offenen Geländes erfüllen, besteht die Möglichkeit dass er es auf der Suche nach dem kürzesten Weg kurzerhand verlässt und damit auch Eigentumsgrenzen.
+Andererseits kann es aber auch Orte geben die beispielsweise besonders sauber bleiben sollten und in denen der Roboter mit seinen (eventuell) dreckigen Rädern nicht erwünscht ist.
+Solche Gebietsgrenzen müssen bei der Arbeit von den Robotern eingehalten werden.
+
+\subsection*{Standby im Schwarm}\label{subsec:StandbyImSchwarm}
+Ohne Auftrag gehen die Roboter ihrem typischen Schwarmverhalten nach. Praktisch heißt das, dass sie sich bewegen und dabei die 4 Regeln von Schwarmverhalten~(\autoref{4Rules}) beachten.
+Die ständige Bewegung mag aus energietechnischer Sicht nicht die optimale Lösung darstellen, da ein Schwarm selbst aber nie still steht, bildet sie aus Sicht eines Schwarms letztlich die Standard-Lösung für 'warten'.
+
+\subsubsection*{Stillstand}\label{subsubsec:Stillstand}
+Wie in~\autoref{subsubsec:AuswirkungenVonRauschen} beschrieben, spielt das Rauschen bei der Bewegung eines Schwarm einen wichtigen Faktor.
+Ist der Schwarm im Standby, hat also keinen Auftrag, muss der Faktor des Rauschens so gewählt werden, dass der Schwarm keine Bewegung zu erkennen gibt und augenscheinlich auf der Stelle steht.
+
+\subsubsection*{Dichte des Schwarms}\label{subsubsec:DichteDesSchwarms}
+Da sich der Schwarm aber auf einem Gelände, wahrscheinlich sogar innerhalb eines Gebäudes / einer Fabrikhalle, befinden wird, muss auch darauf geachtet werden, dass der Schwarm während des Wartens kein Hindernis für andere Beschäftigte oder Fahrzeuge darstellt.
+Er sollte im Hintergrund verschwinden und kein aktiver Teil der Umgebung werden auf den im besonderen Maße geachtet werden muss.
+Der Schwarm sollte sich daher nirgendwo (partiell) örtlich zusammenballen, sondern, wenn wir ihn uns als einen Festkörper vorstellen, seine Dichte so gering wie möglich machen, indem er sich auf dem (ihm erlaubten) Gelände so gut es geht ausbreitet.
+
+\subsection*{Bildung der Untergruppe}
+Außerdem muss beachtet werden, dass die Untergruppe nach wie vor ein Teil des großen Schwarms ist und alle entsprechenden Regeln beachtet werden müssen.
+Das einzige was die Untergruppe von nun an vom großen Schwarm unterscheidet, ist der Auftrag der den Einheiten innerhalb der Untergruppe ein gemeinsames Ziel und eventuell weitere Schwarmregeln gibt, die aber nur auf Einheiten innerhalb der Untergruppe angewendet werden müssen.
+%TODO
+
+\subsection*{Zusammenfinden am Aufnahmeort}
+Nachdem die Roboter ihren Auftrag erhalten haben, gilt es sich am Aufnahmeort zusammenzufinden.
+Die Roboter waren gerade noch Teil des Schwarms, der auf Standby ist, und müssen ab sofort eine Untergruppe innerhalb des Schwarms bilden die für den Auftrag zuständig ist.
+Als Untergruppe müssen sie sich dann am Aufnahmeort zusammenfinden.
+Das Problem in dieser Situation ist, dass die Untergruppe nach wie vor als Schwarm agieren muss.
+In~\autoref{subsec:AbgesprocheneBewegung} wurde bereits erläutert, dass Schwarmverhalten nicht mit 'Abgesprochener Bewegung' verwechselt werden darf und Einheiten innerhalb eines Schwarms sich nicht aktiv darüber absprechen, welche Einheit sich wohin bewegen soll.
+Das bedeutet, dass die Untergruppe sich ausschließlich durch passive Beeinflussung und die Informationen des gegebenen Auftrags gemeinsam am Aufnahmeort zusammenfinden muss.
+Natürlich darf dabei aber nicht davon ausgegangen werden, dass die Gruppe die den Auftrag erhält auch eine erkennbare Gruppe war und die Einheiten daraus örtlich nahe zusammen waren.
+
+
+\subsection*{Standby am Aufnahmeort}
+\lorem
+
+\subsection*{Gemeinsamer Transport zum Abgabeort}
+\lorem
+
+\subsection*{Standby am Abgabeort}
+\lorem
+
+\subsection*{Rückgliederung in den Schwarm}
+\lorem
+
+\section{Anforderungen des Systems}\label{sec:Anforderungen}
+\lorem
+
