@@ -14,18 +14,28 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Grundlagen}{5}{chapter.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Selbstorganisation}{5}{section.2.1}
+\contentsline {section}{\numberline {2.1}Begrifflichkeiten und Definitionen}{5}{section.2.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}Schwarmverhalten}{6}{section.2.2}
+\contentsline {section}{\numberline {2.2}Selbstorganisation}{5}{section.2.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}Bewegung innerhalb des Schwarms}{6}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Schwarmverhalten}{6}{section.2.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Abgrenzung: Abgesprochene Bewegung}{7}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3.1}Bewegung innerhalb des Schwarms}{7}{subsection.2.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}Steuern eines Schwarms}{7}{subsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1.1}Auswirkungen von Rauschen}{7}{subsubsection.2.3.1.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Phase Transitions}{8}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.2}Abgrenzung: Abgesprochene Bewegung}{7}{subsection.2.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Ergebnisse}{9}{chapter.3}
+\contentsline {subsection}{\numberline {2.3.3}Steuern eines Schwarms}{8}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{11}{chapter*.10}
+\contentsline {section}{\numberline {2.4}Phase Transitions}{8}{section.2.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Analyse}{9}{chapter.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Problembeschreibung}{9}{section.3.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Anforderungen an das System}{12}{section.3.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Ergebnisse}{15}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{17}{chapter*.30}
