@@ -28,14 +28,44 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.3}Steuern eines Schwarms}{8}{subsection.2.3.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Phase Transitions}{8}{section.2.4}
+\contentsline {section}{\numberline {2.4}Phase Transitions}{9}{section.2.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Analyse}{9}{chapter.3}
+\contentsline {section}{\numberline {2.5}ROS}{9}{section.2.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Problembeschreibung}{9}{section.3.1}
+\contentsline {chapter}{\numberline {3}Analyse}{11}{chapter.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Anforderungen an das System}{12}{section.3.2}
+\contentsline {section}{\numberline {3.1}Problembeschreibung}{11}{section.3.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Ergebnisse}{15}{chapter.4}
+\contentsline {section}{\numberline {3.2}Anforderungen an das System}{14}{section.3.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{17}{chapter*.30}
+\contentsline {chapter}{\numberline {4}Konzeption}{17}{chapter.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Generelles zur Konzeption}{17}{section.4.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Nachbau des Schwarms nach Craig Reynolds}{17}{section.4.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Anf\IeC {\"u}hrer}{22}{section.4.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}Transport von Waren mit Hilfe eines Schwarms}{23}{section.4.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Implementierung}{29}{chapter.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Generelles zur Implementierung}{29}{section.5.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Nachbau des Schwarms nach Craig Reynolds}{29}{section.5.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Anf\IeC {\"u}hrer}{33}{section.5.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}Transport von Waren mit Hilfe eines Schwarms}{34}{section.5.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Evaluation}{39}{chapter.6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Generelles zur Evaluation}{39}{section.6.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Nachbau des Schwarms nach Craig Reynolds}{39}{section.6.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}Anf\IeC {\"u}hrer}{43}{section.6.3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.4}Transport von Waren mit Hilfe eines Schwarms}{48}{section.6.4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{53}{chapter*.128}

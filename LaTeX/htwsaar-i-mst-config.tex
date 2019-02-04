@@ -22,9 +22,7 @@
 
 \PassOptionsToPackage{fleqn}{amsmath}		% math environments and more by the AMS 
  \usepackage{amsmath}
- 
-\usepackage{lscape}
- 				
+ 			
 								
 % ****************************************************************************************************
 % 1. Personal data and user ad-hoc commands
@@ -133,7 +131,7 @@
 
 %Styles f�r verschiedene Sprachen festlegen, z.B. Java
 \lstdefinestyle{Java}{
-belowcaptionskip=1\baselineskip,
+  belowcaptionskip=1\baselineskip,
   breaklines=true,
   xleftmargin=\parindent,
   language=Java,
@@ -144,18 +142,38 @@ belowcaptionskip=1\baselineskip,
   identifierstyle=\color{blue},
   stringstyle=\color{orange}}
   
-\lstdefinestyle{C++}{
-  frame=l,
+\lstdefinestyle{cpp}{
+  frame=L,
   language=C++,
   aboveskip=3mm,
   belowskip=3mm,
   showstringspaces=false,
   columns=flexible,
-  basicstyle={\footnotesize\ttfamily},
+  basicstyle={\ttfamily},
   numbers=left,
   stepnumber=1,
   numberstyle=\scriptsize\color{gray},
   otherkeywords={time_t},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2}
+  
+\lstdefinestyle{ros}{
+  basicstyle=\small\ttfamily,
+  keepspaces=true,
+  frame=L,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  numbers=none,
+  stepnumber=1,
+  numberstyle=\scriptsize\color{gray},
+  otherkeywords={uint8, float32, Vector3, string},
   keywordstyle=\color{blue},
   commentstyle=\color{dkgreen},
   stringstyle=\color{mauve},

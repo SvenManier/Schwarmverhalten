@@ -1,36 +1,35 @@
 ### Allgemein
 
-- Warum lasse ich Roboter-Kollisionen außer acht?
-  - Da die Simulation selbst nicht beschleunigt werden kann, ist meine einzige Möglichkeit die Geschwindigkeit zu erhöhen, die Bewegungsgeschwindigkeit höher zu stellen.
-  - Diese Bewegungsgeschwindigkeit wäre im Realfall viel geringer und es würden viel mehr einzelne Iterationen oder Zwischeniterationen (während der Bewegung) stattfinden
-  - Ich müsste also die Bewegungsgeschwindigkeit viel geringer einstellen um einen Roboter nicht innerhalb eines Schrittes zu durchschreiten
 - Probleme mit Turtlesim
-  - Genau ein Roboter  pro Versuch spawnt in der Regel erst garnicht, ein anderer verschwindet von der Grafik, scheint sich "unter der Oberfläche" aber dennoch zu bewegen und sendet seine Daten.
+  - Genau ein Roboter pro Versuch spawnt in der Regel erst garnicht, ein anderer verschwindet von der Grafik, scheint sich "unter der Oberfläche" aber dennoch zu bewegen und sendet seine Daten.
     - Beide male ohne Fehlermeldung
+- Verschiedene Arten von "Schwarm"
+  - Ungelenkter Schwarm
+    - Beachten nur die 4 Regeln eines Schwarm
+    - Bewegung richtet sich meist an anderen Individuen aus
+- Bau-System von ROS sehr verbuggt
+  - manuelles touch notwendig
 
-### Algorithmus
+###Harvard Kilobot Swarm
 
-- "Mitte des Flocks" nicht die zentrale Mitte, sondern Mitte in Relation zur Anzahl der Roboter. Dh 2 Roboter ziehen die "Mitte" mehr in ihre Richtung als ein einzelner
+- Algorithmus:
+  - Roboter starten mit Bild der Form an unbestimmten Ort
+  - 4 spezielle Seed-Robots bilden den Anfang der Formation und dienen der Orientierung
+  - Nur Subset der anderen Roboter steigt in Algorithmus ein
+  - Roboter umkreisen bestehende Formation und berechnen ihren Gradienten
+    - Gradient vergleichbar mit der Höhe einer Baumstruktur
+    - (min(RoboterInMeinerUmgebung.Gradient) + 1)
+  - Roboter der seinen findet folgt der Kontur der bisher entstandenen Form bis:
+    - Er dabei ist die Form wieder zu verlassen
+    - Er auf einen anderen stehenden Roboter mit dem selben Gradienten trifft
+- Notes:
+  - Roboter spannen ein Koordinatensystem auf
+  - Kein richtiges Schwarmverhalten, sondern gezielte (autonome) Bewegung
+- ![1542641439052](D:\GitHub\Schwarmverhalten\assets\1542641439052.png)
 
-### Schwarm allgemein
+### Simulationen
 
-- Freier Wille: 225, zum Flock: 50%
-  - Flocks die sich einmal gefunden haben trennen sich nicht mehr
-  - Trotz dessen dass sich die Roboter stets zur Mitte bewegen bewegen sich die Flocks langsam über das Spielfeld
-    - Dadurch kommt es zu Verschmelzungen von Flocks
-    - Kleinere Flocks bewegen sich schneller als größere
-- Freier Wille: 45, zu Flock: -50%
-  - Roboter flocken nicht, Einteilung in Flock eher aus Platzmangel
-  - Relativ homogene Verteilung über das Spielfeld
-
-### Leadership
-
-- Siehe Diagramme
-
-###Harvard KiloRobot Swarm
-
-
-
-- Roboter starten mit Bild der Form an unbestimmten Ort
-- 4 spezielle Seed-Robots bilden den Anfang der Formation und dienen der Orientierung
-- 
+- 10 Roboter, 45°, 5%
+  - Schwarm schoss öfter am Ziel vorbei, Leader musste dann Gegenlenken weswegen das Objekt öfter um das Ziel kreiste
+  - Leader konnte manchmal nicht "überzeugen" und zog eher dem Schwarm hinterher als umgekehrt, bis der Schwarm "zufällig" in die richtige Richtung ging, von wo aus der Leader dann mit seinem wenigen Einfluss den "letzten Schliff" in der Richtung geben konnte
+  - Mit 10 Robotern, darunter 1 Leader, schlicht ein Glücksspiel
