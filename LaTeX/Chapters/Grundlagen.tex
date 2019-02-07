@@ -1,27 +1,25 @@
 \chapter{Grundlagen}\label{ch:Grundlagen}
+
 In diesem Kapitel werden einige grundlegende Begriffe erklärt und voneinander abgegrenzt, welche für das Verständnis dieser Thesis wichtig sind und sonst für Verwirrung sorgen könnten.
 
 \section{Begrifflichkeiten und Definitionen}\label{Definitionen}
+
 Im Verlauf der Thesis werden einige Begriffe immer wieder verwendet werden die eine feste Definition innerhalb dieser Thesis haben und nicht verwechselt oder missverstanden werden sollten. Solche Begriffe werden im folgenden Abschnitt definiert.
 
-\paragraph*{Nachbarschaft}
-Die Nachbarschaft einer Einheit ist definiert durch einen Kreis mit fixem Radius um die Einheit herum. Andere Einheiten die sich, bezogen auf ihre Position, innerhalb dieses Kreises befinden sind Teil der Nachbarschaft dieser Einheit, Einheiten außerhalb nicht.
+\paragraph*{Lokale Nachbarschaft}
+Die lokale Nachbarschaft einer Einheit ist definiert durch einen Kreis mit fixem Radius um die Einheit herum. Andere Einheiten die sich, bezogen auf ihre Position, innerhalb dieses Kreises befinden sind Teil der lokalen Nachbarschaft dieser Einheit, Einheiten außerhalb nicht.
 
-\paragraph*{Aufnahmeort}
-Der Aufnahmeort ist der Ort an dem die Roboter die zu transportierende Ware aufnehmen.
-
-\paragraph*{Abgabeort}
-Der Abgabeort ist der Ort an dem die Roboter die zu transportierende Ware abgeben.
-
-\paragraph*{Einheit}
-Wenn von der Einheit gesprochen wird, ist damit ein einzelnes Mitglied des Schwarms gemeint.
+\paragraph*{Erster Anführer}
+In späteren Kapiteln wird der Anführer als spezielle Rolle eines Roboters eingeführt. Der erste Anführer ist sozusagen der Anführer unter den Anführern und tut Dinge, die nur von einem Roboter im ganzen Schwarm ausgeführt werden müssen.
 
 \section{Selbstorganisation}\label{sec:Selbstorganisation}
+
 Als Selbstorganisation bezeichnet man Prozesse, bei denen aus einer ungeordneten Menge mit Hilfe von lokaler Kommunikation ein global geordnetes System entsteht.
 Es entsteht oft durch zufälliges Verhalten, welches positives Feedback bekommt.
 In der Robotik versteht man unter Selbstorganisation Gruppen von Systemen die eigenständig, ohne zentralen Anführer arbeiten können.
 
 \subsection*{Zentrale Systeme}\label{subsec:ZentraleSysteme}
+
 Normale Systeme sind heterogen aufgebaut.
 Zentralisierte Systeme mit Robotern bestehen grundsätzlich aus einer zentralen Einheit, welche als das Rechenzentrum dient und mehreren Robotern die die Arbeiter darstellen.
 In der Praxis kommen schließlich noch viele weitere Systeme hinzu die unter Anderem der Ausfallsicherheit und Informationsaufzeichnung dienen.
@@ -30,6 +28,7 @@ Solche zentralisierten Systeme sind wenig skalierbar und sehr kompliziert in der
 Auch die Komplexität der Nachrichten innerhalb des Netzwerks nimmt zu, da letztlich nicht nur von/zu der zentralen Einheit kommuniziert werden muss, sondern auch die Kommunikation zu Backup, Datenbanken und anderen Hilfssystemen integriert und ausgeführt werden muss.
 
 \subsection*{Selbstorganisierte Systeme}\label{subsec:SelbstorganisierteSysteme}
+
 Systeme mit Selbstorganisation sind homogen aufgebaut.
 Jede Einheit ist für sich selbst verantwortlich und muss, gegeben der Abwesenheit der zentralen Steuereinheit, gezwungenermaßen selbst entscheiden was sie zu tun hat.
 Durch den homogenen Aufbau und die fehlenden Hilfssysteme gibt es keinen Grund für unterschiedliche Programme/Algorithmen welche aufeinander abgestimmt werden müssen, sondern man braucht nur ein einziges Programm, welches auf jedem Roboter gleichermaßen eingespielt wird und sich nur durch den darunterliegenden Hardware-Layer und einer einzigartigen Identifizierung von den andere Unterscheidet.
@@ -38,6 +37,7 @@ Innerhalb von Abstimmungen oder kleinerer Tätigkeiten kann es zur Bildung von H
 Dadurch dass jede Einheit für sich selbst rechnet und keine permanente Kommunikation zu einer zentralen Stelle notwendig ist, lassen sich homogene Gruppen besser skalieren, wenn auch die Algorithmen für die Kommunikation insgesamt aufwendiger sind.
 
 \section{Schwarmverhalten}\label{sec:Schwarmverhalten}
+
 Bei Schwarmverhalten geht es darum, dass sich eine Gruppe von (meist homogenen) Einheiten ohne zentrale Kontrolle gemeinsam organisiert und eine geordnete Bewegung entsteht.
 
 \paragraph*{Die 4 Regeln}\label{4Rules}
@@ -51,13 +51,13 @@ Schwarmverhalten lässt sich grob auf 4 Regeln zurückführen:
 	\item \note{https://link.springer.com/article/10.1007\%2Fs00354-007-0009-5}
 \end{enumerate}
 
-Die Grundprinzipien von Schwarmverhalten lassen sich ohne jegliche Kommunikation umsetzen.
+Die Grundprinzipien von Schwarmverhalten lassen sich grundsätzlich ohne jegliche Kommunikation umsetzen.
 Sie lassen sich durch reine Beobachtung der Nachbarschaft und entsprechender Reaktion auf das Verhalten der Nachbarn durchsetzen.
 Verfügen die Einheiten nicht über die notwendige Sensorik um die Nachbarschaft beobachten zu können, lässt sich dies aber durch entsprechende Kommunikation der eignen Werte ausgleichen.
 
 Kommunikation innerhalb eines Schwarm findet, wenn überhaupt, nur mit der Nachbarschaft statt.
 Experimente mit Drohnen innerhalb eines Vogelschwarms zeigten, dass die Reichweite der Kommunikation recht gering ist und der Informationsfluss mit der Entfernung überproportional abnimmt.
-Das bedeutet, Informationen werden nie vollständig weitergeben, was dazu führt dass der Fluss letztlich zum erliegen kommt und eine Information somit nur lokal verfügbar ist.
+Das bedeutet, Informationen werden nie vollständig weitergeben, was dazu führt, dass der Fluss letztlich zum erliegen kommt und eine Information somit nur lokal verfügbar ist.
 \note{https://academic.oup.com/beheco/article/22/6/1304/220324}
 
 Wer sich die 4 Regeln anschaut wird auch bemerken, dass es keine Regel gibt die einen Roboter normal dazu veranlassen würde still zu stehen.
@@ -66,6 +66,7 @@ Ein Schwarm der wartet, ist gut vergleichbar mit dem Rauschen bei älteren Ferns
 Der Schwarm steht also als Gesamteinheit still, die einzelnen Einheiten bewegen sich aber weiterhin kontinuierlich.
 
 \subsection{Bewegung innerhalb des Schwarms}\label{subsec:BewegungImSchwarm}
+
 Schwarmverhalten zeichnet sich dadurch aus, dass sich der Schwarm eher passiv bewegt.
 Beim Vicsek Model \note{(http://sci-hub.tw/https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.75.1226)}
 zum Beispiel entsteht eine koordinierte Bewegung durch Wiederholung drei simpler Schritte:
@@ -76,12 +77,10 @@ zum Beispiel entsteht eine koordinierte Bewegung durch Wiederholung drei simpler
 	\item Bewege dich um x Einheiten nach vorne
 \end{enumerate}
 
-Nach einigen Iterationen dieser drei Schritte stellt sich eine kollektive Bewegung ein und der gesamte Schwarm bewegt sich in die selbe Richtung.
-
-\subsubsection{Auswirkungen von Rauschen}\label{subsubsec:AuswirkungenVonRauschen}
-\lorem
+Diese 3 Schritte werden immer wieder von den einzelnen Einheiten im Schwarm wiederholt. Nach einiger Zeit werden sich, je nach Wahl der Parameter, einige Schwärme bilden die sich zusammen bewegen ohne ihre Bewegungen miteinander absprechen zu müssen.
 
 \subsection{Abgrenzung: Abgesprochene Bewegung}\label{subsec:AbgesprocheneBewegung}
+
 In der kollektiven Bewegung mit zentraler Steuereinheit berechnet diese die Positionen der einzelnen Arbeiter und teilt ihnen mit wie sie sich in der nächsten Iteration auszurichten haben.
 Dadurch ist es leicht möglich eine Gruppe von Einheiten in eine gewollte Richtung zu lenken und die einzelnen Einheiten sowie die gesamte Gruppe dadurch zu steuern.
 Solch eine 'abgesprochene Bewegung' lässt sich auch dezentral realisieren.
@@ -101,13 +100,13 @@ Möchte man einen Schwarm dazu bringen sich in eine bestimmte Richtung zu bewege
 Um dieses Ziel zu erreichen muss man ihn passiv beeinflussen und ihn dazu bringen seine Ausrichtung selbständig in die gewollte Richtung zu ändern.
 
 \subsubsection*{Anführer innerhalb eines Schwarms}\label{subsubsec:Anführer}
-Eine populäre Möglichkeit einen Schwarm zu lenken ohne direkt mit ihm zu kommunizieren ist der Einsatz von Anführern ('Leader').
+Eine populäre Möglichkeit einen Schwarm zu lenken, ohne direkt mit ihm zu kommunizieren, ist der Einsatz von Anführern ('Leader').
 Diese Anführer wissen wo der Schwarm sich hinbewegen soll oder haben einen Auftrag und bewegen sich entsprechend diesem.
-Im laufe der Iterationen richten sich die Einheiten immer am Durchschnitt der Nachbarschaft aus, wobei die Anführer eben dies nicht tun, sondern sich entsprechend der Aufträge ausrichten.
+Im Laufe der Iterationen richten sich die Einheiten immer am Durchschnitt der Nachbarschaft aus, wobei die Anführer eben dies nicht tun, sondern sich entsprechend der Aufträge ausrichten.
 Dadurch bildet ihre Ausrichtung eine Art Konstante innerhalb des Schwarm die sich nicht relativ zu den anderen Verändert.
 Der Schwarm nimmt dadurch allmählich die Ausrichtung dieser Konstanten an und er bewegt sich in die Richtung die von dem Anführer (auch mehrere sind möglich) vorgegeben wird.
 Mit Hilfe der Technik dieser Anführer, lässt sich der Schwarm letztlich steuern ohne dass das Paradigma des Schwarmverhaltens gebrochen werden muss.
-
+Ein Vorteil dieser Technik ist zum Beispiel, dass die Berechnung eines normalen Schwarmverhaltens sehr günstig ablaufen kann, wohingegen ein Anführer über weit mehr Wissen verfügen muss. Ein normaler Schwarmroboter braucht die Positionen der anderen Roboter und errechnet über simple Funktionen seinen nächsten Zug. In der heutigen Zeit sind solche Berechnungen selbst mit billigsten Microcontrollern zu bewältigen. Ein Anführer jedoch kann darauf angewiesen sein seine Umgebung zu kennen, sich seine Karte womöglich sogar selbst zusammenbauen zu müssen, und in dieser Karte mit Wegfingungen navigieren zu müssen. Aus diesen Gründen braucht ein Anführer weit größere Ressourcen und ist entsprechend teurer und braucht mehr Energie.
 
 \subsubsection*{Stigmergie}\label{subsubsec:Stigmergie}
 \note{https://web.archive.org/web/20131104125931/http://www.eecs.harvard.edu/~rad/courses/cs266/papers/beckers-alife94.pdf}
@@ -126,4 +125,44 @@ So gab es bereits erfolgreiche Experimente in denen ein Schwarm von Robotern dur
 Dieses Verhalten ist von Ameisen als "brood sorting" bekannt und verzichtet bei der Arbeit vollkommen auf direkte Kommunikation.
 Die einzelnen Einheiten reagieren dabei nur auf das Umfeld, welches von anderen Einheiten stetig verändert wird und bilden so nach und nach die Frisbee-Haufen mit der entsprechenden Farbe, ohne sich untereinander absprechen zu müssen.
 
-\section{Phase Transitions}\label{sec:PhaseTransitions}
+\section{ROS}
+
+ROS (Robot Operating System) ist ein modulares Framework für die Erstellung von Software für Roboter. Roboter-Software ist schwer zu designen, da man sehr viele Abstraktions-Level hat und viele Sensoren managen muss, die mitunter von eigenen Microcontrollern kontrolliert werden. An diesem Punkt setzt ROS and und bietet ein abstrakted Framework um diese Arbeit in kleinere, einfachere Schritte aufzuteilen und die Arbeitsumegbung von ROS zu abstrahieren. ROS ist dabei kein eigenes Betriebssystem, sondern eine Art System im System. Es kommt mit eigenen Kommandos wie \highlight{roscd} oder \highlight{rosls}, die nur ROS-Pakete beachten.
+
+ROS wurde erstmals 2007 veröffentlicht und ist seit dem in der 12. Version erschienen. Das Framework steht unter einer BSD-Lizenz und ist damit frei für jede Art von Projekt. Mittlerweile gibt es über 3000 Software-Pakete die man in der eigenen Software nutzen kann. Darunter Pakete mit denen sich Karten aus einzelnen Bildern zusammenstellen lassen\footnote{\url{http://wiki.ros.org/Build\%20a\20map\%20with\%20SLAM}}.
+
+Die Software die aus dem ROS-Framework entsteht ist kein Monolith, sondern lässt sich am ehesten mit Microservices vergleichen. Viele kleine Programme, die im ganzen zu einem höheren Ziel vereint werden. Diese kleinen Programme (Nodes), lassen sich in den Sprachen C++, Python und Lisp schreiben, wobei jede Node aus einer anderen Sprache hervorgehen kann. Grundsätzlich ist ROS für Ubuntu gebaut und getestet. Andere Betriebssysteme, wie Windows oder Fedora, lassen sich mit Aufwand auch bauen.
+
+\subsection*{Wichtige
+
+
+- Aufbau ähnlich Microservices (Multi-Language: Cpp, Python, Lisp)
+	- Nachricht werden auf abstrakter Ebene definiert und durch Code-Generatoren erzeugt
+
+- Arbeitet über IP, kann also über mehrere Computer verteilt werden
+- Build System ist Catkin
+	- Eigenentwicklung
+	- Kombiniert CMake makros und python skripte
+	- Kann mehrere, unabhängige Build-Targets besser verwalten als andere Tools. Insbesondere mit Blick auf Abhängigkeiten
+- Roslaunch:
+	- Pakete die mehrere Nodes gleichzeitig starten und verwalten
+	- Nodes können als 'unverzichtbar' markiert werden. Beenden sich diese Nodes, werden alle anderen auch gestoppt
+- Aufbau:
+	- Parameter Server
+		- Inside ROS master
+		- zB /camera/left/name
+	- Nodes
+		- Ähnlich einem Microservice
+	- Messages
+		- Laufen dezentral ab
+		- Format
+			int64 A
+			int64 B
+			---
+			int64 Sum
+	- Topics
+	- Services
+		- Arbeiten synchron
+	- Master
+		- Nameservice für ROS
+
