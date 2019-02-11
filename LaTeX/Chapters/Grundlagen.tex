@@ -129,40 +129,60 @@ Die einzelnen Einheiten reagieren dabei nur auf das Umfeld, welches von anderen 
 
 ROS (Robot Operating System) ist ein modulares Framework für die Erstellung von Software für Roboter. Roboter-Software ist schwer zu designen, da man sehr viele Abstraktions-Level hat und viele Sensoren managen muss, die mitunter von eigenen Microcontrollern kontrolliert werden. An diesem Punkt setzt ROS and und bietet ein abstrakted Framework um diese Arbeit in kleinere, einfachere Schritte aufzuteilen und die Arbeitsumegbung von ROS zu abstrahieren. ROS ist dabei kein eigenes Betriebssystem, sondern eine Art System im System. Es kommt mit eigenen Kommandos wie \highlight{roscd} oder \highlight{rosls}, die nur ROS-Pakete beachten.
 
+\subsection{Allgemeines}
+
 ROS wurde erstmals 2007 veröffentlicht und ist seit dem in der 12. Version erschienen. Das Framework steht unter einer BSD-Lizenz und ist damit frei für jede Art von Projekt. Mittlerweile gibt es über 3000 Software-Pakete die man in der eigenen Software nutzen kann. Darunter Pakete mit denen sich Karten aus einzelnen Bildern zusammenstellen lassen\footnote{\url{http://wiki.ros.org/Build\%20a\20map\%20with\%20SLAM}}.
 
 Die Software die aus dem ROS-Framework entsteht ist kein Monolith, sondern lässt sich am ehesten mit Microservices vergleichen. Viele kleine Programme, die im ganzen zu einem höheren Ziel vereint werden. Diese kleinen Programme (Nodes), lassen sich in den Sprachen C++, Python und Lisp schreiben, wobei jede Node aus einer anderen Sprache hervorgehen kann. Grundsätzlich ist ROS für Ubuntu gebaut und getestet. Andere Betriebssysteme, wie Windows oder Fedora, lassen sich mit Aufwand auch bauen.
 
-\subsection*{Wichtige
+\subsection*{Catkin}
 
+Als Build-System nutzt ROS ein Programm namens catkin \footnote{\url{http://wiki.ros.org/catkin}}. Catkin ist eine Eigententwicklung von den ROS-Machern und kombiniert CMake-Makros mit Python-Skripten um flexibler zu sein. Catkin ist entstanden, weil es mehrere, unabhängige Build-Targets besser verwalten kann als herkömmlich Build-Systeme. Gerade ROS mit seiner Microservice-Architektur baut im Normalbetrieb sehr viele kleine Programme, die alle unterschiedliche Abhängigkeiten haben können. Da andere Build-Systeme dafür zu langsam und unperformant waren, wurde catkin ins Leben gerufen.
 
-- Aufbau ähnlich Microservices (Multi-Language: Cpp, Python, Lisp)
-	- Nachricht werden auf abstrakter Ebene definiert und durch Code-Generatoren erzeugt
+\subsection*{Wichtige Bestandteile}
 
-- Arbeitet über IP, kann also über mehrere Computer verteilt werden
-- Build System ist Catkin
-	- Eigenentwicklung
-	- Kombiniert CMake makros und python skripte
-	- Kann mehrere, unabhängige Build-Targets besser verwalten als andere Tools. Insbesondere mit Blick auf Abhängigkeiten
-- Roslaunch:
-	- Pakete die mehrere Nodes gleichzeitig starten und verwalten
-	- Nodes können als 'unverzichtbar' markiert werden. Beenden sich diese Nodes, werden alle anderen auch gestoppt
-- Aufbau:
-	- Parameter Server
-		- Inside ROS master
-		- zB /camera/left/name
-	- Nodes
-		- Ähnlich einem Microservice
-	- Messages
-		- Laufen dezentral ab
-		- Format
-			int64 A
-			int64 B
-			---
-			int64 Sum
-	- Topics
-	- Services
-		- Arbeiten synchron
-	- Master
-		- Nameservice für ROS
+ROS ist ein sehr modulares Framework, dass aus vielen kleinen Komponenten besteht, die alle zusammen ein eigenständiges, durchaus komplexes System aufstellen. Diese werden im folgenden kurz vorgestellt.
+
+\subsubsection*{Nodes}
+Die Nodes von ROS sind die keinen Programme, die später Teil der Microservice-Umgebung werden\footnote{\url{http://wiki.ros.org/Nodes}}. Sie können einzeln oder durch Roslaunch im Paket gestartet werden. Sie können auch asynchron dazu- und abgeschaltet werden um im laufenden Betrieb mehr dazu zu schalten oder kleine Updates zu machen. Nodes kommunizieren mit Messages, wobei der ROS-Master in diesem Sub-System als Nameserver dient.
+
+Nodes können auch Services bieten. Das bedeutet, dass eine Service-Message empfangen werden kann. Diese Messages werden nicht durch Topics verbreitet, sondern gehen direkt zu einer Node. Sendet eine Node eine Service-Message an eine andere, wird die Node warten bis die Antwort empfangen wurde. Es bietet sich also an diese direkt zu verarbeiten, um den Absender nicht unnötig warten zu lassen.
+
+\subsubsection*{Messages}
+Um einzelne Nodes miteinander kommunizieren zu lassen, bedient sich ROS den Messages\footnote{\url{http://wiki.ros.org/msg}}. Diese werden in ROS ein einem speziellen Format definiert.
+
+\begin{lstlisting}[style=rosm, title=Message für einen Service der 2 Zahlen addiert und das Ergebnis zurück gibt]
+int64 A
+int64 B
+---
+int64 Sum
+\end{lstlisting}
+
+Die Definition geschieht in \highlight{.msg} oder \highlight{.srv} - Dateien. In diesen werden die Parameter definiert, die in der Message enthalten sein sollen. Ist die Message für einen Service gedacht, braucht es noch einen Trennstrich \highlight{---}. Unter diesem Trennstrich können dann die Parameter definiert werden, die man von dem Service zurück erwartet, erwartet man keine, bleibt der untere Bereich einfach frei.
+
+Der große Vorteil dieser Struktur ist, dass ROS die Messages, die nur einmal definiert werden müssen, automatisch in die entsprechenden Programmiersprachen übersetzt. So kann eine Message zwischen Python, Lisp und Cpp-Programmen ausgetauscht werden, ohne dass sie für die jeweiligen Programmiersprachen neu implementiert werden muss. Im Falle von Cpp werden die Messages als Header-Only definiert und landen alle (per Default) im gleichen Ordner. Dieser muss also nur in das Projekt eingebunden werden und die Nachrichten stehen damit jeder Sprache ständig zur Verfügung.
+
+Das Message-System arbeitet mit TCP/UDP, benutzt also den Netzwerk-Layer zur Verbreitung der Nachrichten. Dadurch kann ROS nicht nur auf einem einzelnen Computer gestartet werden, sondern ein ROS-System kann problemlos über mehrere Computer und sogar Netzwerke hinweg aufgespannt werden. Baut man also einen Roboter der mit mehreren Computern arbeitet, zum Beispiel einer für je Arme und Beine, müssen diese nicht aufwendig verknüpft werden, es reicht ein Anschluss an einem gemeinsamen Router.
+
+\subsubsection*{Topics}
+ROS arbeitet mit seinen Nachrichten, ähnlich einem MQTT-Server auf sogenannten Topics\footnote{\url{http://wiki.ros.org/Topics}}. Will eine Node Informationen verbreiten, zum Beispiel die Position eines Roboters, so erstellt sie ein Topic und andere Nodes können sich dieses abonnieren. Um dies zu tun, fragt sie den ROS-Master wer ein bestimmtes Topic hält. Dieser vermittelt dann die Adresse und die Nodes können miteinander kommunizieren. Verbreitet eine Nodes dann neue Nachrichten über sein Topic, werden diese nicht über einen zentralen Knoten wie den Master kommuniziert, sonder direkt zwischen den Nodes. Der Master ist dadurch entlastet und das System ist ein Stück weit weniger anfällig für Fehler. Außerdem kann der ROS-Master zwischendurch abstürzen, ohne dass die Kommunikation zwischen den Nodes, die ihre Adressen breits kennen, zum erliegen kommen muss.
+
+Topic sind, genau wie in MQTT, gestaffelt, ein Topic kann zum Beispiel \highlight{/swarm/robot/position} genannt werden. Im Gegensatz zu MQTT, wo man aber nun \highlight{/swarm/*} abonnieren könnte um alle Nachrichten aus diesem Bereich zu bekommen, kann man in ROS derzeit keine Wildcards verwenden. Es müssen alle Nachrichten, die man abonnieren möchte, einzeln abonniert werden. Dies geht durch die Beschaffenheit der Namen als Strings aber immerhin mit Schleifen.
+
+Mit dem Tool \highlight{rqt\_graph}\footnote{\url{http://wiki.ros.org/rqt_graph}} lassen sich die verknüpften Topics als Graph darstellen um während des Betriebs eine Übersicht darüber zu bekommen, welche Topics veröffentlicht wurden und welche Node diese jeweils abonniert haben.
+
+\subsubsection*{ROS-Master}
+\note{BILD EINFÜGEN, von Referenz}
+Damit die einzelnen Nodes wissen, wo sie ihre Nachrichten hinschicken müssen, gibt es den ROS-Master\footnote{\url{http://wiki.ros.org/Master}}. Diese spezielle Node muss in jedem ROS-System einmal gestartet werden. Sie dient sozusagen als DNS-Server in der Programmumgebung von ROS. Möchte eine Node eine Nachricht an eine andere senden, hat sie nur den Namen der Node. Sie fragt dann den ROS-Master, der ihr die entsprechende Adresse zurück gibt. Aber nicht nur Namen werden vermittelt, sondern auch Topics, wodurch diese dezentral laufen.
+
+\subsubsection*{Parameter-Server}
+Als letztes Modul wird der Parameter-Server vorgestellt\footnote{\url{http://wiki.ros.org/Parameter\%20Server}}. Dieser dient sozusagen als Repository in dem Konfigurationen abgespeichert werden können. Möchte man bestimmte Werte, wie zum Beispiel Preise bei einer Ware, nicht in seinen Programmen hartkodieren um sie flexibel zu halten, kann man sich dem Parameter-Server bedienen. Die Struktur der Parameter ist wie die der Topics \highlight{/camera/left/lens}. Es lassen sich aber ganze Level abfragen, die dann als JSON-ähnliches Format versendet werden.
+
+Der Parameter-Server ist ein Bestandteil des ROS-Masters. Das Abfragen der Parameter setzt also voraus, dass eine Verbindung zu diesem besteht. Entschließt man sich also dazu den Parameter-Server zu nutzen, rückt der ROS-Master wieder ein Stück weiter in den Vordergrund und seine Rolle als kritisches System wird umso stärker. Außerdem erfordert das Abfragen eines Parameters, dass man die TCP/UDP-Verbindung nutzt. Einen Parameter abzufragen ist somit vergleichsweise sehr langsam. Sinnvoller wäre es einen Cache in die eigenen Nodes einzubauen und diesen, entweder über Timer oder Broadcasts über einen Topic manuell, aktualisieren zu lassen.
+
+\subsubsection*{Roslaunch}
+Roslaunch ist ein Programm dass es erlaubt mehrere Nodes miteinander zu verketten und als ein Gesamtpaket zu starten\footnote{\url{http://wiki.ros.org/roslaunch}}. Die Pakete werden in einem XML-Format erstellt und bieten besondere Funktionen um die Nodes miteinander zu bündeln und interagieren zu lassen.
+
+Es ist so möglich Nodes mit Parametern\footnote{\url{http://wiki.ros.org/roslaunch/XML/}} zu starten und sie zum Beispiel als \highlight{required} zu kennzeichen. Dies bedeutet, dass alle anderen Nodes die mit dieser im Paket gestartet wurden, sich automatisch abschalten, wenn die betreffende Node sich (freiwillig oder durch Fehler) beendet.
+Auch ein umleiten von In- und Output eines Services ist möglich. So lässt sich zum Beispiel ein Logger recht simpel in einer eigenen Node erstellen, der eine Kopie der privaten Inputs und Outputs eines Services kommt um sie zu Loggen. Auch für die Fehlerprüfung ließe sich diese Technik nutzen. Man könnte eine alte Version einer Node mitlaufen lassen und auf diese Weise prüfen, dass die neue Version sich genau so verhält wie die alte (aber performanter ist).
 
