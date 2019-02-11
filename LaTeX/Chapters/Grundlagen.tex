@@ -16,7 +16,7 @@ In späteren Kapiteln wird der Anführer als spezielle Rolle eines Roboters eing
 
 Als Selbstorganisation bezeichnet man Prozesse, bei denen aus einer ungeordneten Menge mit Hilfe von lokaler Kommunikation ein global geordnetes System entsteht.
 Es entsteht oft durch zufälliges Verhalten, welches positives Feedback bekommt.
-In der Robotik versteht man unter Selbstorganisation Gruppen von Systemen die eigenständig, ohne zentralen Anführer arbeiten können.
+In der Robotik versteht man unter Selbstorganisation Gruppen von Systemen die eigenständig, ohne zentralen Anführer arbeiten können um gemeinsam ein höheres Ziel erreichen. Dies kann ein physikalischer Prozess sein, wie der Transport eines Objektes, es kann aber auch eine 'Denkaufgabe' sein, wie das Berechnen eines Wertes oder die Erstellung einer Karte mit Hilfe von Sensoren die die Umgebung scannen und die Daten der verstreuten Roboter zu einer gemeinsamen Karte bündeln.
 
 \subsection*{Zentrale Systeme}\label{subsec:ZentraleSysteme}
 
@@ -29,7 +29,7 @@ Auch die Komplexität der Nachrichten innerhalb des Netzwerks nimmt zu, da letzt
 
 \subsection*{Selbstorganisierte Systeme}\label{subsec:SelbstorganisierteSysteme}
 
-Systeme mit Selbstorganisation sind homogen aufgebaut.
+Systeme mit Selbstorganisation sind im Gegensatz zu den zentralen Systemen homogen aufgebaut.
 Jede Einheit ist für sich selbst verantwortlich und muss, gegeben der Abwesenheit der zentralen Steuereinheit, gezwungenermaßen selbst entscheiden was sie zu tun hat.
 Durch den homogenen Aufbau und die fehlenden Hilfssysteme gibt es keinen Grund für unterschiedliche Programme/Algorithmen welche aufeinander abgestimmt werden müssen, sondern man braucht nur ein einziges Programm, welches auf jedem Roboter gleichermaßen eingespielt wird und sich nur durch den darunterliegenden Hardware-Layer und einer einzigartigen Identifizierung von den andere Unterscheidet.
 Entscheidungen werden entweder für sich selbst oder in Gruppen mithilfe verteilter Algorithmen getroffen.
@@ -62,8 +62,20 @@ Das bedeutet, Informationen werden nie vollständig weitergeben, was dazu führt
 
 Wer sich die 4 Regeln anschaut wird auch bemerken, dass es keine Regel gibt die einen Roboter normal dazu veranlassen würde still zu stehen.
 Ein Stillstand im Schwarm ist daher immer auf besondere Bedingungen (zum Beispiel fehlender Platz für Bewegung) oder Fehler im System zurückzuführen.
-Ein Schwarm der wartet, ist gut vergleichbar mit dem Rauschen bei älteren Fernsehern, bei dem überall zwar Bewegung zu erkennen ist, aber keine die in eine bestimmte Richtung führt.
+Ein Schwarm der wartet, ist gut vergleichbar mit dem Rauschen bei älteren Fernsehern (auch 'Schnee' genannt), bei dem überall zwar Bewegung zu erkennen ist, aber keine die in eine bestimmte Richtung führt.
 Der Schwarm steht also als Gesamteinheit still, die einzelnen Einheiten bewegen sich aber weiterhin kontinuierlich.
+
+\paragraph*{Vorteile von Schwarmverhalten}
+
+Ein großer Vorteil von Robotern die im Schwarm arbeiten ist das simple Programm. Die 4 Regeln eines Schwarms sind relativ leicht zu implementieren (unter der Annahme dass der Hardware-Layer bereits fertig ist) und auch die Parameter, die letztlich das dynamische Verhalten des Schwarms beeinflussen, sind mittels Simulationen gut zu verstehen und auf die eigenen Wünsche anzupassen. Generell braucht es für die Abarbeitung der 4 Regeln nicht viele Hardware-Ressourcen. Ganz allgemein ließe sich ein Roboter, der nur diese 4 Regeln beachtet, bei heutiger Technik mitteln Microcontrollern umsetzen.
+
+Die einzelnen Roboter eines Schwarms lassen sich also ohne größeren Aufwand zusammenstellen und die Software schnell auf andere Systeme anpassen. Dadurch können, je nach Aufgabengebiet, direkt mehrere Roboter in Serie gefertigt werden, wodurch ein großer, dynamischer Schwarm entsteht.
+
+\paragraph*{Nachteile von Schwarmverhalten}
+
+Einer der großen Nachteile ist Thema dieser Thesis: wie steuert man einen Schwarm. Die Logik der Roboter eines Schwarms ist sehr simpel. Wer sich die 4 Regeln des Schwarmverhaltens anschaut bemerkt, dass ein Schwarm im Grunde genommen nicht gesteuert werden kann, da keine der Regeln ein eingreifen von außen erlaubt. Möchte man es dennoch schaffen einen Schwarm zu steuern, ist die einzige Möglichkeit dazu ihn möglichst so zu beeinflussen, dass der Schwarm nicht mitbekommt dass er gesteuert wird. Dadurch ist es nicht sehr einfach einen Schwarm dorthin zu bekommen wo man ihn haben will und die Steuerung ist eher schwammig und ungenau und wenn man Fehler bei der Steuerung macht, wird man Mühe und Not haben ihn wieder auf Kurs zu bringen.\\
+
+Der Große Vorteil eines Schwarms, sein simpler Aufbau, ist also auch direkt seine Größte Schwäche. Auf der einen Seite hat man das simple Verhalten, das durch sehr günstige Hardware und ohne großen Aufwand in der Erstellung der Software realisiert werden kann. Auf der anderen Seite braucht es einen sehr speziellen Umgang mit solch simplen Systemen und die Steuerung des Kollektivs braucht ein ganzes Stück an Arbeit. Man verlagert die Schwierigkeit von der Steuerung einzelner Roboter also auf die Schwierigkeit einen ganzen Schwarm lenken zu müssen.
 
 \subsection{Bewegung innerhalb des Schwarms}\label{subsec:BewegungImSchwarm}
 
