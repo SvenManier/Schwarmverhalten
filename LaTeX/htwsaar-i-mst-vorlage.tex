@@ -17,14 +17,21 @@
 % Hyphenation
 %*******************************************************
 %\hyphenation{put special hyphenation here}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
 
+\captionsetup{hangindent=-5em}
 
 % ********************
 % ##### COMMANDS #####
 % ********************
 \newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
-\newcommand{\statisticHeight}{5cm}
+\newcommand{\statisticHeight}{6cm}
+\newcommand{\pictureWidthSmall}{0.3\textwidth}
 \newcommand{\pictureWidth}{0.4\textwidth}
+\newcommand{\pictureWidthBig}{0.5\textwidth}
 \newcommand{\note}[1]{\textbf{\color{red} #1}}
 \newcommand{\per}{\% }
 \newcommand{\lorem}{\note{Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.}}
@@ -58,6 +65,7 @@
 \cleardoublepage\include{Chapters/Motivation}
 \cleardoublepage\include{Chapters/Grundlagen}
 \cleardoublepage\include{Chapters/Analyse}
+\cleardoublepage\include{Chapters/StandDerTechnik}
 \cleardoublepage\include{Chapters/Konzeption}
 \cleardoublepage\include{Chapters/Implementierung}
 \cleardoublepage\include{Chapters/Evaluation}
