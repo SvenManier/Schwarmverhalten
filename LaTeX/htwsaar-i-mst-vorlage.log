@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.12.6)  11 FEB 2019 17:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/W32TeX) (preloaded format=pdflatex 2016.12.6)  11 FEB 2019 18:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2448,30 +2448,30 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 4.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 4.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 19.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 19.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 31.
+(babel)             in language  on input line 29.
 [5
 
 
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 40.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 62.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2482,48 +2482,100 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 62.
  [6]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 68.
+(babel)             in language  on input line 80.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 68.
+(babel)             in language  on input line 80.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 84.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 85.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 95.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 95.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 95.
+(babel)             in language  on input line 85.
  [7]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 94.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 97.
+(babel)             in language  on input line 94.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 108.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 108.
 
-Overfull \hbox (63.46834pt too wide) in paragraph at lines 98--99
+Overfull \hbox (63.46834pt too wide) in paragraph at lines 109--110
 []\T1/ppl/b/n/10.95 https://hal.elte.hu/flocking/browser/trunk/public/reference
 s/vasarhelyi/Tarcai2011.pdf?format=raw[] 
  []
 
-
-Overfull \hbox (109.61229pt too wide) in paragraph at lines 113--114
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 122.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 122.
+[8]
+Overfull \hbox (109.61229pt too wide) in paragraph at lines 124--125
 []\T1/ppl/b/n/10.95 https://web.archive.org/web/20131104125931/http://www.eecs.
 harvard.edu/ rad/courses/cs266/papers/beckers-
  []
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 129.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 131.
+(babel)             in language  on input line 144.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 131.
+(babel)             in language  on input line 144.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 146.
+
+(c:/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 147.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 147.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 147.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 147.
+ [9]
+(c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(c:/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 166.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 166.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 166.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 166.
+ [10]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 184.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 184.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 184.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 184.
+ [11])
+Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 66.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
@@ -2531,7 +2583,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 66.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
- [8]
+ [12]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 66.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2540,7 +2592,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 66.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 66.
- [9]
+
+[13]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2549,7 +2602,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 67.
- [10
+ [14
 
 
 
@@ -2574,11 +2627,15 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 27.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 27.
-[11
+[15
 
 
 
 ]
+
+LaTeX Warning: Reference `subsubsec:AuswirkungenVonRauschen' on page 16 undefin
+ed on input line 31.
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 52.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2587,7 +2644,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 52.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 52.
- [12]
+[16]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 82.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2596,7 +2653,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 82.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 82.
- [13]
+ [17]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 96.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2609,7 +2666,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 109.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 109.
- [14])
+ [18])
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2618,7 +2675,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 67.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 67.
- [15]
+ [19]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2627,7 +2684,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 68.
- [16
+ [20
 
 
 
@@ -2649,7 +2706,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 68.
- [17
+ [21
 
 
 
@@ -2662,7 +2719,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 69.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 69.
- [18
+ [22
 
 
 
@@ -2683,14 +2740,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 11.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 11.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 12.
-(c:/texlive/2016/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Package microtype Info: Loading generic settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 21.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2699,23 +2748,13 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 21.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 21.
- [19
+[23
 
 
 
 ]
-(c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(c:/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(c:/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
 LaTeX Font Info:    Try loading font information for TS1+ppl on input line 37.
-
-(c:/texlive/2016/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+ (c:/texlive/2016/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
 Package babel Info: Redefining ngerman shorthand "|
@@ -2726,8 +2765,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 41.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 41.
- [20]
-<graphics/Winkel_badCalculation.png, id=413, 513.41812pt x 464.4853pt>
+ [24]
+<graphics/Winkel_badCalculation.png, id=451, 513.41812pt x 464.4853pt>
 File: graphics/Winkel_badCalculation.png Graphic file (type png)
 
 <use graphics/Winkel_badCalculation.png>
@@ -2735,7 +2774,7 @@ Package pdftex.def Info: graphics/Winkel_badCalculation.png used on input line
 45.
 (pdftex.def)             Requested size: 128.0387pt x 115.83754pt.
 
-<graphics/SchwarmMittelpunktBerechnung.png, id=416, 444.66125pt x 321.2pt>
+<graphics/SchwarmMittelpunktBerechnung.png, id=454, 444.66125pt x 321.2pt>
 File: graphics/SchwarmMittelpunktBerechnung.png Graphic file (type png)
 
 <use graphics/SchwarmMittelpunktBerechnung.png>
@@ -2750,9 +2789,9 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 68.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 68.
- [21 <./graphics/Winkel_badCalculation.png> <./graphics/SchwarmMittelpunktBerec
+ [25 <./graphics/Winkel_badCalculation.png> <./graphics/SchwarmMittelpunktBerec
 hnung.png (PNG copy)>]
-<graphics/AusweichenAlgorithmus.png, id=430, 207.77625pt x 214.8025pt>
+<graphics/AusweichenAlgorithmus.png, id=467, 207.77625pt x 214.8025pt>
 File: graphics/AusweichenAlgorithmus.png Graphic file (type png)
 
 <use graphics/AusweichenAlgorithmus.png>
@@ -2767,8 +2806,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 87.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 87.
- [22 <./graphics/AusweichenAlgorithmus.png (PNG copy)>]
-<graphics/BerechnungDrangZurGruppe.png, id=440, 352.31625pt x 265.99374pt>
+ [26 <./graphics/AusweichenAlgorithmus.png (PNG copy)>]
+<graphics/BerechnungDrangZurGruppe.png, id=477, 352.31625pt x 265.99374pt>
 File: graphics/BerechnungDrangZurGruppe.png Graphic file (type png)
 
 <use graphics/BerechnungDrangZurGruppe.png>
@@ -2783,8 +2822,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 113.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 113.
- [23 <./graphics/BerechnungDrangZurGruppe.png (PNG copy)>]
-<graphics/BerechnungBewegung.png, id=453, 359.3425pt x 216.81pt>
+ [27 <./graphics/BerechnungDrangZurGruppe.png (PNG copy)>]
+<graphics/BerechnungBewegung.png, id=489, 359.3425pt x 216.81pt>
 File: graphics/BerechnungBewegung.png Graphic file (type png)
 
 <use graphics/BerechnungBewegung.png>
@@ -2803,7 +2842,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 139.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 139.
- [24 <./graphics/BerechnungBewegung.png (PNG copy)>]
+ [28 <./graphics/BerechnungBewegung.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 156.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2812,8 +2851,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 156.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 156.
- [25]
-<graphics/AlgorithmusAnführer.png, id=470, 347.2975pt x 347.2975pt>
+ [29]
+<graphics/AlgorithmusAnführer.png, id=507, 347.2975pt x 347.2975pt>
 File: graphics/AlgorithmusAnführer.png Graphic file (type png)
 
 <use graphics/AlgorithmusAnführer.png>
@@ -2821,7 +2860,7 @@ Package pdftex.def Info: graphics/AlgorithmusAnführer.png used on input line 16
 8.
 (pdftex.def)             Requested size: 170.71393pt x 170.71779pt.
 
-<graphics/AlgorithmusAnführerEinfangen.png, id=472, 410.53375pt x 251.94125pt>
+<graphics/AlgorithmusAnführerEinfangen.png, id=509, 410.53375pt x 251.94125pt>
 File: graphics/AlgorithmusAnführerEinfangen.png Graphic file (type png)
 
 <use graphics/AlgorithmusAnführerEinfangen.png>
@@ -2845,7 +2884,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 191.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 191.
-[26 <./graphics/AlgorithmusAnführer.png (PNG copy)>]
+[30 <./graphics/AlgorithmusAnführer.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 220.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2854,7 +2893,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 220.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 220.
- [27 <./graphics/AlgorithmusAnführerEinfangen.png (PNG copy)>]
+ [31 <./graphics/AlgorithmusAnführerEinfangen.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 243.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2863,8 +2902,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 243.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 243.
- [28]
-<graphics/AlgorithmusTransport.png, id=513, 299.1175pt x 337.26pt>
+ [32]
+<graphics/AlgorithmusTransport.png, id=551, 299.1175pt x 337.26pt>
 File: graphics/AlgorithmusTransport.png Graphic file (type png)
 
 <use graphics/AlgorithmusTransport.png>
@@ -2879,8 +2918,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 269.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 269.
- [29 <./graphics/AlgorithmusTransport.png (PNG copy)>]
-<graphics/Transport/Tracking.png, id=532, 227.85126pt x 436.63126pt>
+ [33 <./graphics/AlgorithmusTransport.png (PNG copy)>]
+<graphics/Transport/Tracking.png, id=569, 227.85126pt x 436.63126pt>
 File: graphics/Transport/Tracking.png Graphic file (type png)
 
 <use graphics/Transport/Tracking.png>
@@ -2895,8 +2934,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 289.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 289.
- [30 <./graphics/Transport/Tracking.png (PNG copy)>] <graphics/Solcon/old.png, 
-id=543, 954.56625pt x 824.32968pt>
+ [34 <./graphics/Transport/Tracking.png (PNG copy)>] <graphics/Solcon/old.png, 
+id=580, 954.56625pt x 824.32968pt>
 File: graphics/Solcon/old.png Graphic file (type png)
 
 <use graphics/Solcon/old.png>
@@ -2910,7 +2949,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 322.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 322.
- [31 <./graphics/Solcon/old.png>]
+ [35 <./graphics/Solcon/old.png>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 331.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2924,7 +2963,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 69.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 69.
- [32]
+ [36]
 \openout2 = `Chapters/Implementierung.aux'.
 
 
@@ -2938,6 +2977,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 5.
+
+LaTeX Warning: Reference `subsec:Grundlagen_Turtlesim' on page 37 undefined on 
+input line 10.
+
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 15.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2950,7 +2993,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 19.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 19.
-[33
+[37
 
 
 
@@ -2958,7 +3001,7 @@ Package babel Info: Redefining ngerman shorthand "~
 
 
 ]
-<graphics/Klassendiagramme/KlassendiagrammRobot.png, id=574, 497.86pt x 294.098
+<graphics/Klassendiagramme/KlassendiagrammRobot.png, id=610, 497.86pt x 294.098
 75pt>
 File: graphics/Klassendiagramme/KlassendiagrammRobot.png Graphic file (type png
 )
@@ -2974,7 +3017,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 56.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 56.
- [34 <./graphics/Klassendiagramme/KlassendiagrammRobot.png (PNG copy)>]
+ [38 <./graphics/Klassendiagramme/KlassendiagrammRobot.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2983,7 +3026,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 97.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 97.
- [35]
+ [39]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 122.
 Package babel Info: Redefining ngerman shorthand "~
@@ -2992,8 +3035,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 122.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 122.
- [36]
-<graphics/WinkelTemplate.png, id=645, 164.2938pt x 148.6353pt>
+ [40]
+<graphics/WinkelTemplate.png, id=681, 164.2938pt x 148.6353pt>
 File: graphics/WinkelTemplate.png Graphic file (type png)
 
 <use graphics/WinkelTemplate.png>
@@ -3007,8 +3050,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 156.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 156.
- [37 <./graphics/WinkelTemplate.png>]
-<graphics/Klassendiagramme/KlassendiagrammObject.png, id=669, 521.95pt x 560.09
+ [41 <./graphics/WinkelTemplate.png>]
+<graphics/Klassendiagramme/KlassendiagrammObject.png, id=705, 521.95pt x 560.09
 25pt>
 File: graphics/Klassendiagramme/KlassendiagrammObject.png Graphic file (type pn
 g)
@@ -3028,8 +3071,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 195.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 195.
- [38 <./graphics/Klassendiagramme/KlassendiagrammObject.png (PNG copy)>]
-<graphics/ImplAnführer.png, id=680, 568.1225pt x 491.8375pt>
+ [42 <./graphics/Klassendiagramme/KlassendiagrammObject.png (PNG copy)>]
+<graphics/ImplAnführer.png, id=716, 568.1225pt x 491.8375pt>
 File: graphics/ImplAnführer.png Graphic file (type png)
 
 <use graphics/ImplAnführer.png>
@@ -3047,7 +3090,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 234.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 234.
- [39 <./graphics/ImplAnführer.png (PNG copy)>]
+ [43 <./graphics/ImplAnführer.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 268.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3057,7 +3100,7 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 268.
 
-[40])
+[44])
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 70.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3066,7 +3109,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 70.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 70.
- [41]
+ [45]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3075,7 +3118,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 71.
- [42
+ [46
 
 
 
@@ -3096,7 +3139,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 12.
-<graphics/SchwarmEinordnung.png, id=723, 566.115pt x 457.71pt>
+<graphics/SchwarmEinordnung.png, id=758, 566.115pt x 457.71pt>
 File: graphics/SchwarmEinordnung.png Graphic file (type png)
 
 <use graphics/SchwarmEinordnung.png>
@@ -3110,12 +3153,12 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 24.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 24.
- [43
+ [47
 
 
 
  <./graphics/SchwarmEinordnung.png (PNG copy)>]
-<graphics/Statistics/FlockGeneral/LocalRange1Speed01ToFlock0.png, id=731, 1138.
+<graphics/Statistics/FlockGeneral/LocalRange1Speed01ToFlock0.png, id=768, 1138.
 2525pt x 341.77687pt>
 File: graphics/Statistics/FlockGeneral/LocalRange1Speed01ToFlock0.png Graphic f
 ile (type png)
@@ -3132,12 +3175,12 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 50.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 50.
- [44 <./graphics/Statistics/FlockGeneral/LocalRange1Speed01ToFlock0.png (PNG co
+ [48 <./graphics/Statistics/FlockGeneral/LocalRange1Speed01ToFlock0.png (PNG co
 py)>]
 LaTeX Font Info:    Font shape `TS1/ppl/bx/n' in size <10.95> not available
 (Font)              Font shape `TS1/ppl/b/n' tried instead on input line 72.
 
-<graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill90.png, id=741, 113
+<graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill90.png, id=778, 113
 8.2525pt x 341.77687pt>
 File: graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill90.png Graphic
  file (type png)
@@ -3158,8 +3201,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 86.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 86.
-[45]
-<graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill225.png, id=754, 11
+[49]
+<graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill225.png, id=791, 11
 38.2525pt x 341.77687pt>
 File: graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill225.png Graphi
 c file (type png)
@@ -3177,11 +3220,11 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 99.
 
-[46 <./graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill90.png (PNG c
+[50 <./graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill90.png (PNG c
 opy)> <./graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill225.png (PN
 G copy)>]
 <graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill45NegativeToFlock.p
-ng, id=761, 1138.2525pt x 341.77687pt>
+ng, id=798, 1138.2525pt x 341.77687pt>
 File: graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill45NegativeToFl
 ock.png Graphic file (type png)
 
@@ -3198,14 +3241,14 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 124.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 124.
- [47 <./graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill45NegativeTo
+ [51 <./graphics/Statistics/FlockGeneral/LocalRange1Speed01FreeWill45NegativeTo
 Flock.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 137.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 137.
 
-<graphics/AlgorithmusAnführerFixed.png, id=771, 332.24126pt x 332.24126pt>
+<graphics/AlgorithmusAnführerFixed.png, id=806, 332.24126pt x 332.24126pt>
 File: graphics/AlgorithmusAnführerFixed.png Graphic file (type png)
 
 <use graphics/AlgorithmusAnführerFixed.png>
@@ -3220,8 +3263,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 154.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 154.
- [48 <./graphics/AlgorithmusAnführerFixed.png (PNG copy)>]
-<graphics/Statistics/Leader/DependencyFreeWill.png, id=779, 1138.2525pt x 341.7
+ [52 <./graphics/AlgorithmusAnführerFixed.png (PNG copy)>]
+<graphics/Statistics/Leader/DependencyFreeWill.png, id=814, 1138.2525pt x 341.7
 7687pt>
 File: graphics/Statistics/Leader/DependencyFreeWill.png Graphic file (type png)
 
@@ -3237,7 +3280,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 180.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 180.
- [49 <./graphics/Statistics/Leader/DependencyFreeWill.png (PNG copy)>]
+ [53 <./graphics/Statistics/Leader/DependencyFreeWill.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 210.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3246,8 +3289,8 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 210.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 210.
- [50]
-<graphics/Statistics/Leader/FlockSize/5_1.png, id=797, 255.95625pt x 170.88844p
+ [54]
+<graphics/Statistics/Leader/FlockSize/5_1.png, id=833, 255.95625pt x 170.88844p
 t>
 File: graphics/Statistics/Leader/FlockSize/5_1.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/5_1.png>
@@ -3255,7 +3298,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/5_1.png used on i
 nput line 212.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/5_2.png, id=798, 255.95625pt x 170.88844p
+<graphics/Statistics/Leader/FlockSize/5_2.png, id=834, 255.95625pt x 170.88844p
 t>
 File: graphics/Statistics/Leader/FlockSize/5_2.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/5_2.png>
@@ -3263,7 +3306,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/5_2.png used on i
 nput line 213.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/5_3.png, id=799, 255.95625pt x 170.88844p
+<graphics/Statistics/Leader/FlockSize/5_3.png, id=835, 255.95625pt x 170.88844p
 t>
 File: graphics/Statistics/Leader/FlockSize/5_3.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/5_3.png>
@@ -3276,7 +3319,7 @@ Overfull \hbox (2.08047pt too wide) in paragraph at lines 212--215
  []
 
 
-<graphics/Statistics/Leader/FlockSize/10_1.png, id=801, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/10_1.png, id=837, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/10_1.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/10_1.png>
@@ -3284,7 +3327,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/10_1.png used on
 input line 228.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/10_2.png, id=802, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/10_2.png, id=838, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/10_2.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/10_2.png>
@@ -3292,7 +3335,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/10_2.png used on
 input line 229.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/10_3.png, id=803, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/10_3.png, id=839, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/10_3.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/10_3.png>
@@ -3315,10 +3358,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 237.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 237.
-[51 <./graphics/Statistics/Leader/FlockSize/5_1.png (PNG copy)> <./graphics/Sta
+[55 <./graphics/Statistics/Leader/FlockSize/5_1.png (PNG copy)> <./graphics/Sta
 tistics/Leader/FlockSize/5_2.png (PNG copy)> <./graphics/Statistics/Leader/Floc
 kSize/5_3.png (PNG copy)>]
-<graphics/Statistics/Leader/FlockSize/15_1.png, id=812, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/15_1.png, id=848, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/15_1.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/15_1.png>
@@ -3326,7 +3369,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/15_1.png used on
 input line 243.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/15_2.png, id=813, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/15_2.png, id=849, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/15_2.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/15_2.png>
@@ -3334,7 +3377,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/15_2.png used on
 input line 244.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/15_3.png, id=814, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/15_3.png, id=850, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/15_3.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/15_3.png>
@@ -3350,7 +3393,7 @@ Overfull \hbox (2.08047pt too wide) in paragraph at lines 243--246
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<graphics/Statistics/Leader/FlockSize/20_1.png, id=816, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/20_1.png, id=852, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/20_1.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/20_1.png>
@@ -3358,7 +3401,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/20_1.png used on
 input line 259.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/20_2.png, id=817, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/20_2.png, id=853, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/20_2.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/20_2.png>
@@ -3366,7 +3409,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/20_2.png used on
 input line 260.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/20_3.png, id=818, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/20_3.png, id=854, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/20_3.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/20_3.png>
@@ -3389,10 +3432,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 267.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 267.
-[52 <./graphics/Statistics/Leader/FlockSize/10_1.png (PNG copy)> <./graphics/St
+[56 <./graphics/Statistics/Leader/FlockSize/10_1.png (PNG copy)> <./graphics/St
 atistics/Leader/FlockSize/10_2.png (PNG copy)> <./graphics/Statistics/Leader/Fl
 ockSize/10_3.png (PNG copy)>]
-<graphics/Statistics/Leader/FlockSize/25_1.png, id=826, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/25_1.png, id=862, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/25_1.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/25_1.png>
@@ -3400,7 +3443,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/25_1.png used on
 input line 271.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/25_2.png, id=827, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/25_2.png, id=863, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/25_2.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/25_2.png>
@@ -3408,7 +3451,7 @@ Package pdftex.def Info: graphics/Statistics/Leader/FlockSize/25_2.png used on
 input line 272.
 (pdftex.def)             Requested size: 213.39566pt x 142.4736pt.
 
-<graphics/Statistics/Leader/FlockSize/25_3.png, id=828, 255.95625pt x 170.88844
+<graphics/Statistics/Leader/FlockSize/25_3.png, id=864, 255.95625pt x 170.88844
 pt>
 File: graphics/Statistics/Leader/FlockSize/25_3.png Graphic file (type png)
  <use graphics/Statistics/Leader/FlockSize/25_3.png>
@@ -3435,7 +3478,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 295.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 295.
-[53 <./graphics/Statistics/Leader/FlockSize/15_1.png (PNG copy)> <./graphics/St
+[57 <./graphics/Statistics/Leader/FlockSize/15_1.png (PNG copy)> <./graphics/St
 atistics/Leader/FlockSize/15_2.png (PNG copy)> <./graphics/Statistics/Leader/Fl
 ockSize/15_3.png (PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
@@ -3446,10 +3489,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 312.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 312.
- [54 <./graphics/Statistics/Leader/FlockSize/20_1.png (PNG copy)> <./graphics/S
+ [58 <./graphics/Statistics/Leader/FlockSize/20_1.png (PNG copy)> <./graphics/S
 tatistics/Leader/FlockSize/20_2.png (PNG copy)> <./graphics/Statistics/Leader/F
 lockSize/20_3.png (PNG copy)>]
-<graphics/Statistics/Transport/Number_Observations.png, id=847, 284.56313pt x 1
+<graphics/Statistics/Transport/Number_Observations.png, id=882, 284.56313pt x 1
 70.88844pt>
 File: graphics/Statistics/Transport/Number_Observations.png Graphic file (type 
 png)
@@ -3458,7 +3501,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Number_Observations.png
 used on input line 315.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Number_Slack.png, id=848, 284.56313pt x 170.8884
+<graphics/Statistics/Transport/Number_Slack.png, id=883, 284.56313pt x 170.8884
 4pt>
 File: graphics/Statistics/Transport/Number_Slack.png Graphic file (type png)
  <use graphics/Statistics/Transport/Number_Slack.png>
@@ -3466,7 +3509,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Number_Slack.png used on
  input line 316.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Number_Way.png, id=849, 284.56313pt x 170.88844p
+<graphics/Statistics/Transport/Number_Way.png, id=884, 284.56313pt x 170.88844p
 t>
 File: graphics/Statistics/Transport/Number_Way.png Graphic file (type png)
  <use graphics/Statistics/Transport/Number_Way.png>
@@ -3474,7 +3517,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Number_Way.png used on i
 nput line 317.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Number_Move.png, id=850, 284.56313pt x 170.88844
+<graphics/Statistics/Transport/Number_Move.png, id=885, 284.56313pt x 170.88844
 pt>
 File: graphics/Statistics/Transport/Number_Move.png Graphic file (type png)
  <use graphics/Statistics/Transport/Number_Move.png>
@@ -3502,10 +3545,10 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 333.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 333.
-[55 <./graphics/Statistics/Leader/FlockSize/25_1.png (PNG copy)> <./graphics/St
+[59 <./graphics/Statistics/Leader/FlockSize/25_1.png (PNG copy)> <./graphics/St
 atistics/Leader/FlockSize/25_2.png (PNG copy)> <./graphics/Statistics/Leader/Fl
 ockSize/25_3.png (PNG copy)>]
-<graphics/Statistics/Transport/Angle_Observations.png, id=856, 284.56313pt x 17
+<graphics/Statistics/Transport/Angle_Observations.png, id=892, 284.56313pt x 17
 0.88844pt>
 File: graphics/Statistics/Transport/Angle_Observations.png Graphic file (type p
 ng)
@@ -3514,7 +3557,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Angle_Observations.png u
 sed on input line 335.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Angle_Slack.png, id=857, 284.56313pt x 170.88844
+<graphics/Statistics/Transport/Angle_Slack.png, id=893, 284.56313pt x 170.88844
 pt>
 File: graphics/Statistics/Transport/Angle_Slack.png Graphic file (type png)
  <use graphics/Statistics/Transport/Angle_Slack.png>
@@ -3522,7 +3565,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Angle_Slack.png used on
 input line 336.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Angle_Way.png, id=858, 284.56313pt x 170.88844pt
+<graphics/Statistics/Transport/Angle_Way.png, id=894, 284.56313pt x 170.88844pt
 >
 File: graphics/Statistics/Transport/Angle_Way.png Graphic file (type png)
  <use graphics/Statistics/Transport/Angle_Way.png>
@@ -3530,7 +3573,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Angle_Way.png used on in
 put line 337.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Angle_Move.png, id=859, 284.56313pt x 170.88844p
+<graphics/Statistics/Transport/Angle_Move.png, id=895, 284.56313pt x 170.88844p
 t>
 File: graphics/Statistics/Transport/Angle_Move.png Graphic file (type png)
  <use graphics/Statistics/Transport/Angle_Move.png>
@@ -3551,7 +3594,7 @@ Overfull \hbox (2.08047pt too wide) in paragraph at lines 335--339
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<graphics/Statistics/Transport/Range_Observations.png, id=860, 284.56313pt x 17
+<graphics/Statistics/Transport/Range_Observations.png, id=896, 284.56313pt x 17
 0.88844pt>
 File: graphics/Statistics/Transport/Range_Observations.png Graphic file (type p
 ng)
@@ -3560,7 +3603,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Range_Observations.png u
 sed on input line 350.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Range_Slack.png, id=861, 284.56313pt x 170.88844
+<graphics/Statistics/Transport/Range_Slack.png, id=897, 284.56313pt x 170.88844
 pt>
 File: graphics/Statistics/Transport/Range_Slack.png Graphic file (type png)
  <use graphics/Statistics/Transport/Range_Slack.png>
@@ -3568,7 +3611,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Range_Slack.png used on
 input line 351.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Range_Way.png, id=862, 284.56313pt x 170.88844pt
+<graphics/Statistics/Transport/Range_Way.png, id=898, 284.56313pt x 170.88844pt
 >
 File: graphics/Statistics/Transport/Range_Way.png Graphic file (type png)
  <use graphics/Statistics/Transport/Range_Way.png>
@@ -3576,7 +3619,7 @@ Package pdftex.def Info: graphics/Statistics/Transport/Range_Way.png used on in
 put line 352.
 (pdftex.def)             Requested size: 213.39566pt x 128.15558pt.
 
-<graphics/Statistics/Transport/Range_Move.png, id=863, 284.56313pt x 170.88844p
+<graphics/Statistics/Transport/Range_Move.png, id=899, 284.56313pt x 170.88844p
 t>
 File: graphics/Statistics/Transport/Range_Move.png Graphic file (type png)
  <use graphics/Statistics/Transport/Range_Move.png>
@@ -3605,7 +3648,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 71.
- [56 <./graphics/Statistics/Transport/Number_Observations.png (PNG copy)> <./gr
+ [60 <./graphics/Statistics/Transport/Number_Observations.png (PNG copy)> <./gr
 aphics/Statistics/Transport/Number_Slack.png (PNG copy)> <./graphics/Statistics
 /Transport/Number_Way.png (PNG copy)> <./graphics/Statistics/Transport/Number_M
 ove.png (PNG copy)>]
@@ -3617,7 +3660,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 71.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 71.
- [57 <./graphics/Statistics/Transport/Angle_Observations.png (PNG copy)> <./gra
+ [61 <./graphics/Statistics/Transport/Angle_Observations.png (PNG copy)> <./gra
 phics/Statistics/Transport/Angle_Slack.png (PNG copy)> <./graphics/Statistics/T
 ransport/Angle_Way.png (PNG copy)> <./graphics/Statistics/Transport/Angle_Move.
 png (PNG copy)> <./graphics/Statistics/Transport/Range_Observations.png (PNG co
@@ -3632,7 +3675,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 72.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 72.
- [58
+ [62
 
 
 
@@ -3655,7 +3698,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 72.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 72.
- [59
+ [63
 
 
 
@@ -3668,7 +3711,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 78.
- [60
+ [64
 
 
 
@@ -3695,7 +3738,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 84.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 84.
- [61
+ [65
 
 
 
@@ -3710,7 +3753,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 90.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 90.
- [62
+ [66
 
 
 
@@ -3725,7 +3768,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 90.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 90.
- [63]
+ [67]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 90.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3734,7 +3777,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 90.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 90.
- [64]
+ [68]
 \openout2 = `FrontBackmatter/Colophon.aux'.
 
 
@@ -3752,7 +3795,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 94.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 94.
- [65
+ [69
 
 
 
@@ -3771,16 +3814,20 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
 Package rerunfilecheck Info: File `htwsaar-i-mst-vorlage.out' has not changed.
-(rerunfilecheck)             Checksum: 6720DCDE90704F22200198708823F764;2678.
+(rerunfilecheck)             Checksum: 6F1107C7D52318884B000E3BD4CC5248;2681.
+
+
+LaTeX Warning: There were undefined references.
+
 Package logreq Info: Writing requests to 'htwsaar-i-mst-vorlage.run.xml'.
 \openout1 = `htwsaar-i-mst-vorlage.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41866 strings out of 493013
- 777695 string characters out of 6136993
+ 41890 strings out of 493013
+ 777856 string characters out of 6136993
  1329336 words of memory out of 5000000
- 44103 multiletter control sequences out of 15000+600000
+ 44112 multiletter control sequences out of 15000+600000
  45025 words of font info for 151 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  76i,9n,124p,10525b,3327s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3791,10 +3838,10 @@ ublic/cm-super/sftt1000.pfb><c:/texlive/2016/texmf-dist/fonts/type1/urw/palatin
 o/uplb8a.pfb><c:/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c
 :/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><c:/texlive/2016/
 texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on htwsaar-i-mst-vorlage.pdf (73 pages, 1225875 bytes).
+Output written on htwsaar-i-mst-vorlage.pdf (77 pages, 1243876 bytes).
 PDF statistics:
- 1022 PDF objects out of 1200 (max. 8388607)
- 862 compressed objects within 9 object streams
- 379 named destinations out of 1000 (max. 500000)
+ 1059 PDF objects out of 1200 (max. 8388607)
+ 895 compressed objects within 9 object streams
+ 394 named destinations out of 1000 (max. 500000)
  41114 words of extra memory for PDF output out of 42996 (max. 10000000)
 
