@@ -68,8 +68,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7.3}Anf\IeC {\"u}hrer}{52}{section.7.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.4}Transport von Waren mit Hilfe eines Schwarms}{57}{section.7.4}
+\contentsline {section}{\numberline {7.4}Transport von Waren mit Hilfe eines Schwarms}{58}{section.7.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {8}Fazit und Ausblicke}{63}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{65}{chapter*.144}
+\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{65}{chapter*.145}

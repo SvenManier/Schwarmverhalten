@@ -184,8 +184,14 @@ Topic sind, genau wie in MQTT, gestaffelt, ein Topic kann zum Beispiel \highligh
 Mit dem Tool \highlight{rqt\_graph}\footnote{\url{http://wiki.ros.org/rqt_graph}} lassen sich die verknüpften Topics als Graph darstellen um während des Betriebs eine Übersicht darüber zu bekommen, welche Topics veröffentlicht wurden und welche Node diese jeweils abonniert haben.
 
 \subsubsection*{ROS-Master}
-\note{BILD EINFÜGEN, von Referenz}
-Damit die einzelnen Nodes wissen, wo sie ihre Nachrichten hinschicken müssen, gibt es den ROS-Master\footnote{\url{http://wiki.ros.org/Master}}. Diese spezielle Node muss in jedem ROS-System einmal gestartet werden. Sie dient sozusagen als DNS-Server in der Programmumgebung von ROS. Möchte eine Node eine Nachricht an eine andere senden, hat sie nur den Namen der Node. Sie fragt dann den ROS-Master, der ihr die entsprechende Adresse zurück gibt. Aber nicht nur Namen werden vermittelt, sondern auch Topics, wodurch diese dezentral laufen.
+
+\begin{wrapfigure}{r}{\pictureWidthSmall}
+	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/MasterNameserver.png}
+	\caption{Der ROS-Master als Nameserver}
+	\label{pic:MasterNameserver}
+\end{wrapfigure}
+
+Damit die einzelnen Nodes wissen, wo sie ihre Nachrichten hinschicken müssen, gibt es den ROS-Master\footnote{\url{http://wiki.ros.org/Master}}. Diese spezielle Node muss in jedem ROS-System einmal gestartet werden. Sie dient sozusagen als DNS-Server in der Programmumgebung von ROS. Möchte eine Node eine Nachricht an eine andere senden, hat sie nur den Namen der Node. Sie fragt dann den ROS-Master, der ihr die entsprechende Adresse zurück gibt. Aber nicht nur Namen werden vermittelt, sondern auch Topics, wodurch diese dezentral laufen. \autoref{pic:MasterNameserver} zeigt den ROS-Master bei seiner Tätigkeit.
 
 \subsubsection*{Parameter-Server}
 Als letztes Modul wird der Parameter-Server vorgestellt\footnote{\url{http://wiki.ros.org/Parameter\%20Server}}. Dieser dient sozusagen als Repository in dem Konfigurationen abgespeichert werden können. Möchte man bestimmte Werte, wie zum Beispiel Preise bei einer Ware, nicht in seinen Programmen hartkodieren um sie flexibel zu halten, kann man sich dem Parameter-Server bedienen. Die Struktur der Parameter ist wie die der Topics \highlight{/camera/left/lens}. Es lassen sich aber ganze Level abfragen, die dann als JSON-ähnliches Format versendet werden.

@@ -136,6 +136,8 @@ Ab einem Wert von 10\per zeigt sich letztlich eine totale Streuung und die Trend
 
 \section{Anführer}
 
+\newcommand{\sectionLeaderPictureStats}{width=7.5cm, height=4cm}
+
 Nachdem der Anführer implementiert wurde, wurde das konzipierte Verhalten getestet und verschiedene Statistiken erhoben, inwiefern ein Anführer in der Lage ist einen Schwarm an sein Ziel zu führen, ohne dass diese aktiv gesteuert werden müssen.
 Dafür wurde der gesamte Schwarm an einer Ecke der Simulation platziert. Die Einheiten waren dabei immer nahe genug beieinander, um als einzelner Schwarm angesehen zu werden, aber ansonsten zufällig verteilt. Einem der Roboter wurde daraufhin zufällig eine \highlight{New\_Mission} zugeteilt und damit zum Anführer gewählt. Dieser hat daraufhin versucht seinen Schwarm zum Ziel zu führen.
 
@@ -209,9 +211,9 @@ In \autoref{pic:LeaderSize5} zu sehen ist zunächst einmal, dass der Anführer i
 Die Größe des Schwarms zeigt ein sehr ähnliches Bild. Kommen bei 0\per Gruppendrang im Schnitt nur sehr wenige Roboter an, steigert es sich sprunghaft auf 4 Einheiten und ab einem Gruppendrang von 10\per kommen immer alle Roboter an. Trotz einem Einfluss von 16.6\per kann sich der Anführer also nicht durchsetzen, wenn es keinen Gruppendrang gibt.
 
 \begin{figure}[h]
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/5_1.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/5_2.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/5_3.png}
+	\includegraphics[\sectionLeaderPictureStats]{graphics/Statistics/Leader/FlockSize/5_1.png}
+	\includegraphics[\sectionLeaderPictureStats]{graphics/Statistics/Leader/FlockSize/5_2.png}
+	\includegraphics[\sectionLeaderPictureStats]{graphics/Statistics/Leader/FlockSize/5_3.png}
 	\caption{Erfolg eines Anführer ins Abhängigkeit der Gruppengröße und des Gruppendrangs mit 5 passiven Robotern}
 	\label{pic:LeaderSize5}
 \end{figure}
@@ -220,6 +222,7 @@ Die Wartezeiten sind nicht ganz so konstant, zeigen aber, dass es noch deutliche
 
 Bei 100\per Gruppendrang zeigt sich generell überall das beste Ergebnis, was nicht weiter verwunderlich ist. Bei 100\per richten sich die Roboter alle ausschließlich nach ihrer Mitte aus. Diese Konfiguration gab es nur in dieser ersten Statistik. Sie dürfte für die anderen nicht anders ausfallen und zeigen eher, dass das Konzept in dieser Hinsicht generell funktioniert. Eine Abweichung von einem perfekten Ergebnis (abgesehen bei den Wartezeiten) hätte höchstwahrscheinlich auf einen Fehler in der Implementierung hingewiesen.
 
+\newpage
 \subsubsection*{10 passive Roboter}
 
 Die Diagramme in \autoref{pic:LeaderSize10} zeigen, dass der Einfluss des Anführers mit 5 Robotern mehr schon deutlich nachlässt. Konnten vorher schon ab 10\per Gruppendrang beste Ergebnisse erziehlt werden, zeigt der Durchschnitt nun deutlich niedrigere Werte. Außerdem liegen der Mittelwert und der Median nicht mehr so eng beieinander. Dies bedeutet vor allem, dass die Fehlerquote zunahm und die 11 mittleren Ergebnisse nun ebenfalls höhere Schwankungen aufweisen. Nur bei 40\per sieht man noch einen vollen Erfolg über alle Messwerte hinweg.
@@ -237,6 +240,7 @@ Bei 10\per Gruppendrang schafft es der Median noch auf einen vollen Erfolg, der 
 
 Die Wartezeiten hingegen zeigen nicht unbedingt den gleichen Trend, wenn auch hier Mittelwert und Median weiter auseinander sind als beim Vorgänger \autoref{pic:LeaderSize5}. Sie sind zwar allgemein gestiegen, was zu erwarten war, wenn der Platz aufgrund weniger Roboter nun knapper wird. Der Trend ist aber nicht mehr so steil wie zuvor. Steigen beide Diagramme bei ca. 35 Wartezeiten ein, ist der Trend nun flacher und bei 40\per Gruppendrang nun eine deutlich höhere Wartezeit zu sehen (+50\%).
 
+\newpage
 \subsubsection*{15 passive Roboter}
 
 \begin{figure}[h]
@@ -263,14 +267,16 @@ Auch die Wartezeiten zeigen den selben Trend wie zuvor. Sie starten recht hoch, 
 	\label{pic:LeaderSize20}
 \end{figure}
 
-Ab einer passiven Anzahl von 20 Robotern zeigt sich in \autoref{pic:LeaderSize20} erstmals der Trend, dass die Wartezeiten zunehmen, wenn der Gruppendrang größer wird. Ein genauerer Blick auf das Diagram zeigt jedoch auch, dass die Wartezeiten allgemein sehr viel niedriger sind als in den Messungen mit weniger Robotern. Dies ist vor allem darauf zurückzuführen, dass der Anfüher ab einer Zahl von 20 passiven Robotern einen Schwarm viel schneller vollständig verliert und es keine Wartezeiten mehr gibt, weil er schneller dazu übergeht das Ziel alleine aufzusuchen. Auch die anderen beiden Diagramme zeigen nun bei 40\per Gruppendrang keinen vollen Erfolg mehr.
+Ab einer passiven Anzahl von 20 Robotern zeigt sich in \autoref{pic:LeaderSize20} erstmals der Trend, dass die Wartezeiten zunehmen, wenn der Gruppendrang größer wird. Ein genauerer Blick auf das Diagram zeigt jedoch auch, dass die Wartezeiten allgemein sehr viel niedriger sind als in den Messungen mit weniger Robotern.
+
+Dies ist vor allem darauf zurückzuführen, dass der Anfüher ab einer Zahl von 20 passiven Robotern einen Schwarm viel schneller vollständig verliert und es keine Wartezeiten mehr gibt, weil er schneller dazu übergeht das Ziel alleine aufzusuchen. Auch die anderen beiden Diagramme zeigen nun bei 40\per Gruppendrang keinen vollen Erfolg mehr.
 
 \subsubsection*{25 passive Roboter}
 
 \begin{figure}[h]
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/25_1.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/25_2.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/25_3.png}
+	\includegraphics[width=7.5cm, height=4cm]{graphics/Statistics/Leader/FlockSize/25_1.png}
+	\includegraphics[width=7.5cm, height=4cm]{graphics/Statistics/Leader/FlockSize/25_2.png}
+	\includegraphics[width=7.5cm, height=4cm]{graphics/Statistics/Leader/FlockSize/25_3.png}
 	\caption{Erfolg eines Anführer ins Abhängigkeit der Gruppengröße und des Gruppendrangs mit 25 passiven Robotern}
 	\label{pic:LeaderSize25}
 \end{figure}
