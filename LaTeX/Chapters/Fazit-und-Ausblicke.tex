@@ -10,12 +10,40 @@ Die Antwort lautet: Ja, aber...\\
 
 Die Ergebnisse die in \autoref{sec:EvaluationTransport} vorgestellt wurden, zeichnen das Bild, dass es geht, aber umständlich ist. Die 4 Regeln um einen Schwarm zu bilden, haben zwar den Vorteil, dass die einzelnen Roboter tatsächlich sehr performant arbeiten können, das Verhalten generell sehr übersichtlich ist und daher schnell und unkompliziert implementiert werden kann. Auf der anderen Seite ist die Steuerung des Scharms dafür umso komplizierter und allgemein sehr schwarmmig.
 
-Im Standby war Schwarmverhalten durchaus sehr nützlich. Wie in \note{X} gezeigt werden konnte, lässt sich ein Schwarm mit den richtigen Parametern gut dazu bringen sich zu verteilen und anderen (Robotern oder Menschen) nicht im Weg zu stehen. Auch das Einfinden unterhalb des Transportobjektes lässt sich durch das Fluchverhalten der Roboter sehr gut realisieren.
-
 \subsection*{Freier Wille als größter Nachteil}
 Der freie Wille der Roboter sorgt innerhalb des Schwarms für ein möglichst natürliches Verhalten und dafür dass die Roboter als Schwarm dynamisch werden. Er sorgt auch dafür, dass der Schwarm verschiedene Verhaltensweisen zeigt und dass die Roboter in sich in Schwärmen zusammenfinden und gemeinsam herumfahren. Während dies aus Verhaltenstechnischer Sicher interessant ist, zeigt sich, dass beim Transport eines Objektes eben dieser freie Wille aber ein Nachteil ist.
 
+\subsubsection*{Lenkung ist nicht präzise genug}
 Es ist sehr kompliziert einen Schwarm präzise zu lenken. In den Tests der Evaluation sollten die Roboter das Objekt auf einer freien Fläche in einer geraden Linie bewegen. dabei zeigte sich ganz eindeutig, dass der Transport besser verläuft, wenn die Roboter möglichst wenig freien Willen zur Verfügung hatten. Ebenfalls hatte eine höhere Anzahl von Anführern einen positiven Einfluss auf den Transport des Objektes. Ein Schwarm der nur aus Anführern bestand, und somit über keinerlei freien Willen verfügte, sondern nur noch aus gelenkten Robotern bestand, lieferte letztlich das beste Ergebnis.
+
+Waren die Tests auf der geraden Strecke noch recht erfolgreich, dürften sich die Ergebnisse ändern, sobald es darum geht Kurven zu fahren. Es ist recht schwer einen Schwarm in eine Richtung zu beeinflussen. Auf der Geraden muss dies nur 1x geschehen. In Kurven muss dies mehrmals passieren. In früheren Tests wurde der Schwarm dazu veranlasst in Kurven zu fahren. Aufgrund geändertet Implementierung haben es diese Statistiken leider nicht in die Evaluation geschafft, dass sie nicht mehr vergleichbar waren. Dennoch zeigte sich in diesen Tests, dass bereits eine einfache Kurve den Schwarm dazu bring sehr zu schlängeln. Eine 90°-Wende führte eher zu einem großen Bogen wodurch Schwarm der am Ende auch etwas über das Ziel hinausschoss und mit einer Spirale schließlich zum Ziel gelangte.
+
+\note{Ausmaße des Transportobjektes muss bei Routenplanung beachtet werden!}
+
+\subsubsection*{Schlupf oder blockierte Räder}
+Allerdings ist es nicht nur ein Problem den Schwarm als ganzes möglichst präzise in eine Richtung zu lenken, ein weiteres großes Problem ist der Schlupf der einzelnen Roboter.
+Die Roboter die für den Transport zuständig waren, blieben zwar unter dem Objekt, sie fuhren aber unterhalb des Objektes herum und verursachten dadurch Schlupf. Dadurch dass Reibung nicht implementiert wurde, betrug sie 0 und war bei allen Robotern gleich. In der Praxis hätte dieser Schlupf entweder dazu geführt, dass zwischen den Roboter und dem Transportobjekt Reibung entsteht oder sie hätte blockierte Räder zur Folge.
+
+Reibung zwischen dem Transportobjekt und den Robotern hätte auf kurze Sicht eine mögliche Beschädigung des Transportobjektes zur Folge, auf lange Sicht eine beschädigung der Auflagefläche der Roboter. Außerdem darf nicht angenommen werden, dass der Schlupf in der Praxis bei allen Robotern gleich ist. Wurde in der Simulation angenommen, dass das Transportobjekt auf allen Robotern gleich rutscht und dadurch immer in der Mitte des Schwarms bleibt, dürfte sich diese Annahme in der Realität als falsch erweisen und sich das Transportobjekt bei zu viel herumgerutsche nicht mehr dort befinden, wo es von den Robotern angenommen wird. Die Folge wäre schlicht, dass das Transportobjekt von den Robotern rutscht oder an Kanten hängen bleibt, weil die Roboter es nicht präzise genug manövrieren können. Es müsste also eine andere Möglichkeit gefunden werden um die Position des Objektes zu identifizieren und bei den Robotern zu aktualisieren.
+
+Ein permanentes blockieren oder durchdrehen der Räder der Roboter, würde diese auf lange Zeit ebenfalls beschädigen. Außerdem bestimmen die Roboter ihre Position vor allem dadurch, dass sie ihre Ausgangsposition wissen und diese mit der gefahrenen Strecke verrechnen. Es dürfte daher auf Lange sich schwer werden die Position der Roboter präzise zu halten, wenn die Räder durch permanentes blockieren oder durchdrehen nicht die Bewegung verursachen die von ihnen erwartet wird.
+
+
+
+\subsection*{Außerhalb des Transports nützlich}
+Außerhalb des Transports war Schwarmverhalten dagegen durchaus sehr nützlich. Wie in \note{X} gezeigt werden konnte, lässt sich ein Schwarm mit den richtigen Parametern gut dazu bringen sich zu verteilen und anderen (Robotern oder Menschen) nicht im Weg zu stehen. Auch das Einfinden unterhalb des Transportobjektes lässt sich durch das Fluchtverhalten der Roboter sehr gut realisieren. Durch ihre Methode sich gegenseitig auszuweichen, wurde unterhalb des Objektes schnell Platz geschaffen und der Raum recht schnell und unkompliziert gefüllt. Ein Befehl der ihre Räder blockieren ließ, sorgte dann für den Stillstand den man braucht, um das Transportobjekt auf ihren Köpfen aufsetzen zu können.
+
+
+
+\subsection*{Konklusion}
+Als abschließendes Fazit bin ich der Meinung, dass es sich durchaus lohnt Roboter mit Schwarmverhalten zu bauen und zu nutzen. Schwarmverhalten hat den großen Vorteil autonom denkender Roboter die sich dynamisch bewegen und dadurch Verhaltensmuster aufweisen, die mit einer zentralen Steuereinheit nur schwer realisierbar wären. Im Kernpunkt dieser Thesis, dem Transport, ist Schwarmverhalten aber mehr Nachteil als Vorteil und sollte daher nicht dafür genutzt werden.
+
+Beim Transport selbst ist es sinnvoller auf gelenkte Einheiten zu setzen oder Einheiten die sich im Team darüber absprechen, welcher Roboter sich wie bewegt. Es ist wichtig möglichst wenig Schlupf zu haben und die Roboter so fahren zu lassen, dass sie möglichst optimierte Fahrtwege haben.
+
+Eine hybride Nutzung ist daher in meinen Augen die beste Option. Der Standby der Roboter sollte von Schwarmverhalten beherrscht werden. Auch das Einfinden unter dem Objekt geht schnell und effizient mit Schwarmverhalten. Sobald die Transportobjekt allerdings auf den Robotern abgesetzt wurde, gilt es auf gelenktes, berechnetes Verhalten zu setzen. Sobald das Objekt an seinem Ziel abgegeben wurde, ist wieder das Schwarmverhalten einzusetzen und die Roboter sich so auf natürliche Weise verteilen zu lassen.
+
+
+
 
 \section{Probleme mit ROS}
 Die Arbeit mit ROS brachte einige Probleme mit sich, die es zu bewältigen gab und die für Leser, die ROS nutzen wollen, wichtig zu wissen wären. Dieser Abschnitt beschreibt Probleme die zu Beginn der Thesis auftraten (März, 2018) und schildert die Probleme auf die ich gestoßen bin. Es ist möglich, dass einige dieser Probleme bereits mit erscheinen der Thesis behoben sind. Die folgenden Probleme sind kein expliziter Teil der Thesis, sondern lediglich als Erfahrungsbericht anzusehen, von dem andere profitieren können.
