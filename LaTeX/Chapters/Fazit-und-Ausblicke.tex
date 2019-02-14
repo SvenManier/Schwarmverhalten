@@ -1,2 +1,72 @@
 \chapter{Fazit und Ausblicke}
-\lorem
+
+Um die Thesis abzuschließen, werden in diesem Kapitel noch einmal die Ergebnisse der Thesis rekapituliert. Außerdem wird kurz beschrieben, welche Probleme es im Lauf der Thesis gab und wie diese gelöst wurden. Anschließend wird noch ein Ausblick gegeben, was noch hätte geschehen können, wenn die Zeit dieser Thesis kein Ende gesetzt hätte.
+
+\section{Fazit der Thesis}
+
+Die Frage die mit dieser Thesis beantwortet werden sollte war: Ist es möglich mit Hilfe eines Schwarms aus autonomen Robotern Transportaufträge zu erledigen?
+
+Die Antwort lautet: Ja, aber...\\
+
+Die Ergebnisse die in \autoref{sec:EvaluationTransport} vorgestellt wurden, zeichnen das Bild, dass es geht, aber umständlich ist. Die 4 Regeln um einen Schwarm zu bilden, haben zwar den Vorteil, dass die einzelnen Roboter tatsächlich sehr performant arbeiten können, das Verhalten generell sehr übersichtlich ist und daher schnell und unkompliziert implementiert werden kann. Auf der anderen Seite ist die Steuerung des Scharms dafür umso komplizierter und allgemein sehr schwarmmig.
+
+\subsection*{Freier Wille als größter Nachteil}
+Der freie Wille der Roboter sorgt innerhalb des Schwarms für ein möglichst natürliches Verhalten und dafür dass die Roboter als Schwarm dynamisch werden. Er sorgt auch dafür, dass der Schwarm verschiedene Verhaltensweisen zeigt und dass die Roboter in sich in Schwärmen zusammenfinden und gemeinsam herumfahren. Während dies aus Verhaltenstechnischer Sicher interessant ist, zeigt sich, dass beim Transport eines Objektes eben dieser freie Wille aber ein Nachteil ist.
+
+\subsubsection*{Lenkung ist nicht präzise genug}
+Es ist sehr kompliziert einen Schwarm präzise zu lenken. In den Tests der Evaluation sollten die Roboter das Objekt auf einer freien Fläche in einer geraden Linie bewegen. dabei zeigte sich ganz eindeutig, dass der Transport besser verläuft, wenn die Roboter möglichst wenig freien Willen zur Verfügung hatten. Ebenfalls hatte eine höhere Anzahl von Anführern einen positiven Einfluss auf den Transport des Objektes. Ein Schwarm der nur aus Anführern bestand, und somit über keinerlei freien Willen verfügte, sondern nur noch aus gelenkten Robotern bestand, lieferte letztlich das beste Ergebnis.
+
+Waren die Tests auf der geraden Strecke noch recht erfolgreich, dürften sich die Ergebnisse ändern, sobald es darum geht Kurven zu fahren. Es ist recht schwer einen Schwarm in eine Richtung zu beeinflussen. Auf der Geraden muss dies nur 1x geschehen. In Kurven muss dies mehrmals passieren. In früheren Tests wurde der Schwarm dazu veranlasst in Kurven zu fahren. Aufgrund geändertet Implementierung haben es diese Statistiken leider nicht in die Evaluation geschafft, dass sie nicht mehr vergleichbar waren. Dennoch zeigte sich in diesen Tests, dass bereits eine einfache Kurve den Schwarm dazu bring sehr zu schlängeln. Eine 90°-Wende führte eher zu einem großen Bogen wodurch Schwarm der am Ende auch etwas über das Ziel hinausschoss und mit einer Spirale schließlich zum Ziel gelangte.
+
+\note{Ausmaße des Transportobjektes muss bei Routenplanung beachtet werden!}
+
+\subsubsection*{Schlupf oder blockierte Räder}
+Allerdings ist es nicht nur ein Problem den Schwarm als ganzes möglichst präzise in eine Richtung zu lenken, ein weiteres großes Problem ist der Schlupf der einzelnen Roboter.
+Die Roboter die für den Transport zuständig waren, blieben zwar unter dem Objekt, sie fuhren aber unterhalb des Objektes herum und verursachten dadurch Schlupf. Dadurch dass Reibung nicht implementiert wurde, betrug sie 0 und war bei allen Robotern gleich. In der Praxis hätte dieser Schlupf entweder dazu geführt, dass zwischen den Roboter und dem Transportobjekt Reibung entsteht oder sie hätte blockierte Räder zur Folge.
+
+Reibung zwischen dem Transportobjekt und den Robotern hätte auf kurze Sicht eine mögliche Beschädigung des Transportobjektes zur Folge, auf lange Sicht eine beschädigung der Auflagefläche der Roboter. Außerdem darf nicht angenommen werden, dass der Schlupf in der Praxis bei allen Robotern gleich ist. Wurde in der Simulation angenommen, dass das Transportobjekt auf allen Robotern gleich rutscht und dadurch immer in der Mitte des Schwarms bleibt, dürfte sich diese Annahme in der Realität als falsch erweisen und sich das Transportobjekt bei zu viel herumgerutsche nicht mehr dort befinden, wo es von den Robotern angenommen wird. Die Folge wäre schlicht, dass das Transportobjekt von den Robotern rutscht oder an Kanten hängen bleibt, weil die Roboter es nicht präzise genug manövrieren können. Es müsste also eine andere Möglichkeit gefunden werden um die Position des Objektes zu identifizieren und bei den Robotern zu aktualisieren.
+
+Ein permanentes blockieren oder durchdrehen der Räder der Roboter, würde diese auf lange Zeit ebenfalls beschädigen. Außerdem bestimmen die Roboter ihre Position vor allem dadurch, dass sie ihre Ausgangsposition wissen und diese mit der gefahrenen Strecke verrechnen. Es dürfte daher auf Lange sich schwer werden die Position der Roboter präzise zu halten, wenn die Räder durch permanentes blockieren oder durchdrehen nicht die Bewegung verursachen die von ihnen erwartet wird.
+
+
+
+\subsection*{Außerhalb des Transports nützlich}
+Außerhalb des Transports war Schwarmverhalten dagegen durchaus sehr nützlich. Wie in \note{X} gezeigt werden konnte, lässt sich ein Schwarm mit den richtigen Parametern gut dazu bringen sich zu verteilen und anderen (Robotern oder Menschen) nicht im Weg zu stehen. Auch das Einfinden unterhalb des Transportobjektes lässt sich durch das Fluchtverhalten der Roboter sehr gut realisieren. Durch ihre Methode sich gegenseitig auszuweichen, wurde unterhalb des Objektes schnell Platz geschaffen und der Raum recht schnell und unkompliziert gefüllt. Ein Befehl der ihre Räder blockieren ließ, sorgte dann für den Stillstand den man braucht, um das Transportobjekt auf ihren Köpfen aufsetzen zu können.
+
+
+
+\subsection*{Konklusion}
+Als abschließendes Fazit bin ich der Meinung, dass es sich durchaus lohnt Roboter mit Schwarmverhalten zu bauen und zu nutzen. Schwarmverhalten hat den großen Vorteil autonom denkender Roboter die sich dynamisch bewegen und dadurch Verhaltensmuster aufweisen, die mit einer zentralen Steuereinheit nur schwer realisierbar wären. Im Kernpunkt dieser Thesis, dem Transport, ist Schwarmverhalten aber mehr Nachteil als Vorteil und sollte daher nicht dafür genutzt werden.
+
+Beim Transport selbst ist es sinnvoller auf gelenkte Einheiten zu setzen oder Einheiten die sich im Team darüber absprechen, welcher Roboter sich wie bewegt. Es ist wichtig möglichst wenig Schlupf zu haben und die Roboter so fahren zu lassen, dass sie möglichst optimierte Fahrtwege haben.
+
+Eine hybride Nutzung ist daher in meinen Augen die beste Option. Der Standby der Roboter sollte von Schwarmverhalten beherrscht werden. Auch das Einfinden unter dem Objekt geht schnell und effizient mit Schwarmverhalten. Sobald die Transportobjekt allerdings auf den Robotern abgesetzt wurde, gilt es auf gelenktes, berechnetes Verhalten zu setzen. Sobald das Objekt an seinem Ziel abgegeben wurde, ist wieder das Schwarmverhalten einzusetzen und die Roboter sich so auf natürliche Weise verteilen zu lassen.
+
+
+
+
+\section{Probleme mit ROS}
+Die Arbeit mit ROS brachte einige Probleme mit sich, die es zu bewältigen gab und die für Leser, die ROS nutzen wollen, wichtig zu wissen wären. Dieser Abschnitt beschreibt Probleme die zu Beginn der Thesis auftraten (März, 2018) und schildert die Probleme auf die ich gestoßen bin. Es ist möglich, dass einige dieser Probleme bereits mit erscheinen der Thesis behoben sind. Die folgenden Probleme sind kein expliziter Teil der Thesis, sondern lediglich als Erfahrungsbericht anzusehen, von dem andere profitieren können.
+
+\subsection*{Bau von ROS}
+Möchte man mit ROS starten wird man gewillt sein die neueste Version von ROS zu nehmen. Diese ist derzeit \highlight{Melodic Morenia} und wird mit Ubuntu 18.04 empfohlen. Allerdings scheint diese Version von ROS noch nicht alle Packages auf der neuesten Version zu haben. Der Bau nach Anleitung geht, aufgrund fehlender Pakete schief.
+
+Die Version davor ist 'Lunar Loggerhead', welche als 'primarily targeted at the Ubuntu 17.04 (Zesty)' beschrieben wird. Jedoch geht auch dieser Bau schief, wieder aufgrund fehlender Pakete. Nach einigem Probieren wurde mit \highlight{Ubuntu LTS 16.04 Xenial} eine Ubuntu-Version gefunden, bei der ROS ohne Probleme bauen konnte.
+
+\subsection*{Bugs}
+Beim arbeiten mit ROS wurden einige Bugs erkannt, die nachfolgend etwas erläutert werden. Die Bugs wurden allerdings nicht behoben oder genauer untersucht. Da dies nicht Teil der Thesis ist, wurde nur versucht den schnellsten Workaround zu finden um mit der Arbeit fortfahren zu können.
+
+\subsubsection*{Veraltete Position der Turtles}
+In der Praxis hat sich gezeigt, dass die Position der Turtles, die man von der Turtlesim am Ende eines Fahrbefehls zurück bekommt, nicht immer gestimmt hat. Teleportiert man sich mittels \highlight{teleport_absolute} an die Stelle, die man als Position zurück bekommt, wird die Turtle einige Einheiten nach hinten verschoben. Ohne dies genauer zu überprüfen, wirkt es, als würde der Fahrbefehl 1s ausgeführt werden, die Position wird allerdings bereits nach 900ms gespeichert und gesendet.
+Aus diesem Grund wird in der Thesis später kein Gebrauch von \highlight{teleport_absolute} gemacht, sondern nur \highlight{teleport_relative} genutzt um sich zu drehen. Dadurch wird die Position im Raster nicht verändert.
+
+\subsubsection*{Nicht angezeigte Turtles}
+Im Laufe der Thesis wurde sowohl mit meinem normalen PC, als auch mit einem Laptop an der Thesis gearbeitet. Beide mal wurde das selbe System genutzt und ROS auf die selbe Weise installiert. Trotzdem kam es bei der Arbeit zu einem Fehler, wenn der Laptop genutzt wurde. Beim Starten der Simulationen (Turtlesim mit vielen Turtles) kam es dazu, dass einige Turtles nicht in der Turtlesim angezeigt wurden. Sie wurden zwar erstellt, blitzten dann kurz als Symbol auf, aber verschwanden innerhalb eines bruchteils einer Sekunde wieder. Die Aufzeichnungen belegten aber, dass sie erstellt wurden, sich bewegten und mit den anderen Turtles interagiert haben. Die fehlende Darstellung wurde dabei nicht von einer Fehlermeldung oder ähnlichem begleitet. Dieser Fehler trat reproduzierbar auf, folgte aber keiner mit ersichtlichen Logik, bezogen darauf welche Turtles es traf. Es waren jedoch stets immer die selben Turtles, welche sich im Sourcecode nicht von den anderen unterschieden. \textbf{Ein Workaround konnte bis heute nicht gefunden werden.}
+
+\subsubsection*{NaN als Position in der Turtlesim}
+Ebenfalls reproduzierbar und nicht nachvollziehbar war der Fehler, dass einige Roboter nach dem Start scheinbar 'NaN' als Position zurück gaben (die Position hat \highlight{float} als Datentyp). Dieser Fehler trat manchmal auf und blieb über die Dauer der Turtlesim bestehen. Ein Workaround hierfür war das Programm neu zu kompilieren.
+
+\subsubsection*{Veraltete Sources}
+Ein anderer Bug betraf nicht ROS direkt, sondern sein build-system catkin. Dieses kompiliert nur Source-Code neu, wenn er verändert wurde. Ein Feature welches (wahrscheinlich) dazu dienen soll die Kompilierzeit gering zu halten. Es stellte sich aber heraus, dass catkin dabei scheinbar nur \highlight{.c} und \highlight{.cpp} Dateien beachtet und Header-Dateien auslässt, wenn die Source-Dateien keine Veränderung aufweisen.
+
+Der Code meiner Thesis wurde als Header-Only geschrieben. Das bedeutet, dass Klassen sich nicht in Header und Source aufteilen, sondern dass die gesamte Implementierung stets in den Header-Dateien vorzufinden ist. Wurden nur Änderungen an diesen Dateien vorgenommen, übersprang catkin diese Dateien und die angepasste Simulation wurde mit veralteten Source-Dateien gebaut. Ein einfacher Workaround dieses Problems wurde mit einem Skript geschaffen, welches rekursiv den gesamten Source-Ordner durchgeht und den Änderungs-Zeitstempel mittels den \highlight{touch}-Befehls\footnote{\url{https://wiki.ubuntuusers.de/touch/}} von Linux modifiziert. Dadurch wurden zwar immer alle Dateien neu kompiliert und der ganze Kompilier-Vorgang verlief wesentlich langsamer ab als er hätte sein müssen. Es war letztlich aber die schnellste Methode um den Fehler in catkin zu umgehen.
