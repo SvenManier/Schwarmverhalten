@@ -4,9 +4,7 @@ Um die Thesis abzuschließen, werden in diesem Kapitel noch einmal die Ergebniss
 
 \section{Fazit der Thesis}
 
-Die Frage die mit dieser Thesis beantwortet werden sollte war: Ist es möglich mit Hilfe eines Schwarms aus autonomen Robotern Transportaufträge zu erledigen?
-
-Die Antwort lautet: Ja, aber...\\
+Die Frage die mit dieser Thesis beantwortet werden sollte war: Ist es möglich mit Hilfe eines Schwarms aus autonomen Robotern Transportaufträge zu erledigen? Die Antwort lautet: Ja, aber...\\
 
 Die Ergebnisse die in \autoref{sec:EvaluationTransport} vorgestellt wurden, zeichnen das Bild, dass es geht, aber umständlich ist. Die 4 Regeln um einen Schwarm zu bilden, haben zwar den Vorteil, dass die einzelnen Roboter tatsächlich sehr performant arbeiten können, das Verhalten generell sehr übersichtlich ist und daher schnell und unkompliziert implementiert werden kann. Auf der anderen Seite ist die Steuerung des Scharms dafür umso komplizierter und allgemein sehr schwarmmig.
 
@@ -57,8 +55,8 @@ Die Version davor ist 'Lunar Loggerhead', welche als 'primarily targeted at the 
 Beim arbeiten mit ROS wurden einige Bugs erkannt, die nachfolgend etwas erläutert werden. Die Bugs wurden allerdings nicht behoben oder genauer untersucht. Da dies nicht Teil der Thesis ist, wurde nur versucht den schnellsten Workaround zu finden um mit der Arbeit fortfahren zu können.
 
 \subsubsection*{Veraltete Position der Turtles}
-In der Praxis hat sich gezeigt, dass die Position der Turtles, die man von der Turtlesim am Ende eines Fahrbefehls zurück bekommt, nicht immer gestimmt hat. Teleportiert man sich mittels \highlight{teleport_absolute} an die Stelle, die man als Position zurück bekommt, wird die Turtle einige Einheiten nach hinten verschoben. Ohne dies genauer zu überprüfen, wirkt es, als würde der Fahrbefehl 1s ausgeführt werden, die Position wird allerdings bereits nach 900ms gespeichert und gesendet.
-Aus diesem Grund wird in der Thesis später kein Gebrauch von \highlight{teleport_absolute} gemacht, sondern nur \highlight{teleport_relative} genutzt um sich zu drehen. Dadurch wird die Position im Raster nicht verändert.
+In der Praxis hat sich gezeigt, dass die Position der Turtles, die man von der Turtlesim am Ende eines Fahrbefehls zurück bekommt, nicht immer gestimmt hat. Teleportiert man sich mittels \highlight{teleport\_absolute} an die Stelle, die man als Position zurück bekommt, wird die Turtle einige Einheiten nach hinten verschoben. Ohne dies genauer zu überprüfen, wirkt es, als würde der Fahrbefehl 1s ausgeführt werden, die Position wird allerdings bereits nach 900ms gespeichert und gesendet.
+Aus diesem Grund wird in der Thesis später kein Gebrauch von \highlight{teleport\_absolute} gemacht, sondern nur \highlight{teleport\_relative} genutzt um sich zu drehen. Dadurch wird die Position im Raster nicht verändert.
 
 \subsubsection*{Nicht angezeigte Turtles}
 Im Laufe der Thesis wurde sowohl mit meinem normalen PC, als auch mit einem Laptop an der Thesis gearbeitet. Beide mal wurde das selbe System genutzt und ROS auf die selbe Weise installiert. Trotzdem kam es bei der Arbeit zu einem Fehler, wenn der Laptop genutzt wurde. Beim Starten der Simulationen (Turtlesim mit vielen Turtles) kam es dazu, dass einige Turtles nicht in der Turtlesim angezeigt wurden. Sie wurden zwar erstellt, blitzten dann kurz als Symbol auf, aber verschwanden innerhalb eines bruchteils einer Sekunde wieder. Die Aufzeichnungen belegten aber, dass sie erstellt wurden, sich bewegten und mit den anderen Turtles interagiert haben. Die fehlende Darstellung wurde dabei nicht von einer Fehlermeldung oder ähnlichem begleitet. Dieser Fehler trat reproduzierbar auf, folgte aber keiner mit ersichtlichen Logik, bezogen darauf welche Turtles es traf. Es waren jedoch stets immer die selben Turtles, welche sich im Sourcecode nicht von den anderen unterschieden. \textbf{Ein Workaround konnte bis heute nicht gefunden werden.}

@@ -72,4 +72,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {8}Fazit und Ausblicke}{63}{chapter.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{65}{chapter*.145}
+\contentsline {section}{\numberline {8.1}Fazit der Thesis}{63}{section.8.1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8.2}Probleme mit ROS}{65}{section.8.2}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{67}{chapter*.160}

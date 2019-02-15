@@ -136,8 +136,6 @@ Ab einem Wert von 10\per zeigt sich letztlich eine totale Streuung und die Trend
 
 \section{Anführer}
 
-\newcommand{\sectionLeaderPictureStats}{width=7.5cm, height=4cm}
-
 Nachdem der Anführer implementiert wurde, wurde das konzipierte Verhalten getestet und verschiedene Statistiken erhoben, inwiefern ein Anführer in der Lage ist einen Schwarm an sein Ziel zu führen, ohne dass diese aktiv gesteuert werden müssen.
 Dafür wurde der gesamte Schwarm an einer Ecke der Simulation platziert. Die Einheiten waren dabei immer nahe genug beieinander, um als einzelner Schwarm angesehen zu werden, aber ansonsten zufällig verteilt. Einem der Roboter wurde daraufhin zufällig eine \highlight{New\_Mission} zugeteilt und damit zum Anführer gewählt. Dieser hat daraufhin versucht seinen Schwarm zum Ziel zu führen.
 
@@ -205,15 +203,17 @@ Dabei werden immer 2 Werte gezeigt. 'Mittelwert', der einen einfachen Mittelwert
 
 \subsubsection*{5 passive Roboter}
 
+\newcommand{\sectionLeaderPictureWidth}{7.5cm}
+\newcommand{\sectionLeaderPictureHeight}{3.5cm}
 
 In \autoref{pic:LeaderSize5} zu sehen ist zunächst einmal, dass der Anführer in einer Gruppe mit nur 5 Robotern einen sehr starken Einfluss auf die Gruppe hat. Bereits ohne Gruppendrang gibt es eine Erfolgsquote von über 20\%. Ab 5\per Gruppendrang gibt es schon annähernd 80\per Erfolgsquote und ab 10\per bekommt der Anführer seinen Schwarm immer vollständig ans Ziel gebracht. Median und Mittelwert sind meist relativ nahe zusammen, was bedeutet dass es sehr wenige Ausreißer gab, wenn überhaupt.
 
-Die Größe des Schwarms zeigt ein sehr ähnliches Bild. Kommen bei 0\per Gruppendrang im Schnitt nur sehr wenige Roboter an, steigert es sich sprunghaft auf 4 Einheiten und ab einem Gruppendrang von 10\per kommen immer alle Roboter an. Trotz einem Einfluss von 16.6\per kann sich der Anführer also nicht durchsetzen, wenn es keinen Gruppendrang gibt.
+Die Größe des Schwarms zeigt ein sehr ähnliches Bild. Kommen bei 0\per Gruppendrang im Schnitt nur sehr wenige Roboter an, steigert es sich sprunghaft auf 80\per Einheiten und ab einem Gruppendrang von 10\per kommen immer alle Roboter an. Trotz einem Einfluss von 16.6\per kann sich der Anführer also nicht durchsetzen, wenn es keinen Gruppendrang gibt.
 
 \begin{figure}[h]
-	\includegraphics[\sectionLeaderPictureStats]{graphics/Statistics/Leader/FlockSize/5_1.png}
-	\includegraphics[\sectionLeaderPictureStats]{graphics/Statistics/Leader/FlockSize/5_2.png}
-	\includegraphics[\sectionLeaderPictureStats]{graphics/Statistics/Leader/FlockSize/5_3.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/5_1.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/5_2.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/5_3.png}
 	\caption{Erfolg eines Anführer ins Abhängigkeit der Gruppengröße und des Gruppendrangs mit 5 passiven Robotern}
 	\label{pic:LeaderSize5}
 \end{figure}
@@ -222,15 +222,14 @@ Die Wartezeiten sind nicht ganz so konstant, zeigen aber, dass es noch deutliche
 
 Bei 100\per Gruppendrang zeigt sich generell überall das beste Ergebnis, was nicht weiter verwunderlich ist. Bei 100\per richten sich die Roboter alle ausschließlich nach ihrer Mitte aus. Diese Konfiguration gab es nur in dieser ersten Statistik. Sie dürfte für die anderen nicht anders ausfallen und zeigen eher, dass das Konzept in dieser Hinsicht generell funktioniert. Eine Abweichung von einem perfekten Ergebnis (abgesehen bei den Wartezeiten) hätte höchstwahrscheinlich auf einen Fehler in der Implementierung hingewiesen.
 
-\newpage
 \subsubsection*{10 passive Roboter}
 
 Die Diagramme in \autoref{pic:LeaderSize10} zeigen, dass der Einfluss des Anführers mit 5 Robotern mehr schon deutlich nachlässt. Konnten vorher schon ab 10\per Gruppendrang beste Ergebnisse erziehlt werden, zeigt der Durchschnitt nun deutlich niedrigere Werte. Außerdem liegen der Mittelwert und der Median nicht mehr so eng beieinander. Dies bedeutet vor allem, dass die Fehlerquote zunahm und die 11 mittleren Ergebnisse nun ebenfalls höhere Schwankungen aufweisen. Nur bei 40\per sieht man noch einen vollen Erfolg über alle Messwerte hinweg.
 
 \begin{figure}[h]
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/10_1.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/10_2.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/10_3.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/10_1.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/10_2.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/10_3.png}
 	\caption{Erfolg eines Anführer ins Abhängigkeit der Gruppengröße und des Gruppendrangs mit 10 passiven Robotern}
 	\label{pic:LeaderSize10}
 \end{figure}
@@ -240,13 +239,12 @@ Bei 10\per Gruppendrang schafft es der Median noch auf einen vollen Erfolg, der 
 
 Die Wartezeiten hingegen zeigen nicht unbedingt den gleichen Trend, wenn auch hier Mittelwert und Median weiter auseinander sind als beim Vorgänger \autoref{pic:LeaderSize5}. Sie sind zwar allgemein gestiegen, was zu erwarten war, wenn der Platz aufgrund weniger Roboter nun knapper wird. Der Trend ist aber nicht mehr so steil wie zuvor. Steigen beide Diagramme bei ca. 35 Wartezeiten ein, ist der Trend nun flacher und bei 40\per Gruppendrang nun eine deutlich höhere Wartezeit zu sehen (+50\%).
 
-\newpage
 \subsubsection*{15 passive Roboter}
 
 \begin{figure}[h]
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/15_1.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/15_2.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/15_3.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/15_1.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/15_2.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/15_3.png}
 	\caption{Erfolg eines Anführer ins Abhängigkeit der Gruppengröße und des Gruppendrangs mit 15 passiven Robotern}
 	\label{pic:LeaderSize15}
 \end{figure}
@@ -260,9 +258,9 @@ Auch die Wartezeiten zeigen den selben Trend wie zuvor. Sie starten recht hoch, 
 \subsubsection*{20 passive Roboter}
 
 \begin{figure}[h]
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/20_1.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/20_2.png}
-	\includegraphics[width=7.5cm, keepaspectratio]{graphics/Statistics/Leader/FlockSize/20_3.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/20_1.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/20_2.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/20_3.png}
 	\caption{Erfolg eines Anführer ins Abhängigkeit der Gruppengröße und des Gruppendrangs mit 20 passiven Robotern}
 	\label{pic:LeaderSize20}
 \end{figure}
@@ -274,15 +272,16 @@ Dies ist vor allem darauf zurückzuführen, dass der Anfüher ab einer Zahl von 
 \subsubsection*{25 passive Roboter}
 
 \begin{figure}[h]
-	\includegraphics[width=7.5cm, height=4cm]{graphics/Statistics/Leader/FlockSize/25_1.png}
-	\includegraphics[width=7.5cm, height=4cm]{graphics/Statistics/Leader/FlockSize/25_2.png}
-	\includegraphics[width=7.5cm, height=4cm]{graphics/Statistics/Leader/FlockSize/25_3.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/25_1.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/25_2.png}
+	\includegraphics[width=\sectionLeaderPictureWidth , height=\sectionLeaderPictureHeight]{graphics/Statistics/Leader/FlockSize/25_3.png}
 	\caption{Erfolg eines Anführer ins Abhängigkeit der Gruppengröße und des Gruppendrangs mit 25 passiven Robotern}
 	\label{pic:LeaderSize25}
 \end{figure}
 
 In den letzten Diagrammen (\autoref{pic:LeaderSize25}) ist letztlich zu sehen dass sich der allgemeine Trend weiter fort führt. Die Wartezeiten sinken noch deutlicher, weil der Anführer seinen Schwarm immer früher verliert. Die erfolgreiche Strecke nimmt genau wie die Anzahl der Roboter die im Ziel ankommen immer mehr ab. Nur bei 40\per Gruppendrang bleiben die Werte noch immer recht hoch.
 
+Der Trend mit mehr Robotern zeigt letztlich, dass ein Anführer nicht in der Lage ist einen Schwarm im freien Feld vernünftig zu lenken. Selbst wenn man bedenkt, dass die Strecke recht kurz und gerade ist. Die immer höhere Zahl passiver Roboter lässt den Einfluss des Anführers mit der Zeit zu sehr schrumpfen, bis er am Ende fast nicht mehr wahrgenommen wird. Nur bei 40\per Gruppendrang funktioniert das System noch, wahrscheinlich dadurch dass der Roboter trotz geringem Einfluss noch den Mittelpunkt des Schwarms verschiebt.
 
 
 
@@ -292,36 +291,38 @@ In den letzten Diagrammen (\autoref{pic:LeaderSize25}) ist letztlich zu sehen da
 
 
 
-
-\section{Transport von Waren mit Hilfe eines Schwarms}\label{sec:EvaluationTransport}
+\section{Transport von Waren mit Hilfe eines Schwarms}
 
 Nun da alles zusammengesetzt ist, gilt es letzte Messungen zu machen und zu schauen, wie sich die Roboter unter verschiedenen Bedingungen beim Transport machen.
 
 Bei den folgenden Statistiken wurden jeweils 15 Simulationen durchgeführt und die mittleren 11 zu einem Durchschnitt verrechnet um Ausreißer zu eliminieren. Die Roboter wurden zufällig auf der gesamten Simulation erstellt und nach wenigen Sekunden der Auftrag gesendet. Sobald sie alle versammelt waren, wurde die Aufzeichnung gestartet und der Schwarm machte sich auf den Weg zum Ziel. Dabei wurden 4 verschiedene Eigenschaften beobachtet:
 
-\paragraph*{Observations}
+\paragraph*{Anzahl der Ticks}
 Dies ist die Anzahl der Ticks die während des Transports verstrichen sind. Da ein Tick genau 1.1s dauert, ist es damit auch ein direktes Equivalent für die Zeit die der Transport gedauert hat.
 
-\paragraph*{LengthOfSlack}
+\paragraph*{Roboter-Schlupf}
 Von einem Tick zum anderen wurde gemessen, wie viel sich die einzelnen Roboter in Relation zur Mitte des Objektes bewegt haben. Dadurch wurde der Schlupf berechnet, den es während des Transports gab. Zu bedenken ist bei diesem Wert allerdings, dass die Simulation über keine Berechnung von Reibung verfügt, die Roboter also eine unendliche Kraft besitzen. Die Werte stellen demnach eine obere Grenze dar, für den Schlupf der in der Realität entstehen könnte.
 
-\paragraph*{LengthOfDrivenWay}
+\paragraph*{Gefahrene Strecke}
 Verdeutlicht den Weg, der von einem Roboter durchschnittlich zurückgelegt wurde. Die direkte Strecke vom Start zum Ende hat eine Länge von 5.656 (ROS-Einheiten). Da das Transportobjekt nur innerhalb der Reichweite von 0.05 am Ziel sein musste, ergibt sich somit eine Strecke von 5.606 Einheiten die gefahren werden musste.
 
-\paragraph*{LeaderDidntMove}
+\paragraph*{Wartezeiten Anführer}
 Letztlich wurde noch gemessen, wie oft es vor kam, dass ein Anführer sich nicht bewegen konnte, weil ein anderer Roboter ihm den Weg versperrte.
 
 \subsection*{Abhängigkeit: Größe des Flocks und Anzahl Anführer}
 
-In den ersten Simulationen wurden verschiedene Kombinationen von passiven Robotern und Anführern getestet.
+In den ersten Simulationen wurden verschiedene Kombinationen von passiven Robotern und Anführern getestet. \autoref{pic:TransportNumber} zeigt die Entwicklung über verschiedene Schwärme hinweg. '5R, 1L' bedeutet dabei, 5 Roboter + 1 Anführer (Leader).
 
 Unschwer zu sehen ist, dass der Transport mit 5 Robotern und 1 Anführer am längsten dauert, mit 66 Ticks. Überraschend jedoch ist, dass 10 Roboter und 2 Anführer schneller ist und 15 Roboter mit 3 Anführern wieder etwas schneller. Die Geschwindigkeit ist also nicht unbedingt nur davon abhängig, wie viel Prozent der Roboter Anführer sind. Generell ist der Transport schneller, je mehr Roboter man hat.
 
+\newcommand{\sectionTransportPictureWidth}{7.5cm}
+\newcommand{\sectionTransportPictureHeight}{3.5cm}
+
 \begin{figure}[h]
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Number_Observations.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Number_Slack.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Number_Way.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Number_Move.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Number_Observations.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Number_Slack.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Number_Way.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Number_Move.png}
 	\caption{Abhängigkeit: Größes des Flocks und Anzahl der Anführer}
 	\label{pic:TransportNumber}
 \end{figure}
@@ -338,10 +339,10 @@ Der letzte Balken der Statistik zeigt den Transport mit allen Robotern als Anfü
 In der zweiten Runde von Simulationen wurde der freie Wille verändert. Bei 0° haben sich die Roboter streng nach ihren Nachbarn ausgerichtet und der einzige Zufall waren ihre Ausrichtungen bei Beginn des Transports. Entsprechend stellt diese Konfiguration wieder die Grenze auf, wie gut der Schwarm werden kann.
 
 \begin{figure}[h]
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Angle_Observations.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Angle_Slack.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Angle_Way.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Angle_Move.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Angle_Observations.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Angle_Slack.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Angle_Way.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Angle_Move.png}
 	\caption{Abhängigkeit: Freier Wille}
 	\label{pic:TransportAngle}
 \end{figure}
@@ -353,10 +354,10 @@ Generell ist in dieser Runde, wenig überraschend zu sehen, dass der Transport b
 Die letzte Runde der Simulationen zeigt den Transport mit verschiedenen Reichweiten. Das Objekt ist 2x2 groß. Bei einer Reichweite von 4 ist das Transportobjekt von einer Ecke zur anderen abgedeckt. Bei einer lokalen Reichweite von 0.3 kommen sie gerade so über die eigene Größe hinaus, die 0.1 beträgt.
 
 \begin{figure}[h]
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Range_Observations.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Range_Slack.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Range_Way.png}
-	\includegraphics[width=7.5cm,keepaspectratio]{graphics/Statistics/Transport/Range_Move.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Range_Observations.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Range_Slack.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Range_Way.png}
+	\includegraphics[width=\sectionTransportPictureWidth , height=\sectionTransportPictureHeight]{graphics/Statistics/Transport/Range_Move.png}
 	\caption{Abhängigkeit: Lokale Reichweite}
 	\label{pic:TransportRange}
 \end{figure}
