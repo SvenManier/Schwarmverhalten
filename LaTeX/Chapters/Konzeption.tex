@@ -9,7 +9,7 @@ Die Konzeption dieser Thesis beruht darauf, dass ROS (Robot Operating System) ge
 Die Konzeption ist in 3 Phasen unterteilt, die das Konzept zum letztlichen Ziel führen werden. Der Sinn hinter diesen 3 Phasen, ist eine Iteration. Die anderen Kapitel (Implementierung und Evaluation) werden parallel geführt werden und nach jeder Phase der Konzeption wird das System zuerst prototypisch gebaut und anschließend evaluiert. Dadurch kann die Konzeption in seinen weiteren Phasen auf die Ergebnisse der vorangegangenen eingehen und auf den neuen Erkenntnissen aufbauen. Außerdem wird dadurch sichergestellt, dass das Verhalten der Roboter nicht zu sehr auf die Aufgabe des Transports zugeschnitten wird. Das ist deswegen wichtig, weil das zugrundeliegende System ein natürliches Schwarmverhalten, ähnlich dem von Tieren, sein soll und keine Gruppe von autonomen, aber strategisch denkenden Robotern.
 
 \section{Nachbau des Schwarms nach Craig Reynolds}
-Da der Transport des Schwarms auf den 3 (bzw. 4) Grundregeln des Schwarmverhaltens besteht, welche von Craig Reynolds erstmals modelliert wurden\cite{CraigReynolds_Boids}, galt es diese erst nachzustellen und zu analysieren. Raynolds selbst stellte nur die ersten drei Regeln auf. Eine vierte wurde hinzugefügt, da diese im realen Einsatz Sinn macht und auch im natürlichen Verhalten von Tieren zu sehen ist. Der Schwarm wurde zunächst nachgebaut, ohne auf die spätere Verwendung für Transporte zu achten, da diese (möglichst) ohne Kompromisse auf dem Schwarm-Prinzip aufbauen sollten. 
+Da der Transport des Schwarms auf den 3 (bzw. 4) Grundregeln des Schwarmverhaltens besteht, welche von Craig Reynolds erstmals modelliert wurden\cite{CraigReynolds_Boids}, galt es diese erst nachzustellen und zu analysieren. Reynolds selbst stellte nur die ersten drei Regeln auf. Eine vierte wurde hinzugefügt, da diese im realen Einsatz Sinn macht und auch im natürlichen Verhalten von Tieren zu sehen ist. Der Schwarm wurde zunächst nachgebaut, ohne auf die spätere Verwendung für Transporte zu achten, da diese (möglichst) ohne Kompromisse auf dem Schwarm-Prinzip aufbauen sollten. 
 
 \subsection*{Ziel}
 
@@ -41,8 +41,8 @@ Die Roboter werden als autonome Einheiten konzipiert, die sich ausschließlich a
 
 \subsubsection*{Ausrichtung: Passe deine Bewegungsrichtung deinen Nachbarn an}
 
-\begin{wrapfigure}{r}{\pictureWidthSmall}
-	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/Winkel_badCalculation.png}
+\begin{wrapfigure}{r}{\pictureWidth}
+	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/Winkel_badCalculation.png}
 	\caption{Winkel-Übersicht}
 	\label{pic:Winkel_badCalculation}
 \end{wrapfigure}
@@ -54,46 +54,53 @@ Da ein Roboter die Position und Ausrichtung jedes anderen Roboters kennt, ist es
  
 \subsubsection*{Zusammenhang: Versuche deinen Nachbarn nahe zu sein}
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/SchwarmMittelpunktBerechnung.png}
-	\caption{Berechnung des Mittelpunkts}
-	\label{pic:BerechnungMittelpunkt}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/SchwarmMittelpunktBerechnung.png}
+%	\caption{Berechnung des Mittelpunkts}
+%	\label{pic:BerechnungMittelpunkt}
+%\end{wrapfigure}
 
-Dieser Abschnitt wird realisiert, indem zuerst die Liste der Roboter, die nahe genug sind um zur Nachbarschaft zu gehören, wieder hergenommen wird. Anschließend wird ein simpler Durschnitt über alle Positionen (x/y - Koordinaten), der vorhandenen Roboter berechnet. Die resultierenden Koordinaten werden von den eigenen Koordinaten abgezogen, um die relative Position des Schwarm-Mittelpunkts zu bekommen. Indem man nun die relativen Koordinaten als Vektor behandelt und dadurch zu einem Winkel umrechnet, erhält man letztlich den relativen Winkel, den der Roboter anfahren müsste um zum Mittelpunkt seines Schwarms zu gelangen. Dieser Winkel wird mit normaler Geschwindigkeit angefahren.
+Dieser Abschnitt wird realisiert, indem zuerst die Liste der Roboter, die nahe genug sind um zur Nachbarschaft zu gehören, wieder hergenommen wird. Anschließend wird ein simpler Durchschnitt über alle Positionen (x/y - Koordinaten), der vorhandenen Roboter berechnet. Die resultierenden Koordinaten werden von den eigenen Koordinaten abgezogen, um die relative Position des Schwarm-Mittelpunkts zu bekommen. Indem man nun die relativen Koordinaten als Vektor behandelt und dadurch zu einem Winkel umrechnet, erhält man letztlich den relativen Winkel, den der Roboter anfahren müsste um zum Mittelpunkt seines Schwarms zu gelangen. Dieser Winkel wird mit normaler Geschwindigkeit angefahren.
 
 \paragraph*{Design-Entscheidung: Mittelpunkt des Schwarms}
 Um den Mittelpunkt des Schwarms zu berechnen, können verschiedene Algorithmen verwendet werden. Die einfachste Wahl, wäre der Mittelpunkt über die Koordinaten, den die (bis zu 4) äußersten Roboter im Koordinaten-System aufspannen. Dieser Mittelpunkt wäre sehr schnell zu berechnen, bezieht aber nicht mit ein, wie die Roboter innerhalb dieser Fläche verteilt sind.
 Eine andere Wahl wäre der geometrische Schwerpunkt der konvexen Hülle, den die Roboter in ihrer Formation aufspannen. Dieser Mittelpunkt wäre etwas genauer in Hinblick auf die konkrete Form. Aber auch hier würde nicht die tatsächliche Verteilung beachtet werden, wenn auch genauer als in der vorigen Methode.
 
-Eine sehr einfache Methode um die einzelnen Roboter innerhalb der Formation besser gewichten zu können, ist ein normaler Durchschnitt über die Summe der Koordinaten der einzelnen Roboter. Diese Methode verbraucht wenig Ressourcen, fast keine Kenntniss bei der Implementierung und bietet theoretisch auch die Möglichkeit einzelne Roboter stärker zu gewichten als andere, falls dies später sinnvoll wäre. Da diese Methode sowohl die schnellste, die genauste, als auch die flexibelste ist, wurde sich für diese entschieden.
+Eine sehr einfache Methode um die einzelnen Roboter innerhalb der Formation besser gewichten zu können, ist ein normaler Durchschnitt über die Summe der Koordinaten der einzelnen Roboter. Diese Methode verbraucht wenig Ressourcen, fast keine Kenntnisse bei der Implementierung und bietet theoretisch auch die Möglichkeit einzelne Roboter stärker zu gewichten als andere, falls dies später sinnvoll wäre. Da diese Methode sowohl die schnellste, die genauste, als auch die flexibelste ist, wurde sich für diese entschieden.
 
-\autoref{pic:BerechnungMittelpunkt} zeigt eine Darstellung, wie der Mittepunkt in einem Schwarm mit mehreren Roboter angelegt ist.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{graphics/SchwarmMittelpunktBerechnung.png}
+	\caption{Berechnung des Mittelpunkts}
+	\label{pic:BerechnungMittelpunkt}
+\end{figure}
+
+\autoref{pic:BerechnungMittelpunkt} zeigt eine Darstellung, wie der Mittelpunkt in einem Schwarm mit mehreren Roboter angelegt ist.
 Die Roboter zieht es dadurch eher zu Gruppen anderer Roboter als zu Einzelgängern. Würde es den Roboter zur Mitte der konvexen Hülle ziehen, wäre die Gefahr groß, dass er alle Roboter verlieren würde, da sie zu allen Seiten gleich weit entfernt sind. Durch die einfache Methode des Mittelwerts bleibt der Roboter stets näher an Gruppen und lässt notfalls einzelne Roboter ziehen um die Gruppe zu behalten.
 
 \subsubsection*{Abschottung: Vermeide Kollisionen mit deinen Nachbarn}
 
-\begin{wrapfigure}{r}{\pictureWidthSmall}
-	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/AusweichenAlgorithmus.png}
+Bevor ein Roboter seinen Bewegungs-Befehl ausführt, wird mit den gewünschten Parametern eine interne Simulation durchgeführt, um die Roboter vor Kollisionen zu bewahren. Außerdem müssen sie eine Größe und eine Fläche (in einer 2dim Simulation) erhalten. Während der Simulation wird getestet, ob der gewünschte Winkel im Zusammenhang mit der Geschwindigkeit zu einer Kollision mit anderen Robotern führen würde. Eine Bewegung wird als gültig befunden, wenn der Roboter an seinem Zielpunkt mindestens seine Größe als Abstand zu allen anderen Robotern hat. Praktisch wurde die Größe um 10\per erweitert, um eine gewisse Fehlertoleranz zu erlauben.
+Auch die Frequenz, der in \autoref{subsec:NachbauNachrichten} erwähnten Positions-Nachrichten, spielt hier wieder eine Rolle. 2 Roboter können dann aufeinander zufahren, wenn der Abstand beider Roboter nicht innerhalb der nächsten Aktualisierung der Positionsdaten überwunden werden kann.
+
+\begin{wrapfigure}{r}{\pictureWidth}
+	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/AusweichenAlgorithmus.png}
 	\caption{Ausweichen gegenüber Hindernissen}
 	\label{pic:AusweichenAlgorithmus}
 \end{wrapfigure}
 
-Bevor ein Roboter seinen Bewegungs-Befehl ausführt, wird mit den gewünschten Parametern eine interne Simulation durchgeführt, um die Roboter vor Kollisionen zu bewahren. Außerdem müssen sie eine Größe und eine Fläche (in einer 2dim Simulation) erhalten. Während der Simulation wird getestet, ob der gewünschte Winkel im Zusammenhang mit der Geschwindigkeit zu einer Kollision mit anderen Robotern führen würde. Eine Bewegung wird als gültig befunden, wenn der Roboter an seinem Zielpunkt mindestens seine Größe als Abstand zu allen anderen Robotern hat. Praktisch wurde die Größe um 10\per erweitert, um eine gewisse Fehlertoleranz zu erlauben.
-Auch die Frequenz, der in \autoref{subsec:NachbauNachrichten} erwähnten Positions-Nachrichten, spielt hier wieder eine Rolle. 2 Roboter können dann aufeinander zufahren, wenn der Abstand beider Roboter nicht innerhalb der nächsten Aktualisierung der Positionsdaten überwunden werden kann.
-
 Ob eine Kollision am Ziel (oder unterwegs) stattfinden wird, wird mittels interner Simulationen überprüft, die die letzten Positionsdaten der Roboter nutzt.
-Findet eine Kollision statt, prüft der Roboter Ausweichmöglichkeiten. Der Algorithmus wird dabei angewendet, egal ob das Hinderniss ein anderer Roboter ist oder eine Gefahrenzone. Ist der Weg geradeaus nicht möglich, wird abwechselnd versucht nach links und rechts auszuweichen, wie in~\autoref{pic:AusweichenAlgorithmus} gezeigt wird. Dabei wird der Winkel, der zum Ausweichen genutzt wird, stufenweise erhöht, bis man letztlich 180° zu beiden Seiten erreicht hat, was einem Schritt rückwärts entspricht. Führt auch dieser letzte Winkel nicht zu einem erfolgreichen Ergebnis, wird der Algorithmus erneut mit einer leicht geringeren Geschwindigkeit (was ebenfalls einer leicht geringeren Bewegungsdistanz entspricht) gestartet. Erst wenn eine Simulation eine erfolgreiche Bewegung generieren konnte, wird diese auch ausgeführt.
+Findet eine Kollision statt, prüft der Roboter Ausweichmöglichkeiten. Der Algorithmus wird dabei angewendet, egal ob das Hindernis ein anderer Roboter ist oder eine Gefahrenzone. Ist der Weg geradeaus nicht möglich, wird abwechselnd versucht nach links und rechts auszuweichen, wie in~\autoref{pic:AusweichenAlgorithmus} gezeigt wird. Dabei wird der Winkel, der zum Ausweichen genutzt wird, stufenweise erhöht, bis man letztlich 180° zu beiden Seiten erreicht hat, was einem Schritt rückwärts entspricht. Führt auch dieser letzte Winkel nicht zu einem erfolgreichen Ergebnis, wird der Algorithmus erneut mit einer leicht geringeren Geschwindigkeit (was ebenfalls einer leicht geringeren Bewegungsdistanz entspricht) gestartet. Erst wenn eine Simulation eine erfolgreiche Bewegung generieren konnte, wird diese auch ausgeführt.
 
 \subsubsection*{Flucht: Fliehe vor Dingen, die eine potentielle Gefahr darstellen}
 
 Gefahren wie Hindernisse, Löcher im Boden oder Zonen mit sich bewegenden Maschinen können die Roboter beschädigen, weshalb es gilt diesen auszuweichen. Bei jeder Bewegung muss geprüft werden, ob man mit der angestrebten Bewegung eine Gefahrenzone betreten würde. Wenn ja, wird versucht mit dem Algorithmus des vorigen Abschnitts auszuweichen.
 
-Um Gefahrenzonen abbilden zu können, werden Objekte erzeugt die sich aus verschiedenen Geometrien, mitsamt Positionen, zusammensetzen. Betritt ein Roboter eine der im Objekt inneliegenden Geometrien, ist das Objekt als ganzes betreten worden und der Roboter befindet sich in einer Gefahrenzone.
+Um Gefahrenzonen abbilden zu können, werden Objekte erzeugt die sich aus verschiedenen Geometrien, mitsamt Positionen, zusammensetzen. Betritt ein Roboter eine der im Objekt inne liegenden Geometrien, ist das Objekt als ganzes betreten worden und der Roboter befindet sich in einer Gefahrenzone.
 
 \paragraph*{Design-Entscheidung: Abbildung von Objekten}
 Um ein Objekt zu definieren ließen sich auch andere Methoden nutzen. Punkte die die Zone umspannen und eine konvexe Hülle bilden oder der Reihenfolge nach mit Geraden verbunden werden, wären ebenfalls eine Option. Allerdings wären diese viel komplexer zu berechnen und es würde mehr Rechenleistung verbrauchen.
-Auch Funktionen, aus denen sich die einzelnen Punkte heraus berechnen lassen, wären denkbar um Objekte darzustellen. Um diese aber zu verteilen, müsste sie aber in einer Syntax hinterlegt werden die sich serialisieren lässt und anschließend interpretiert werden. Außerden wären die Funktionen kompliziert zu erstellen, wohingegen ein paar Geometrien schnell abgemessen sind.
+Auch Funktionen, aus denen sich die einzelnen Punkte heraus berechnen lassen, wären denkbar um Objekte darzustellen. Um diese aber zu verteilen, müsste sie aber in einer Syntax hinterlegt werden die sich serialisieren lässt und anschließend interpretiert werden. Außerdem wären die Funktionen kompliziert zu erstellen, wohingegen ein paar Geometrien schnell abgemessen sind.
 
 Die Berechnung, ob sich ein geometrischen Objekt innerhalb eines anderen geometrischen Objektes befindet, ist allerdings ein häufiges und gut gelöstes Problem von Videospielen\cite{GamingCollision}, weswegen diese Lösung als die beste angesehen wurde.
 
@@ -101,29 +108,45 @@ Die Berechnung, ob sich ein geometrischen Objekt innerhalb eines anderen geometr
 
 Konfiguriert wird das Schwarmverhalten der Roboter allgemein durch 4 Parameter, die in den nachfolgenden Abschnitten näher erläutert werden.
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/BerechnungDrangZurGruppe.png}
-	\caption{Berechnung des Drangs zur Gruppierung}
-	\label{pic:BerechnungDrangZurGruppe}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/BerechnungDrangZurGruppe.png}
+%	\caption{Berechnung des Drangs zur Gruppierung}
+%	\label{pic:BerechnungDrangZurGruppe}
+%\end{wrapfigure}
 
 \paragraph*{Geschwindigkeit} Die Geschwindigkeit gibt an, wie schnell ein Roboter sich bewegt. Ein kleinerer Wert sorgt für langsamere, aber auch 'vorsichtigere' Roboter. Optimal wäre ein kleiner Wert in Geschwindigkeit, aber eine hohe Frequenz an Bewegungs-Befehlen.
 
 \paragraph*{Lokale Reichweite} Da ein Roboter nur seine unmittelbare Umgebung imitiert, braucht es dafür einen Grenzwert. In dieser Thesis wurde sich für eine Begrenzung in der Reichweite (im Gegensatz zu einer Begrenzung in der Anzahl der ausgewählten Roboter) entschieden. Für die Orientierung wurde mehr Wert auf die örtliche Reichweite gelegt, da die unmittelbare Umgebung wichtiger ist, als eine feste Anzahl an Robotern an denen sich orientiert wird. Einheiten die weiter entfernt sind als dieser Wert (in der entsprechenden Maßeinheit), werden für Berechnungen ignoriert. Ein Wert kleinerer als die eigene physikalische Größe, führt zwangsläufig dazu, dass die Roboter nur sich selbst beachten.
 
-\paragraph*{Freier Wille} Einheiten im Schwarm orientieren sich nicht nur an ihren Nachbarn, sondern besitzen in gewisser Weise auch einen eigenen Willen. Nachdem die Berechnung der Orientierung am Schwarm abgeschlossen ist, wird der eigene Wille einberechnet. Bei einem freien Willen von x°, wird dieser zufällig zwischen [-x/2, x/2] ausgesucht und dem bisherigen Winkel aufgerechnet wird. Der freie Wille ist der Parameter der mich am meisten das generelle Verhalten des Schwarms beeinflusst. Er entscheidet darüber, wie viel Zufall in der Bewegung des Schwarms enthalten ist und wie viel sie von ihrem 'erzwungenen' Verhalten abweichen dürfen.
+\paragraph*{Nähe zum Schwarm} Dieser Wert ist verbunden mit der Regel 'Zusammenhang: Versuche deinen Nachbarn Nahe zu sein'. Ein Roboter hat den Drang seinem Schwarm nahe zu bleiben und versucht sich, bis zu einem gewissen Grad, in dessen Richtung zu bewegen. Da der Drang zum Schwarm nahe zu bleiben als Teil des freien Willens betrachtet wird, wird dieser Wert prozentual angegeben und nach dem freien Willen auf den endgültigen Winkel aufgerechnet. Wie genau der Drang zur Gruppierung in Prozente eingeteilt ist, wird in \autoref{pic:BerechnungDrangZurGruppe} skizziert dargestellt.
 
-\paragraph*{Nähe zum Schwarm} Dieser Wert ist verbunden mit der Regel 'Zusammenhang: Versuche deinen Nachbarn Nahe zu sein'. Ein Roboter hat den Drang seinem Schwarm nahe zu bleiben und versucht sich, bis zu einem gewissen Grad, in dessen Richtung zu bewegen. Da der Drang zum Schwarm nahe zu bleiben als Teil des freien Willens betrachtet wird, wird dieser Wert prozentual angegeben und nach dem freien Willen auf den endgültigen Winkel aufgerechnet. Wie genau der Drang zur Gruppierung in Prozente eingeteilt ist, wird in \autoref{pic:BerechnungDrangZurGruppe} skizziert dargestellt. Der pinke Pfeil stellt die Richtung dar, in der sich der Roboter bei keinem Gruppendrang bewegen würde. Der blaue Pfeil ist die Richtung zum Mittelpunkt des Schwarms, diesen Weg würde er bei 100\per Gruppendrang fahren. Die anderen Pfeile wären die Richtungen bei den jeweiligen Prozentwerten.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth,keepaspectratio]{graphics/BerechnungDrangZurGruppe.png}
+	\caption{Berechnung des Drangs zur Gruppierung}
+	\label{pic:BerechnungDrangZurGruppe}
+\end{figure}
+
+Der pinke Pfeil stellt die Richtung dar, in der sich der Roboter bei keinem Gruppendrang bewegen würde. Der blaue Pfeil ist die Richtung zum Mittelpunkt des Schwarms, diesen Weg würde er bei 100\per Gruppendrang fahren. Die anderen Pfeile wären die Richtungen bei den jeweiligen Prozentwerten.
+
+\paragraph*{Freier Wille} Einheiten im Schwarm orientieren sich nicht nur an ihren Nachbarn, sondern besitzen in gewisser Weise auch einen eigenen Willen. Nachdem die Berechnung der Orientierung am Schwarm abgeschlossen ist, wird der eigene Wille einberechnet. Bei einem freien Willen von x°, wird dieser zufällig zwischen [-x/2, x/2] ausgesucht und dem bisherigen Winkel aufgerechnet wird. Der freie Wille ist der Parameter der mich am meisten das generelle Verhalten des Schwarms beeinflusst. Er entscheidet darüber, wie viel Zufall in der Bewegung des Schwarms enthalten ist und wie viel sie von ihrem 'erzwungenen' Verhalten abweichen dürfen.
 
 \subsection*{Beispiel: Berechnung einer Bewegung}
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/BerechnungBewegung.png}
-	\caption{Berechnung einer Bewegung}
-	\label{pic:BerechnungBewegung}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/BerechnungBewegung.png}
+%	\caption{Berechnung einer Bewegung}
+%	\label{pic:BerechnungBewegung}
+%\end{wrapfigure}
 
 In~\autoref{pic:BerechnungBewegung} ist die Berechnung einer Bewegung skizziert. Die Pfeile geben dabei nur Richtungen an und sind nicht als Vektoren zu verstehen, die eine Aussage über die bewegte Entfernung treffen.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth,keepaspectratio]{graphics/BerechnungBewegung.png}
+	\caption{Berechnung einer Bewegung}
+	\label{pic:BerechnungBewegung}
+\end{figure}
 
 Der pinke Pfeil ist das Resultat der Berechnung des Mittelwerts der Winkel, den die anderen Roboter beim letzten Update ihrer Position haben.
 
@@ -140,7 +163,7 @@ Um später Transportaufträge erledigen zu können, muss der Schwarm in irgendei
 \subsection*{Funktionsweise}
 Der Anführer bietet eine passive Möglichkeit einen Schwarm zu lenken, ohne dass die normalen Einheiten angepasst werden müssen oder in ihrem Verhalten speziell abweichen müssen. Die normalen Einheiten müssen dadurch nicht wissen, dass sie ein bestimmtes Ziel haben, es muss ihnen nicht einmal bewusst sein, dass sie passiv gesteuert werden. Dadurch, dass der Anführer weiß in welche Richtung der Schwarm am besten gelenkt werden sollte, aber auch aufgrund des Gruppendrangs durch die Nachbarn, pendeln sich die anderen Einheiten des Schwarms langsam auf das Ziel ein. Ein Anführer ist somit eine Art Leuchtturm, der permanent eine Richtung angibt, ohne sich von der Umwelt beeinflussen zu lassen und der den anderen Robotern eine Orientierung gibt, ohne dass diese davon etwas mitbekommen.
 
-Als Anführer versucht die entsprechende Einheit außerdem den Kontakt zu seinem Schwarm nicht zu verlieren. Damit ist nicht nur der Drang gemeint die Gruppenmitte aufzusuchen, der vom Anführer sowieso ignoriert wird. Es ist eine bewusstere Art auf den eigenen Schwarm acht zu geben und sich so zu bewegen, dass er weder die Gruppe verliert, noch diese ihre Ausrichtung zum Ziel zu sehr verändert. Dies ist wichtig, damit immer möglichst viele Robter des Schwarms von der Ausrichtung des Anführers beeinflusst werden.
+Als Anführer versucht die entsprechende Einheit außerdem den Kontakt zu seinem Schwarm nicht zu verlieren. Damit ist nicht nur der Drang gemeint die Gruppenmitte aufzusuchen, der vom Anführer sowieso ignoriert wird. Es ist eine bewusstere Art auf den eigenen Schwarm acht zu geben und sich so zu bewegen, dass er weder die Gruppe verliert, noch diese ihre Ausrichtung zum Ziel zu sehr verändert. Dies ist wichtig, damit immer möglichst viele Roboter des Schwarms von der Ausrichtung des Anführers beeinflusst werden.
 
 \subsection*{Ziel}
 
@@ -152,7 +175,7 @@ Der Anführer wurde umgesetzt, indem einer normalen Einheit ein Ziel gegeben wir
 
 \subsubsection*{Neue Nachricht}
 
-Um den Transport einzuleiten wird es einen neuen Nachrichten-Typ geben. Die Nachricht kann an den Schwarm rausgesendet werden und durch die eindeutige ID weiß der entsprechende Roboter, dass er als Anführer ausgewählt wurde.
+Um den Transport einzuleiten wird es einen neuen Nachrichten-Typ geben. Die Nachricht kann an den Schwarm raus gesendet werden und durch die eindeutige ID weiß der entsprechende Roboter, dass er als Anführer ausgewählt wurde.
 
 \begin{lstlisting}[style=ros, title=Nachrichten-Typ: New\_Mission.msg]
 	uint8	leader_id	// Die ID des ausgewaehlten Anfuehrers
@@ -160,25 +183,35 @@ Um den Transport einzuleiten wird es einen neuen Nachrichten-Typ geben. Die Nach
 	float32 pos_y		// Position des Ziels entlang der Y-Achse
 \end{lstlisting}
 
-\subsection*{Generelles Verhalten}
+\newpage\subsection*{Generelles Verhalten}
 
-Er steuert direkt auf das Ziel zu und wartet gegebenenfalls, wenn er sich zu weit vom eigenen Schwarm entfernt. Ab einer Entfernung von 75\per, der lokalen Reichweite zum Mittelpunkt seiner Herde, bleibt er stehen, bis er wieder bei 50\per Entfernung angekommen ist. Anschließend setzt er seinen Weg mormal fort. Ausweichmanöver würden dafür sorgen, dass der Anführer nicht mehr auf das Ziel zeigt und damit auch die anderen Roboter dazu bringen der neuen Ausrichtung zu folgen. Aus diesem Grund wird anderen Robotern nicht ausgewichen, wie es für Schwarmroboter üblich ist. Stattdessen wird der Anführer seine Geschwindigkeit verlangsamen, wenn er mit der normalen Geschwindigkeit eine Kollision verursachen würde. Kann er sich, trotz geringerer Geschwindigkeit nicht bewegen, bleibt er stehen und wartet eine kleine Zeitspanne ab.
-
-\begin{wrapfigure}{r}{\pictureWidth}
-	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/AlgorithmusAnführer.png}
+\begin{wrapfigure}{r}{\pictureWidthSmall}
+	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/AlgorithmusAnführer.png}
 	\caption{Entfernungen des Anführers}
 	\label{pic:AnführerReichweiten}
 \end{wrapfigure}
 
+Der Anführer steuert direkt auf das vorgegebene Ziel zu und wartet gegebenenfalls, wenn er sich zu weit vom eigenen Schwarm entfernt. Ab einer Entfernung von 75\per, der lokalen Reichweite zum Mittelpunkt seiner Herde, bleibt er stehen, bis er wieder bei 50\per Entfernung angekommen ist. Anschließend setzt er seinen Weg normal fort. Ausweichmanöver würden dafür sorgen, dass der Anführer nicht mehr auf das Ziel zeigt und damit auch die anderen Roboter dazu bringen der neuen Ausrichtung zu folgen. Aus diesem Grund wird anderen Robotern nicht ausgewichen, wie es für Schwarmroboter üblich ist. Stattdessen wird der Anführer seine Geschwindigkeit verlangsamen, wenn er mit der normalen Geschwindigkeit eine Kollision verursachen würde. Kann er sich, trotz geringerer Geschwindigkeit nicht bewegen, bleibt er stehen und wartet eine kleine Zeitspanne ab.
+
+
+
 \subsubsection*{Einfangen eines verlorenen Schwarms}\label{subsubsec:AnführerEinfangen}
 Sollte der Schwarm den Grenzbereich der lokalen Reichweite ganz verlassen, wäre es außerdem möglich, den Anführer seinen Schwarm wieder einfangen zu lassen. Dies ist in \autoref{pic:AnführerEinfangen} dargestellt.
-Im ersten Abschnitt ist der Schwarm verloren gegangen, obwohl der Anführer gewartet hat. Anschließend ist er mit erhöhter Geschwindigkeit hinter den Schwarm gefahren, sodass der Schwarm sich nun genau zwischen Ziel und Anführer befindet. Nun nimmt er wieder sein normales Verhalten an und versucht den Schwarm in die Richtung des Ziel zu lenken. Beim umdrehen, um den Schwarm wieder einzufangen, dreht sich der Anführer allerdings in die entgegengesetzte Richtung. Die anderen Roboter wissen nichts von einem Manöver und orientieren sich normal am Anfüher. Das kann dazu führen, dass der Schwarm zunächst noch weiter abgelenkt wird. Aus diesem Grund sollte das Einfangen so schnell wie möglich beendet werden. Die Geschwindigkeit des Anführers sollte also möglichst hoch sein.
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/AlgorithmusAnführerEinfangen.png}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{graphics/AlgorithmusAnführerEinfangen.png}
 	\caption{Anführer fängt seinen Schwarm wieder ein}
 	\label{pic:AnführerEinfangen}
-\end{wrapfigure}
+\end{figure}
+
+Im ersten Abschnitt ist der Schwarm verloren gegangen, obwohl der Anführer gewartet hat. Anschließend ist er mit erhöhter Geschwindigkeit hinter den Schwarm gefahren, sodass der Schwarm sich nun genau zwischen Ziel und Anführer befindet. Nun nimmt er wieder sein normales Verhalten an und versucht den Schwarm in die Richtung des Ziel zu lenken. Beim umdrehen, um den Schwarm wieder einzufangen, dreht sich der Anführer allerdings in die entgegengesetzte Richtung. Die anderen Roboter wissen nichts von einem Manöver und orientieren sich normal am Anführer. Das kann dazu führen, dass der Schwarm zunächst noch weiter abgelenkt wird. Aus diesem Grund sollte das Einfangen so schnell wie möglich beendet werden. Die Geschwindigkeit des Anführers sollte also möglichst hoch sein.
+
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/AlgorithmusAnführerEinfangen.png}
+%	\caption{Anführer fängt seinen Schwarm wieder ein}
+%	\label{pic:AnführerEinfangen}
+%\end{wrapfigure}
 
 
 
@@ -221,7 +254,7 @@ leader\_number gibt die Anzahl der Leader an die verwendet werden sollen und mis
 Mit object\_position\_x/-\_y ist die Startposition des zu transportierenden Objektes angegeben. Zusammen mit object\_size\_x/-\_y, welche die Ausmaße des Objektes angeben. Die Position des Objekts ist als Mitte des Objekts definiert.
 target\_x/-\_y gibt die letztliche Position an die das Objekt einnehmen soll.
 
-Der Auftrag wird von außen an das Topic 'flock/mission/new' gesendet. Der Ersteller des Auftrags muss keine \ac{ROS}-Node sein, auch wenn dies verschiedene Vorteile hätte. Dadurch das \ac{ROS}-Topics auch über das Terminal engesprochen werden können, ist das Senden der Nachrichten auch über jedes andere Programm möglich. Das Topic für die neuen Missionen wird von jedem aktiven Roboter abonniert. Entsprechend nimmt jeder Roboter Notiz von diesem Auftrag, auch wenn er nicht direkt mit seiner ID angesprochen wird.\\
+Der Auftrag wird von außen an das Topic 'flock/mission/new' gesendet. Der Ersteller des Auftrags muss keine \ac{ROS}-Node sein, auch wenn dies verschiedene Vorteile hätte. Dadurch das \ac{ROS}-Topics auch über das Terminal angesprochen werden können, ist das Senden der Nachrichten auch über jedes andere Programm möglich. Das Topic für die neuen Missionen wird von jedem aktiven Roboter abonniert. Entsprechend nimmt jeder Roboter Notiz von diesem Auftrag, auch wenn er nicht direkt mit seiner ID angesprochen wird.\\
 
 
 \subsection*{Von Gefahrenzonen zu Sicherheitszonen}
@@ -265,24 +298,24 @@ Um den Transport selbst zu realisieren, bedient man sich nun der Hilfe der Anfü
 
 \subsubsection*{Einhalten der Richtung hat Priorität}
 
-Kann ein Anführer keine normale Bewegung ausführen, weil er sonst mit einem anderen Roboter kollidieren würde, darf er nicht versuchen auszuweichen, da dies sonst die Ausrichtung der passiven Roboter negativ beeinflussen könnte. Stattdessen drosselt er zunächst sein Bewegungstempo oder bleibt, falls notwendig, ganz stehen. Die richtige Richtung beizuhalten ist wichtig, da sich passive Roboter nicht unmittelbar nach ihren Anführern ausrichten. Gerade wenn es zahlenmäßig wenige Anführer im Vergleich zu passiven Robotern sind, kann es einige Zeit dauern, bis die Einheiten so weit beeinflusst wurden, dass sie in die gewünschte Richtung zeigen. Dreht sich ein Anführer in die verkehrte Richtung, vielleicht sogar in die entgegengesetzte, kann dies zu einer Kettenreaktion führen die alle Roboter betrifft und zusätzlich das Transportobjekt stark vom Weg abbringen. Dieser Effekt konnte bereits in früheren Simulationen erkannt werden (siehe: \autoref{subsec:AnalyseNachbesserung}) und wird deshalb in dieser Phase der Konzeption vermieden.
+Kann ein Anführer keine normale Bewegung ausführen, weil er sonst mit einem anderen Roboter kollidieren würde, darf er nicht versuchen auszuweichen, da dies sonst die Ausrichtung der passiven Roboter negativ beeinflussen könnte. Stattdessen drosselt er zunächst sein Bewegungstempo oder bleibt, falls notwendig, ganz stehen. Die richtige Richtung beizubehalten ist wichtig, da sich passive Roboter nicht unmittelbar nach ihren Anführern ausrichten. Gerade wenn es zahlenmäßig wenige Anführer im Vergleich zu passiven Robotern sind, kann es einige Zeit dauern, bis die Einheiten so weit beeinflusst wurden, dass sie in die gewünschte Richtung zeigen. Dreht sich ein Anführer in die verkehrte Richtung, vielleicht sogar in die entgegengesetzte, kann dies zu einer Kettenreaktion führen die alle Roboter betrifft und zusätzlich das Transportobjekt stark vom Weg abbringen. Dieser Effekt konnte bereits in früheren Simulationen erkannt werden (siehe: \autoref{subsec:AnalyseNachbesserung}) und wird deshalb in dieser Phase der Konzeption vermieden.
 
 \subsubsection*{Mitziehen des Transportobjektes}
+
+\begin{wrapfigure}{r}{\pictureWidth}
+	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/Transport/Tracking.png}
+	\caption{Tracking des Transportobjektes}
+	\label{pic:TrackingTransportobjekt}
+\end{wrapfigure}
 
 Die Roboter haben keine Sensorik, um den Zustand des physikalischen Transportobjekt zu erkennen. In der Software ist es daher als Sicherheitszone markiert. Bisher konnten Objekte in der Software allerdings nicht verschoben werden. Daher bekommen Objekte nun eine ID zugewiesen, die es ihnen erlaubt eindeutig erkannt zu werden. Außerdem müssen die Objekte nun verschoben werden können und es braucht jemanden der die Änderung des physikalischen Standorts erkennt und ihn der Software verbreitet.
 
 Grundsätzlich gibt es für dieses Vorgehen verschiedene Vorgehensweisen. Eine davon wäre ein \ac{IPS}, das heißt ein Sensor auf dem Transportobjekt, mit einer \ac{ROS}-Node die diesen Sensor verfolgt und als Broadcast im \ac{ROS}-System verbreitet. Leider haben bisherige Erfahrungen gezeigt, dass solche \ac{IPS}s nicht sehr zuverlässig sind. Nicht nur ist die Qualität der Ortung sehr ungenau, sie springt auch zwischen den verschiedenen Messintervallen hin und her. Mehr dazu im Einschub \autoref{subsubsec:IPS}.
 
-\begin{wrapfigure}{r}{\pictureWidthSmall}
-	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/Transport/Tracking.png}
-	\caption{Tracking des Transportobjektes}
-	\label{pic:TrackingTransportobjekt}
-\end{wrapfigure}
-
-Um die Position des Transportobjektes im \ac{ROS}-System bekannt zu machen, und aktuell zu halten, wird deshalb darauf gesetzt, dass das Objekt auf den Robotern bleibt und diese ihre Position selbst erkennen können. Zu beginn des Transports wird die relative Position des Objektes zum Mittelpunkt des Schwarms gespeichert. Bewegt sich nun der Mittelpunkt des Schwarms in eine Richtung, wird die Position des Objektes immer relativ von diesem angesehen. Eine Verdeutlichung ist in \autoref{pic:TrackingTransportobjekt} zu sehen. Dabei werden allerdings ein paar Eingestädnisse gemacht.
+Um die Position des Transportobjektes im \ac{ROS}-System bekannt zu machen, und aktuell zu halten, wird deshalb darauf gesetzt, dass das Objekt auf den Robotern bleibt und diese ihre Position selbst erkennen können. Zu beginn des Transports wird die relative Position des Objektes zum Mittelpunkt des Schwarms gespeichert. Bewegt sich nun der Mittelpunkt des Schwarms in eine Richtung, wird die Position des Objektes immer relativ von diesem angesehen. Eine Verdeutlichung ist in \autoref{pic:TrackingTransportobjekt} zu sehen. Dabei werden allerdings ein paar Eingeständnisse gemacht.
 
 \paragraph*{Zugeständnisse der Simulation}
-Zum einen wird angenommen, dass die Robter alle die selbe Reibung am Objekt haben. Würde der Transport von nur 2 Roboter erledigt werden und diese bewegten sich in entgegensetzter Richtung von einander weg, müsste das Objekt somit stillstehen. In der Realität wäre die Reibung wahrscheinlich nicht gleich, sodass das Objekt in einer Richtung abdriften würde. Es gilt aber in der Praxis festzustellen, wie viel Ungenauigkeit dadurch wirklich entstehen würde.
+Zum einen wird angenommen, dass die Roboter alle die selbe Reibung am Objekt haben. Würde der Transport von nur 2 Roboter erledigt werden und diese bewegten sich in entgegensetzter Richtung von einander weg, müsste das Objekt somit stillstehen. In der Realität wäre die Reibung wahrscheinlich nicht gleich, sodass das Objekt in einer Richtung abdriften würde. Es gilt aber in der Praxis festzustellen, wie viel Ungenauigkeit dadurch wirklich entstehen würde.
 Eine andere Annahme wäre, dass die Reibung vom Roboter zum Objekt so hoch wäre, dass die Räder der Roboter eher stehen bleiben, statt dass der Roboter sich bewegt. Dadurch würden zwei Roboter, die in entgegengesetzter Richtung fahren, stehen bleiben. Die Roboter müssten natürlich auch erkennen, dass die Räder stehen bleiben. Da dies bei Servo-Motoren allerdings kein Problem darstellt, gilt dieser Punkt als unproblematisch.
 
 Um die Rollenverteilung weiter einzuhalten, sollte einer der Anführer die Position des Objektes innerhalb des Schwarms aktualisieren. Dazu braucht es eine weitere, simple Nachricht.
@@ -298,7 +331,17 @@ Da jeder Mission nur ein Objekt zugeordnet ist und dieses, passenderweise, die I
 
 \paragraph*{Einschub: Unzulänglichkeiten von IPSs}\label{subsubsec:IPS}
 
-Indoor-Positioning-Systems dienen zur Positionsbestimmung innerhalb von geschlossenen Räumen/Hallen und sind damit das kleine Equivalent zu GPS. In vorangegangenen Tests wurde ein System eines namenhaften Hersteller getestet und für zu schlecht empfunden. Die Nachteile waren im groben:
+Indoor-Positioning-Systems dienen zur Positionsbestimmung innerhalb von geschlossenen Räumen/Hallen und sind damit das kleine Äquivalent zu GPS. In vorangegangenen Tests wurde ein System eines namenhaften Hersteller getestet und für zu schlecht empfunden.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{graphics/Solcon/old.png}
+	\caption{Evaluation eines IPS}
+	\label{pic:SolconIPS}
+\end{figure}
+
+\newpage
+Die Nachteile waren im groben:
 
 \begin{itemize}
 	\item Ungenauigkeiten von durchschnittlich 81cm
@@ -306,11 +349,11 @@ Indoor-Positioning-Systems dienen zur Positionsbestimmung innerhalb von geschlos
 	\item Der Bereich der eingegrenzt werden konnte, betrug < 100m²
 \end{itemize}
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/Solcon/old.png}
-	\caption{Evaluation eines IPS}
-	\label{pic:SolconIPS}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/Solcon/old.png}
+%	\caption{Evaluation eines IPS}
+%	\label{pic:SolconIPS}
+%\end{wrapfigure}
 
 In \autoref{pic:SolconIPS} wurden Daten eines IPS in ein Bild eingetragen. Jede Farbe steht für einen anderen Testdurchlauf. Die Kreuze markieren den Punkt, an dem der Sensor, der getrackt werden sollte, tatsächlich stand. Die Punkte in selbiger Farbe sind die Standorte, an denen er laut System gemessen wurde. Abweichungen von über 1m waren eher die Regel als eine Ausnahme. Auch plötzliche Sprünge zwischen 2 Messungen (zeitlicher Abstand 100-300ms) von über 50cm waren keine Seltenheit.
 
@@ -326,7 +369,7 @@ Am Ziel angekommen, sendet der erste Anführer sein letztes Update der Position 
 uint8 mission_id			// Die ID der Mission
 \end{lstlisting}
 
-Durch diesen Befehl, der auch für die Roboter wichtig ist, die nicht am Transport beteiligt waren, wird das Transportobjekt als Hinderniss gelöscht und der Auftrag ist endgültig vorbei.
+Durch diesen Befehl, der auch für die Roboter wichtig ist, die nicht am Transport beteiligt waren, wird das Transportobjekt als Hindernis gelöscht und der Auftrag ist endgültig vorbei.
 
 
 
@@ -368,7 +411,7 @@ Mit dem dynamischen hinzufügen von Robotern kommt es jedoch zu einem weiteren P
 Natürlich könnten diese Kollisionen aufgelöst werden, beispielsweise indem man pro neuer ID die man erschafft einen Echo-Algorithmus startet und der der die Wahl gewinnt die ID bekommt. Erschafft ein Roboter aber 20 Kopien von sich kann dies sehr viele Nachrichten zur Folge haben die das Kommunikationsnetz belasten. Aus diesem Grund ist es besser Kollisionen in den ID von Anfang an zu vermeiden. Als Lösung wird die ID global im gesamten System um ein weiteres Byte erweitert, der sub\_id.
 
 \paragraph*{Konzept: Sub-ID}
-Eine sub\_id ist ein Zusatz zur normalen ID. Die robot\_id wird die Haupt-ID eines Roboters und physische Roboter werden immer unterschiedliche robot\_id's haben mit der sub\_id '0'. Möchte ein Roboter nun virtuelle Kopien von sich erstellen, erstellt er diese mit seiner robot\_id und der nächsten freien sub\_id. Auf diese Weise kann es nicht zu kollisionen kommen, wenn mehrere Roboter gleichzeit virtuelle Kopien erstellen. Es liegt damit außerdem in der Verantwortung der Roboter selbst ihre sub\_id's zu verwalten.
+Eine sub\_id ist ein Zusatz zur normalen ID. Die robot\_id wird die Haupt-ID eines Roboters und physische Roboter werden immer unterschiedliche robot\_id's haben mit der sub\_id '0'. Möchte ein Roboter nun virtuelle Kopien von sich erstellen, erstellt er diese mit seiner robot\_id und der nächsten freien sub\_id. Auf diese Weise kann es nicht zu Kollisionen kommen, wenn mehrere Roboter gleichzeitig virtuelle Kopien erstellen. Es liegt damit außerdem in der Verantwortung der Roboter selbst ihre sub\_id's zu verwalten.
 
 
 
@@ -380,16 +423,16 @@ Bisher waren die Anführer richtige Roboter, mit dem Unterschied, dass sie über
 Der große Vorteil eines virtuellen Anführers ist es, dass er zum einen den Schwarm nicht blockiert mit seiner Anwesenheit. Zum anderen kann eine neue Technik genutzt werden die 'Stacking' genannt wird.
 
 \paragraph*{Stacking}
-Als Stacking bezeichnet man es, mehrere Roboter übereinander zu stapeln, um ihren Einfluss zu erhöhen. Auf diese Weise nehmen n Roboter die Position und den Platz eines einzelnen Roboters ein. Dadurch kann man im Prinzip einen Roboter haben, der aber den Einfluss von n Robotern hat. Für diese Methode kann selbstverständlich nur maximal ein pysischer Roboter eingesetzt werden. Die anderen die auf diesem gestackt werden, müssen virtuell sein, da deren Körper sonst zu Problemen führen würde. Natürlich kann aber auch komplett auf einen pysischen Roboter verzichtet werden und es werden ausschließlich virtuelle Roboter genutzt.\\
+Als Stacking bezeichnet man es, mehrere Roboter übereinander zu stapeln, um ihren Einfluss zu erhöhen. Auf diese Weise nehmen n Roboter die Position und den Platz eines einzelnen Roboters ein. Dadurch kann man im Prinzip einen Roboter haben, der aber den Einfluss von n Robotern hat. Für diese Methode kann selbstverständlich nur maximal ein physischer Roboter eingesetzt werden. Die anderen die auf diesem gestackt werden, müssen virtuell sein, da deren Körper sonst zu Problemen führen würde. Natürlich kann aber auch komplett auf einen physischen Roboter verzichtet werden und es werden ausschließlich virtuelle Roboter genutzt.\\
 
-Mit Hilfe des Stacking kann also nun ein pysischer Anführer den Einfluss von n Anführern besitzen und seinen Schwarm effektiver steuern als es allein möglich wäre. Virtuelle Anführer können von einer neuen Art von Node gesteuert werden, die diese erstellt und deren Position im Schwarm pflegt oder, wenn ein pyhsischer Anführer involviert ist, können seine pyhsischen Kopien direkt von diesem gesteuert werden, indem er seine eigene Position mit mehreren IDs sendet. Dies setzt voraus, dass der Schwarm vorher dynamisch gemacht wurde. Dadurch kann ein Anführer nun mehrere Kopien von sich erzeugen und diese Anzahl von den beim Transport beteiligten Roboter abhängig machen.
+Mit Hilfe des Stacking kann also nun ein physischer Anführer den Einfluss von n Anführern besitzen und seinen Schwarm effektiver steuern als es allein möglich wäre. Virtuelle Anführer können von einer neuen Art von Node gesteuert werden, die diese erstellt und deren Position im Schwarm pflegt oder, wenn ein physischer Anführer involviert ist, können seine physischen Kopien direkt von diesem gesteuert werden, indem er seine eigene Position mit mehreren IDs sendet. Dies setzt voraus, dass der Schwarm vorher dynamisch gemacht wurde. Dadurch kann ein Anführer nun mehrere Kopien von sich erzeugen und diese Anzahl von den beim Transport beteiligten Roboter abhängig machen.
 
 \subsubsection*{Bewegung als virtueller Anführer}
 
 Zwar muss ein virtuell erstellter Anführer nicht physisch aktiv sein, dennoch muss er für die anderen Roboter so aussehen als wäre er physisch aktiv und sich entsprechend bewegen. Er wird mit seinem Schwarm mitziehen müssen und darauf achten, mit niemandem zu kollidieren, da die physischen Roboter eben dies auch tun werden.
 
 Um einen virtuellen Anführer zu erstellen, muss im Grunde genommen nur der untere Layer ausgetauscht werden, der für die Bewegung des Motors zuständig ist und der nach einer Bewegung die Positionsdaten an die höheren Layer zurück gibt.
-Dieser Layer wird keinen Motor ansteuern, da die entsprechende \ac{ROS}-Node sich nicht auf einem Roboter befinden wird (oder zumindest keinem physischen Körper zugeteilt wurde). Stattdesswen wird der Layer die Bewegung entgegen nehmen und die Positionsdaten zurückgeben, die bei einer perfekt ausgeführten Bewegung (ohne Rutschen oder Blockieren) zustande gekommen wären.
+Dieser Layer wird keinen Motor ansteuern, da die entsprechende \ac{ROS}-Node sich nicht auf einem Roboter befinden wird (oder zumindest keinem physischen Körper zugeteilt wurde). Stattdessen wird der Layer die Bewegung entgegen nehmen und die Positionsdaten zurückgeben, die bei einer perfekt ausgeführten Bewegung (ohne Rutschen oder Blockieren) zustande gekommen wären.
 
 
 
@@ -403,16 +446,22 @@ Ein anderer Ansatz um einen Schwarm zu lenken, im Gegensatz zur Nutzung eines An
 
 Ein Anführer lenkt seinen Schwarm dadurch, dass er sich innerhalb des Schwarms befindet und den Schwarm auf Grundlage der Regel 'Ausrichtung: Passe deine Bewegungsrichtung deinen Nachbarn an' (\autoref{4Rules}) manipuliert. An dieser Regel anzusetzen ist ein valider Gedanke, es gibt aber auch andere Regeln die sich manipulieren lassen. Der Statist setzt an der Regel 'Zusammenhang: Versuche einen Nachbarn nahe zu sein' an und versucht einen Schwarm dadurch zu steuern, dass die Roboter sich an der Mitte ihres Schwarms ausrichten.
 
-\newpage
 \subsubsection*{Grundlage des Statisten}
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/AlgorithmusStatist.png}
+Grundlage des Statisten ist es, dass er immer in die Berechnung der Schwarmmitte einbezogen wird, auch dann, wenn er sich außerhalb aller lokalen Reichweiten befindet. Er (oder vielleicht auch mehrere) werden somit einfach an den Ort setzen, an dem man den Schwarm braucht. Dadurch, dass dieser weit weg vom Schwarm positioniert wird, verzerrt er die Mitte des Schwarms entsprechend stark. Die Roboter werden nun versuchen wieder in Richtung der Schwarmmitte zu fahren und somit indirekt in die Richtung des Statisten.
+
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/AlgorithmusStatist.png}
+%	\caption{Funktionsweise des Statisten}
+%	\label{pic:AlgorithmusStatist}
+%\end{wrapfigure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\textwidth,keepaspectratio]{graphics/AlgorithmusStatist.png}
 	\caption{Funktionsweise des Statisten}
 	\label{pic:AlgorithmusStatist}
-\end{wrapfigure}
-
-Grundlage des Statisten ist es, dass er immer in die Berechnung der Schwarmmitte einbezogen wird, auch dann, wenn er sich außerhalb aller lokalen Reichweiten befindet. Er (oder vielleicht auch mehrere) werden somit einfach an den Ort setzen, an dem man den Schwarm braucht. Dadurch, dass dieser weit weg vom Schwarm positioniert wird, verzerrt er die Mitte des Schwarms entsprechend stark. Die Roboter werden nun versuchen wieder in Richtung der Schwarmmitte zu fahren und somit indirekt in die Richtung des Statisten.
+\end{figure}
 
 In \autoref{pic:AlgorithmusStatist} ist die Funktionsweise des Statisten dargestellt. Da der Statist nur dazu dient den Schwarmmittelpunkt zu verschieben, muss dieser kein physischer Roboter sein, sondern kann virtuell dargestellt werden. Dieser Statist kann auch das Stacking verwenden und somit seinen Effekt als Mittelpunkt-Verschieber vergrößern.
 
@@ -437,7 +486,7 @@ class Statist {
 };
 \end{lstlisting}
 
-Am Anfang der Funktion erstellt, die für die Abarbeitung eines Auftrags zuständig ist, wäre dieses Objekt quasi ein Selbstläufer der keinerlei Verwaltung brauchem würde.
+Am Anfang der Funktion erstellt, die für die Abarbeitung eines Auftrags zuständig ist, wäre dieses Objekt quasi ein Selbstläufer der keinerlei Verwaltung brauchen würde.
 
 \subsubsection*{Sonderregel für Statist}
 
@@ -455,10 +504,10 @@ Damit ist der Schwarm physisch gesehen immer noch homogen, virtuell gesehen aber
 Der große Vorteil gegenüber der Steuerung des Schwarms mit Hilfe von Anführern ist, dass der Statist den Schwarm nicht aktiv lenken muss. Während ein Anführer den Schwarm mit seiner Ausrichtung aktiv beeinflussen muss, lenkt der Statist eher passiv, indem er den Schwarm zu sich kommen lässt. Dies braucht wesentlich weniger Ressourcen und ein Roboter braucht keine zweite Verhaltensweise.
 
 \paragraph*{Nachteile gegenüber Anführern}
-Auf der anderen Seite gibt es bei dieser Methode aber auch den Nachteile, dass sie einen zweiten Roboter-Typ einführt und damit erstmals die Grenze des homogenen Schwarms übertritt. Der neue Roboter-Typ braucht gesondertes Verhaltes ihm gegenüber und er öffnet die Tür für weitere Roboter-Typen die den Schwarm nach und nach immer heterogener werden lassen.\\
+Auf der anderen Seite gibt es bei dieser Methode aber auch den Nachteile, dass sie einen zweiten Roboter-Typ einführt und damit erstmals die Grenze des homogenen Schwarms übertritt. Der neue Roboter-Typ braucht gesondertes Verhalten ihm gegenüber und er öffnet die Tür für weitere Roboter-Typen die den Schwarm nach und nach immer heterogener werden lassen.\\
 
-\begin{wrapfigure}{r}{\pictureWidthSmall}
-	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/StatistSenke.png}
+\begin{wrapfigure}{r}{\pictureWidth}
+	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/StatistSenke.png}
 	\caption{Roboter stecken in einer Senke fest}
 	\label{pic:StatistSenke}
 \end{wrapfigure}
@@ -476,7 +525,7 @@ Der Statist lässt sich nicht nur benutzen um einen Schwarm zu lenken. Mit seine
 
 Den Statisten zu benutzen um Aufträge zu 'verteilen' würde im Grunde genommen bedeuten, Aufträge nicht mehr zu verteilen. Stattdessen wird ein Statist dorthin gesetzt wo sich das Transportobjekt an seinem Aufnahmeort befindet.
 
-Der gesamte Standby-Schwarm wird nun passiv in die Richtung des Statisten, und damit auch in Richtung des Transportobjektes, gelenkt. Übertritt nun ein Roboter die Grenze des Transportobjektes und befindet sich in seinem innere, wird ihm von der Node, die auch den Statisten hält, der Auftrag zugewiesen. Andere Roboter die folgen werden ebenfalls den Auftrag zugeteilt und die Roboter werden einen gesonderten Schwarm verschoben, genau wie es auch bei der vorigen Auftragsvergabe geschehen würde. Der Statist bleibt so lange aktiv bis sich so viele Roboter gefunden haben, wie es für den Auftrag erfoderlich ist. Ist die erforderliche Zahl erreicht, wird die Vergabe-Node die Roboter mit einer \highlight{Freeze.msg} bewegungsunfähig machen und den Statisten mit der entsprechenden Nachricht löschen. Es befindet sich nun die geforderte Zahl an Robotern unterhalb des Transportobjektes und sie stehen still. Somit wurde wieder die gleiche Ausgangslage geschaffen, wie sie bei der vorigen Auftragsvergabe vorzufinden war, bevor der eigentliche Transport startete. Der Statist wurde wie ein Magnet dazu benutzt die Roboter einzusammeln die den Transport vollziehen sollen.
+Der gesamte Standby-Schwarm wird nun passiv in die Richtung des Statisten, und damit auch in Richtung des Transportobjektes, gelenkt. Übertritt nun ein Roboter die Grenze des Transportobjektes und befindet sich in seinem innere, wird ihm von der Node, die auch den Statisten hält, der Auftrag zugewiesen. Andere Roboter die folgen werden ebenfalls den Auftrag zugeteilt und die Roboter werden einen gesonderten Schwarm verschoben, genau wie es auch bei der vorigen Auftragsvergabe geschehen würde. Der Statist bleibt so lange aktiv bis sich so viele Roboter gefunden haben, wie es für den Auftrag erforderlich ist. Ist die erforderliche Zahl erreicht, wird die Vergabe-Node die Roboter mit einer \highlight{Freeze.msg} bewegungsunfähig machen und den Statisten mit der entsprechenden Nachricht löschen. Es befindet sich nun die geforderte Zahl an Robotern unterhalb des Transportobjektes und sie stehen still. Somit wurde wieder die gleiche Ausgangslage geschaffen, wie sie bei der vorigen Auftragsvergabe vorzufinden war, bevor der eigentliche Transport startete. Der Statist wurde wie ein Magnet dazu benutzt die Roboter einzusammeln die den Transport vollziehen sollen.
 Nun hier an kann der Transport normal ablaufen. Entweder wird ein Anführer bestimmt der das Ziel kennt, und der eventuell virtuelle Kopien von sich erschafft, oder der Transport-Schwarm wird mit Hilfe eines zweiten Statisten an sein Ziel geführt.
 
 Entgegen der normalen Auftragsvergabe, würde man die Roboter nicht von Anfang an zuweisen, sondern man würde den Statisten als eine Art Magnet nutzen um die Roboter aufzusammeln, die am schnellsten da sind. Man würde dadurch die Roboter bekommen die am nächsten dran sind oder schlicht schneller sind, als die anderen.
@@ -494,9 +543,9 @@ Ein anderer Algorithmus wäre ebenfalls denkbar, der die Größe der Roboter lan
 
 \subsubsection*{Algorithmus}
 
-\begin{wrapfigure}{r}{\pictureWidth}
-	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/LuftballonAlgorithmus.png}
-	\caption{Skizzierung des Luftballon-Algorithmus}
+\begin{wrapfigure}{r}{\pictureWidthSmall}
+	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/LuftballonAlgorithmus.png}
+	\caption{Der Luftballon-Algorithmus}
 	\label{pic:Luftballon}
 \end{wrapfigure}
 
@@ -506,5 +555,5 @@ Ein anderer Algorithmus wäre ebenfalls denkbar, der die Größe der Roboter lan
 Für die Umsetzung müsste das generelle Verhalten der Roboter nicht angepasst werden. Das verteilen des Roboters geschieht durch den Fluchtreflex der bereits implementiert ist. Es müsste nur, ähnlich beim Stillstand über das \highlight{Freeze}-Kommando, eine kleine Routine im 'Unterbewusstsein' geschaffen werden, die die interne Größe immer weiter verändert bis der Roboter keinen Weg mehr sieht aus seiner Misere herauszukommen.
 
 \subsubsection*{Nutzung für den Transport}
-Auch im Transport wäre dieser Algorithmus nützlich. Finden sich die Roboter unter dem Transportobjekt ein, stehen sie still, sobald sie alle da sind. Der hier vorgestellte Algorithmus würde stattfinden, nachdem alle Roboter unter dem Transportobjekt sind. Sie würden ihre Größe anwachsen lassen und sich so möglichst gleichmäßig unterhalb des zu transportierenden Objektes verteilen. Die Grenzen der Sicherheitszone bilden dabei meist den dritten Berührungspunkt. Stehen alls Roboter still, braucht es theoretisch gesehen sogar nicht mal ein \highlight{Freeze}-Kommando, da sie sich aufgrund des beendeten Algorithmus nicht mehr weiter bewegen können dürften.
+Auch im Transport wäre dieser Algorithmus nützlich. Finden sich die Roboter unter dem Transportobjekt ein, stehen sie still, sobald sie alle da sind. Der hier vorgestellte Algorithmus würde stattfinden, nachdem alle Roboter unter dem Transportobjekt sind. Sie würden ihre Größe anwachsen lassen und sich so möglichst gleichmäßig unterhalb des zu transportierenden Objektes verteilen. Die Grenzen der Sicherheitszone bilden dabei meist den dritten Berührungspunkt. Stehen alle Roboter still, braucht es theoretisch gesehen sogar nicht mal ein \highlight{Freeze}-Kommando, da sie sich aufgrund des beendeten Algorithmus nicht mehr weiter bewegen können dürften.
 Sobald das Transportobjekt auf den Köpfen der Roboter abgesetzt ist, kann die Größe wieder auf den Normalzustand zurück schrumpfen und die Roboter beginnen damit den Transport umzusetzen.

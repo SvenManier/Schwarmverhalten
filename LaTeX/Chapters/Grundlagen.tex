@@ -1,25 +1,25 @@
 \chapter{Grundlagen}\label{ch:Grundlagen}
 
-In diesem Kapitel werden einige grundlegende Begriffe erklärt und voneinander abgegrenzt, welche für das Verständnis dieser Thesis wichtig sind und sonst für Verwirrung sorgen könnten.
+In diesem Kapitel werden einige grundlegende Begriffe erklärt und voneinander abgegrenzt, welche für das Verständnis dieser Thesis wichtig sind und häufig genutzt werden.
 
 \section{Begrifflichkeiten und Definitionen}\label{Definitionen}
 
 Im Verlauf der Thesis werden einige Begriffe immer wieder verwendet werden, die eine feste Definition innerhalb dieser Thesis haben und nicht verwechselt oder missverstanden werden sollten. Solche Begriffe werden im folgenden Abschnitt definiert.
 
 \paragraph*{Lokale Nachbarschaft}
-Die lokale Nachbarschaft einer Einheit ist definiert durch einen Kreis mit fixem Radius um die Einheit herum. Andere Einheiten, die sich, bezogen auf ihre Position, innerhalb dieses Kreises befinden, sind Teil der lokalen Nachbarschaft dieser Einheit, Einheiten außerhalb nicht.
+Die lokale Nachbarschaft einer Einheit ist definiert, durch einen Kreis mit fixem Radius um die Einheit herum. Andere Einheiten, die sich, bezogen auf ihre Position, innerhalb dieses Kreises befinden, sind Teil der lokalen Nachbarschaft dieser Einheit, Einheiten außerhalb nicht.
 
 \paragraph*{Erster Anführer}
-In späteren Kapiteln wird der Anführer als spezielle Rolle eines Roboters eingeführt. Der erste Anführer ist sozusagen der Anführer unter den Anführern und tut Dinge, die nur von einem Roboter im ganzen Schwarm ausgeführt werden müssen.
+In späteren Kapiteln wird der Anführer als spezielle Rolle eines Roboters eingeführt. Der erste Anführer ist dabei der Anführer unter den Anführern und ist für Dinge zuständig, die nur von einem Roboter im ganzen Schwarm ausgeführt werden müssen oder können.
 
 \paragraph*{Tick}
-Ein Tick ist ein Takt im System der Roboter. Die Roboter berechnen ihre nächste Aktion, führen diese aus und warten anschließend auf die Reaktionen der anderen Roboter. Dieser sich ständig wiederholende Zyklus wird Tick genannt.(siehe~\autoref{subsec:Tick})
+Ein Tick ist ein Takt-Intervall im System der Roboter. Die Roboter berechnen ihre nächste Aktion, führen diese aus und warten anschließend auf die Reaktionen der anderen Roboter. Dieser sich ständig wiederholende Zyklus wird Tick genannt.(siehe~\autoref{subsec:Tick})
 
 \section{Selbstorganisation}\label{sec:Selbstorganisation}
 
 Als Selbstorganisation bezeichnet man Prozesse, bei denen aus einer ungeordneten Menge, mit Hilfe von lokaler Kommunikation, ein global geordnetes System entsteht.
 Es entsteht oft durch zufälliges Verhalten, welches positives Feedback bekommt.
-In der Robotik versteht man unter Selbstorganisation Gruppen von Systemen, die eigenständig, ohne zentralen Anführer arbeiten können, um gemeinsam ein höheres Ziel zu erreichen. Dies kann ein physikalischer Prozess sein, wie der Transport eines Objektes, es kann aber auch eine 'Denkaufgabe' sein, wie das Berechnen eines Wertes oder die Erstellung einer Karte mit Hilfe von Sensoren die die Umgebung scannen und die Daten der verstreuten Roboter zu einer gemeinsamen Karte bündeln.
+In der Robotik versteht man unter Selbstorganisation Gruppen von Systemen, die eigenständig, ohne zentralen Anführer arbeiten können, um gemeinsam ein höheres Ziel zu erreichen. Dies kann ein physikalischer Prozess sein, wie der Transport eines Objektes, es kann aber auch eine 'Denkaufgabe' sein, wie das Berechnen eines Wertes oder die Erstellung einer Karte mit Hilfe von Sensoren, die die Umgebung scannen und die Daten der verstreuten Roboter zu einer gemeinsamen Karte bündeln.
 
 \subsection*{Zentrale Systeme}\label{subsec:ZentraleSysteme}
 
@@ -68,7 +68,7 @@ Der Schwarm steht also als Gesamteinheit still, die einzelnen Einheiten bewegen 
 
 \paragraph*{Vorteile von Schwarmverhalten}
 
-Ein großer Vorteil von Robotern, die im Schwarm arbeiten, ist das simple Programm. Die 4 Regeln eines Schwarms sind relativ leicht zu implementieren (unter der Annahme dass der Hardware-Layer bereits fertig ist) und auch die Parameter, die letztlich das dynamische Verhalten des Schwarms beeinflussen, sind mittels Simulationen gut zu verstehen und auf die eigenen Wünsche anzupassen. Generell braucht es für die Abarbeitung der 4 Regeln nicht viele Hardware-Ressourcen. Ganz allgemein ließe sich ein Roboter, der nur diese 4 Regeln beachtet, bei heutiger Technik mittels Microcontrollern umsetzen.
+Ein großer Vorteil von Robotern, die im Schwarm arbeiten, ist das simple Programm. Die 4 Regeln eines Schwarms sind relativ leicht zu implementieren (unter der Annahme dass der Hardware-Layer bereits fertig ist) und auch die Parameter, die letztlich das dynamische Verhalten des Schwarms beeinflussen, sind mittels Simulationen gut zu verstehen und auf die eigenen Wünsche anzupassen. Generell braucht es für die Abarbeitung der 4 Regeln nicht viele Hardware-Ressourcen. Ganz allgemein ließe sich ein Roboter, der nur diese 4 Regeln beachtet, bei heutiger Technik mittels Mikrocontrollern umsetzen.
 
 Die einzelnen Roboter eines Schwarms lassen sich also ohne größeren Aufwand zusammenstellen und die Software schnell auf andere Systeme anpassen. Dadurch können, je nach Aufgabengebiet, direkt mehrere Roboter in Serie gefertigt werden, wodurch ein großer, dynamischer Schwarm entsteht.
 
@@ -116,7 +116,7 @@ Im Laufe der Iterationen richten sich die Einheiten immer am Durchschnitt der Na
 Dadurch bildet ihre Ausrichtung eine Art Konstante innerhalb des Schwarms die sich nicht relativ zu den anderen verändert.
 Der Schwarm nimmt dadurch allmählich die Ausrichtung dieser Konstanten an und er bewegt sich in die Richtung die von dem Anführer (auch mehrere sind möglich) vorgegeben wird.
 Mit Hilfe der Technik dieser Anführer, lässt sich der Schwarm letztlich steuern ohne dass das Paradigma des Schwarmverhaltens gebrochen werden muss.
-Ein Vorteil dieser Technik ist zum Beispiel, dass die Berechnung eines normalen Schwarmverhaltens sehr günstig ablaufen kann, wohingegen ein Anführer über weit mehr Wissen verfügen muss. Ein normaler Schwarmroboter braucht die Positionen der anderen Roboter und errechnet über simple Funktionen seinen nächsten Zug. In der heutigen Zeit sind solche Berechnungen selbst mit billigsten Microcontrollern zu bewältigen. Ein Anführer jedoch kann darauf angewiesen sein seine Umgebung zu kennen, sich seine Karte womöglich sogar selbst zusammenbauen zu müssen, und in dieser Karte mit Wegfingungen navigieren zu müssen. Aus diesen Gründen braucht ein Anführer weit größere Ressourcen und ist entsprechend teurer und braucht mehr Energie.\cite{VicsekLeader}\cite{RobotLeader}
+Ein Vorteil dieser Technik ist zum Beispiel, dass die Berechnung eines normalen Schwarmverhaltens sehr günstig ablaufen kann, wohingegen ein Anführer über weit mehr Wissen verfügen muss. Ein normaler Schwarmroboter braucht die Positionen der anderen Roboter und errechnet über simple Funktionen seinen nächsten Zug. In der heutigen Zeit sind solche Berechnungen selbst mit billigsten Microcontrollern zu bewältigen. Ein Anführer jedoch kann darauf angewiesen sein seine Umgebung zu kennen, sich seine Karte womöglich sogar selbst zusammenbauen zu müssen, und in dieser Karte mit Wegfindungs-Algorithmen navigieren zu müssen. Aus diesen Gründen braucht ein Anführer weit größere Ressourcen und ist entsprechend teurer und braucht mehr Energie.\cite{VicsekLeader}\cite{RobotLeader}
 
 \subsubsection*{Stigmergie}\label{subsubsec:Stigmergie}
 
@@ -135,24 +135,24 @@ Die einzelnen Einheiten reagieren dabei nur auf das Umfeld, welches von anderen 
 
 \section{ROS}
 
-\ac{ROS} ist ein modulares Framework für die Erstellung von Software für Roboter. Roboter-Software ist schwer zu designen, da man sehr viele Abstraktions-Level hat und viele Sensoren managen muss, die mitunter von eigenen Microcontrollern kontrolliert werden. An diesem Punkt setzt ROS and und bietet ein abstrakted Framework um diese Arbeit in kleinere, einfachere Schritte aufzuteilen und die Arbeitsumegbung von ROS zu abstrahieren. ROS ist dabei kein eigenes Betriebssystem, sondern eine Art System im System. Es kommt mit eigenen Kommandos wie \highlight{roscd} oder \highlight{rosls}, die nur ROS-Pakete beachten.
+\ac{ROS} ist ein modulares Framework für die Erstellung von Software für Roboter. Roboter-Software ist schwer zu designen, da man sehr viele Abstraktions-Level hat und viele Sensoren managen muss, die mitunter von eigenen Mikrocontrollern kontrolliert werden. An diesem Punkt setzt \ac{ROS} and und bietet ein abstraktes Framework um diese Arbeit in kleinere, einfachere Schritte aufzuteilen und die Arbeitsumgebung von \ac{ROS} zu abstrahieren. \ac{ROS} ist dabei kein eigenes Betriebssystem, sondern eine Art System im System. Es kommt mit eigenen Kommandos wie \highlight{roscd} oder \highlight{rosls}, die nur \ac{ROS}-Pakete beachten.
 
 \subsection{Allgemeines}
 
-ROS wurde erstmals 2007 veröffentlicht und ist seit dem in der 12. Version erschienen. Das Framework steht unter einer BSD-Lizenz und ist damit frei für jede Art von Projekt. Mittlerweile gibt es über 3000 Software-Pakete die man in der eigenen Software nutzen kann. Darunter Pakete mit denen sich Karten aus einzelnen Bildern zusammenstellen lassen\cite{ROS_SLAM}.
+\ac{ROS} wurde erstmals 2007 veröffentlicht und ist seit dem in der 12. Version erschienen. Das Framework steht unter einer BSD-Lizenz und ist damit frei für jede Art von Projekt. Mittlerweile gibt es über 3000 Software-Pakete die man in der eigenen Software nutzen kann. Darunter Pakete mit denen sich Karten aus einzelnen Bildern zusammenstellen lassen\cite{ROS_SLAM}.
 
-Die Software die aus dem ROS-Framework entsteht ist kein Monolith, sondern lässt sich am ehesten mit Microservices vergleichen. Viele kleine Programme, die im ganzen zu einem höheren Ziel vereint werden. Diese kleinen Programme (Nodes), lassen sich in den Sprachen C++, Python und Lisp schreiben, wobei jede Node aus einer anderen Sprache hervorgehen kann. Grundsätzlich ist ROS für Ubuntu gebaut und getestet. Andere Betriebssysteme, wie Windows oder Fedora, lassen sich mit Aufwand auch bauen.
+Die Software die aus dem \ac{ROS}-Framework entsteht ist kein Monolith, sondern lässt sich am ehesten mit Microservices vergleichen. Viele kleine Programme, die im ganzen zu einem höheren Ziel vereint werden. Diese kleinen Programme (Nodes), lassen sich in den Sprachen C++, Python und Lisp schreiben, wobei jede Node aus einer anderen Sprache hervorgehen kann. Grundsätzlich ist \ac{ROS} für Ubuntu gebaut und getestet. Andere Betriebssysteme, wie Windows oder Fedora, lassen sich mit Aufwand auch bauen.
 
 \subsection*{Catkin}
 
-Als Build-System nutzt ROS ein Programm namens catkin \cite{ROS_CATKIN}. Catkin ist eine Eigententwicklung von den ROS-Machern und kombiniert CMake-Makros mit Python-Skripten um flexibler zu sein. Catkin ist entstanden, weil es mehrere, unabhängige Build-Targets besser verwalten kann als herkömmlich Build-Systeme. Gerade ROS mit seiner Microservice-Architektur baut im Normalbetrieb sehr viele kleine Programme, die alle unterschiedliche Abhängigkeiten haben können. Da andere Build-Systeme dafür zu langsam und unperformant waren, wurde catkin ins Leben gerufen.
+Als Build-System nutzt \ac{ROS} ein Programm namens catkin \cite{ROS_CATKIN}. Catkin ist eine Eigenentwicklung von den \ac{ROS}-Machern und kombiniert CMake-Makros mit Python-Skripten um flexibler zu sein. Catkin ist entstanden, weil es mehrere, unabhängige Build-Targets besser verwalten kann als herkömmlich Build-Systeme. Gerade \ac{ROS} mit seiner Microservice-Architektur baut im Normalbetrieb sehr viele kleine Programme, die alle unterschiedliche Abhängigkeiten haben können. Da andere Build-Systeme dafür zu langsam und unperformant waren, wurde catkin ins Leben gerufen.
 
 \subsection*{Wichtige Bestandteile}
 
-ROS ist ein sehr modulares Framework, dass aus vielen kleinen Komponenten besteht, die alle zusammen ein eigenständiges, durchaus komplexes System aufstellen. Diese werden im folgenden kurz vorgestellt.
+\ac{ROS} ist ein sehr modulares Framework, dass aus vielen kleinen Komponenten besteht, die alle zusammen ein eigenständiges, durchaus komplexes System aufstellen. Diese werden im folgenden kurz vorgestellt.
 
 \subsubsection*{Nodes}
-Die Nodes von ROS sind die keinen Programme, die später Teil der Microservice-Umgebung werden\cite{ROS_NODES}. Sie können einzeln oder durch Roslaunch im Paket gestartet werden. Sie können auch asynchron dazu- und abgeschaltet werden um im laufenden Betrieb mehr dazu zu schalten oder kleine Updates zu machen. Nodes kommunizieren mit Messages, wobei der ROS-Master in diesem Sub-System als Nameserver dient.
+Die Nodes von \ac{ROS} sind die keinen Programme, die später Teil der Microservice-Umgebung werden\cite{ROS_NODES}. Sie können einzeln oder durch Roslaunch im Paket gestartet werden. Sie können auch asynchron dazu- und abgeschaltet werden um im laufenden Betrieb mehr dazu zu schalten oder kleine Updates zu machen. Nodes kommunizieren mit Messages, wobei der \ac{ROS}-Master in diesem Sub-System als Nameserver dient.
 
 Nodes können auch Services bieten. Das bedeutet, dass eine Service-Message empfangen werden kann. Diese Messages werden nicht durch Topics verbreitet, sondern gehen direkt zu einer Node. Sendet eine Node eine Service-Message an eine andere, wird die Node warten bis die Antwort empfangen wurde. Es bietet sich also an diese direkt zu verarbeiten, um den Absender nicht unnötig warten zu lassen.
 
@@ -181,46 +181,56 @@ Mit dem Tool \highlight{rqt\_graph}\cite{ROS_RQT} lassen sich die verknüpften T
 
 \subsubsection*{ROS-Master}
 
-\begin{wrapfigure}{r}{\pictureWidth}
-	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/MasterNameserver.png}
-	\caption{Der ROS-Master als Nameserver}
-	\label{pic:MasterNameserver}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{\pictureWidth}
+%	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/MasterNameserver.png}
+%	\caption{Der ROS-Master als Nameserver}
+%	\label{pic:MasterNameserver}
+%\end{wrapfigure}
 
 Damit die einzelnen Nodes wissen, wo sie ihre Nachrichten hinschicken müssen, gibt es den \ac{ROS}-Master\cite{ROS_MASTER}. Diese spezielle Node muss in jedem \ac{ROS}-System einmal gestartet werden. Sie dient sozusagen als DNS-Server in der Programmumgebung von \ac{ROS}. Möchte eine Node eine Nachricht an eine andere senden, hat sie nur den Namen der Node. Sie fragt dann den \ac{ROS}-Master, der ihr die entsprechende Adresse zurück gibt. Aber nicht nur Namen werden vermittelt, sondern auch Topics, wodurch diese dezentral laufen. \autoref{pic:MasterNameserver} zeigt den \ac{ROS}-Master bei seiner Tätigkeit.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{graphics/MasterNameserver.png}
+	\caption{Der ROS-Master als Nameserver}
+	\label{pic:MasterNameserver}
+\end{figure}
 
 \subsubsection*{Parameter-Server}
 Als letztes Modul wird der Parameter-Server vorgestellt\cite{ROS_SERVER}. Dieser dient sozusagen als Repository in dem Konfigurationen abgespeichert werden können. Möchte man bestimmte Werte, wie zum Beispiel Preise bei einer Ware, nicht in seinen Programmen hartkodieren um sie flexibel zu halten, kann man sich dem Parameter-Server bedienen. Die Struktur der Parameter ist wie die der Topics \highlight{/camera/left/lens}. Es lassen sich aber ganze Level abfragen, die dann als JSON-ähnliches Format versendet werden.
 
 Der Parameter-Server ist ein Bestandteil des \ac{ROS}-Masters. Das Abfragen der Parameter setzt also voraus, dass eine Verbindung zu diesem besteht. Entschließt man sich also dazu den Parameter-Server zu nutzen, rückt der \ac{ROS}-Master wieder ein Stück weiter in den Vordergrund und seine Rolle als kritisches System wird umso stärker. Außerdem erfordert das Abfragen eines Parameters, dass man die TCP/UDP-Verbindung nutzt. Einen Parameter abzufragen ist somit vergleichsweise sehr langsam. Sinnvoller wäre es einen Cache in die eigenen Nodes einzubauen und diesen, entweder über Timer oder Broadcasts über einen Topic manuell, aktualisieren zu lassen.
 
-\subsubsection*{Roslaunch}
+\newpage\subsubsection*{Roslaunch}
 Roslaunch ist ein Programm dass es erlaubt mehrere Nodes miteinander zu verketten und als ein Gesamtpaket zu starten\cite{ROS_LAUNCH}. Die Pakete werden in einem XML-Format erstellt und bieten besondere Funktionen um die Nodes miteinander zu bündeln und interagieren zu lassen.
 
-Es ist so möglich Nodes mit Parametern\footnote{\url{http://wiki.ros.org/roslaunch/XML/}} zu starten und sie zum Beispiel als \highlight{required} zu kennzeichen. Dies bedeutet, dass alle anderen Nodes die mit dieser im Paket gestartet wurden, sich automatisch abschalten, wenn die betreffende Node sich (freiwillig oder durch Fehler) beendet.
+Es ist so möglich Nodes mit Parametern\footnote{\url{http://wiki.ros.org/roslaunch/XML/}} zu starten und sie zum Beispiel als \highlight{required} zu kennzeichnen. Dies bedeutet, dass alle anderen Nodes die mit dieser im Paket gestartet wurden, sich automatisch abschalten, wenn die betreffende Node sich (freiwillig oder durch Fehler) beendet.
 Auch ein umleiten von In- und Output eines Services ist möglich. So lässt sich zum Beispiel ein Logger recht simpel in einer eigenen Node erstellen, der eine Kopie der privaten Inputs und Outputs eines Services kommt um sie zu Loggen. Auch für die Fehlerprüfung ließe sich diese Technik nutzen. Man könnte eine alte Version einer Node mitlaufen lassen und auf diese Weise prüfen, dass die neue Version sich genau so verhält wie die alte (aber performanter ist).
 
 \subsection*{Turtlesim}
-\begin{wrapfigure}{r}{\pictureWidth}
-	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/turtlesim.png}
-	\caption{Die Turtlesim}
-	\label{pic:Turtlesim}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{\pictureWidth}
+%	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/turtlesim.png}
+%	\caption{Die Turtlesim}
+%	\label{pic:Turtlesim}
+%\end{wrapfigure}
 
 Die Turtlesim\cite{ROS_TURTLESIM} (\autoref{pic:Turtlesim}) ist ein \ac{ROS}-Package das eine Simulationsumgebung bereitstellt. Sie stellt eine grafische Oberfläche zur Verfügung und eine steuerbare Einheit namens 'Turtle'. Diese Turtle kann über die Turtlesim mit einfachen Befehlen in Form von Messages gesteuert werden.
 
 \begin{itemize}
-\item turtleX/cmd\_vel
-\item[] (geometry\_msgs/Twist)
-
-\item turtleX/teleport\_absolute
-\item[] (turtlesim/TeleportAbsolute)
-
-\item turtleX/teleport\_relative
-\item[] (turtlesim/TeleportRelative)
+\item turtleX/cmd\_vel	(geometry\_msgs/Twist)
+\item turtleX/teleport\_absolute	(turtlesim/TeleportAbsolute)
+\item turtleX/teleport\_relative	(turtlesim/TeleportRelative)
 \end{itemize}
 
 Die Turtlesim kennt noch viele Nachrichten mehr und bietet sowohl Schnittstellen für Messages sowie Services. Sie selbst bietet auch selbst Messages an, darunter Feedback darüber, wo sich eine Turtle befindet.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.45\textwidth,keepaspectratio]{graphics/turtlesim.png}
+	\caption{Die Turtlesim}
+	\label{pic:Turtlesim}
+\end{figure}
+
 
 \subsubsection*{Eigenschaften}
 Die Turtlesim bietet ein Fenster mit einer 'Spielfläche' auf der mehrere der Turtles erstellt werden können. Die erste Turtle wird beim öffnen der Turtlesim automatisch erstellt und trägt den Namen 'Turtle1'. Weitere Turtles können mit einem eigenen (einzigartigen) Namen erstellt werden oder per Default, wobei die Turtlesim dann den Namen erstellt.
@@ -236,4 +246,4 @@ Der eigentliche Sinn der Turtlesim ist es \ac{ROS}-Anfängern eine Möglichkeit 
 Trotz dessen, dass die Turtlesim sehr eingeschränkt ist, hat sie dennoch noch den Vorteil eine einfache, grafische Oberfläche zu bieten. Zu sehen wie die Turtles über die Simulation fahren und sich verhalten ist sehr hilfreich das generelle Verhalten zu beobachten und Fehler in der Implementierung zu erkennen. Die gesammelten Daten sind zwar wichtig als Diskussionsgrundlage, das dynamische Verhalten beobachten zu können bietet aber viel Kontext zu den Daten.
 Eine eigene grafische Oberfläche zu schreiben hätte weiteren Arbeitsaufwand bedeutet der nicht in die Konzeption der eigentlichen Frage der Thesis hätte einfließen können.
 
-Die Turtlesim wurde allerdings dahingehend angepasst, dass die Bilder der großen Turtles durch kleinere, minimale Pfeile ersetzt wurden. Dadurch wurde mehr übersichtlichkeit geschaffen und die Turtles können direkt beisammen sein, ohne dass sich ihre Darstellung gegenseitig zu sehr behindert.
+Die Turtlesim wurde allerdings dahingehend angepasst, dass die Bilder der großen Turtles durch kleinere, minimale Pfeile ersetzt wurden. Dadurch wurde mehr Übersichtlichkeit geschaffen und die Turtles können direkt beisammen sein, ohne dass sich ihre Darstellung gegenseitig zu sehr behindert.

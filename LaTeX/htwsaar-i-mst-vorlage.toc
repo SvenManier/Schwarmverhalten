@@ -44,9 +44,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}Informierte Anf\IeC {\"u}hrer}{21}{section.4.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Strukturen}{22}{section.4.4}
+\contentsline {section}{\numberline {4.4}Kilobots}{22}{section.4.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Transport}{23}{section.4.5}
+\contentsline {section}{\numberline {4.5}Transport}{22}{section.4.5}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.6}Strukturen mit Bausteinen}{23}{section.4.6}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Konzeption}{25}{chapter.5}
 \defcounter {refsection}{0}\relax 
@@ -56,41 +58,41 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.3}Anf\IeC {\"u}hrer}{31}{section.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Transport von Waren mit Hilfe eines Schwarms}{33}{section.5.4}
+\contentsline {section}{\numberline {5.4}Transport von Waren mit Hilfe eines Schwarms}{34}{section.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Weiterf\IeC {\"u}hrende Konzeption}{38}{section.5.5}
+\contentsline {section}{\numberline {5.5}Weiterf\IeC {\"u}hrende Konzeption}{39}{section.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.1}Dynamischer Schwarm}{38}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.1}Dynamischer Schwarm}{40}{subsection.5.5.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.2}Virtuelle Anf\IeC {\"u}hrer}{39}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.2}Virtuelle Anf\IeC {\"u}hrer}{41}{subsection.5.5.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.3}Globale Statisten}{40}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.5.3}Globale Statisten}{41}{subsection.5.5.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.4}Statisten als Auftragsvergabe}{43}{subsection.5.5.4}
+\contentsline {subsection}{\numberline {5.5.4}Statisten als Auftragsvergabe}{44}{subsection.5.5.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.5}Ausschw\IeC {\"a}rmen}{44}{subsection.5.5.5}
+\contentsline {subsection}{\numberline {5.5.5}Ausschw\IeC {\"a}rmen}{45}{subsection.5.5.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Implementierung}{45}{chapter.6}
+\contentsline {chapter}{\numberline {6}Implementierung}{47}{chapter.6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Generelles zur Implementierung}{45}{section.6.1}
+\contentsline {section}{\numberline {6.1}Generelles zur Implementierung}{47}{section.6.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Nachbau des Schwarms nach Craig Reynolds}{45}{section.6.2}
+\contentsline {section}{\numberline {6.2}Nachbau des Schwarms nach Craig Reynolds}{48}{section.6.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Anf\IeC {\"u}hrer}{51}{section.6.3}
+\contentsline {section}{\numberline {6.3}Anf\IeC {\"u}hrer}{53}{section.6.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}Transport von Waren mit Hilfe eines Schwarms}{52}{section.6.4}
+\contentsline {section}{\numberline {6.4}Transport von Waren mit Hilfe eines Schwarms}{55}{section.6.4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.5}\IeC {\"A}nderungen f\IeC {\"u}r die Implementierung auf einem Roboter}{54}{section.6.5}
+\contentsline {section}{\numberline {6.5}\IeC {\"A}nderungen f\IeC {\"u}r die Implementierung auf einem Roboter}{57}{section.6.5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Evaluation}{57}{chapter.7}
+\contentsline {chapter}{\numberline {7}Evaluation}{59}{chapter.7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.1}Generelles zur Evaluation}{57}{section.7.1}
+\contentsline {section}{\numberline {7.1}Generelles zur Evaluation}{59}{section.7.1}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.2}Nachbau des Schwarms nach Craig Reynolds}{57}{section.7.2}
+\contentsline {section}{\numberline {7.2}Nachbau des Schwarms nach Craig Reynolds}{59}{section.7.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.3}Anf\IeC {\"u}hrer}{62}{section.7.3}
+\contentsline {section}{\numberline {7.3}Anf\IeC {\"u}hrer}{64}{section.7.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {7.4}Transport von Waren mit Hilfe eines Schwarms}{68}{section.7.4}
+\contentsline {section}{\numberline {7.4}Transport von Waren mit Hilfe eines Schwarms}{69}{section.7.4}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {8}Fazit und Ausblicke}{73}{chapter.8}
 \defcounter {refsection}{0}\relax 
@@ -98,8 +100,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {8.2}Probleme mit ROS}{75}{section.8.2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {8.3}Ausblicke}{76}{section.8.3}
+\contentsline {section}{\numberline {8.3}Ausblicke}{77}{section.8.3}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Literatur}{79}{chapter*.190}
+\contentsline {chapter}{\nonumberline Literatur}{79}{chapter*.185}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{81}{chapter*.191}
+\contentsline {chapter}{\nonumberline Abbildungsverzeichnis}{81}{chapter*.186}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Tabellenverzeichnis}{82}{chapter*.187}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\nonumberline Listings}{82}{chapter*.188}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{83}{chapter*.189}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Grafiken}{87}{appendix.A}

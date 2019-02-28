@@ -1,0 +1,97 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {ngerman}
+\defcounter {refsection}{0}\relax 
+\select@language {ngerman}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Der ROS-Master als Nameserver\relax }}{12}{figure.caption.21}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Die Turtlesim\relax }}{13}{figure.caption.25}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Struktur-Erstellung mit Kilobots\relax }}{22}{figure.caption.46}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Struktur-Erstellung mit Bausteinen\relax }}{22}{figure.caption.47}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Struktur-Erstellung mit Bausteinen\relax }}{23}{figure.caption.48}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Winkel-\IeC {\"U}bersicht\relax }}{27}{figure.caption.54}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Berechnung des Mittelpunkts\relax }}{28}{figure.caption.58}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Ausweichen gegen\IeC {\"u}ber Hindernissen\relax }}{29}{figure.caption.60}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Berechnung des Drangs zur Gruppierung\relax }}{30}{figure.caption.67}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Berechnung einer Bewegung\relax }}{31}{figure.caption.70}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Entfernungen des Anf\IeC {\"u}hrers\relax }}{33}{figure.caption.76}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Anf\IeC {\"u}hrer f\IeC {\"a}ngt seinen Schwarm wieder ein\relax }}{33}{figure.caption.78}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Der Transport des Objekts\relax }}{36}{figure.caption.85}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Tracking des Transportobjektes\relax }}{37}{figure.caption.88}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Evaluation eines IPS\relax }}{38}{figure.caption.92}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Funktionsweise des Statisten\relax }}{42}{figure.caption.100}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Roboter stecken in einer Senke fest\relax }}{44}{figure.caption.106}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Der Luftballon-Algorithmus\relax }}{45}{figure.caption.111}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Die Klassenhierarchie eines Roboter-Objektes\relax }}{48}{figure.caption.114}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Winkel-\IeC {\"U}bersicht\relax }}{51}{figure.caption.120}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Die Klassenhierarchie eines Hindernisses\relax }}{53}{figure.caption.125}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Ablaufdiagramm Schwarm\relax }}{54}{figure.caption.127}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Einordnung der Roboter in Schw\IeC {\"a}rme\relax }}{59}{figure.caption.133}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Entwicklung der Schw\IeC {\"a}rme in Abh\IeC {\"a}ngigkeit ihres freien Willens\relax }}{60}{figure.caption.136}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Entwicklung der Schw\IeC {\"a}rme in Abh\IeC {\"a}ngigkeit ihres Dranges zur Gruppierung mit 90\IeC {\textdegree } eigenem Willen\relax }}{62}{figure.caption.141}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Entwicklung der Schw\IeC {\"a}rme in Abh\IeC {\"a}ngigkeit ihres Dranges zur Gruppierung mit 225\IeC {\textdegree } eigenem Willen\relax }}{62}{figure.caption.143}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Entwicklung der Schw\IeC {\"a}rme mit negativem Gruppendrang\relax }}{63}{figure.caption.145}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Erfolg eines Anf\IeC {\"u}hrer ins Abh\IeC {\"a}ngigkeit des freien Willens\relax }}{65}{figure.caption.150}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Erfolg eines Anf\IeC {\"u}hrer ins Abh\IeC {\"a}ngigkeit der Gruppengr\IeC {\"o}\IeC {\ss }e und des Gruppendrangs mit 5 passiven Robotern\relax }}{67}{figure.caption.154}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Erfolg eines Anf\IeC {\"u}hrer ins Abh\IeC {\"a}ngigkeit der Gruppengr\IeC {\"o}\IeC {\ss }e und des Gruppendrangs mit 10 passiven Robotern\relax }}{68}{figure.caption.156}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Abh\IeC {\"a}ngigkeit: Gr\IeC {\"o}\IeC {\ss }es des Flocks und Anzahl der Anf\IeC {\"u}hrer\relax }}{70}{figure.caption.166}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Abh\IeC {\"a}ngigkeit: Freier Wille\relax }}{71}{figure.caption.168}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Abh\IeC {\"a}ngigkeit: Lokale Reichweite\relax }}{72}{figure.caption.170}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Erfolg eines Anf\IeC {\"u}hrer ins Abh\IeC {\"a}ngigkeit der Gruppengr\IeC {\"o}\IeC {\ss }e und des Gruppendrangs mit 15 passiven Robotern\relax }}{87}{figure.caption.192}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Erfolg eines Anf\IeC {\"u}hrer ins Abh\IeC {\"a}ngigkeit der Gruppengr\IeC {\"o}\IeC {\ss }e und des Gruppendrangs mit 20 passiven Robotern\relax }}{88}{figure.caption.193}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Erfolg eines Anf\IeC {\"u}hrer ins Abh\IeC {\"a}ngigkeit der Gruppengr\IeC {\"o}\IeC {\ss }e und des Gruppendrangs mit 25 passiven Robotern\relax }}{88}{figure.caption.194}

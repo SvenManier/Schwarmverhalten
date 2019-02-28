@@ -7,21 +7,29 @@ Die Implementierung baut auf Ubuntu LTS 16.04 mit der \ac{ROS}-Version 'Lunar' a
 
 Generell ist das \ac{ROS}-Framework in C++ und Python verfügbar, wobei diese Sprachen gemischt werden könnten, wenn sie auf verschiedenen Nodes genutzt werden. Als Programmiersprache wurde letztlich C++ verwendet, da es deutlich besser mit den verfügbaren Ressourcen umgeht. In den späteren Auswertungen hat sich diese Wahl positiv bestätigt, da 25 gleichzeitige Roboter eine Menge Ressourcen verschlungen haben und den verfügbaren Computer (auch wegen der VM) bereits an die Grenzen seiner Leistung brachte.
 
-Da ein experimentelles Vorgehen direkt an realen Robotern zu Aufwändig wäre, insbesondere was die Zeitkosten für die Durchführung und Auswertung einer Simulation angeht, beruht die Implementierung auf der Node Turtlesim\cite{ROS_TURTLESIM} von ROS~(siehe~\autoref{subsec:Grundlagen_Turtlesim}). Die Turtlesim wurde dahingehend angepasst, dass die Bilder der Turtles durch wesentlich kleinere Bilder schwarzer Pfeile ersetzt wurden die visuellen Aufschluss auf Position und Aurichtung erlauben. Dadurch wurde mehr Platz und Übersichtlichkeit gescahffen. Das Verhalten der Turtles selbst in der Simulation ist unverändert.
+Da ein experimentelles Vorgehen direkt an realen Robotern zu Aufwändig wäre, insbesondere was die Zeitkosten für die Durchführung und Auswertung einer Simulation angeht, beruht die Implementierung auf der Node Turtlesim\cite{ROS_TURTLESIM} von ROS~(siehe~\autoref{subsec:Grundlagen_Turtlesim}). Die Turtlesim wurde dahingehend angepasst, dass die Bilder der Turtles durch wesentlich kleinere Bilder schwarzer Pfeile ersetzt wurden die visuellen Aufschluss auf Position und Ausrichtung erlauben. Dadurch wurde mehr Platz und Übersichtlichkeit geschaffen. Das Verhalten der Turtles selbst in der Simulation ist unverändert.
 
 Grundsätzlich ist die Turtlesim nicht dafür gemacht worden um aufwändigere Simulationen zu erproben. Der Zweck ist es einen einfachen Einstieg in das \ac{ROS}-Framework zu geben und Neulinge durch die Tutorials zu begleiten. Sie bietet aber eine grafische Oberfläche, die bei der Implementierung sehr nützlich ist, insbesondere um Fehler besser entdecken zu können.
 Bei der Implementierung wurde viel Wert auf eine modulare Bauweise gesetzt. Die Bewegungsbefehle die aktuell an die Turtlesim gehen sind abstrahiert und lassen sich später schnell auf das System des jeweiligen Roboters umschreiben. Andere Nachrichten gehen nicht über die Turtlesim, wodurch die Bewegung das einzige Sub-System ist, dass es nachher anzupassen gilt.
 
+\newpage
 \section{Nachbau des Schwarms nach Craig Reynolds}
 
 Sendet man einen Bewegungs-Befehl an die Turtlesim, wird diese den Befehl für 1 Sekunde ausführen und nach Abschluss die Position des Roboters automatisch an die Subscriber verteilen. Die Subscriber erhalten in \ac{ROS} ihre Informationen immer über Callback-Funktionen. Da diese Funktionen statisch sein müssen, ist es nicht einfach möglich die Daten in einem Objekt zu speichern, sondern sie müssen in globalen Variablen untergebracht werden.
 Die Informationen über die Position der Roboter werden in einem Array gespeichert. Da die Roboter IDs haben, ist es leicht diese bei 0 beginnen zu lassen und sie dann als Index zur Adressierung innerhalb des Arrays zu nutzen.
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/Klassendiagramme/KlassendiagrammRobot.png}
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/Klassendiagramme/KlassendiagrammRobot.png}
+%	\caption{Die Klassenhierarchie eines Roboter-Objektes}
+%	\label{pic:KlassendiagramRoboter}
+%\end{wrapfigure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{graphics/Klassendiagramme/KlassendiagrammRobot.png}
 	\caption{Die Klassenhierarchie eines Roboter-Objektes}
 	\label{pic:KlassendiagramRoboter}
-\end{wrapfigure}
+\end{figure}
 
 Da Roboter eine Position und eine Fläche haben die deren Körper darstellt, macht es am meisten Sinn ihnen einen Kreis als geometrische Form zu vererben, sodass letztlich die Klassen-Struktur aus \autoref{pic:KlassendiagramRoboter} entsteht (Funktionen wurden ausgelassen). Der Nutzen der Klasse \highlight{Angle} ist der, dass die Klasse automatisch darauf achtet im Bereich [0, 360] zu bleiben: \highlight{Angle(350) + Angle(20) == Angle(10)}.
 
@@ -51,8 +59,6 @@ Die Steuerung der Roboter innerhalb der Turtlesim geschieht nicht direkt durch d
 	---
 \end{lstlisting}
 
-
-\newpage
 \begin{lstlisting}[style=ros, title=turtlesim/Spawn Service]
 	// Gesendet an den Service: spawn
 	// Erschafft einen neuen Roboter in der Turtlesim
@@ -80,6 +86,9 @@ void flockCallback(const turtlesim::PoseConstPtr &msg);
 Um die Nachrichten nun den einzelnen Robotern zuordnen zu können, gäbe es nun die Möglichkeit jedem Callback eine eigene Callback-Funktion zuzuordnen. Diese Methode wäre allerdings Handarbeit und nicht dynamisch. Braucht man mehr (oder weniger) Roboter, müsste man die Funktionen eigenhändig umändern.
 Einen kleinen Trick um dies nicht tun zu müssen, bietet die Boost-Bibliothek mit der \ac{ROS} arbeitet. Mit Hilfe dieser kann man einer Methode einen weiteren, festen Parameter zuordnen.
 
+Dadurch lassen sich alle Callbacks auf die selbe statische Methode verlinken, bei Aufruf wird jedoch immer ein zusätzlicher, fester Parameter mit eingebunden. Die Callbacks können nun in einer Schleife abgearbeitet werden und die Dauer der Schleife als konstanter Parameter codiert werden.
+Eine ähnliche (wenn nicht sogar die selbe) Klasse hat es mit dem Standard C++11 auch in den STL-Header \highlight{<functional>} geschafft\cite{CPP_REFERENCE_FUNCTION}. Da \ac{ROS} aber intern mit der Version von Boost arbeitet\cite{BOOST_REFERENCE_FUNCTION}\cite{ROS_SOURCE_NodeHandle}, ist man dazu gezwungen deren Version zu nutzen und nicht die der STL.
+
 \begin{lstlisting}[style=cpp, title=Callback-Funktion für Pose.msg mit Boost]
 void flockCallback(const turtlesim::PoseConstPtr &msg, const unsigned int index);
 
@@ -93,9 +102,6 @@ void subscribeToFlock() {
     }
 }
 \end{lstlisting}
-
-Dadurch lassen sich alle Callbacks auf die selbe statische Methode verlinken, bei Aufruf wird jedoch immer ein zusätzlicher, fester Parameter mit eingebunden. Die Callbacks können nun in einer Schleife abgearbeitet werden und die Dauer der Schleife als konstanter Parameter codiert werden.
-Eine ähnliche (wenn nicht sogar die selbe) Klasse hat es mit dem Standard C++11 auch in den STL-Header \highlight{<functional>} geschafft\cite{CPP_REFERENCE_FUNCTION}. Da \ac{ROS} aber intern mit der Version von Boost arbeitet\cite{BOOST_REFERENCE_FUNCTION}\cite{ROS_SOURCE_NodeHandle}, ist man dazu gezwungen deren Version zu nutzen und nicht die der STL.
 
 \subsection*{System-Takt: Ticks}\label{subsec:Tick}
 
@@ -115,7 +121,7 @@ while (true) {
 Der Konstruktor nimmt einen float entgegen der die Frequenz angibt. Die wirkliche Länge der Ticks beträgt also 1.111 Sekunden. Der Funktionsaufruf \highlight{sleeper.sleep()} blockiert solange, bis der letzte Aufruf (innerhalb des gleichen Objektes) 1.111 Sekunden her ist. Braucht das Programm zwischen den Aufrufen länger als die Periode lang ist, kehrt die Funktion entsprechend sofort zurück.
 Während der Wartezeit gehen (hoffentlich) alle neuen Positionsdaten der anderen Roboter ein. Nach der Wartezeit werden diese dann abgearbeitet und das Programm arbeitet an seinem nächsten Zyklus.
 
-Entschließt sich ein Roboter dazu sich nicht zu bewegen, muss er einen 'leeren' Bewegungsbefehl senden, der dazu führt, dass sich der Roboter nicht bewegt und somit einen Tick abschließen, statt einfach zu warten und nichts zu senden. Der Grund hierführ liegt darin, dass die Systeme Single-Thread Architekturen sind und das Abfragen der Topics explizit ausgelöst werden muss. Dies geschieht über die Funktion \highlight{ros::spinOnce()} von \ac{ROS}. Diese Funktion bewirkt, dass \ac{ROS} alle Callback-Funktionen der entsprechenden eingegangenen Events aufgerufen werden. Es werden also die bisher eingegangenen\highlight{Pose.msg}s durch ihre Callbacks verarbeitet. Außerdem werden dadurch die eigenen Daten auf den Robotern aufgefrischt und eventuelle Informationen gesendet, die nichts mit der Bewegung zu tun haben. Das Abschließen eines Ticks synchronisiert somit generell die Daten des eigenen Systems mit dem der anderen.
+Entschließt sich ein Roboter dazu sich nicht zu bewegen, muss er einen 'leeren' Bewegungsbefehl senden, der dazu führt, dass sich der Roboter nicht bewegt und somit einen Tick abschließen, statt einfach zu warten und nichts zu senden. Der Grund hierfür liegt darin, dass die Systeme Single-Thread Architekturen sind und das Abfragen der Topics explizit ausgelöst werden muss. Dies geschieht über die Funktion \highlight{ros::spinOnce()} von \ac{ROS}. Diese Funktion bewirkt, dass \ac{ROS} alle Callback-Funktionen der entsprechenden eingegangenen Events aufgerufen werden. Es werden also die bisher eingegangenen\highlight{Pose.msg}s durch ihre Callbacks verarbeitet. Außerdem werden dadurch die eigenen Daten auf den Robotern aufgefrischt und eventuelle Informationen gesendet, die nichts mit der Bewegung zu tun haben. Das Abschließen eines Ticks synchronisiert somit generell die Daten des eigenen Systems mit dem der anderen.
 
 Die Ticks sind trotz allem keine globalen Ticks, die jeden Roboter gleichzeitig betreffen. Jeder Roboter arbeitet auf seiner 'Zeitlinie' und agiert unabhängig der Ticks der anderen Einheiten.
 
@@ -124,38 +130,38 @@ Die Roboter wurden als autonome Einheiten konzipiert die sich ausschließlich an
 
 \subsubsection*{Ausrichtung: Passe deine Bewegungsrichtung deinen Nachbarn an}
 
-\begin{wrapfigure}{r}{\pictureWidthSmall}
-	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/WinkelTemplate.png}
+\begin{wrapfigure}{r}{\pictureWidth}
+	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/WinkelTemplate.png}
 	\caption{Winkel-Übersicht}
 	\label{pic:WinkelUebersicht}
 \end{wrapfigure}
 
-Die Turtlesim selbst arbeitet bei Winkeln mit dem Bereich von [-3.14, 3.14], wohingegen die Steuerung der Roboter mit dem Bereich [0°, 360°] arbeitet, da dieser besser bearbeitet (und von Menschen gelesen) werden kann. Außerdem ist dadurch generell eine Abstraktions-Ebene entstanden, die es später erlaubt mit jedem bliebigen anderen Winkel-System zu arbeiten.
+Die Turtlesim selbst arbeitet bei Winkeln mit dem Bereich von [-3.14, 3.14], wohingegen die Steuerung der Roboter mit dem Bereich [0°, 360°] arbeitet, da dieser besser bearbeitet (und von Menschen gelesen) werden kann. Außerdem ist dadurch generell eine Abstraktions-Ebene entstanden, die es später erlaubt mit jedem beliebigen anderen Winkel-System zu arbeiten.
 Eintreffende Positionsdaten, von anderen Robotern, müssen also erst in die interne Darstellung umgerechnet werden. Ebenso wird der Winkel vor dem Senden eines Bewegungs-Befehls automatisch so umgerechnet, dass die Turtlesim ihn akzeptiert. Wird der Turtlesim ein zu großer Winkel gesendet, z.B.: 5, so wird der überschüssige Winkel einfach abgezogen und es wäre eine Drehung um 1.86. In~\autoref{pic:WinkelUebersicht} ist eine Übersicht über die Winkel zu sehen wie sie im System und von der Turtlesim genutzt werden.
 
-\begin{lstlisting}[style=cpp, title=Berechnung der mittleren Ausrichtung eines Schwarms]
-Angle meanAngle(const std::vector<Angle> &angles) {
-    double y_part = 0, x_part = 0;
-
-    for (const Angle &angle : angles) {
-        x_part += std::cos(angle.get() * M_PI / 180.0f);
-        y_part += std::sin(angle.get() * M_PI / 180.0f);
-    }
-
-    return Angle(x_part / angles.size(), y_part / angles.size());
-}
-
-Angle::Angle(float vec_x, float vec_y) {
-    this->value = std::atan2(vec_y, vec_x) * 180.0f / M_PI;
-    normalize(); // value = value % 360.0f;
-}
-\end{lstlisting}
+%\begin{lstlisting}[style=cpp, title=Berechnung der mittleren Ausrichtung eines Schwarms]
+%Angle meanAngle(const std::vector<Angle> &angles) {
+%    double y_part = 0, x_part = 0;
+%
+%    for (const Angle &angle : angles) {
+%        x_part += std::cos(angle.get() * M_PI / 180.0f);
+%        y_part += std::sin(angle.get() * M_PI / 180.0f);
+%    }
+%
+%    return Angle(x_part / angles.size(), y_part / angles.size());
+%}
+%
+%Angle::Angle(float vec_x, float vec_y) {
+%    this->value = std::atan2(vec_y, vec_x) * 180.0f / M_PI;
+%    normalize(); // value = value % 360.0f;
+%}
+%\end{lstlisting}
 
  
 \subsubsection*{Zusammenhang: Versuche deinen Nachbarn nahe zu sein}
 
 Für die Berechnung des Mittelpunkts der Nachbarschaft, wurde schlicht die Liste der Roboter, die nahe genug sind, genommen und ein mathematischer Durchschnitt gebildet. Die Koordinaten wurden danach von den eigenen abgezogen und die resultierenden X/Y-Werte als Vektoren genutzt um den Winkel zu berechnen, den der Mittelpunkt zum Roboter hat. Anschließend wurde die Differenz dieses Winkels zu dem eigenen Winkel gebildet, den man vorher fahren wollte.
-Von diesem entstandenen Winkel wird nun ein prozentualer Wert genommen (je nach Einstellung des Parameters) und vom ursprünglichen Winkel abegzogen.
+Von diesem entstandenen Winkel wird nun ein prozentualer Wert genommen (je nach Einstellung des Parameters) und vom ursprünglichen Winkel abgezogen.
 
 \begin{lstlisting}[style=cpp, title=Berechnung des Fahrtwinkels]
 Angle RobotPilot::nextStep() {
@@ -189,18 +195,27 @@ bool RobotPilot::predictRobotCollision(const Position &destination) const {
 \paragraph*{Unzureichende Erkennung auf dem Weg}
 Um die Berechnung einfacher zu gestalten und Ressourcen zu schonen wurde nicht der Weg selbst überprüft. Es ist also möglich, dass ein Roboter weder auf seinem Ursprungs- oder Zielort mit anderen Robotern kollidiert, wohl aber auf dem Weg dorthin. Ebenfalls ist es in der Turtlesim nicht möglich, eine angefangene Bewegung wieder abzubrechen. Kommt es also während der Ausführung zu einer Kollision, z.B. weil sich zwei Roboter aufeinander zubewegen, kann diese nicht mehr verhindert werden. Ein Ausgleich in der Simulation ist durch eine Abfrage gegeben, ob sich zwei Roboter 'ineinander' befinden. Die entsprechenden Roboter werden dann auf direkter Luftlinie voneinander weggeschoben, um wieder einen plausiblen physikalischen Zustand einzunehmen.
 
-Im der Praxis sollte eine Kollision auf dem Weg kein Problem darstellen, da mit parallelen Threads nebenläufiges Verhalten eingesetzt werden kann. Außerdem ließe sich, im Falle einer Single-Thread-Architektur, die Frequenz der Ticks wesentlich schneller eingestellen, sodass sich die Roboter effektiv nur wenige Millimeter pro Tick bewegen, dafür aber mit über 100 Ticks pro Sekunde.% Letztlich kommt es auf die Leistung des verwendeten Computers an.
+Im der Praxis sollte eine Kollision auf dem Weg kein Problem darstellen, da mit parallelen Threads nebenläufiges Verhalten eingesetzt werden kann. Außerdem ließe sich, im Falle einer Single-Thread-Architektur, die Frequenz der Ticks wesentlich schneller einstellen, sodass sich die Roboter effektiv nur wenige Millimeter pro Tick bewegen, dafür aber mit über 100 Ticks pro Sekunde.% Letztlich kommt es auf die Leistung des verwendeten Computers an.
 
 \subsubsection*{Flucht: Fliehe vor Dingen, die eine potentielle Gefahr darstellen}
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/Klassendiagramme/KlassendiagrammObject.png}
-	\caption{Die Klassenhierarchie eines Hindernisses}
-	\label{pic:KlassendiagramObjekt}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/Klassendiagramme/KlassendiagrammObject.png}
+%	\caption{Die Klassenhierarchie eines Hindernisses}
+%	\label{pic:KlassendiagramObjekt}
+%\end{wrapfigure}
+
 
 Kollisionen mit Gefahrenzonen werden erkannt, indem über ein globales Array von \highlight{Object}-Klassen iteriert wird und die einzelnen Objekte nach Kollisionen auf den genannten Koordinaten gefragt werden. Es muss nur die \highlight{Object}-Klasse nach einer Kollision befragt werden, diese leitet die Anfrage an alle Geometrien weiter. Wird eine Kollision bei einem Objekt erkannt, wird sie genau wie bei der Kollision mit Robotern durch iterativ steigendes Ausweichen zu beiden Seiten verhindert.
-Um Gefahrenzonen darzustellen, wird auf Abstraktion und Vererbung gesetzt. Es gibt, wie in \autoref{pic:KlassendiagramObjekt} zu sehen ist, eine Hierarchie von Klassen aus denen sich die Zonen zusammensetzen lassen. Die \highlight{Geometry}-Klassen die sich in der \highlight{Object}-Klasse befinden, werden alle von dieser gesteuert. Bewegt sich das Objekt, bewegen sich alle darin enthaltenen Geometrien. Das Hinderniss bleibt dadurch immer in einem plausiblen Zustand. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{graphics/Klassendiagramme/KlassendiagrammObject.png}
+	\caption{Die Klassenhierarchie eines Hindernisses}
+	\label{pic:KlassendiagramObjekt}
+\end{figure}
+
+Um Gefahrenzonen darzustellen, wird auf Abstraktion und Vererbung gesetzt. Es gibt, wie in \autoref{pic:KlassendiagramObjekt} zu sehen ist, eine Hierarchie von Klassen aus denen sich die Zonen zusammensetzen lassen. Die \highlight{Geometry}-Klassen die sich in der \highlight{Object}-Klasse befinden, werden alle von dieser gesteuert. Bewegt sich das Objekt, bewegen sich alle darin enthaltenen Geometrien. Das Hindernis bleibt dadurch immer in einem plausiblen Zustand. 
 
 
 %\subsection*{Berechnung der Bewegung}
@@ -227,18 +242,25 @@ Da der Anführer seinen Schwarm lenkt, verfällt die Einheit, die zum Anführer 
 
 Generell ist der Anführer frei von den Verhaltensweisen des sonstigen Schwarms. Weder verfügt er über einen freien Willen, noch versucht er seinem Schwarm nahe zu sein, in dem Sinne in dem es bisher Implementiert wurde. Auch die Orientierung an der Ausrichtung anderer Roboter entfällt vollständig, da er sich auf sein Ziel ausrichten muss.
 
-\newpage\subsection*{Generelles Verhalten}
+\subsection*{Generelles Verhalten}
 
-\begin{wrapfigure}{r}{\pictureWidthBig}
-	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/ImplAnführer.png}
-	\caption{Ablaufdiagramm Schwarm}
-	\label{pic:AblaufAnführer}
-\end{wrapfigure}
+%\begin{wrapfigure}{r}{\pictureWidthBig}
+%	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/ImplAnführer.png}
+%	\caption{Ablaufdiagramm Schwarm}
+%	\label{pic:AblaufAnführer}
+%\end{wrapfigure}
 
 \autoref{pic:AblaufAnführer} zeigt das Verhalten wie es umgesetzt wurde.
-Der Anführer ist ein Zweig im normalen Verhalten der Roboter. Erhält ein Roboter eine Nachricht vom Typ \highlight{New\_Mission} und seine ID entpricht der ID in der Nachricht, richtet er sich nach diesem Ziel aus und fährt ihm entgegen. Behindert ein anderer Roboter, dass der Anführer geradeaus weiter kann, verringert er seine Geschwindigkeit oder bleibt letztlich einen Tick lang stehen. Ist er nahe genug am Ziel angekommen, fällt er in sein altes Verhalten zurück. \autoref{pic:AblaufAnführer} zeigt das implementierte Verhalten des Anführers.
+Der Anführer ist ein Zweig im normalen Verhalten der Roboter. Erhält ein Roboter eine Nachricht vom Typ \highlight{New\_Mission} und seine ID entspricht der ID in der Nachricht, richtet er sich nach diesem Ziel aus und fährt ihm entgegen. Behindert ein anderer Roboter, dass der Anführer geradeaus weiter kann, verringert er seine Geschwindigkeit oder bleibt letztlich einen Tick lang stehen. Ist er nahe genug am Ziel angekommen, fällt er in sein altes Verhalten zurück. \autoref{pic:AblaufAnführer} zeigt das implementierte Verhalten des Anführers.
 
-Das Einfangen des Schwarms, wenn dieser sich zu weit entfernt, ist widerum eine Subroutine im Verhalten des Anführers. Ist diese Routine gestartet, bleibt er in diesem Zustand, bis sie vollständig ausgeführt ist und der Schwarm wieder eingefangen wurde.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{graphics/ImplAnführer.png}
+	\caption{Ablaufdiagramm Schwarm}
+	\label{pic:AblaufAnführer}
+\end{figure}
+
+Das Einfangen des Schwarms, wenn dieser sich zu weit entfernt, ist wiederum eine Subroutine im Verhalten des Anführers. Ist diese Routine gestartet, bleibt er in diesem Zustand, bis sie vollständig ausgeführt ist und der Schwarm wieder eingefangen wurde.
 
 \subsection*{Einbindung des Anführers in ROS}
 
@@ -331,11 +353,11 @@ Da bisher die Implementierung auf der Turtlesim basierte, ist folgend ein Abschn
 
 \subsection*{Bewegung}
 
-Die Bewegung eines Roboters wurde bisher erreicht, indem eine Nachricht vom Typ \highlight{Twist.msg} an die Turtlesim gesendet wurde. Dieser Aufbau ist für einen späteren Einsatz unvorteilhaft weil es eine neue Node voraussetzt die für die Bewegung zuständig ist. Stattdessen muss ein neuer Layer erschaffen werden der das Roboter-System mit dem Hardware-System verbindet. Eine Bewegung wird dann dadurch ausgeführt, dass ein Motor angesprochen wird und dieser Feedback über die zurückgelegte Strecke gibt. Dies setzt natürlich vorraus, dass der Motor (oder das Sub-System das für den Motor zuständig ist) in der Lage ist dies zu erkennen. Die wichtigsten Faktoren, neben der trivialen Berechnung über Dauer der Bewegung und Umfang des Rades, sind dabei ob der Motor blockierte oder durchdrehte. Sollte der Motor (bzw. das entsprechende Subsystem) nicht in der Lage sein dies zu erkennen, muss es innerhalb des Systems durch andere Faktoren ausgeglichen werden, beispielsweise durch ein \ac{IPS}. Das Feedback darüber in welcher Position sich der Roboter befindet ist für das Verhalten jedoch essentiell und eine Grundvoraussetzung and die Hardware eines späteren Roboters.
+Die Bewegung eines Roboters wurde bisher erreicht, indem eine Nachricht vom Typ \highlight{Twist.msg} an die Turtlesim gesendet wurde. Dieser Aufbau ist für einen späteren Einsatz unvorteilhaft weil es eine neue Node voraussetzt die für die Bewegung zuständig ist. Stattdessen muss ein neuer Layer erschaffen werden der das Roboter-System mit dem Hardware-System verbindet. Eine Bewegung wird dann dadurch ausgeführt, dass ein Motor angesprochen wird und dieser Feedback über die zurückgelegte Strecke gibt. Dies setzt natürlich voraus, dass der Motor (oder das Sub-System das für den Motor zuständig ist) in der Lage ist dies zu erkennen. Die wichtigsten Faktoren, neben der trivialen Berechnung über Dauer der Bewegung und Umfang des Rades, sind dabei ob der Motor blockierte oder durchdrehte. Sollte der Motor (bzw. das entsprechende Subsystem) nicht in der Lage sein dies zu erkennen, muss es innerhalb des Systems durch andere Faktoren ausgeglichen werden, beispielsweise durch ein \ac{IPS}. Das Feedback darüber in welcher Position sich der Roboter befindet ist für das Verhalten jedoch essentiell und eine Grundvoraussetzung und die Hardware eines späteren Roboters.
 
 \subsection*{Position aktualisieren}
 
-Nicht nur die Bewegung selbst ging bisher über ROS, sondern auch die aktualisierung der Positionsdaten. Die kamen bisher von der Turtlesim über die \highlight{Pose.msg}. Die Roboter werden diese Nachrichten nun selbst verbreiten müssen, bestensfalls direkt im Anschluss an die Bewegung, nachdem das Feedback zur neuen Position kam.
+Nicht nur die Bewegung selbst ging bisher über ROS, sondern auch die Aktualisierung der Positionsdaten. Die kamen bisher von der Turtlesim über die \highlight{Pose.msg}. Die Roboter werden diese Nachrichten nun selbst verbreiten müssen, bestenfalls direkt im Anschluss an die Bewegung, nachdem das Feedback zur neuen Position kam.
 
 
 

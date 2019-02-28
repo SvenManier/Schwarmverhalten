@@ -20,8 +20,8 @@ Idealerweise lassen sich solche Bereiche dynamisch in die Gebietskarte einzeichn
 \subsubsection*{Gruppe finden}
 Die neue Gruppe die für den Auftrag zuständig ist muss sich selbst finden.
 Die Vergabe des Auftrags schließt nicht mit ein den Einheiten Erklärungen mitzugeben wie sie zu arbeiten haben, sondern lediglich die Daten für den Auftrag, darunter wie die Ware aussieht, wo sich der Aufnahmeort befindet und wo der Abgabeort.
-Nachdem eine Einheit also festgestellt hat dass er einen neuen Auftrag besitzt, müssen die anderen Gruppenmitglieder innerhalb des Netzwerks gefunden werden um über die Dauer des Auftrags hnweg Informationen untereinander auszutauschen.
-Eine schnelle Möglichkeit sich zu finden könnten IDs darstellen mit man in Zusammenhang mit einer Auftrags-ID stellt. Auf diese Weise könnten sich Roboter eindeutig identifizieren und einem Auftrag zuordenen, sodass auch andere Roboter erkennen, ob zusammengearbeitet werden muss oder nicht.
+Nachdem eine Einheit also festgestellt hat dass er einen neuen Auftrag besitzt, müssen die anderen Gruppenmitglieder innerhalb des Netzwerks gefunden werden um über die Dauer des Auftrags hinweg Informationen untereinander auszutauschen.
+Eine schnelle Möglichkeit sich zu finden könnten IDs darstellen mit man in Zusammenhang mit einer Auftrags-ID stellt. Auf diese Weise könnten sich Roboter eindeutig identifizieren und einem Auftrag zuordnen, sodass auch andere Roboter erkennen, ob zusammengearbeitet werden muss oder nicht.
 
 \subsection*{Standby im Schwarm}\label{subsec:StandbyImSchwarm}
 Ohne Auftrag gehen die Einheiten ihrem typischen Schwarmverhalten nach. Praktisch heißt das, dass sie sich bewegen und dabei die 4 Regeln von Schwarmverhalten~(\autoref{4Rules}) beachten.
@@ -68,7 +68,7 @@ Am Aufnahmeort angekommen, müssen die Einheiten still stehen bleiben.
 Der Grund dafür ist, dass es eine gewisse Zeit dauert bis ein Mitarbeiter oder eine andere Maschine die zu transportierende Ware auf die Einheiten verladen hat.
 In dieser Zeit darf die Untergruppe nicht in den typischen Standby des großen Schwarms verfallen, denn dabei würden sich die Einheiten leicht bewegen und das verladen schwierig machen.
 Statt dessen müssen sie eher in eine Art Starre verfallen, bis ein bestimmtes Ereignis eintritt, welches ihnen signalisiert dass die Ware vollständig verladen wurde und sie ihren Weg antreten können.
-Ein solcher Stillstand könnte erreicht werden, indem die Motoren der Roboter schlicht über Software außer Betrieb genommen werden würden. Aber auch Schwarmtechnische Lösungen wie das Arbeiten mit Gefahrenzonen, die gerade groß genug sind um den Roboter darin stehen zu lassen, wären denkbar.
+Ein solcher Stillstand könnte erreicht werden, indem die Motoren der Roboter schlicht über Software außer Betrieb genommen werden würden. Aber auch schwarmtechnische Lösungen, wie das Arbeiten mit Gefahrenzonen, die gerade groß genug sind um den Roboter darin stehen zu lassen, wären denkbar.
 
 \subsection*{Gemeinsamer Transport zum Abgabeort}
 Nachdem die Ware erfolgreich auf die Einheiten verladen wurde gilt es nun diese an ihren Abgabeort zu transportieren und den Transportauftrag dadurch zu beenden.
@@ -81,12 +81,12 @@ In diesem Fall könnte das verlassen der Formation dazu führen, dass die Einhei
 Die Ware oder die Einheiten könnten durch die Zugkräfte beschädigt werden, insbesondere könnten die Einheiten umfallen oder die Motoren die für den Antrieb zuständig sind überhitzen und die Einheit ausfallen lassen.
 
 Wieder ist darauf zu achten, dass die Formation ohne Koordinator eingehalten werden muss, allein durch Regeln die der Untergruppe als Schwarm allgemein inne herrschen.
-Die gleichen Algorithmen die dazu führten, dass die Untergruppe am Aufnahmeort ihre Formation einnahm, müssen nun dazu verwendet werden um die Formation während des Transports zu halten. Dabei ist ein ständiger Check erforderlich, ob sich die Roboter noch im Rahmen der Toleranz befinden. Bestenfalls wird dies direkt bei der Berechnung der Bewegung beachtet, sodass es von vornerein nicht möglich ist, dass ein Roboter 'ausversehen' die Formation verlässt.
+Die gleichen Algorithmen die dazu führten, dass die Untergruppe am Aufnahmeort ihre Formation einnahm, müssen nun dazu verwendet werden um die Formation während des Transports zu halten. Dabei ist ein ständiger Check erforderlich, ob sich die Roboter noch im Rahmen der Toleranz befinden. Bestenfalls wird dies direkt bei der Berechnung der Bewegung beachtet, sodass es von vornherein nicht möglich ist, dass ein Roboter 'ausversehen' die Formation verlässt.
 
 \subsubsection*{Maße des Transportobjektes}
 Auch die Ausmaße des Transportobjektes müssen beim Transport beachtet werden. Es muss nicht immer der Fall sein, dass die Roboter das Transportobjekt vollständig umspannen. Im einfachsten Fall hat man nur einen Roboter, der in der Mitte sitzt, der ein Objekt transportieren muss, dass im Durchmesser ein Vielfaches seiner Größe hat. Der Roboter hat auf dem Weg zum Abgabeort darauf zu achten, dass das Objekt nicht mit seiner Umgebung kollidiert und damit von seinem Kopf fällt oder beschädigt wird. Dies ist besonders dann wichtig, wenn der Roboter in der Nähe anderer Menschen arbeitet, die dadurch von dem Transportobjekt verletzt werden könnten. Doch ist nicht nur der Abstand selbst ein wichtiger Faktor, sondern auch die Breite von Gängen. Es kann bei breiten Werkstücken dazu kommen, dass der Roboter eine Route meiden muss, für die er selbst groß genug wäre, in der das Transportobjekt aber stecken bleiben würde.
 
-Bei vielen Robotern wäre es eine Möglichkeit die Roboter so zu setzen, dass die das Transportobjekt möglichst umspannen, ein Zusammenstoß der Umgebung mit dem Transportobjekt also gleichbedeutend wäre mit einem Zusammenstoß mit einem Roboter. Andere Lösungen schließen mit ein, die Roboter über die Ausmaße des Transportobjektes in Kenntniss zu setzen, was aber widerum neue Fähigkeiten vorausstetzen würde und das Wissen darüber, dass sie sich gerade in einem Transport befinden.
+Bei vielen Robotern wäre es eine Möglichkeit die Roboter so zu setzen, dass die das Transportobjekt möglichst umspannen, ein Zusammenstoß der Umgebung mit dem Transportobjekt also gleichbedeutend wäre mit einem Zusammenstoß mit einem Roboter. Andere Lösungen schließen mit ein, die Roboter über die Ausmaße des Transportobjektes in Kenntnis zu setzen, was aber wiederum neue Fähigkeiten voraussetzen würde und das Wissen darüber, dass sie sich gerade in einem Transport befinden.
 
 \subsection*{Standby am Abgabeort}
 Am Abgabeort angekommen muss die Untergruppe wieder zum Stillstand kommen und solange in einer Art Starre verharren bis die Ware vollständig umgeladen wurde.
