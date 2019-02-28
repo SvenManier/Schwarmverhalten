@@ -1,9 +1,6 @@
 \chapter{Analyse}\label{ch:Analyse}
 Im folgenden Kapitel wird es eine Analyse der Aufgabenstellung geben, darunter die Analyse der Probleme die mit der Aufgabenstellung einher gehen und die Anforderungen des späteren Systems.\\
 
-\note{Problembeschreibung, potentielle Lösungswege, Entscheidungen wieso welcher Weg gegangen wird, wieso die anderen nicht etc}\\
-
-\note{Analyse des Themenbereichs bzw der bestehenden Probleme und Ermittelung der Anforderungen gemäß passender Methoden}\\
 \section{Problembeschreibung}\label{sec:Problembeschreibung}
 Laut Aufgabenbeschreibung~(\autoref{sec:Aufgabenstellung}) ist das Ziel dieser Thesis, mit Hilfe von Einheiten, die im Schwarm agieren, Transportaufträge zu verrichten.
 Als Einschränkung war gegeben, dass die Einheiten nicht erst den Auftrag verteilen müssen, sondern die entsprechenden Einheiten ihn bereits haben und die Verteilung des Auftrags, bzw. die Auswahl der geeignetsten Einheiten somit bereits abgeschlossen ist.
@@ -18,49 +15,51 @@ Generell ist immer darauf zu achten, dass es Gebiete gibt in denen der Schwarm s
 Dabei geht es nicht unbedingt darum gefährliche Orte, und damit Beschädigung, zu vermeiden, sondern auch darum dass er nicht überall erwünscht ist.
 Lässt man den Schwarm Transportaufträge innerhalb eines offenen Geländes erfüllen, besteht die Möglichkeit dass er es auf der Suche nach dem kürzesten Weg kurzerhand verlässt und damit auch Eigentumsgrenzen.
 Andererseits kann es aber auch Orte geben die beispielsweise besonders sauber bleiben sollten und in denen die Einheiten mit ihren (eventuell) dreckigen Rädern nicht erwünscht ist.
-Idealerweise lassen sich solche Bereiche dynamisch in die Gebietskarte einzeichnen oder vor Ort markieren, sodass auch auf Gebiete geachtet werden kann die erst kürzlich zu einer Gefahrenzone wurden, wie Beispielsweise eine ausgelaufene Flüssigkeit.
+Idealerweise lassen sich solche Bereiche dynamisch in die Gebietskarte einzeichnen oder vor Ort markieren, sodass auch auf Gebiete geachtet werden kann die erst kürzlich zu einer Gefahrenzone wurden, wie beispielsweise eine ausgelaufene Flüssigkeit.
 
 \subsubsection*{Gruppe finden}
 Die neue Gruppe die für den Auftrag zuständig ist muss sich selbst finden.
-Die Vergabe des Auftrags schließt nicht mit ein den Einheiten Erklärungen mitzugeben wie sich zu arbeiten haben, sondern lediglich die Daten für den Auftrag, darunter wie die Ware aussieht, wo sich der Aufnahmeort befindet und wo der Abgabeort.
-Nachdem eine Einheit also festgestellt hat dass er einen neuen Auftrag besitzt, müssen die anderen Gruppenmitglieder innerhalb des Netzwerks gefunden werden um direkt und später Informationen untereinander auszutauschen.
+Die Vergabe des Auftrags schließt nicht mit ein den Einheiten Erklärungen mitzugeben wie sie zu arbeiten haben, sondern lediglich die Daten für den Auftrag, darunter wie die Ware aussieht, wo sich der Aufnahmeort befindet und wo der Abgabeort.
+Nachdem eine Einheit also festgestellt hat dass er einen neuen Auftrag besitzt, müssen die anderen Gruppenmitglieder innerhalb des Netzwerks gefunden werden um über die Dauer des Auftrags hnweg Informationen untereinander auszutauschen.
+Eine schnelle Möglichkeit sich zu finden könnten IDs darstellen mit man in Zusammenhang mit einer Auftrags-ID stellt. Auf diese Weise könnten sich Roboter eindeutig identifizieren und einem Auftrag zuordenen, sodass auch andere Roboter erkennen, ob zusammengearbeitet werden muss oder nicht.
 
 \subsection*{Standby im Schwarm}\label{subsec:StandbyImSchwarm}
 Ohne Auftrag gehen die Einheiten ihrem typischen Schwarmverhalten nach. Praktisch heißt das, dass sie sich bewegen und dabei die 4 Regeln von Schwarmverhalten~(\autoref{4Rules}) beachten.
 Die ständige Bewegung mag aus energietechnischer Sicht nicht die optimale Lösung darstellen, da ein Schwarm selbst aber nie still steht, bildet sie aus Sicht eines Schwarms letztlich die Standard-Lösung für 'warten'.
-Wie in~\autoref{subsubsec:AuswirkungenVonRauschen} beschrieben, spielt das Rauschen bei der Bewegung eines Schwarm einen wichtigen Faktor.
 Ist der Schwarm im Standby, hat also keinen Auftrag, muss der Faktor des Rauschens so gewählt werden, dass die einzelnen Einheiten des Schwarm zwar noch in Bewegung bleiben, der Schwarm als großes ganzes aber keine Bewegung zu erkennen gibt und augenscheinlich auf der Stelle steht.
 
 \subsubsection*{Dichte des Schwarms}\label{subsubsec:DichteDesSchwarms}
 Da sich der Schwarm auf einem Gelände, wahrscheinlich sogar innerhalb eines Gebäudes oder einer Fabrikhalle, befinden wird, muss auch darauf geachtet werden, dass der Schwarm während des Wartens kein Hindernis für andere Beschäftigte oder Fahrzeuge darstellt.
 Er sollte im Hintergrund verschwinden und kein aktiver Teil der Umgebung werden auf den im besonderen Maße geachtet werden muss.
-Der Schwarm sollte sich daher nirgendwo (partiell) örtlich zusammenballen, sondern, wenn man ihn sich als einen Festkörper vorstellt, seine Dichte so gering wie möglich werden lassen, indem er sich auf dem (ihm erlaubten) Gelände so gut es geht ausbreitet.
+Der Schwarm sollte sich daher nirgendwo (partiell) örtlich zusammenballen, sondern, wenn man ihn sich als einen Festkörper vorstellt, seine Dichte so gering wie möglich werden lassen, indem er sich auf dem (ihm erlaubten) Gelände so gut es geht ausbreitet. Ein möglicher Ansatzpunkt hierfür wäre es, auf der Regel "Zusammenhang: Versuche deinen Nachbarn nahe zu sein" anzusetzen. Mit entsprechenden Parametern könnte es möglich sein, dass sich Roboter nicht versuchen nahe zu sein, sondern sich möglichst voneinander zu entfernen. Ein anderer Ansatz für dieses Problem könnte ein Algorithmus sein, der die Größe der Roboter dynamisch verändert. Wie Luftballons in einem Sack, die gleichzeitig mit Luft gefüllt werden, würde jeder Roboter somit den Platz finden, der am weitesten weg ist, von der Mitte der anderen Roboter.
 
 \subsection*{Bildung der Untergruppe}
-Es muss beachtet werden, dass die neue Untergruppe nach wie vor Teil des großen Schwarms ist und alle Regeln des großen Schwarms erbt, aber auch neue dazu bekommt.
-Die neuen Regeln sorgen dafür, dass der Auftrag ausgeführt werden kann, dürfen sich aber nicht mit den 4 Hauptregeln~(siehe~\autoref{4Rules}) stören.
+Es muss beachtet werden, dass die neue Untergruppe nach wie vor Teil des großen Schwarms ist und alle Regeln des großen Schwarms erbt, aber auch neue dazu bekommen kann.
+Auch wenn die Roboter einen speziellen Auftrag haben, sollten sie davon so wenig wie nur möglich mitbekommen. Neue Regeln sollten so wenig wie möglich eingesetzt werden und die Änderung für neue Regeln in den System der Roboter sollten so gering wie möglich ausfallen. Die Roboter sollten von den 4 Hauptregeln~(siehe~\autoref{4Rules}) so wenig wie möglich abweichen um das Verhalten so natürlich wie nur möglich zu belassen.
+
+Darüber hinaus muss während der gesamten Zeit beachtet werden, dass die Roboter für den neuen Auftrag nur eine Untergruppe bilden und nach wie vor auf die anderen Roboter beachtet werden müssen.
 
 \subsection*{Zusammenfinden am Aufnahmeort}
 Nachdem die Einheiten ihren Auftrag erhalten haben, gilt es sich am Aufnahmeort zusammenzufinden.
-Die Einheiten waren gerade noch in Standby ein Teil des Schwarms und müssen ab sofort eine Untergruppe innerhalb des Schwarms bilden die für den Auftrag zuständig ist.
+Die Einheiten waren gerade noch in Standby ein Teil des Schwarms und müssen ab sofort eine Untergruppe innerhalb des Schwarms bilden, die für den Auftrag zuständig ist.
 
 Als Untergruppe müssen sie sich dann am Aufnahmeort zusammenfinden.
 Das Problem in dieser Situation ist, dass die Untergruppe nach wie vor als Schwarm agieren muss.
-In~\autoref{subsec:AbgesprocheneBewegung} wurde bereits erläutert, dass Schwarmverhalten nicht mit 'Abgesprochener Bewegung' verwechselt werden darf und Einheiten innerhalb eines Schwarms sich nicht aktiv darüber absprechen, welche Einheit sich wohin bewegen soll.
+In~\autoref{subsec:AbgesprocheneBewegung} wurde bereits erläutert, dass Schwarmverhalten nicht mit 'Abgesprochener Bewegung' verwechselt werden darf und Einheiten innerhalb eines Schwarms sich nicht aktiv darüber absprechen dürfen, welche Einheit sich wohin bewegen soll.
 Das bedeutet, dass die Untergruppe sich ausschließlich durch passive Beeinflussung und die Informationen des gegebenen Auftrags gemeinsam am Aufnahmeort zusammenfinden muss.
-Natürlich darf dabei aber nicht davon ausgegangen werden, dass die Gruppe die den Auftrag erhält auch eine erkennbare Gruppe war und die Einheiten daraus örtlich nahe zusammen waren, sondern es muss davon ausgegangen werden dass die Einheiten zufällig ausgewählt werden können.
+Natürlich darf dabei aber nicht davon ausgegangen werden, dass die Gruppe die den Auftrag erhält auch eine erkennbare Gruppe war und die Einheiten daraus örtlich nahe zusammen waren, sondern es muss davon ausgegangen werden, dass die Einheiten zufällig ausgewählt werden können.
 
 \subsubsection*{Einnehmen einer Formation}
 Damit die Ware sicher gelagert ist, muss die Untergruppe eine Formation einnehmen, die für den Transport der Ware geeignet ist.
 Beispiele für solche Formationen wären z.B. ein Viereck, wenn eine große viereckige Kiste transportiert werden muss oder eine Linie, sollte ein Stahlträger transportiert werden müssen.
 Wichtig für die Formation ist jedoch nicht nur die Form der Ware, sondern auch die Anzahl der Einheiten die für den Transport zugeteilt wurden.
 So macht es bei einer Kiste für vier Einheiten am meisten Sinn, wenn sich die Einheiten an den vier Ecken/Kanten verteilen.
-Eine fünfte Einheiten würde zunächst in der Mitte am meisten Sinn machen, wohingegen es bei sechs Einheiten wieder mehr Sinn machen würde, wenn der Einheiten aus der Mitte zu einer Ecke/Kante wandert die noch nicht belegt ist und der sechste dann gegenüber.
+Eine fünfte Einheiten würde zunächst in der Mitte am meisten Sinn machen, wohingegen es bei sechs Einheiten wieder mehr Sinn machen würde, wenn die Einheit aus der Mitte zu einer Ecke/Kante wandert die noch nicht belegt ist und der sechste dann gegenüber.
 
-Das Einnehmen einer Formation ist für einen Schwarm eine besondere Herausforderung, weil Schwarmverhalten sich eben signifikant von abgesprochener Bewegung~(siehe~\autoref{subsec:AbgesprocheneBewegung}) unterscheidet.
+Das Einnehmen einer Formation ist für einen Schwarm eine besondere Herausforderung, weil sich Schwarmverhalten signifikant von abgesprochener Bewegung~(siehe~\autoref{subsec:AbgesprocheneBewegung}) unterscheidet.
 Ein schneller erster Gedanke wie Einheiten eine Formation einnehmen, wäre die Kontur der Ware zu zeichnen und die Einheiten an den signifikanten Stellen, möglichst symmetrisch, zu verteilen.
 Für solch eine Koordination braucht es aber letztlich auch einen Koordinator.
-Einen Koordinator zu wählen, wäre für die Untergruppe grundsätzlich kein Problem, ein einfacher Echo-Algorithmus wäre vollkommen ausreichend, jedoch gilt es abgesprochene Bewegung von Schwarmverhalten abzugrenzen.
+Einen Koordinator zu wählen, wäre für die Untergruppe grundsätzlich kein Problem, ein einfacher Echo-Algorithmus wäre vollkommen ausreichend, da dies jedoch über die Kommunikation innerhalb eines Schwarms weit hinaus geht, ist diese Form der Verständigung nicht erlaubt.
 Es muss für dieses Problem also ein Algorithmus gefunden werden, mit dessen Hilfe sich ein Schwarm in eine bestimmte Formation bringen lässt, ohne dass es einen Koordinator gibt der den einzelnen Einheiten mitteilt wo sie sich hinbewegen müssen.
 Grundlage für diese Formation muss ein simpler Austausch von Informationen sein, darunter vor allem die Größe der Gruppe.
 
@@ -68,7 +67,8 @@ Grundlage für diese Formation muss ein simpler Austausch von Informationen sein
 Am Aufnahmeort angekommen, müssen die Einheiten still stehen bleiben.
 Der Grund dafür ist, dass es eine gewisse Zeit dauert bis ein Mitarbeiter oder eine andere Maschine die zu transportierende Ware auf die Einheiten verladen hat.
 In dieser Zeit darf die Untergruppe nicht in den typischen Standby des großen Schwarms verfallen, denn dabei würden sich die Einheiten leicht bewegen und das verladen schwierig machen.
-Statt dessen müssen sie eher in eine Art Starre verfallen bis ein bestimmtes Ereignet eintritt, welches ihnen signalisiert dass die Ware vollständig verladen wurde und sie ihren Weg antreten können.
+Statt dessen müssen sie eher in eine Art Starre verfallen, bis ein bestimmtes Ereignis eintritt, welches ihnen signalisiert dass die Ware vollständig verladen wurde und sie ihren Weg antreten können.
+Ein solcher Stillstand könnte erreicht werden, indem die Motoren der Roboter schlicht über Software außer Betrieb genommen werden würden. Aber auch Schwarmtechnische Lösungen wie das Arbeiten mit Gefahrenzonen, die gerade groß genug sind um den Roboter darin stehen zu lassen, wären denkbar.
 
 \subsection*{Gemeinsamer Transport zum Abgabeort}
 Nachdem die Ware erfolgreich auf die Einheiten verladen wurde gilt es nun diese an ihren Abgabeort zu transportieren und den Transportauftrag dadurch zu beenden.
@@ -81,10 +81,12 @@ In diesem Fall könnte das verlassen der Formation dazu führen, dass die Einhei
 Die Ware oder die Einheiten könnten durch die Zugkräfte beschädigt werden, insbesondere könnten die Einheiten umfallen oder die Motoren die für den Antrieb zuständig sind überhitzen und die Einheit ausfallen lassen.
 
 Wieder ist darauf zu achten, dass die Formation ohne Koordinator eingehalten werden muss, allein durch Regeln die der Untergruppe als Schwarm allgemein inne herrschen.
-Die gleichen Algorithmen die dazu führten dass die Untergruppe am Aufnahmeort ihre Formation einnahm müssen nun dazu verwendet werden um die Formation während des Transports zu halten.
+Die gleichen Algorithmen die dazu führten, dass die Untergruppe am Aufnahmeort ihre Formation einnahm, müssen nun dazu verwendet werden um die Formation während des Transports zu halten. Dabei ist ein ständiger Check erforderlich, ob sich die Roboter noch im Rahmen der Toleranz befinden. Bestenfalls wird dies direkt bei der Berechnung der Bewegung beachtet, sodass es von vornerein nicht möglich ist, dass ein Roboter 'ausversehen' die Formation verlässt.
 
-\subsubsection*{Finden des Weges}
-\note{TODO}
+\subsubsection*{Maße des Transportobjektes}
+Auch die Ausmaße des Transportobjektes müssen beim Transport beachtet werden. Es muss nicht immer der Fall sein, dass die Roboter das Transportobjekt vollständig umspannen. Im einfachsten Fall hat man nur einen Roboter, der in der Mitte sitzt, der ein Objekt transportieren muss, dass im Durchmesser ein Vielfaches seiner Größe hat. Der Roboter hat auf dem Weg zum Abgabeort darauf zu achten, dass das Objekt nicht mit seiner Umgebung kollidiert und damit von seinem Kopf fällt oder beschädigt wird. Dies ist besonders dann wichtig, wenn der Roboter in der Nähe anderer Menschen arbeitet, die dadurch von dem Transportobjekt verletzt werden könnten. Doch ist nicht nur der Abstand selbst ein wichtiger Faktor, sondern auch die Breite von Gängen. Es kann bei breiten Werkstücken dazu kommen, dass der Roboter eine Route meiden muss, für die er selbst groß genug wäre, in der das Transportobjekt aber stecken bleiben würde.
+
+Bei vielen Robotern wäre es eine Möglichkeit die Roboter so zu setzen, dass die das Transportobjekt möglichst umspannen, ein Zusammenstoß der Umgebung mit dem Transportobjekt also gleichbedeutend wäre mit einem Zusammenstoß mit einem Roboter. Andere Lösungen schließen mit ein, die Roboter über die Ausmaße des Transportobjektes in Kenntniss zu setzen, was aber widerum neue Fähigkeiten vorausstetzen würde und das Wissen darüber, dass sie sich gerade in einem Transport befinden.
 
 \subsection*{Standby am Abgabeort}
 Am Abgabeort angekommen muss die Untergruppe wieder zum Stillstand kommen und solange in einer Art Starre verharren bis die Ware vollständig umgeladen wurde.
@@ -99,7 +101,7 @@ Nachdem im vorigen Abschnitt Herausforderungen anhand des generellen Verhaltens 
 \subsection*{Unabhängigkeit}
 Die einzelnen Einheiten des Schwarms oder der Untergruppen die gerade einen Auftrag erledigen müssen vollständig unabhängig agieren und dürfen nicht aktiv von einer anderen Einheit geleitet werden.
 Dies betrifft auch eventuelle Anführer die innerhalb der Untergruppen gewählt werden.
-Diese mögen zwar eine Sonderrolle einnehmen, dürfen den anderen Einheiten der Untergruppe aber nur passiv beeinflussen und ihnen nicht explizit mitteilen wo sie sich hinzubewegen haben.
+Diese mögen zwar eine Sonderrolle einnehmen, dürfen die anderen Einheiten der Untergruppe aber nur passiv beeinflussen und ihnen nicht explizit mitteilen, wo sie sich hinzubewegen haben.
 
 \subsection*{Ausfallsicherheit}
 Einer der besonderen Vorteile des Schwarms ist es, dass die Einheiten generell unabhängig agieren und nicht auf die Kommunikation mit anderen Einheiten angewiesen sind.
@@ -113,10 +115,23 @@ Sollen 2 Einheiten eine Stange bewegen und eine fällt unterwegs aus, fällt die
 Es muss daher darauf geachtet werden, dass die Untergruppe in ständigem Kontakt untereinander steht um sicherzugehen dass alle Einheiten nach wie vor aktiv und einsatzbereit sind.
 Fällt plötzlich eine Einheit aus, muss darauf reagiert werden indem die Formation entsprechend angepasst wird oder der Auftrag abgebrochen und eine Fehlernachricht an ein zuständiges System gesendet wird.
 
+Auch im Sinne von möglichen Anführern ist die Ausfallsicherheit ein Problem für sich. Wird ein Auftrag von 5 Robotern + 1 Anführer ausgeführt und dieser fällt aus, wird der Schwarm nicht mehr gelenkt und wandert Ziellos umher, treibt möglicherweise sogar auseinander und bringt so das Transportobjekt zum fallen. Fällt ein Anführer aus muss dieser entweder von einer leitenden Stelle, zum Beispiel der Auftragsvergabe, umgehend ersetzt werden oder ein bereits beteiligter Roboter wird zum Anführer 'befördert' und lenkt den Schwarm von nun an. Auch ein Abbruch des Auftrags wäre möglich, indem die Roboter auf direktem Wege wieder zum Aufnahmeort zurück kehren (dies könnte beispielsweise mit einer Neuvergabe gelöst werden).
+
 \subsection*{Örtlichkeit}
 Ein Schwarm zeichnet sich nicht nur dadurch aus, dass die Einheiten unabhängig voneinander sind, sondern auch dadurch, dass Nachrichten zur Kommunikation nicht den gesamten Schwarm belasten.
 Sendet eine Einheit eine Nachricht an seine Nachbarschaft~(siehe~\autoref{Definitionen}) aus, so darf diese nicht den gesamten Schwarm durchqueren, sondern muss mit der Zeit 'kleiner' werden und letztlich verschwinden.
 Dies hat nicht nur den Grund näher am Vorbild der Natur zu sein
-\note{QUELLE}
 sondern ist auch deshalb notwendig, da die Nachrichten von mehreren hundert Einheiten sonst das Netzwerk lahmlegen würden und die Einheiten nur noch damit beschäftigt wären die Nachrichten zu verarbeiten und weiterzuleiten.
 Die Ressourcen für die eigentliche Aufgaben würden fehlen und der Schwarm würde still stehen.
+
+\subsection*{Effizienz}
+Die Algorithmen die auf den Systemen der Roboter laufen müssen möglichst simple und effizient sein. Diese Anforderungen kommen einerseits daher, dass die Roboter sich möglichst natürlich verhalten sollen und Tiere sich bei genauerer Betrachtung meist sehr effizient verhalten. Außerdem berechnen Tiere nicht wie sie ihre Gruppen anordnen. Das Verhalten geschieht meist aus Instinkt heraus und folgt sehr einfachen Regeln. Sollen Roboter die Schwärme der Tiere imitieren, müssen sie auch das Verhalten einzelner Mitglieder imitieren.
+
+Zum anderen sind Roboter aufgrund ihrer Hardware und ihrer Anzahl sehr teuer. Wird ein Roboter-Schwarm innerhalb eines Betriebes genutzt, kann deren Anzahl von wenigen bis zu hunderten reichen. Das Projekt um die Kilobots herum\cite{Kilobot} hat gezeigt, dass sich Roboter in großer Menge produzieren lassen, aber dass sie dafür auch entsprechend simple in der Hardware beschaffen sein müssen. Eine simple Hardware verlangt nach einer ebenso simplen Software um diese nicht zu überfordern.
+
+
+
+
+
+
+

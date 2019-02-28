@@ -38,9 +38,6 @@
 - https://www.sciencedirect.com/science/article/pii/S0921889099000846
   - Experiments in automatic flock control
     - Ein Roboter wurde dazu verwendet einen Schwarm von Enten gezielt in eine andere Richtung zu lenken
-- https://academic.oup.com/beheco/article/22/6/1304/220324
-  - Where does  flock end from an information perspective? A comparative experiment with live and robotic birds
-    - Die "social information" innerhalb eines Vogelschwarms wurde mit Hilfe eines Roboter-Vogels untersucht. Dabei stellte sich heraus dass mit steigendem Abstand zum Schwarm der Informationsfluss nicht-linear abnahm. Außerdem wurden Informationen nicht zu 100% an nahe Mitglieder weitergegeben, stattdessen schwanden die Informationen schnell, was zu sehr lokalen Informationen führte. 
 
 ### Schwarmverhalten
 
@@ -52,9 +49,6 @@
 - https://www.mitpressjournals.org/doi/abs/10.1162/106454699568737
   - Stigmergy, Self-Organization, and Sorting in Collective Robotics
     - Roboter wurden dazu gebracht "Brood Sorting" zu betreiben, also einen Haufen Frisbees zu sortieren. Dazu wurde ein "rule set simpler than any yet" entwickelt
-- https://web.archive.org/web/20131104125931/http://www.eecs.harvard.edu/~rad/courses/cs266/papers/beckers-alife94.pdf
-  - From Local Actions to global Tasks: Stigmergy and Collective Robotics
-    - Roboter bauen einen Hügel durch den Einsatz von Stigmergie
 
 #### Mit indirekter Kommunikation
 
@@ -74,16 +68,6 @@
 - https://sci-hub.tw/https://journals.aps.org/pre/abstract/10.1103/PhysRevE.77.061138
   - Intrinsic and extrinsic noise effects on phase transitions of network models with applications to swarming systems
     - Beschreibt die unterschiedlichen Effekte von "extrinsic noise" ("Umgebungs noise") und "intrinsic noise" ("freier Wille") auf die Phase Transistions eines Schwarms
-
-### Leader
-
-- https://arxiv.org/pdf/1403.0260.pdf
-  - Modeling the emergence of modular leadership hierarchy during the collective motion of herds made of harems
-    - Kollektive Bewegung einer Gruppe, bestehend aus Untergruppen (Harems), welche von einzelnen Tieren geführt werden
-      - Optimale Verteilung der Anzahl von Harem-Leader zu Harem-Member (4.2)
-- https://hal.elte.hu/flocking/browser/trunk/public/references/vasarhelyi/Tarcai2011.pdf?format=raw
-  - Patterns, transitions and the role of leaders in the collective dynamics of a simple robotoc flock
-    - Experimentaler Aufbau von eigenständigen "Booten" in einem kleinen Pool. Es wurde mit Noise-Level und der Anzahl von Leadern experimentiert
 
 ### Sonstige
 

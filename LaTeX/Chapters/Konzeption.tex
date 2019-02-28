@@ -9,7 +9,7 @@ Die Konzeption dieser Thesis beruht darauf, dass ROS (Robot Operating System) ge
 Die Konzeption ist in 3 Phasen unterteilt, die das Konzept zum letztlichen Ziel führen werden. Der Sinn hinter diesen 3 Phasen, ist eine Iteration. Die anderen Kapitel (Implementierung und Evaluation) werden parallel geführt werden und nach jeder Phase der Konzeption wird das System zuerst prototypisch gebaut und anschließend evaluiert. Dadurch kann die Konzeption in seinen weiteren Phasen auf die Ergebnisse der vorangegangenen eingehen und auf den neuen Erkenntnissen aufbauen. Außerdem wird dadurch sichergestellt, dass das Verhalten der Roboter nicht zu sehr auf die Aufgabe des Transports zugeschnitten wird. Das ist deswegen wichtig, weil das zugrundeliegende System ein natürliches Schwarmverhalten, ähnlich dem von Tieren, sein soll und keine Gruppe von autonomen, aber strategisch denkenden Robotern.
 
 \section{Nachbau des Schwarms nach Craig Reynolds}
-Da der Transport des Schwarms auf den 3 (bzw. 4) Grundregeln des Schwarmverhaltens besteht, welche von Craig Reynolds erstmals modelliert wurden \footnote{\url{http://www.red3d.com/cwr/boids/}}, galt es diese erst nachzustellen und zu analysieren. Raynolds selbst stellte nur die ersten drei Regeln auf. Eine vierte wurde hinzugefügt, da diese im realen Einsatz Sinn macht und auch im natürlichen Verhalten von Tieren zu sehen ist. Der Schwarm wurde zunächst nachgebaut, ohne auf die spätere Verwendung für Transporte zu achten, da diese (möglichst) ohne Kompromisse auf dem Schwarm-Prinzip aufbauen sollten. 
+Da der Transport des Schwarms auf den 3 (bzw. 4) Grundregeln des Schwarmverhaltens besteht, welche von Craig Reynolds erstmals modelliert wurden\cite{CraigReynolds_Boids}, galt es diese erst nachzustellen und zu analysieren. Raynolds selbst stellte nur die ersten drei Regeln auf. Eine vierte wurde hinzugefügt, da diese im realen Einsatz Sinn macht und auch im natürlichen Verhalten von Tieren zu sehen ist. Der Schwarm wurde zunächst nachgebaut, ohne auf die spätere Verwendung für Transporte zu achten, da diese (möglichst) ohne Kompromisse auf dem Schwarm-Prinzip aufbauen sollten. 
 
 \subsection*{Ziel}
 
@@ -19,15 +19,15 @@ Das Ziel der ersten Phase ist es, grundsätzliches Schwarmverhalten nachzubauen 
 
 Die Roboter brauchen einige Informationen über die anderen Roboter, darunter vor allem die Positionen und Ausrichtungen derer, die innerhalb einer bestimmten Reichweite liegen. Diese Informationen könnten über Sensoren kommen. Da diese Sensoren aber ungenau und kostspielig sind, wird davon ausgegangen, dass sie in der Praxis nicht zur Verfügung stehen. Die Roboter müssen ihre eigene Position stets kennen und werden daher diese Informationen direkt mit den anderen Robotern teilen.
 
-Da der ROS-Master als Nameserver innerhalb des Systems dient, ist zu diesem eine ständige Verbindung notwendig. Dieser kann aber auf einem normalen Roboter gestartet werden. Es ist also keine weitere Einheit notwendig, wodurch das Gesamt-System homogener bleibt, wenn auch immer eine direkte Verbindung zum Master bestehen bleiben muss. Es gibt Bemühungen ROS für mehrere, parallel laufende, Master-Nodes zu öffnen, bisher sind die Packages aber noch in der Entwicklung und es muss auf einem zentralen Master aufgebaut werden\footnote{\url{http://wiki.ros.org/multimaster_fkie}}.
+Da der \ac{ROS}-Master als Nameserver innerhalb des Systems dient, ist zu diesem eine ständige Verbindung notwendig. Dieser kann aber auf einem normalen Roboter gestartet werden. Es ist also keine weitere Einheit notwendig, wodurch das Gesamt-System homogener bleibt, wenn auch immer eine direkte Verbindung zum Master bestehen bleiben muss. Es gibt Bemühungen \ac{ROS} für mehrere, parallel laufende, Master-Nodes zu öffnen, bisher sind die Packages aber noch in der Entwicklung und es muss auf einem zentralen Master aufgebaut werden\footnote{\url{http://wiki.ros.org/multimaster_fkie}}.
 Jedem Roboter wird zudem eine eindeutige ID zugewiesen werden, die es erlaubt ihn von den anderen unterscheiden zu können.
 
 Für eine einfache Schwarm-Simulation ist nur eine Art von Nachricht notwendig. Diese enthält die Position, Ausrichtung und die ID der Roboter und wird nach jedem ausgeführten Bewegungs-Befehl gesendet. Um das System der Roboter einfacher zu halten, abonnieren die Roboter auch die Bewegungs-Daten von sich selbst. Dadurch ist es nicht notwendig diese gesondert zu behalten, sondern die Daten werden in das eigene System eingepflegt, wie die von allen anderen Einheiten auch. Möchte ein Roboter dann auf die eigenen Daten zugreifen, kennt er seine eigene ID und weiß daher welche Daten seine eigenen sind.
 
 \subsubsection*{Neue Nachricht}
-Der bisher einzig genutzte Nachrichten-Typ beinhaltet somit die Positionsdaten der einzelnen Roboter, zusammen mit der ID, wem die Daten gehören. Für die Deklaration der Nachrichten-Typen werden die Datentypen genutzt die ROS beinhaltet\footnote{\url{http://wiki.ros.org/msg}}. Dies erleichtert die Implementierung und die Namen der Datentypen sind außerdem selbsterklärend.
+Der bisher einzig genutzte Nachrichten-Typ beinhaltet somit die Positionsdaten der einzelnen Roboter, zusammen mit der ID, wem die Daten gehören. Für die Deklaration der Nachrichten-Typen werden die Datentypen genutzt die \ac{ROS} beinhaltet\cite{ROS_MSG}. Dies erleichtert die Implementierung und die Namen der Datentypen sind außerdem selbsterklärend.
 
-\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Robot\_Position]
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Robot\_Position.msg]
 	uint8	robot_id	// Zur Identifizierung des Absenders
 	float32 pos_x		// Position des Roboters entlang der X-Achse
 	float32 pos_y		// Position des Roboters entlang der Y-Achse
@@ -95,7 +95,7 @@ Um Gefahrenzonen abbilden zu können, werden Objekte erzeugt die sich aus versch
 Um ein Objekt zu definieren ließen sich auch andere Methoden nutzen. Punkte die die Zone umspannen und eine konvexe Hülle bilden oder der Reihenfolge nach mit Geraden verbunden werden, wären ebenfalls eine Option. Allerdings wären diese viel komplexer zu berechnen und es würde mehr Rechenleistung verbrauchen.
 Auch Funktionen, aus denen sich die einzelnen Punkte heraus berechnen lassen, wären denkbar um Objekte darzustellen. Um diese aber zu verteilen, müsste sie aber in einer Syntax hinterlegt werden die sich serialisieren lässt und anschließend interpretiert werden. Außerden wären die Funktionen kompliziert zu erstellen, wohingegen ein paar Geometrien schnell abgemessen sind.
 
-Die Berechnung, ob sich ein geometrischen Objekt innerhalb eines anderen geometrischen Objektes befindet, ist allerdings ein häufiges und gut gelöstes Problem von Videospielen~\footnote{url{https://wwwx.cs.unc.edu/~geom/papers/documents/dissertations/lin93.pdf}}, weswegen diese Lösung als die beste angesehen wurde.
+Die Berechnung, ob sich ein geometrischen Objekt innerhalb eines anderen geometrischen Objektes befindet, ist allerdings ein häufiges und gut gelöstes Problem von Videospielen\cite{GamingCollision}, weswegen diese Lösung als die beste angesehen wurde.
 
 \subsection*{Parameter der Bewegung}
 
@@ -135,12 +135,12 @@ Die beiden grünen Pfeile sind letztlich die obere und untere Grenze des Spielra
 
 \section{Anführer}
 
-Um später Transportaufträge erledigen zu können, muss der Schwarm in irgendeiner Form gesteuert werden können. Bei einer direkten Steuerung aller Einheiten des Schwarms, wäre das Schwarmverhalten allerdings außer Kraft gesetzt und man hätte schlicht eine Menge gelenkter Roboter. Deswegen wurden Mittel gesucht den Schwarm indirekt zu lenken und fand diese Methode in einem Paper \note{QUELLE/LINK} in dem beschrieben wurde, wie ein Schwarm über 'eingeweihte Anführer' gesteuert werden kann.
+Um später Transportaufträge erledigen zu können, muss der Schwarm in irgendeiner Form gesteuert werden können. Bei einer direkten Steuerung aller Einheiten des Schwarms, wäre das Schwarmverhalten allerdings außer Kraft gesetzt und man hätte schlicht eine Menge gelenkter Roboter. Deswegen wurden Mittel gesucht den Schwarm indirekt zu lenken und fand diese Methode in einem Paper in dem beschrieben wurde, wie ein Schwarm über 'eingeweihte Anführer' gesteuert werden kann.\cite{VicsekLeader2}
 
 \subsection*{Funktionsweise}
 Der Anführer bietet eine passive Möglichkeit einen Schwarm zu lenken, ohne dass die normalen Einheiten angepasst werden müssen oder in ihrem Verhalten speziell abweichen müssen. Die normalen Einheiten müssen dadurch nicht wissen, dass sie ein bestimmtes Ziel haben, es muss ihnen nicht einmal bewusst sein, dass sie passiv gesteuert werden. Dadurch, dass der Anführer weiß in welche Richtung der Schwarm am besten gelenkt werden sollte, aber auch aufgrund des Gruppendrangs durch die Nachbarn, pendeln sich die anderen Einheiten des Schwarms langsam auf das Ziel ein. Ein Anführer ist somit eine Art Leuchtturm, der permanent eine Richtung angibt, ohne sich von der Umwelt beeinflussen zu lassen und der den anderen Robotern eine Orientierung gibt, ohne dass diese davon etwas mitbekommen.
 
-Als Anführer versucht die entsprechende Einheit außerdem den Kontakt zu seinem Schwarm nicht zu verlieren. Damit ist nicht nur der Drang gemeint die Gruppenmitte aufzusuchen, der vom Anführer sowieso ignoriert wird. Es ist eine bewusstere Art auf den eigenen Schwarm acht zu geben und sich so zu bewegen, dass der weder die Gruppe verliert, noch diese ihre Ausrichtung zum Ziel zu sehr verändert.
+Als Anführer versucht die entsprechende Einheit außerdem den Kontakt zu seinem Schwarm nicht zu verlieren. Damit ist nicht nur der Drang gemeint die Gruppenmitte aufzusuchen, der vom Anführer sowieso ignoriert wird. Es ist eine bewusstere Art auf den eigenen Schwarm acht zu geben und sich so zu bewegen, dass er weder die Gruppe verliert, noch diese ihre Ausrichtung zum Ziel zu sehr verändert. Dies ist wichtig, damit immer möglichst viele Robter des Schwarms von der Ausrichtung des Anführers beeinflusst werden.
 
 \subsection*{Ziel}
 
@@ -154,7 +154,7 @@ Der Anführer wurde umgesetzt, indem einer normalen Einheit ein Ziel gegeben wir
 
 Um den Transport einzuleiten wird es einen neuen Nachrichten-Typ geben. Die Nachricht kann an den Schwarm rausgesendet werden und durch die eindeutige ID weiß der entsprechende Roboter, dass er als Anführer ausgewählt wurde.
 
-\begin{lstlisting}[style=ros, title=Nachrichten-Typ: New\_Mission]
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: New\_Mission.msg]
 	uint8	leader_id	// Die ID des ausgewaehlten Anfuehrers
 	float32 pos_x		// Position des Ziels entlang der X-Achse
 	float32 pos_y		// Position des Ziels entlang der Y-Achse
@@ -192,12 +192,12 @@ Das letztliche Ziel dieser Arbeit ist es zu prüfen, ob es möglich, und sinnvol
 
 \subsection*{Erteilen von Aufträgen}
 
-Eine der ersten Dinge im Ablauf eines Transports ist die Erteilung des Auftrags. Um die Roboter einem bestimmten Auftrag zuzuteilen und den jeweiligen Anführern mitzuteilen, dass sie diese Rollen übernehmen müssen, braucht es neue Informationen innerhalb des ROS-Systems. Da es den Nachrichten-Typ \highlight{New\_Mission} bereits gibt, muss dieser nur erweitert werden, sodass er nun die folgenden Felder hat:
+Eine der ersten Dinge im Ablauf eines Transports ist die Erteilung des Auftrags. Um die Roboter einem bestimmten Auftrag zuzuteilen und den jeweiligen Anführern mitzuteilen, dass sie diese Rollen übernehmen müssen, braucht es neue Informationen innerhalb des \ac{ROS}-Systems. Da es den Nachrichten-Typ \highlight{New\_Mission} bereits gibt, muss dieser nur erweitert werden, sodass er nun die folgenden Felder hat:
 
 
 \subsubsection*{Veränderte Nachricht}
 
-\begin{lstlisting}[style=ros, title=Nachrichten-Typ: New\_Mission]
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: New\_Mission.msg]
 uint8 robot_index_from		// Beginn der ID-Range
 uint8 robot_index_to		// Ende der ID-Range
 
@@ -221,12 +221,12 @@ leader\_number gibt die Anzahl der Leader an die verwendet werden sollen und mis
 Mit object\_position\_x/-\_y ist die Startposition des zu transportierenden Objektes angegeben. Zusammen mit object\_size\_x/-\_y, welche die Ausmaße des Objektes angeben. Die Position des Objekts ist als Mitte des Objekts definiert.
 target\_x/-\_y gibt die letztliche Position an die das Objekt einnehmen soll.
 
-Der Auftrag wird von außen an das Topic 'flock/mission/new' gesendet. Der Ersteller des Auftrags muss keine ROS-Node sein, auch wenn dies verschiedene Vorteile hätte. Dadurch das ROS-Topics auch über das Terminal engesprochen werden können, ist das Senden der Nachrichten auch über jedes andere Programm möglich. Das Topic für die neuen Missionen wird von jedem aktiven Roboter abonniert. Entsprechend nimmt jeder Roboter Notiz von diesem Auftrag, auch wenn er nicht direkt mit seiner ID angesprochen wird.
+Der Auftrag wird von außen an das Topic 'flock/mission/new' gesendet. Der Ersteller des Auftrags muss keine \ac{ROS}-Node sein, auch wenn dies verschiedene Vorteile hätte. Dadurch das \ac{ROS}-Topics auch über das Terminal engesprochen werden können, ist das Senden der Nachrichten auch über jedes andere Programm möglich. Das Topic für die neuen Missionen wird von jedem aktiven Roboter abonniert. Entsprechend nimmt jeder Roboter Notiz von diesem Auftrag, auch wenn er nicht direkt mit seiner ID angesprochen wird.\\
 
 
 \subsection*{Von Gefahrenzonen zu Sicherheitszonen}
 
-Um die betreffenden Roboter in die Zone zu senden, auf der ihnen später das Transportobjekt aufgesetzt wird, wird ein Mechanismus verwendet der bereits vorher Einzug in das ROS-System hielt: Gefahrenzonen. Diese werden leicht angepasst, um sie invertieren zu können und somit aus einer Gefahrenzone eine Sicherheitszone zu machen. Ist ein Bereich als Sicherheitszone definiert, ist jeder andere Bereich automatisch eine Gefahrenzone.
+Um die betreffenden Roboter in die Zone zu senden, auf der ihnen später das Transportobjekt aufgesetzt wird, wird ein Mechanismus verwendet der bereits vorher Einzug in das \ac{ROS}-System hielt: Gefahrenzonen. Diese werden leicht angepasst, um sie invertieren zu können und somit aus einer Gefahrenzone eine Sicherheitszone zu machen. Ist ein Bereich als Sicherheitszone definiert, ist jeder andere Bereich automatisch eine Gefahrenzone.
 Dieser Mechanismus birgt nur eine kleine Änderung im System, schafft es aber Roboter in einen bestimmten Bereich zu locken ohne sie aktiv steuern zu müssen, indem einfach ihr 'natürlicher' Trieb verwendet wird, von Gefahren zu flüchten.
 
 Wird ein Auftrag erteilt, so nehmen die Roboter die dem Auftrag zugeteilt sind, eine neue Sicherheitszone auf, die den Ausmaßen und der Position des Transportobjekts am Aufnahmeort entspricht. Da jeder andere Ort außerhalb der Sicherheitszone analog eine Gefahrenzone wird, werden die Roboter nun versuchen sich in diese Sicherheitszone zu bewegen. Roboter die nicht dem Transport zugeteilt wurden, werden diese neue Zone als Gefahrenzone auffassen um die Transport-Roboter nicht bei ihrer Arbeit zu stören und versuchen sich diesem Gebiet fernzuhalten.
@@ -241,14 +241,14 @@ Wird eine Sicherheitszone definiert, versuchen die Roboter, die sich in der Gefa
 
 Damit das Transportobjekt nun sicher auf den Robotern aufgesetzt werden kann, müssen diese nun still stehen. Ein Stillstand von Einheiten eines Schwarms ist laut den Regeln des Schwarmverhaltens nicht möglich, da es keine Regel gibt, die diesen Zustand hervorrufen könnte. Daher wird ein Trick angewendet, der weniger in das Verhalten der Roboter eingreift, als viel mehr direkt in die unteren Layer des Roboter-Systems. Bemerkt der erste Anführer, dass alle Roboter innerhalb des Transportobjektes sind, befiehlt er ihnen mit dem folgenden neuen Nachrichten-Typ still zu stehen.
 
-\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Robot\_Freeze]
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Robot\_Freeze.msg]
 uint8 robot_index_from		// Beginn der ID-Range
 uint8 robot_index_to		// Ende der ID-Range
 \end{lstlisting}
 
-Jeder Roboter der sich in dieser Range befindet, (egal ob er dem Auftrag zugeteilt ist oder nicht) wird daraufhin still stehen. Von hier an braucht es ein Event, dass den Robotern zeigt dass sie mit dem Transportobjekt Richtung Ziel losfahren können. Möglich wäre eine Zeitsteuerung für streng automatisierte Prozesse. Aber auch interne Signale über ROS sind möglich. Durch die ID die jeder Auftrag hat, wäre eine einfache Nachricht '[TransportID\#][Losfahren]' bereits zielführend. Ein zweiter, neuer Nachrichten-Typ wird daraufhin die Roboter wieder aus ihrem Schlaf erwecken und sie in ihr normales Verhalten zurück werfen.
+Jeder Roboter der sich in dieser Range befindet, (egal ob er dem Auftrag zugeteilt ist oder nicht) wird daraufhin still stehen. Von hier an braucht es ein Event, dass den Robotern zeigt dass sie mit dem Transportobjekt Richtung Ziel losfahren können. Möglich wäre eine Zeitsteuerung für streng automatisierte Prozesse. Aber auch interne Signale über \ac{ROS} sind möglich. Durch die ID die jeder Auftrag hat, wäre eine einfache Nachricht '[TransportID\#][Losfahren]' bereits zielführend. Ein zweiter, neuer Nachrichten-Typ wird daraufhin die Roboter wieder aus ihrem Schlaf erwecken und sie in ihr normales Verhalten zurück werfen.
 
-\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Robot\_Continue]
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Robot\_Continue.msg]
 uint8 robot_index_from		// Beginn der ID-Range
 uint8 robot_index_to		// Ende der ID-Range
 \end{lstlisting}
@@ -271,7 +271,7 @@ Kann ein Anführer keine normale Bewegung ausführen, weil er sonst mit einem an
 
 Die Roboter haben keine Sensorik, um den Zustand des physikalischen Transportobjekt zu erkennen. In der Software ist es daher als Sicherheitszone markiert. Bisher konnten Objekte in der Software allerdings nicht verschoben werden. Daher bekommen Objekte nun eine ID zugewiesen, die es ihnen erlaubt eindeutig erkannt zu werden. Außerdem müssen die Objekte nun verschoben werden können und es braucht jemanden der die Änderung des physikalischen Standorts erkennt und ihn der Software verbreitet.
 
-Grundsätzlich gibt es für dieses Vorgehen verschiedene Vorgehensweisen. Eine davon wäre ein Sensor auf dem Transportobjekt, mit einer ROS-Node die diesen Sensor verfolgt und als Broadcast im ROS-System verbreitet. Leider haben bisherige Erfahrungen gezeigt, dass solche IPS-Systeme nicht sehr zuverlässig sind. Nicht nur ist die Qualität der Ortung sehr ungenau, sie springt auch zwischen den verschiedenen Messintervallen hin und her. Mehr dazu im Einschub \autoref{subsubsec:IPS}.
+Grundsätzlich gibt es für dieses Vorgehen verschiedene Vorgehensweisen. Eine davon wäre ein \ac{IPS}, das heißt ein Sensor auf dem Transportobjekt, mit einer \ac{ROS}-Node die diesen Sensor verfolgt und als Broadcast im \ac{ROS}-System verbreitet. Leider haben bisherige Erfahrungen gezeigt, dass solche \ac{IPS}s nicht sehr zuverlässig sind. Nicht nur ist die Qualität der Ortung sehr ungenau, sie springt auch zwischen den verschiedenen Messintervallen hin und her. Mehr dazu im Einschub \autoref{subsubsec:IPS}.
 
 \begin{wrapfigure}{r}{\pictureWidthSmall}
 	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/Transport/Tracking.png}
@@ -279,7 +279,7 @@ Grundsätzlich gibt es für dieses Vorgehen verschiedene Vorgehensweisen. Eine d
 	\label{pic:TrackingTransportobjekt}
 \end{wrapfigure}
 
-Um die Position des Transportobjektes im ROS-System bekannt zu machen, und aktuell zu halten, wird deshalb darauf gesetzt, dass das Objekt auf den Robotern bleibt und diese ihre Position selbst erkennen können. Zu beginn des Transports wird die relative Position des Objektes zum Mittelpunkt des Schwarms gespeichert. Bewegt sich nun der Mittelpunkt des Schwarms in eine Richtung, wird die Position des Objektes immer relativ von diesem angesehen. Eine Verdeutlichung ist in \autoref{pic:TrackingTransportobjekt} zu sehen. Dabei werden allerdings ein paar Eingestädnisse gemacht.
+Um die Position des Transportobjektes im \ac{ROS}-System bekannt zu machen, und aktuell zu halten, wird deshalb darauf gesetzt, dass das Objekt auf den Robotern bleibt und diese ihre Position selbst erkennen können. Zu beginn des Transports wird die relative Position des Objektes zum Mittelpunkt des Schwarms gespeichert. Bewegt sich nun der Mittelpunkt des Schwarms in eine Richtung, wird die Position des Objektes immer relativ von diesem angesehen. Eine Verdeutlichung ist in \autoref{pic:TrackingTransportobjekt} zu sehen. Dabei werden allerdings ein paar Eingestädnisse gemacht.
 
 \paragraph*{Zugeständnisse der Simulation}
 Zum einen wird angenommen, dass die Robter alle die selbe Reibung am Objekt haben. Würde der Transport von nur 2 Roboter erledigt werden und diese bewegten sich in entgegensetzter Richtung von einander weg, müsste das Objekt somit stillstehen. In der Realität wäre die Reibung wahrscheinlich nicht gleich, sodass das Objekt in einer Richtung abdriften würde. Es gilt aber in der Praxis festzustellen, wie viel Ungenauigkeit dadurch wirklich entstehen würde.
@@ -287,7 +287,7 @@ Eine andere Annahme wäre, dass die Reibung vom Roboter zum Objekt so hoch wäre
 
 Um die Rollenverteilung weiter einzuhalten, sollte einer der Anführer die Position des Objektes innerhalb des Schwarms aktualisieren. Dazu braucht es eine weitere, simple Nachricht.
 
-\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Update\_Object]
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Update\_Object.msg]
 uint8 mission_id			// Die ID der Mission
 
 float32 object_position_x	// Die Position des Transport-Objektes, X-Achse
@@ -306,8 +306,8 @@ Indoor-Positioning-Systems dienen zur Positionsbestimmung innerhalb von geschlos
 	\item Der Bereich der eingegrenzt werden konnte, betrug < 100m²
 \end{itemize}
 
-\begin{wrapfigure}{r}{0.5\textwidth}
-	\includegraphics[width=0.5\textwidth,keepaspectratio]{graphics/Solcon/old.png}
+\begin{wrapfigure}{r}{\pictureWidthBig}
+	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/Solcon/old.png}
 	\caption{Evaluation eines IPS}
 	\label{pic:SolconIPS}
 \end{wrapfigure}
@@ -322,20 +322,189 @@ Ist das Transportobjekt nahe genug am Ziel, ist der Transportauftrag abgeschloss
 
 Am Ziel angekommen, sendet der erste Anführer sein letztes Update der Position und direkt danach erneut eine Nachricht vom Typ \highlight{Robot\_Freeze}, woraufhin die Roboter erneut stehen bleiben. An dieser Stelle kann, genau wie beim Aufnehmen des Transports, eine Nachricht von außen das Signal geben, dass das Objekt abgenommen wurde. Es kann, in streng gesteuerten Prozessen, aber auch ein Timer sein. Sobald das Signal kommt, wird der erste Anführer den Stillstand wieder mit einem \highlight{Robot\_Continue} aufheben und der Schwarm kehrt in seinen normalen Modus zurück. Zusätzlich muss aber noch das Transportobjekt als Hinderniss/Sicherheitszone aus dem Speicher der Roboter gelöscht werden. Dies geschieht mit dem Befehl:
 
-\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Delete\_Object]
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Delete\_Object.msg]
 uint8 mission_id			// Die ID der Mission
 \end{lstlisting}
 
 Durch diesen Befehl, der auch für die Roboter wichtig ist, die nicht am Transport beteiligt waren, wird das Transportobjekt als Hinderniss gelöscht und der Auftrag ist endgültig vorbei.
 
+
+
+
+
+
+
+
+
+
+
+
 \section{Weiterführende Konzeption}
 
-Die Implementierung der Konzeption ist prototypisch und dient vor allem dazu Statistiken erheben zu können. Durch diese Statistiken kann das Konzept in den nachfolgenden Phasen nachgebessert werden und es kann ein Gefühl dafür entwickelt werden, wie die einzelnen Parameter einen Schwarm beeinflussen, um ihn später den gegebenen Umständen besser anpassen zu können.
+Die Implementierung der Konzeption ist prototypisch und dient vor allem dazu Statistiken erheben zu können. Durch diese Statistiken kann das Konzept in den nachfolgenden Phasen nachgebessert werden und es kann ein Gefühl dafür entwickelt werden, wie die einzelnen Parameter einen Schwarm beeinflussen, um ihn später den gegebenen Umständen besser anpassen zu können.\\
 
-An dieser Stelle endet die prototypische Implementierung und die Konzeption wird nicht mehr nachgeprüft. Es werden Ideen vorgestellt und ausgearbeitet, wie man den Schwarm besser und dynamischer gestalten kann.
+An dieser Stelle endet die prototypische Implementierung jedoch und die Konzeption wird nicht mehr nachgeprüft. Es werden Ideen vorgestellt und ausgearbeitet, wie man den Schwarm besser und dynamischer gestalten kann, die Kapitel der Implementierung und Evaluation sind dagegen beendet.
 
-\subsection*{Globale Statisten}
-\subsubsection*{Einfinden der Roboter am Transportort}
-\subsubsection*{Lenken der Roboter ohne Anführer}
+\subsection{Dynamischer Schwarm}
 
-\subsection*{}
+Der Schwarm ist bisher statisch. Man stellt eine bestimmte Anzahl an Robotern ein, aus denen der Schwarm bestehen soll und diese müssen alle gestartet werden. Fehlen Roboter oder werden zu viele gestartet, führte das bisher zu Fehlern. Neue Roboter hinzufügen oder bestehende wieder entfernen ist nicht möglich. Dies muss für einen dynamischen Schwarm geändert werden, weswegen zwei neue Nachrichten eingeführt werden die genau das erlauben.
+
+Wird ein neuer Roboter erschaffen (oder aktiviert), stellt sich dieser mit seiner neuen ID im Schwarm vor. Die anderen Roboter im Schwarm werden diesen in ihre Liste und damit in ihre Berechnungen aufnehmen.
+
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: New\_Robot.msg]
+uint8 robot_id			// Die ID des neuen Roboters
+uint8 sub_id			// Die Sub-ID des Roboters
+\end{lstlisting}
+
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: Delete\_Robot.msg]
+uint8 robot_id			// Die ID des zu entfernenden Roboters
+uint8 sub_id			// Die Sub-ID des Roboters
+\end{lstlisting}
+
+\subsubsection*{Einzigartigkeit gefährdet}
+
+Mit dem dynamischen hinzufügen von Robotern kommt es jedoch zu einem weiteren Problem. Der Einzigartigkeit von IDs. Ist dies bei physischen Robotern noch gut zu kontrollieren, indem jeder Hardware eine bestimmte ID zugewiesen wird und diese in einem zentralen System kontrolliert werden. Kommt es zu Problemen, wenn Roboter virtuelle Kopien erzeugen wollen und diese neue IDs brauchen. Sind beispielsweise die IDs im Bereich von [1,10] vergeben und 2 Roboter wollen neue Kopien erzeugen, kann es zu Kollisionen kommen weil sie einer Kopie die gleiche ID zuweisen.
+
+Natürlich könnten diese Kollisionen aufgelöst werden, beispielsweise indem man pro neuer ID die man erschafft einen Echo-Algorithmus startet und der der die Wahl gewinnt die ID bekommt. Erschafft ein Roboter aber 20 Kopien von sich kann dies sehr viele Nachrichten zur Folge haben die das Kommunikationsnetz belasten. Aus diesem Grund ist es besser Kollisionen in den ID von Anfang an zu vermeiden. Als Lösung wird die ID global im gesamten System um ein weiteres Byte erweitert, der sub\_id.
+
+\paragraph*{Konzept: Sub-ID}
+Eine sub\_id ist ein Zusatz zur normalen ID. Die robot\_id wird die Haupt-ID eines Roboters und physische Roboter werden immer unterschiedliche robot\_id's haben mit der sub\_id '0'. Möchte ein Roboter nun virtuelle Kopien von sich erstellen, erstellt er diese mit seiner robot\_id und der nächsten freien sub\_id. Auf diese Weise kann es nicht zu kollisionen kommen, wenn mehrere Roboter gleichzeit virtuelle Kopien erstellen. Es liegt damit außerdem in der Verantwortung der Roboter selbst ihre sub\_id's zu verwalten.
+
+
+
+
+
+\subsection{Virtuelle Anführer}
+
+Bisher waren die Anführer richtige Roboter, mit dem Unterschied, dass sie über das Ziel Bescheid wussten. Der nächste Schritt wäre es, die Anführer zu entkoppeln und virtuell zu machen\cite{RobotLeaderVirtual}.
+Der große Vorteil eines virtuellen Anführers ist es, dass er zum einen den Schwarm nicht blockiert mit seiner Anwesenheit. Zum anderen kann eine neue Technik genutzt werden die 'Stacking' genannt wird.
+
+\paragraph*{Stacking}
+Als Stacking bezeichnet man es, mehrere Roboter übereinander zu stapeln, um ihren Einfluss zu erhöhen. Auf diese Weise nehmen n Roboter die Position und den Platz eines einzelnen Roboters ein. Dadurch kann man im Prinzip einen Roboter haben, der aber den Einfluss von n Robotern hat. Für diese Methode kann selbstverständlich nur maximal ein pysischer Roboter eingesetzt werden. Die anderen die auf diesem gestackt werden, müssen virtuell sein, da deren Körper sonst zu Problemen führen würde. Natürlich kann aber auch komplett auf einen pysischen Roboter verzichtet werden und es werden ausschließlich virtuelle Roboter genutzt.\\
+
+Mit Hilfe des Stacking kann also nun ein pysischer Anführer den Einfluss von n Anführern besitzen und seinen Schwarm effektiver steuern als es allein möglich wäre. Virtuelle Anführer können von einer neuen Art von Node gesteuert werden, die diese erstellt und deren Position im Schwarm pflegt oder, wenn ein pyhsischer Anführer involviert ist, können seine pyhsischen Kopien direkt von diesem gesteuert werden, indem er seine eigene Position mit mehreren IDs sendet. Dies setzt voraus, dass der Schwarm vorher dynamisch gemacht wurde. Dadurch kann ein Anführer nun mehrere Kopien von sich erzeugen und diese Anzahl von den beim Transport beteiligten Roboter abhängig machen.
+
+\subsubsection*{Bewegung als virtueller Anführer}
+
+Zwar muss ein virtuell erstellter Anführer nicht physisch aktiv sein, dennoch muss er für die anderen Roboter so aussehen als wäre er physisch aktiv und sich entsprechend bewegen. Er wird mit seinem Schwarm mitziehen müssen und darauf achten, mit niemandem zu kollidieren, da die physischen Roboter eben dies auch tun werden.
+
+Um einen virtuellen Anführer zu erstellen, muss im Grunde genommen nur der untere Layer ausgetauscht werden, der für die Bewegung des Motors zuständig ist und der nach einer Bewegung die Positionsdaten an die höheren Layer zurück gibt.
+Dieser Layer wird keinen Motor ansteuern, da die entsprechende \ac{ROS}-Node sich nicht auf einem Roboter befinden wird (oder zumindest keinem physischen Körper zugeteilt wurde). Stattdesswen wird der Layer die Bewegung entgegen nehmen und die Positionsdaten zurückgeben, die bei einer perfekt ausgeführten Bewegung (ohne Rutschen oder Blockieren) zustande gekommen wären.
+
+
+
+
+
+\subsection{Globale Statisten}
+
+Ein anderer Ansatz um einen Schwarm zu lenken, im Gegensatz zur Nutzung eines Anführers, ist die Einführung eines still stehenden Roboters, der Statist genannt wird.
+
+\subsubsection*{Unterschiede zum Anführer}
+
+Ein Anführer lenkt seinen Schwarm dadurch, dass er sich innerhalb des Schwarms befindet und den Schwarm auf Grundlage der Regel 'Ausrichtung: Passe deine Bewegungsrichtung deinen Nachbarn an' (\autoref{4Rules}) manipuliert. An dieser Regel anzusetzen ist ein valider Gedanke, es gibt aber auch andere Regeln die sich manipulieren lassen. Der Statist setzt an der Regel 'Zusammenhang: Versuche einen Nachbarn nahe zu sein' an und versucht einen Schwarm dadurch zu steuern, dass die Roboter sich an der Mitte ihres Schwarms ausrichten.
+
+\newpage
+\subsubsection*{Grundlage des Statisten}
+
+\begin{wrapfigure}{r}{\pictureWidthBig}
+	\includegraphics[width=\pictureWidthBig,keepaspectratio]{graphics/AlgorithmusStatist.png}
+	\caption{Funktionsweise des Statisten}
+	\label{pic:AlgorithmusStatist}
+\end{wrapfigure}
+
+Grundlage des Statisten ist es, dass er immer in die Berechnung der Schwarmmitte einbezogen wird, auch dann, wenn er sich außerhalb aller lokalen Reichweiten befindet. Er (oder vielleicht auch mehrere) werden somit einfach an den Ort setzen, an dem man den Schwarm braucht. Dadurch, dass dieser weit weg vom Schwarm positioniert wird, verzerrt er die Mitte des Schwarms entsprechend stark. Die Roboter werden nun versuchen wieder in Richtung der Schwarmmitte zu fahren und somit indirekt in die Richtung des Statisten.
+
+In \autoref{pic:AlgorithmusStatist} ist die Funktionsweise des Statisten dargestellt. Da der Statist nur dazu dient den Schwarmmittelpunkt zu verschieben, muss dieser kein physischer Roboter sein, sondern kann virtuell dargestellt werden. Dieser Statist kann auch das Stacking verwenden und somit seinen Effekt als Mittelpunkt-Verschieber vergrößern.
+
+\subsubsection*{Der Statist als Node}
+
+Der Statist ist leicht umzusetzen als \ac{ROS}-Node-Implementierung. Er muss nur irgendwo erstellt werden, bleibt dort stehen, sendet seine Positionsdaten einmalig an die anderen Roboter und wird letztlich wieder gelöscht werden, wenn er nicht mehr gebraucht wird. Da er sich nicht an anderen Robotern orientiert muss er selbst keine Topics abonnieren. Er selbst verbreitet auch nur seine Positionsdaten als einziges Topic. 
+
+\paragraph*{Beispiel-Implementierung}
+Aufgrund seiner Einfachheit kann der Statist leicht von anderen Robotern erstellt werden. Als Beispiel einer Implementierung würde sich ein einfaches Objekte mit Konstruktor und Destruktor realisieren lassen.
+
+\begin{lstlisting}[style=cpp]
+class Statist {
+	public:
+	Statist(int id, Position pos) {
+		// send New_Robot.msg
+		// send Position.msg
+	}
+	
+	~Statist() {
+		// send Delete\_Robot.msg
+	}
+};
+\end{lstlisting}
+
+Am Anfang der Funktion erstellt, die für die Abarbeitung eines Auftrags zuständig ist, wäre dieses Objekt quasi ein Selbstläufer der keinerlei Verwaltung brauchem würde.
+
+\subsubsection*{Sonderregel für Statist}
+
+Der Statist ist aber aus zweierlei Sicht eine Sonderregel im Schwarm. Zum einen muss er von den anderen Robotern auch dann beachtet werden, wenn er sich nicht innerhalb deren lokalen Reichweite befindet. Zum anderen arbeitet der Roboter nur mit seiner Position, nicht mit seiner Ausrichtung (da sich diese immer wieder anpassen müsste und es den Statisten wesentlich komplizierter gestalten würde). Aus diesem Grund muss der Statist als Roboter-Typ im Schwarm bekannt sein und seine Positionsdaten gesondert behandelt werden. Die Nachricht um einen neuen Roboter zu erstellen, würde also um einen Punkt erweitert werden, der eine Typzuordnung erlaubt.
+
+\begin{lstlisting}[style=ros, title=Nachrichten-Typ: New\_Robot.msg]
+uint8 robot_id			// Die ID des neuen Roboters
+uint8 sub_id			// Die Sub-ID des Roboters
+uint8 type				// Der Typ des Roboters
+\end{lstlisting}
+
+Damit ist der Schwarm physisch gesehen immer noch homogen, virtuell gesehen aber nicht mehr, da es nun einen Roboter-Typ gibt der nur virtuell auftreten kann.
+
+\paragraph*{Vorteile gegenüber Anführern}
+Der große Vorteil gegenüber der Steuerung des Schwarms mit Hilfe von Anführern ist, dass der Statist den Schwarm nicht aktiv lenken muss. Während ein Anführer den Schwarm mit seiner Ausrichtung aktiv beeinflussen muss, lenkt der Statist eher passiv, indem er den Schwarm zu sich kommen lässt. Dies braucht wesentlich weniger Ressourcen und ein Roboter braucht keine zweite Verhaltensweise.
+
+\paragraph*{Nachteile gegenüber Anführern}
+Auf der anderen Seite gibt es bei dieser Methode aber auch den Nachteile, dass sie einen zweiten Roboter-Typ einführt und damit erstmals die Grenze des homogenen Schwarms übertritt. Der neue Roboter-Typ braucht gesondertes Verhaltes ihm gegenüber und er öffnet die Tür für weitere Roboter-Typen die den Schwarm nach und nach immer heterogener werden lassen.\\
+
+\begin{wrapfigure}{r}{\pictureWidthSmall}
+	\includegraphics[width=\pictureWidthSmall,keepaspectratio]{graphics/StatistSenke.png}
+	\caption{Roboter stecken in einer Senke fest}
+	\label{pic:StatistSenke}
+\end{wrapfigure}
+
+Letztlich wird das Verhalten mit einem Statisten aber ein anderes sein. Ist ein Anführer theoretisch noch in der Lage seinen Schwarm zu lenken, und damit auch um Hindernisse herum, kann ein Statist dies allgemein nicht. Der Schwärm würde in Richtung des Statisten wandern und Hindernissen auf dem Weg gegebenenfalls mit dem normalen Algorithmus ausweichen. Dabei könnte es vorkommen, dass sie in eine Senke getrieben werden und von selbst nicht mehr herauskommen (Veranschaulichung siehe \autoref{pic:StatistSenke}).
+
+Andererseits könnte man mit mehreren Statisten, einem nach dem anderen, einen Weg abstecken dem die Roboter dann folgen. Es ließen sich also Etappen berechnen die die Roboter eine nach der anderen bewältigen müssen, wobei dies von einer zentralen Einheit gesteuert werden müsste. Die Auftragsvergabe oder eine andere Art von Anführer innerhalb des Schwarms wären dafür zuständig.
+
+
+\subsection{Statisten als Auftragsvergabe}
+
+Der Statist lässt sich nicht nur benutzen um einen Schwarm zu lenken. Mit seiner Besonderheit andere Roboter aus jeder Entfernung zu sich ziehen zu können, wäre es sehr interessant ihn zu benutzen um Roboter ihren Aufträgen zuzuteilen. Dies würde erfordern ihn von einer Auftragsvergabe-Node erstellen zu lassen, da diese Node noch einige weitere Aufgaben zu erledigen hätte.
+
+\subsubsection*{Eine neue Herangehensweise an Aufträge}
+
+Den Statisten zu benutzen um Aufträge zu 'verteilen' würde im Grunde genommen bedeuten, Aufträge nicht mehr zu verteilen. Stattdessen wird ein Statist dorthin gesetzt wo sich das Transportobjekt an seinem Aufnahmeort befindet.
+
+Der gesamte Standby-Schwarm wird nun passiv in die Richtung des Statisten, und damit auch in Richtung des Transportobjektes, gelenkt. Übertritt nun ein Roboter die Grenze des Transportobjektes und befindet sich in seinem innere, wird ihm von der Node, die auch den Statisten hält, der Auftrag zugewiesen. Andere Roboter die folgen werden ebenfalls den Auftrag zugeteilt und die Roboter werden einen gesonderten Schwarm verschoben, genau wie es auch bei der vorigen Auftragsvergabe geschehen würde. Der Statist bleibt so lange aktiv bis sich so viele Roboter gefunden haben, wie es für den Auftrag erfoderlich ist. Ist die erforderliche Zahl erreicht, wird die Vergabe-Node die Roboter mit einer \highlight{Freeze.msg} bewegungsunfähig machen und den Statisten mit der entsprechenden Nachricht löschen. Es befindet sich nun die geforderte Zahl an Robotern unterhalb des Transportobjektes und sie stehen still. Somit wurde wieder die gleiche Ausgangslage geschaffen, wie sie bei der vorigen Auftragsvergabe vorzufinden war, bevor der eigentliche Transport startete. Der Statist wurde wie ein Magnet dazu benutzt die Roboter einzusammeln die den Transport vollziehen sollen.
+Nun hier an kann der Transport normal ablaufen. Entweder wird ein Anführer bestimmt der das Ziel kennt, und der eventuell virtuelle Kopien von sich erschafft, oder der Transport-Schwarm wird mit Hilfe eines zweiten Statisten an sein Ziel geführt.
+
+Entgegen der normalen Auftragsvergabe, würde man die Roboter nicht von Anfang an zuweisen, sondern man würde den Statisten als eine Art Magnet nutzen um die Roboter aufzusammeln, die am schnellsten da sind. Man würde dadurch die Roboter bekommen die am nächsten dran sind oder schlicht schneller sind, als die anderen.
+
+\paragraph*{Vorteile zur direkten Zuweisung}
+Die Vorteile zur direkten Zuweisung liegen darin, dass die Roboter nicht von einem übergeordneten System ausgewählt werden müssen. Es braucht keine übergordnete Instanz die Roboter aussucht und dabei womöglich noch weitere Kriterien in Betracht ziehen muss wie Entfernung und eventuelle Unterschiede in der Geschwindigkeit der einzelnen Roboter. Die Lösung über einen Statisten ist nicht so streng wie über eine Sicherheitszone und passt sich gut in den Schwarm ein, es ist eine schöne, dynamische Lösung.
+
+\paragraph*{Nachteile zu direkten Zuweisung}
+Zusätzlich zu den Nachteilen die ein Statist selbst schon mitbringt, lässt sich die Geschwindigkeit anmerken. Ohne Tests lässt sich dies zwar nicht mit absoluter Sicherheit sagen, vermutlich wird die Variante mit einem Statisten aber langsamer sein als die Version mit der manuellen Zuordnung und einer Sicherheitszone. Der Grund hierfür ist schlicht, dass die Roboter die in die Sicherheitszone flüchten dies auf direktem Wege machen, wohingegen sich die Roboter nur grob an der Mitte des Schwarms ausrichten und der Statist dadurch nicht ansatzweise die selbe Wirkung hat wie eine Gefahrenzone.
+
+\subsection{Ausschwärmen}
+
+\autoref{subsec:EvaluationNegativerGruppendrang} hat bereits gezeigt, dass es mit Hilfe von negativem Gruppendrang möglich ist einen Schwarm ausschwärmen zu lassen und sich somit zu verteilen. Dies ist nützlich, damit die Roboter während des Standbys nicht im Weg anderer Roboter oder Menschen stehen.
+Ein anderer Algorithmus wäre ebenfalls denkbar, der die Größe der Roboter langsam wachsen lässt.
+
+\subsubsection*{Algorithmus}
+
+\begin{wrapfigure}{r}{\pictureWidth}
+	\includegraphics[width=\pictureWidth,keepaspectratio]{graphics/LuftballonAlgorithmus.png}
+	\caption{Skizzierung des Luftballon-Algorithmus}
+	\label{pic:Luftballon}
+\end{wrapfigure}
+
+Ähnlich wie bei einem Sack voll mit Luftballons, die alle gleichzeitig aufgepumpt werden würde sich die Größe der Roboter vergrößern. Dies geschieht so lange bis der 'aufgepumpte' Körper an mindestens 3 Punkten den eines anderen Roboters oder eine andere Grenze (beispielsweise ein Gefahrengebiet) berührt. Solange es nur weniger als drei Berührungspunkte gibt, wird der Körper wachsen und der Roboter durch seinen Fluchtreflex dafür sorgen wollen, dass er nicht weiter mit anderen Objekten kollidiert. Solange es nur weniger als drei Berührungspunkt gibt, wird es immer eine Seite geben, zu der er ausweichen kann. Trifft er auf den dritten Punkt ist er eingesperrt und seine Position befindet sich so weit weg von anderen Robotern wie nur möglich.
+
+\subsubsection*{Umsetzung}
+Für die Umsetzung müsste das generelle Verhalten der Roboter nicht angepasst werden. Das verteilen des Roboters geschieht durch den Fluchtreflex der bereits implementiert ist. Es müsste nur, ähnlich beim Stillstand über das \highlight{Freeze}-Kommando, eine kleine Routine im 'Unterbewusstsein' geschaffen werden, die die interne Größe immer weiter verändert bis der Roboter keinen Weg mehr sieht aus seiner Misere herauszukommen.
+
+\subsubsection*{Nutzung für den Transport}
+Auch im Transport wäre dieser Algorithmus nützlich. Finden sich die Roboter unter dem Transportobjekt ein, stehen sie still, sobald sie alle da sind. Der hier vorgestellte Algorithmus würde stattfinden, nachdem alle Roboter unter dem Transportobjekt sind. Sie würden ihre Größe anwachsen lassen und sich so möglichst gleichmäßig unterhalb des zu transportierenden Objektes verteilen. Die Grenzen der Sicherheitszone bilden dabei meist den dritten Berührungspunkt. Stehen alls Roboter still, braucht es theoretisch gesehen sogar nicht mal ein \highlight{Freeze}-Kommando, da sie sich aufgrund des beendeten Algorithmus nicht mehr weiter bewegen können dürften.
+Sobald das Transportobjekt auf den Köpfen der Roboter abgesetzt ist, kann die Größe wieder auf den Normalzustand zurück schrumpfen und die Roboter beginnen damit den Transport umzusetzen.

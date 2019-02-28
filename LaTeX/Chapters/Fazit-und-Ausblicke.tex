@@ -16,8 +16,6 @@ Es ist sehr kompliziert einen Schwarm präzise zu lenken. In den Tests der Evalu
 
 Waren die Tests auf der geraden Strecke noch recht erfolgreich, dürften sich die Ergebnisse ändern, sobald es darum geht Kurven zu fahren. Es ist recht schwer einen Schwarm in eine Richtung zu beeinflussen. Auf der Geraden muss dies nur 1x geschehen. In Kurven muss dies mehrmals passieren. In früheren Tests wurde der Schwarm dazu veranlasst in Kurven zu fahren. Aufgrund geändertet Implementierung haben es diese Statistiken leider nicht in die Evaluation geschafft, dass sie nicht mehr vergleichbar waren. Dennoch zeigte sich in diesen Tests, dass bereits eine einfache Kurve den Schwarm dazu bring sehr zu schlängeln. Eine 90°-Wende führte eher zu einem großen Bogen wodurch Schwarm der am Ende auch etwas über das Ziel hinausschoss und mit einer Spirale schließlich zum Ziel gelangte.
 
-\note{Ausmaße des Transportobjektes muss bei Routenplanung beachtet werden!}
-
 \subsubsection*{Schlupf oder blockierte Räder}
 Allerdings ist es nicht nur ein Problem den Schwarm als ganzes möglichst präzise in eine Richtung zu lenken, ein weiteres großes Problem ist der Schlupf der einzelnen Roboter.
 Die Roboter die für den Transport zuständig waren, blieben zwar unter dem Objekt, sie fuhren aber unterhalb des Objektes herum und verursachten dadurch Schlupf. Dadurch dass Reibung nicht implementiert wurde, betrug sie 0 und war bei allen Robotern gleich. In der Praxis hätte dieser Schlupf entweder dazu geführt, dass zwischen den Roboter und dem Transportobjekt Reibung entsteht oder sie hätte blockierte Räder zur Folge.
@@ -29,7 +27,7 @@ Ein permanentes blockieren oder durchdrehen der Räder der Roboter, würde diese
 
 
 \subsection*{Außerhalb des Transports nützlich}
-Außerhalb des Transports war Schwarmverhalten dagegen durchaus sehr nützlich. Wie in \note{X} gezeigt werden konnte, lässt sich ein Schwarm mit den richtigen Parametern gut dazu bringen sich zu verteilen und anderen (Robotern oder Menschen) nicht im Weg zu stehen. Auch das Einfinden unterhalb des Transportobjektes lässt sich durch das Fluchtverhalten der Roboter sehr gut realisieren. Durch ihre Methode sich gegenseitig auszuweichen, wurde unterhalb des Objektes schnell Platz geschaffen und der Raum recht schnell und unkompliziert gefüllt. Ein Befehl der ihre Räder blockieren ließ, sorgte dann für den Stillstand den man braucht, um das Transportobjekt auf ihren Köpfen aufsetzen zu können.
+Außerhalb des Transports war Schwarmverhalten dagegen durchaus sehr nützlich. Wie in \autoref{subsec:EvaluationNegativerGruppendrang} gezeigt werden konnte, lässt sich ein Schwarm mit den richtigen Parametern gut dazu bringen sich zu verteilen und anderen (Robotern oder Menschen) nicht im Weg zu stehen. Auch das Einfinden unterhalb des Transportobjektes lässt sich durch das Fluchtverhalten der Roboter sehr gut realisieren. Durch ihre Methode sich gegenseitig auszuweichen, wurde unterhalb des Objektes schnell Platz geschaffen und der Raum recht schnell und unkompliziert gefüllt. Ein Befehl der ihre Räder blockieren ließ, sorgte dann für den Stillstand den man braucht, um das Transportobjekt auf ihren Köpfen aufsetzen zu können.
 
 
 
@@ -43,28 +41,56 @@ Eine hybride Nutzung ist daher in meinen Augen die beste Option. Der Standby der
 
 
 
+
+
+
+
 \section{Probleme mit ROS}
-Die Arbeit mit ROS brachte einige Probleme mit sich, die es zu bewältigen gab und die für Leser, die ROS nutzen wollen, wichtig zu wissen wären. Dieser Abschnitt beschreibt Probleme die zu Beginn der Thesis auftraten (März, 2018) und schildert die Probleme auf die ich gestoßen bin. Es ist möglich, dass einige dieser Probleme bereits mit erscheinen der Thesis behoben sind. Die folgenden Probleme sind kein expliziter Teil der Thesis, sondern lediglich als Erfahrungsbericht anzusehen, von dem andere profitieren können.
+Die Arbeit mit \ac{ROS} brachte einige Probleme mit sich, die es zu bewältigen gab und die für Leser, die \ac{ROS} nutzen wollen, wichtig zu wissen wären. Dieser Abschnitt beschreibt Probleme die zu Beginn der Thesis auftraten (März, 2018) und schildert die Probleme auf die ich gestoßen bin. Es ist möglich, dass einige dieser Probleme bereits mit erscheinen der Thesis behoben sind. Die folgenden Probleme sind kein expliziter Teil der Thesis, sondern lediglich als Erfahrungsbericht anzusehen, von dem andere profitieren können.
 
 \subsection*{Bau von ROS}
-Möchte man mit ROS starten wird man gewillt sein die neueste Version von ROS zu nehmen. Diese ist derzeit \highlight{Melodic Morenia} und wird mit Ubuntu 18.04 empfohlen. Allerdings scheint diese Version von ROS noch nicht alle Packages auf der neuesten Version zu haben. Der Bau nach Anleitung geht, aufgrund fehlender Pakete schief.
+Möchte man mit \ac{ROS} starten wird man gewillt sein die neueste Version von \ac{ROS} zu nehmen. Diese ist derzeit \highlight{Melodic Morenia} und wird mit Ubuntu 18.04 empfohlen. Allerdings scheint diese Version von \ac{ROS} noch nicht alle Packages auf der neuesten Version zu haben. Der Bau nach Anleitung geht, aufgrund fehlender Pakete schief.
 
-Die Version davor ist 'Lunar Loggerhead', welche als 'primarily targeted at the Ubuntu 17.04 (Zesty)' beschrieben wird. Jedoch geht auch dieser Bau schief, wieder aufgrund fehlender Pakete. Nach einigem Probieren wurde mit \highlight{Ubuntu LTS 16.04 Xenial} eine Ubuntu-Version gefunden, bei der ROS ohne Probleme bauen konnte.
+Die Version davor ist 'Lunar Loggerhead', welche als 'primarily targeted at the Ubuntu 17.04 (Zesty)' beschrieben wird. Jedoch geht auch dieser Bau schief, wieder aufgrund fehlender Pakete. Nach einigem Probieren wurde mit \highlight{Ubuntu LTS 16.04 Xenial} eine Ubuntu-Version gefunden, bei der \ac{ROS} ohne Probleme bauen konnte.
 
 \subsection*{Bugs}
-Beim arbeiten mit ROS wurden einige Bugs erkannt, die nachfolgend etwas erläutert werden. Die Bugs wurden allerdings nicht behoben oder genauer untersucht. Da dies nicht Teil der Thesis ist, wurde nur versucht den schnellsten Workaround zu finden um mit der Arbeit fortfahren zu können.
+Beim arbeiten mit \ac{ROS} wurden einige Bugs erkannt, die nachfolgend etwas erläutert werden. Die Bugs wurden allerdings nicht behoben oder genauer untersucht. Da dies nicht Teil der Thesis ist, wurde nur versucht den schnellsten Workaround zu finden um mit der Arbeit fortfahren zu können.
 
 \subsubsection*{Veraltete Position der Turtles}
 In der Praxis hat sich gezeigt, dass die Position der Turtles, die man von der Turtlesim am Ende eines Fahrbefehls zurück bekommt, nicht immer gestimmt hat. Teleportiert man sich mittels \highlight{teleport\_absolute} an die Stelle, die man als Position zurück bekommt, wird die Turtle einige Einheiten nach hinten verschoben. Ohne dies genauer zu überprüfen, wirkt es, als würde der Fahrbefehl 1s ausgeführt werden, die Position wird allerdings bereits nach 900ms gespeichert und gesendet.
 Aus diesem Grund wird in der Thesis später kein Gebrauch von \highlight{teleport\_absolute} gemacht, sondern nur \highlight{teleport\_relative} genutzt um sich zu drehen. Dadurch wird die Position im Raster nicht verändert.
 
 \subsubsection*{Nicht angezeigte Turtles}
-Im Laufe der Thesis wurde sowohl mit meinem normalen PC, als auch mit einem Laptop an der Thesis gearbeitet. Beide mal wurde das selbe System genutzt und ROS auf die selbe Weise installiert. Trotzdem kam es bei der Arbeit zu einem Fehler, wenn der Laptop genutzt wurde. Beim Starten der Simulationen (Turtlesim mit vielen Turtles) kam es dazu, dass einige Turtles nicht in der Turtlesim angezeigt wurden. Sie wurden zwar erstellt, blitzten dann kurz als Symbol auf, aber verschwanden innerhalb eines bruchteils einer Sekunde wieder. Die Aufzeichnungen belegten aber, dass sie erstellt wurden, sich bewegten und mit den anderen Turtles interagiert haben. Die fehlende Darstellung wurde dabei nicht von einer Fehlermeldung oder ähnlichem begleitet. Dieser Fehler trat reproduzierbar auf, folgte aber keiner mit ersichtlichen Logik, bezogen darauf welche Turtles es traf. Es waren jedoch stets immer die selben Turtles, welche sich im Sourcecode nicht von den anderen unterschieden. \textbf{Ein Workaround konnte bis heute nicht gefunden werden.}
+Im Laufe der Thesis wurde sowohl mit meinem normalen PC, als auch mit einem Laptop an der Thesis gearbeitet. Beide mal wurde das selbe System genutzt und \ac{ROS} auf die selbe Weise installiert. Trotzdem kam es bei der Arbeit zu einem Fehler, wenn der Laptop genutzt wurde. Beim Starten der Simulationen (Turtlesim mit vielen Turtles) kam es dazu, dass einige Turtles nicht in der Turtlesim angezeigt wurden. Sie wurden zwar erstellt, blitzten dann kurz als Symbol auf, aber verschwanden innerhalb eines bruchteils einer Sekunde wieder. Die Aufzeichnungen belegten aber, dass sie erstellt wurden, sich bewegten und mit den anderen Turtles interagiert haben. Die fehlende Darstellung wurde dabei nicht von einer Fehlermeldung oder ähnlichem begleitet. Dieser Fehler trat reproduzierbar auf, folgte aber keiner mit ersichtlichen Logik, bezogen darauf welche Turtles es traf. Es waren jedoch stets immer die selben Turtles, welche sich im Sourcecode nicht von den anderen unterschieden. \textbf{Ein Workaround konnte bis heute nicht gefunden werden.}
 
 \subsubsection*{NaN als Position in der Turtlesim}
 Ebenfalls reproduzierbar und nicht nachvollziehbar war der Fehler, dass einige Roboter nach dem Start scheinbar 'NaN' als Position zurück gaben (die Position hat \highlight{float} als Datentyp). Dieser Fehler trat manchmal auf und blieb über die Dauer der Turtlesim bestehen. Ein Workaround hierfür war das Programm neu zu kompilieren.
 
 \subsubsection*{Veraltete Sources}
-Ein anderer Bug betraf nicht ROS direkt, sondern sein build-system catkin. Dieses kompiliert nur Source-Code neu, wenn er verändert wurde. Ein Feature welches (wahrscheinlich) dazu dienen soll die Kompilierzeit gering zu halten. Es stellte sich aber heraus, dass catkin dabei scheinbar nur \highlight{.c} und \highlight{.cpp} Dateien beachtet und Header-Dateien auslässt, wenn die Source-Dateien keine Veränderung aufweisen.
+Ein anderer Bug betraf nicht \ac{ROS} direkt, sondern sein Build-System catkin. Dieses kompiliert nur Source-Code neu, wenn er verändert wurde. Ein Feature welches (wahrscheinlich) dazu dienen soll die Kompilierzeit gering zu halten. Es stellte sich aber heraus, dass catkin dabei scheinbar nur \highlight{.c} und \highlight{.cpp} Dateien beachtet und Header-Dateien auslässt, wenn die Source-Dateien keine Veränderung aufweisen.
 
-Der Code meiner Thesis wurde als Header-Only geschrieben. Das bedeutet, dass Klassen sich nicht in Header und Source aufteilen, sondern dass die gesamte Implementierung stets in den Header-Dateien vorzufinden ist. Wurden nur Änderungen an diesen Dateien vorgenommen, übersprang catkin diese Dateien und die angepasste Simulation wurde mit veralteten Source-Dateien gebaut. Ein einfacher Workaround dieses Problems wurde mit einem Skript geschaffen, welches rekursiv den gesamten Source-Ordner durchgeht und den Änderungs-Zeitstempel mittels den \highlight{touch}-Befehls\footnote{\url{https://wiki.ubuntuusers.de/touch/}} von Linux modifiziert. Dadurch wurden zwar immer alle Dateien neu kompiliert und der ganze Kompilier-Vorgang verlief wesentlich langsamer ab als er hätte sein müssen. Es war letztlich aber die schnellste Methode um den Fehler in catkin zu umgehen.
+Der Code meiner Thesis wurde als Header-Only geschrieben. Das bedeutet, dass Klassen sich nicht in Header und Source aufteilen, sondern dass die gesamte Implementierung stets in den Header-Dateien vorzufinden ist. Source-Dateien sind nur die Dateien, welche die \highlight{main()} beinhalten. Wurden nur Änderungen an den Header-Dateien vorgenommen, übersprang catkin diese Dateien und die angepasste Simulation wurde mit veralteten Source-Dateien gebaut.
+
+Ein einfacher Workaround dieses Problems wurde mit einem Skript geschaffen, welches rekursiv den gesamten Source-Ordner durchgeht und den Änderungs-Zeitstempel mittels den \highlight{touch}-Befehls\cite{Ubuntu_touch} von Linux modifiziert. Dadurch wurden zwar immer alle Dateien neu kompiliert und der ganze Kompilier-Vorgang verlief wesentlich langsamer ab als er hätte sein müssen. Es war letztlich aber die schnellste Methode um den Fehler in catkin zu umgehen.
+
+
+
+
+
+\section{Ausblicke}
+
+Da die Thesis aufgrund der zeitlichen Begrenzung ein Ende finden musste, gab es viele Ideen die nicht umgesetzt werden konnten und die das System unvollständig hinterlassen. Einige dieser Konzepte werden hier nun als Ausblick vorgestellt, die es in einer weiterführenden Arbeit anzugehen gilt.
+
+\subsection*{Vergabe des Transportauftrags}
+
+Ein Punkt der bisher nicht in der Thesis Beachtung fand ist die Vergabe der Aufträge. Diese werden bisher im Auftrag festgelegt and bilden ein Spanne [a,b[. Die ersten n Roboter des Arrays bilden die Anführer.
+
+Für eine Auftragsvergabe wäre es sinnvoller die Roboter nach ihrer örtlichen Nähe auszuwählen und anhand dessen, welche Aufträge noch anstehen (periodische Aufträge sind trivial vorherzusehen). Auch wenn die Roboter letztlich nicht mehr homogen aufgebaut sind, sondern verschiedene Einheiten verschiedene Werte aufweisen, wie zum Beispiel ihre Fläche oder Belastbarkeit. Eine Intelligenz die darüber entscheidet welche Roboter am besten für den Auftrag geeignet sind, wäre ein großer Gewinn für das System.
+
+\subsection*{Wegfindung}
+
+Auch die Wegfindung wäre ein großes Kapitel für den Schwarm. In der Thesis wurden nur gerade Strecken beachtet die keinerlei Kurven besitzen. Müssen die Roboter über mehrere Eckpunkte hinweg, braucht es dafür eine neue Logik im System. Nicht nur wäre es ein Problem, weil es womöglich mehrere Eckunkte bräuchte, es wäre auch deswegen eine Herausforderung, weil ein Schwarm nicht eckig gelenkt werden kann. Ändert ein Schwarm seine Richtung, tut er dies sehr träge und macht dabei einen Bogen. Dieser müsste in der Routenplanung mit einberechnet, und vlt sogar genutzt, werden.
+
+\subsection*{Lokalität von Informationen}
+
+Ein Aspekt der ebenfalls nicht in dieser Thesis beachtet wurde, ist der Effekt der lokalen Informationen. Es ist bekannt, dass in großen Schwärmen von Vögel Informationen nicht den ganzen Schwarm erreichen, sondern Informationen mit steigender Entfernung 'dünner' werden\cite{LocalInformation}. Die Informationen die in dieser Thesis genutzt wurden, wurden immer zu 100\per an den gesamten Schwarm gesendet. Simulationen, welchen Einfluss eine abnehmende Informationsdichte hat wären für weitergehende Arbeiten interesssant.

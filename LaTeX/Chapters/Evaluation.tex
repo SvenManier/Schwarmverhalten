@@ -92,7 +92,7 @@ Bei einem freien Willen von 225° zeigt sich dagegen deutlich mehr Varianz. Die 
 
 Allgemein lässt sich also sagen, dass der freie Wille einen großen Einfluss darauf hat, wie schnell sich die Schwärme zusammenfinden, wohingegen der Gruppendrang seinen Teil dazu beiträgt, die Schwärme stabil zu halten. Dies kommt eben auch daher, dass der Gruppendrang auf dem freien Willen aufsetzt. Ein höherer freier Wille macht auch den Gruppendrang 'stärker'.
 
-\subsection*{Statistik: Negativer Gruppendrang}
+\subsection*{Statistik: Negativer Gruppendrang}\label{subsec:EvaluationNegativerGruppendrang}
 
 Zum Schluss wurde noch eine Statistik mit negativen Gruppendrang erstellt. Hintergrund dieses Versuchs war es, die Roboter verteilen zu lassen. Damit sie sich während des Leerlaufs nicht versammeln und so in ihrer Masse zu einem größeren Hinderniss werden, wurde versucht die Roboter dazu zu bringen sich zu meiden und damit auszulösen, dass sie sich verteilen.
 Der Wert des freien Willens von 45° wurde absichtlich so gering gewählt, dass dieser normalerweise dafür sorgt, dass die Schwärme sich schnell bündeln. Außerdem baut der Gruppendrang auf dem freien Willen auf, ein kleinerer freier Wille sollte den Effekt des Gruppendrangs dementsprechend auch gering halten.
@@ -291,7 +291,7 @@ Der Trend mit mehr Robotern zeigt letztlich, dass ein Anführer nicht in der Lag
 
 
 
-\section{Transport von Waren mit Hilfe eines Schwarms}
+\section{Transport von Waren mit Hilfe eines Schwarms}\label{sec:EvaluationTransport}
 
 Nun da alles zusammengesetzt ist, gilt es letzte Messungen zu machen und zu schauen, wie sich die Roboter unter verschiedenen Bedingungen beim Transport machen.
 
@@ -304,7 +304,7 @@ Dies ist die Anzahl der Ticks die während des Transports verstrichen sind. Da e
 Von einem Tick zum anderen wurde gemessen, wie viel sich die einzelnen Roboter in Relation zur Mitte des Objektes bewegt haben. Dadurch wurde der Schlupf berechnet, den es während des Transports gab. Zu bedenken ist bei diesem Wert allerdings, dass die Simulation über keine Berechnung von Reibung verfügt, die Roboter also eine unendliche Kraft besitzen. Die Werte stellen demnach eine obere Grenze dar, für den Schlupf der in der Realität entstehen könnte.
 
 \paragraph*{Gefahrene Strecke}
-Verdeutlicht den Weg, der von einem Roboter durchschnittlich zurückgelegt wurde. Die direkte Strecke vom Start zum Ende hat eine Länge von 5.656 (ROS-Einheiten). Da das Transportobjekt nur innerhalb der Reichweite von 0.05 am Ziel sein musste, ergibt sich somit eine Strecke von 5.606 Einheiten die gefahren werden musste.
+Verdeutlicht den Weg, der von einem Roboter durchschnittlich zurückgelegt wurde. Die direkte Strecke vom Start zum Ende hat eine Länge von 5.656 (\ac{ROS}-Einheiten). Da das Transportobjekt nur innerhalb der Reichweite von 0.05 am Ziel sein musste, ergibt sich somit eine Strecke von 5.606 Einheiten die gefahren werden musste.
 
 \paragraph*{Wartezeiten Anführer}
 Letztlich wurde noch gemessen, wie oft es vor kam, dass ein Anführer sich nicht bewegen konnte, weil ein anderer Roboter ihm den Weg versperrte.

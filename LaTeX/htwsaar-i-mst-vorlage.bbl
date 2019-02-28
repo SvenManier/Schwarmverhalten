@@ -1,0 +1,886 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{nty/global/}
+  \entry{Beckers94fromlocal}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=BR}{%
+         family={Beckers},
+         familyi={B\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=HOE}{%
+         family={Holland},
+         familyi={H\bibinitperiod},
+         given={O.\bibnamedelima E.},
+         giveni={O\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=DJL}{%
+         family={Deneubourg},
+         familyi={D\bibinitperiod},
+         given={J.\bibnamedelima L.},
+         giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MIT Press}%
+    }
+    \strng{namehash}{BRHOEDJL1}
+    \strng{fullhash}{BRHOEDJL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{181\bibrangedash 189}
+    \field{title}{From local actions to global tasks: Stigmergy and collective
+  robotics}
+    \field{year}{1994}
+  \endentry
+
+  \entry{Stigmergie}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BR}{%
+         family={Beckers},
+         familyi={B\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=HO}{%
+         family={Holland},
+         familyi={H\bibinitperiod},
+         given={O.E.},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=DJ}{%
+         family={Deneubourg},
+         familyi={D\bibinitperiod},
+         given={J.L.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BRHODJ1}
+    \strng{fullhash}{BRHODJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{FROM LOCAL ACTIONS TO GLOBAL TASKS:STIGMERGY AND COLLECTIVE
+  ROBOTICS}
+    \verb{url}
+    \verb https://web.archive.org/web/20131104125931/http://www.eecs.harvard.ed
+    \verb u/~rad/courses/cs266/papers/beckers-alife94.pdf
+    \endverb
+  \endentry
+
+  \entry{CraigReynolds_Boids}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Boids}
+    \verb{url}
+    \verb http://www.red3d.com/cwr/boids/
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_SLAM}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Build a map with SLAM}
+    \verb{url}
+    \verb http://wiki.ros.org/Build%20a%20map%20with%20SLAM
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{RobotLeader}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CH}{%
+         family={Celikkanat},
+         familyi={C\bibinitperiod},
+         given={Hande},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=TAE}{%
+         family={Turgut},
+         familyi={T\bibinitperiod},
+         given={Ali\bibnamedelima Emre},
+         giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+      {{hash=SE}{%
+         family={Sahin},
+         familyi={S\bibinitperiod},
+         given={Erol},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CHTAESE1}
+    \strng{fullhash}{CHTAESE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Guiding a Robot Flock via Informed Robots}
+    \verb{url}
+    \verb http://sci-hub.tw/10.1007/978-3-642-00644-9_19
+    \endverb
+  \endentry
+
+  \entry{ArtificalFear}{article}{}
+    \name{author}{5}{}{%
+      {{hash=DMC}{%
+         family={Delgado-Mata},
+         familyi={D\bibinitperiod-M\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=MJI}{%
+         family={Martinez},
+         familyi={M\bibinitperiod},
+         given={J.\bibnamedelima I.},
+         giveni={J\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=BS}{%
+         family={Bee},
+         familyi={B\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=RRR}{%
+         family={Ruiz-Rodarte},
+         familyi={R\bibinitperiod-R\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=AR}{%
+         family={Aylett},
+         familyi={A\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DMC+1}
+    \strng{fullhash}{DMCMJIBSRRRAR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{On the Use of Virtual Animals with Artificial Fear inVirtual
+  Environments}
+    \verb{url}
+    \verb https://sci-hub.tw/10.1007/s00354-007-0009-5
+    \endverb
+    \field{year}{2002}
+  \endentry
+
+  \entry{LocalInformation}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FJE}{%
+         family={Fernández-Juricic},
+         familyi={F\bibinitperiod-J\bibinitperiod},
+         given={Esteban},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Kowalski},
+         familyi={K\bibinitperiod},
+         given={Victor},
+         giveni={V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FJEKV1}
+    \strng{fullhash}{FJEKV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Where does a flock end from an information perspective? A
+  comparative experiment with live and robotic birds}
+    \verb{url}
+    \verb https://academic.oup.com/beheco/article/22/6/1304/220324
+    \endverb
+    \field{journaltitle}{Behavioral Ecology}
+  \endentry
+
+  \entry{Stigmergie2}{article}{}
+    \name{author}{2}{}{%
+      {{hash=HO}{%
+         family={Holland},
+         familyi={H\bibinitperiod},
+         given={Owen},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Melhuish},
+         familyi={M\bibinitperiod},
+         given={Chris},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HOMC1}
+    \strng{fullhash}{HOMC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Stigmergy, Self-Organization, and Sorting in Collective
+  Robotics}
+    \verb{url}
+    \verb https://www.mitpressjournals.org/doi/10.1162/106454699568737
+    \endverb
+  \endentry
+
+  \entry{Stigmergie3}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KCR}{%
+         family={Kube},
+         familyi={K\bibinitperiod},
+         given={C.\bibnamedelima Ronald},
+         giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Hong},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KCRZH1}
+    \strng{fullhash}{KCRZH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{title}{Collective Robotics: From Social Insectsto Robots}
+    \verb{url}
+    \verb http://sci-hub.tw/https://doi.org/10.1177/105971239300200204
+    \endverb
+  \endentry
+
+  \entry{Ubuntu_touch}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{Linux touch}
+    \verb{url}
+    \verb https://wiki.ubuntuusers.de/touch/
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{GamingCollision}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=M}{%
+         family={MingC.Lin},
+         familyi={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{M1}
+    \strng{fullhash}{M1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{Efficient Collision Detection for Animation and Robotics}
+    \list{institution}{1}{%
+      {UNIVERSITY of CALIFORNIA at BERKELEY}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{1993}
+  \endentry
+
+  \entry{VicsekLeader2}{article}{}
+    \name{author}{2}{}{%
+      {{hash=OK}{%
+         family={Ozogany},
+         familyi={O\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=VT}{%
+         family={Vicsek},
+         familyi={V\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OKVT1}
+    \strng{fullhash}{OKVT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{Modeling the emergence of modular leadership hierarchyduring
+  the collective motion of herds made of harems}
+    \verb{url}
+    \verb https://arxiv.org/pdf/1403.0260.pdf
+    \endverb
+  \endentry
+
+  \entry{Kilobot}{article}{}
+    \name{author}{4}{}{%
+      {{hash=PJA}{%
+         family={Pimentel},
+         familyi={P\bibinitperiod},
+         given={Jaime\bibnamedelima A.},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Aldana},
+         familyi={A\bibinitperiod},
+         given={Maximino},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HC}{%
+         family={Huepe},
+         familyi={H\bibinitperiod},
+         given={Cristián},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=LH}{%
+         family={Larralde},
+         familyi={L\bibinitperiod},
+         given={Hernán},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PJA+1}
+    \strng{fullhash}{PJAAMHCLH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Programmable self-assembly in a thousand-robot swarm}
+    \verb{url}
+    \verb http://science.sciencemag.org/content/345/6198/795/tab-article-info
+    \endverb
+    \field{journaltitle}{Science}
+  \endentry
+
+  \entry{RobotPheromones}{article}{}
+    \name{author}{2}{}{%
+      {{hash=PAH}{%
+         family={Pumamadjaja},
+         familyi={P\bibinitperiod},
+         given={Anies\bibnamedelima Hannawati},
+         giveni={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=RRA}{%
+         family={Russell},
+         familyi={R\bibinitperiod},
+         given={R.\bibnamedelima Andrew},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PAHRRA1}
+    \strng{fullhash}{PAHRRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Pheromone Communication: Implementation of Necrophoric Bee
+  Behaviour in a Robot Swarm}
+    \verb{url}
+    \verb http://sci-hub.tw/10.1109/RAMECH.2004.1437993
+    \endverb
+  \endentry
+
+  \entry{ROS_CATKIN}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS Catkin}
+    \verb{url}
+    \verb wiki.ros.org/catkin
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_MASTER}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS Master}
+    \verb{url}
+    \verb http://wiki.ros.org/Master
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_MSG}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS Message}
+    \verb{url}
+    \verb http://wiki.ros.org/msg
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_NODES}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS Nodes}
+    \verb{url}
+    \verb http://wiki.ros.org/Nodes
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_RQT}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS RQT-Graph}
+    \verb{url}
+    \verb http://wiki.ros.org/rqt_graph
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_SERVER}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS Server}
+    \verb{url}
+    \verb http://wiki.ros.org/Parameter%20Server
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_SOURCE_NodeHandle}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS Sourcecode: NodeHandle}
+    \verb{url}
+    \verb http://docs.ros.org/lunar/api/roscpp/html/classros_1_1NodeHandle.html
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_TOPICS}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS Topics}
+    \verb{url}
+    \verb http://wiki.ros.org/Topics
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ROS_TURTLESIM}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{ROS Turtlesim}
+    \verb{url}
+    \verb http://wiki.ros.org/turtlesim
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ReynoldsFlocks}{article}{}
+    \name{author}{1}{}{%
+      {{hash=RCW}{%
+         family={Reynolds},
+         familyi={R\bibinitperiod},
+         given={Craig\bibnamedelima W.},
+         giveni={C\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RCW1}
+    \strng{fullhash}{RCW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Flocks, Herds, and Schools: A Distributed Behavioral Model}
+    \verb{url}
+    \verb http://www.red3d.com/cwr/papers/1987/SIGGRAPH87.pdf
+    \endverb
+  \endentry
+
+  \entry{ROS_LAUNCH}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Roslaunch}
+    \verb{url}
+    \verb http://wiki.ros.org/roslaunch
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{FlockNoise}{article}{}
+    \name{author}{3}{}{%
+      {{hash=RM}{%
+         family={Rubenstein},
+         familyi={R\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Cornejo},
+         familyi={C\bibinitperiod},
+         given={Alejandro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=NR}{%
+         family={Nagpal},
+         familyi={N\bibinitperiod},
+         given={Radhika},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RMCANR1}
+    \strng{fullhash}{RMCANR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Intrinsic and extrinsic noise effects on phase transitions of
+  network modelswith applications to swarming systems}
+    \verb{url}
+    \verb https://sci-hub.tw/10.1103/PhysRevE.77.061138
+    \endverb
+    \field{journaltitle}{PHYSICAL REVIEW E77, 061138 2008}
+  \endentry
+
+  \entry{VicsekAnalyses}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SAV}{%
+         family={Savkin},
+         familyi={S\bibinitperiod},
+         given={Andrey\bibnamedelima V.},
+         giveni={A\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SAV1}
+    \strng{fullhash}{SAV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Coordinated Collective Motion of Groups of AutonomousMobile
+  Robots: Analysis of Vicsek’s Model}
+    \verb{url}
+    \verb https://sci-hub.tw/10.1109/TAC.2004.829621
+    \endverb
+    \field{journaltitle}{Physical Review Letters}
+  \endentry
+
+  \entry{RobotLeaderVirtual}{article}{}
+    \name{author}{4}{}{%
+      {{hash=SH}{%
+         family={Su},
+         familyi={S\bibinitperiod},
+         given={Housheng},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=WX}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Xiaofan},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Member},
+         familyi={M\bibinitperiod},
+         given={Senior},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LZ}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Zongli},
+         giveni={Z\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SH+1}
+    \strng{fullhash}{SHWXMSLZ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Flocking of Multi-Agents With a Virtual Leader}
+    \verb{url}
+    \verb http://sci-hub.tw/10.1109/TAC.2008.2010897
+    \endverb
+    \field{journaltitle}{IEEE TRANSACTIONS ON AUTOMATIC CONTROL, VOL. 54, NO.
+  2, FEBRUARY 2009}
+  \endentry
+
+  \entry{VicsekAcceleration}{article}{}
+    \name{author}{3}{}{%
+      {{hash=SP}{%
+         family={Szabo},
+         familyi={S\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Nagy},
+         familyi={N\bibinitperiod},
+         given={Mate},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=VT}{%
+         family={Vicsek},
+         familyi={V\bibinitperiod},
+         given={Tamas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SPNMVT1}
+    \strng{fullhash}{SPNMVT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Transitions in a self-propelled-particles model with coupling
+  of accelerations}
+    \verb{url}
+    \verb https://journals.aps.org/pre/abstract/10.1103/PhysRevE.79.021908
+    \endverb
+    \field{journaltitle}{Physical Review}
+  \endentry
+
+  \entry{VicsekLeader}{article}{}
+    \name{author}{7}{}{%
+      {{hash=TN}{%
+         family={Tarcai},
+         familyi={T\bibinitperiod},
+         given={Norbert},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=C}{%
+         family={CsabaVir},
+         familyi={C\bibinitperiod},
+      }}%
+      {{hash=AD}{%
+         family={Abel},
+         familyi={A\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=NM}{%
+         family={Nagy},
+         familyi={N\bibinitperiod},
+         given={Mate},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=VPL}{%
+         family={Varkonyi},
+         familyi={V\bibinitperiod},
+         given={Peter\bibnamedelima L},
+         giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=VG}{%
+         family={Vasarhelyi},
+         familyi={V\bibinitperiod},
+         given={Gabor},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=VT}{%
+         family={Vicsek},
+         familyi={V\bibinitperiod},
+         given={Tamas},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TN+1}
+    \strng{fullhash}{TNCADNMVPLVGVT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{Patterns, transitions and the role ofleaders in the
+  collective dynamics of asimple robotic flock}
+    \verb{url}
+    \verb https://hal.elte.hu/flocking/browser/trunk/public/references/vasarhel
+    \verb yi/Tarcai2011.pdf?format=raw
+    \endverb
+  \endentry
+
+  \entry{VicsekPatterns}{article}{}
+    \name{author}{2}{}{%
+      {{hash=VT}{%
+         family={Vicsek},
+         familyi={V\bibinitperiod},
+         given={Tamas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=ZA}{%
+         family={Zafeiris},
+         familyi={Z\bibinitperiod},
+         given={Anna},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VTZA1}
+    \strng{fullhash}{VTZA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{title}{Collective motion}
+    \verb{url}
+    \verb https://arxiv.org/pdf/1010.5017.pdf
+    \endverb
+  \endentry
+
+  \entry{VicsekGeneral}{article}{}
+    \name{author}{5}{}{%
+      {{hash=VT}{%
+         family={Vicsek},
+         familyi={V\bibinitperiod},
+         given={Tamas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Czirok},
+         familyi={C\bibinitperiod},
+         given={Andras},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BJE}{%
+         family={Ben-Jacob},
+         familyi={B\bibinitperiod-J\bibinitperiod},
+         given={Eshel},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=CI}{%
+         family={Cohen},
+         familyi={C\bibinitperiod},
+         given={Inon},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SO}{%
+         family={Shoche},
+         familyi={S\bibinitperiod},
+         given={Ofer},
+         giveni={O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VT+1}
+    \strng{fullhash}{VTCABJECISO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{title}{Novel Type of Phase Transition in a System of Self-Driven
+  Particles}
+    \verb{url}
+    \verb https://sci-hub.tw/10.1103/PhysRevLett.75.1226
+    \endverb
+    \field{journaltitle}{Physical Review Letters}
+  \endentry
+
+  \entry{RobotPatterns}{article}{}
+    \name{author}{3}{}{%
+      {{hash=WJ}{%
+         family={Werfel},
+         familyi={W\bibinitperiod},
+         given={Justin},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BYY}{%
+         family={Bar-Yam},
+         familyi={B\bibinitperiod-Y\bibinitperiod},
+         given={Yaneer},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=NR}{%
+         family={Nagpal},
+         familyi={N\bibinitperiod},
+         given={Radhika},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WJBYYNR1}
+    \strng{fullhash}{WJBYYNR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{Building Patterned Structures with Robot Swarms}
+    \verb{url}
+    \verb https://ssr.seas.harvard.edu/files/ssr/files/ijcai05-werfel.pdf
+    \endverb
+  \endentry
+
+  \entry{BOOST_REFERENCE_FUNCTION}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{boost::function}
+    \verb{url}
+    \verb https://theboostcpplibraries.com/boost.function
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{CPP_REFERENCE_FUNCTION}{online}{}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{std::function}
+    \verb{url}
+    \verb https://en.cppreference.com/w/cpp/utility/functional/function
+    \endverb
+    \field{urlday}{25}
+    \field{urlmonth}{02}
+    \field{urlyear}{2019}
+  \endentry
+\endsortlist
+\endinput
